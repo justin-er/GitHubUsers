@@ -1,9 +1,9 @@
 //
 //  SceneDelegate.swift
-//  MyGHFollowers
+//  CustomControlsTest
 //
-//  Created by Amirreza Eghtedari on 13/12/1398AP.
-//  Copyright © 1398 AP Amirreza Eghtedari. All rights reserved.
+//  Created by Amirreza Eghtedari on 6/1/1399AP.
+//  Copyright © 1399 AP Amirreza Eghtedari. All rights reserved.
 //
 
 import UIKit
