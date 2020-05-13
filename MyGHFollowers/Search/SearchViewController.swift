@@ -26,8 +26,9 @@ class SearchViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = true
+//        navigationController?.isNavigationBarHidden = true
 //        navigationController?.navigationBar.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     @objc func actionButtonTapped() {
@@ -45,7 +46,7 @@ class SearchViewController: UIViewController {
             return
         }
         
-        let followersListViewController = FollowersViewController()
+		let followersListViewController = FollowersViewControllerComposer.makeModule()
         followersListViewController.username = textField.text
         followersListViewController.modalPresentationStyle = .automatic
         show(followersListViewController, sender: self)

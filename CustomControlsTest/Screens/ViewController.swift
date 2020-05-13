@@ -22,11 +22,20 @@ class ViewController: UIViewController {
 
     @IBAction func doSomethingTapped(_ sender: Any) {
         
-        configAEAlertViewController()
+//        configAEAlertViewController()
 //        configAlert()
 //        configActionSheet()
 //        configPopoverAEAlert()
+		configAEAvatarImageView()
     }
+	
+	var imageView: AEAvatarImageView?
+	func configAEAvatarImageView() {
+		let frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+		imageView = AEAvatarImageView(frame: frame)
+		imageView?.translatesAutoresizingMaskIntoConstraints = true
+		view.addSubview(imageView!)
+	}
     
     func configPopoverAEAlert() {
         
