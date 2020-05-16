@@ -12,11 +12,18 @@ class FollowersPresenter: FollowersInteractorDelegate {
 	
 	weak var delegate: FollowersPresenterDelegate?
 	
-	func iteractorDidGet(followers: [Follower]) {
-		for follower in followers {
-			print(follower.login)
+	func iteractorDidGet(result: Result<[Follower], FollowerError>) {
+		
+		switch result {
+		case .failure(let error):
+			delegate?.presenterDidGet(result: Result.failure(error))
+		case .success(let followers):
+			let followerViewModels = followers.map { follower -> FollowerViewModel in
+				return FollowerViewModel(with: follower)
+			}
+			delegate?.presenterDidGet(result: Result.success(followerViewModels))
 		}
+		
 	}
-	
 }
 

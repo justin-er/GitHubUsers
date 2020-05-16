@@ -12,7 +12,7 @@ class FollowersViewControllerComposer {
 
 	static func makeModule() -> FollowersViewController {
 		let viewController = FollowersViewController()
-		let remoteFollowersProvider = FollowerNetwrokProvider()
+		let remoteFollowersProvider = FollowerNetworkProvider()
 		let interactor = FollowersInteractor()
 		let presenter = FollowersPresenter()
 		

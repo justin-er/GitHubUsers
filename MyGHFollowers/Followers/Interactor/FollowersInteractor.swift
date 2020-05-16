@@ -19,11 +19,12 @@ class FollowersInteractor: FolloweresInteractorInput {
 			switch result {
 			case .failure(let error):
 				os_log("Error: %@", log: OSLog(subsystem: "Network Communication", category: "Error"), type: .default, error.localizedDescription)
+				self?.delegate?.iteractorDidGet(result: Result.failure(error))
 			case .success(let followersNetworkModel):
 				let followers = followersNetworkModel.map { item -> Follower in
 					item.makeFollower()
 				}
-				self?.delegate?.iteractorDidGet(followers: followers)
+				self?.delegate?.iteractorDidGet(result: Result.success(followers))
 			}
 		}
 	}

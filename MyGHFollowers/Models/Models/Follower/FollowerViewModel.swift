@@ -11,5 +11,11 @@ import Foundation
 struct FollowerViewModel {
 	var login: String
     var avatarUrl: String
+
+	init(with follower: Follower) {
+		self.login = follower.login
+		self.avatarUrl = follower.avatarUrl
+	}
+
 }
 

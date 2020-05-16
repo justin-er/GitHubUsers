@@ -11,7 +11,9 @@ import UIKit
 extension UIViewController {
     
     public func presentAEAlert(title: String, message: String, buttonTitle: String) {
-        let alert = AEAlertViewController(title: title, message: message, buttonTitle: buttonTitle)
-        self.present(alert, animated: true)
+		DispatchQueue.main.async {
+			let alert = AEAlertViewController(title: title, message: message, buttonTitle: buttonTitle)
+			self.present(alert, animated: true)
+		}
     }
 }

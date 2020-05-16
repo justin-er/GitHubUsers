@@ -10,6 +10,6 @@ import Foundation
 
 protocol FollowersPresenterDelegate: class {
 	
-	func presenterDidGet(followers: [FollowerViewModel])
+	func presenterDidGet(result: Result<[FollowerViewModel], FollowerError>)
 }
 

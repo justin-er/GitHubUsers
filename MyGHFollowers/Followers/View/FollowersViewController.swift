@@ -50,8 +50,17 @@ class FollowersViewController: UIViewController {
 
 extension FollowersViewController: FollowersPresenterDelegate {
 	
-	func presenterDidGet(followers: [FollowerViewModel]) {
-		//Todo
+	func presenterDidGet(result: Result<[FollowerViewModel], FollowerError>) {
+		switch result {
+		case .failure(let follwerError):
+			switch follwerError {
+			case .invalidUsername:
+				self.presentAEAlert(title: "Error", message: "Invalid user name. Try again.", buttonTitle: "OK")
+			case .unableToComplete:
+				self.presentAEAlert(title: "Error", message: "Unable to complete. Try again.", buttonTitle: "OK")
+			}
+		case .success(let followers):
+			print(followers)
+		}
 	}
-	
 }
