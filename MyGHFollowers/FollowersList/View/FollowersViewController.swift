@@ -37,10 +37,29 @@ class FollowersViewController: UIViewController {
     }
 	
 	func configCollectionView() {
-		collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+		collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: makeThreeColumnFlowLayout())
 		view.addSubview(collectionView)
 		collectionView.backgroundColor = UIColor.systemPink
 		collectionView.register(FollowerCollectionViewCell.self, forCellWithReuseIdentifier: FollowerCollectionViewCell.reuseIdentifier)
+	}
+	
+	func makeThreeColumnFlowLayout() -> UICollectionViewFlowLayout {
+		
+		let width 							= view.bounds.width
+		let padding: CGFloat 				= 12
+		let minimumItemSpacing: CGFloat 	= 10
+		let availableWidth 					= width - (2 * padding + 2 * minimumItemSpacing)
+		let itemWidth 						= availableWidth / 3
+		
+		let flowLayout 						= UICollectionViewFlowLayout()
+		flowLayout.sectionInset 			= UIEdgeInsets(top: padding,
+														   left: padding,
+														   bottom: padding,
+														   right: padding)
+		flowLayout.itemSize 				= CGSize(width: itemWidth,
+													 height: itemWidth + 40)
+		
+		return flowLayout
 	}
 	
 	func configViewConroller() {
