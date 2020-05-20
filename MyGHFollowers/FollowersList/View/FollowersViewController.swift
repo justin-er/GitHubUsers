@@ -40,6 +40,7 @@ class FollowersViewController: UIViewController {
 		collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
 		view.addSubview(collectionView)
 		collectionView.backgroundColor = UIColor.systemPink
+		collectionView.register(FollowerCollectionViewCell.self, forCellWithReuseIdentifier: FollowerCollectionViewCell.reuseIdentifier)
 	}
 	
 	func configViewConroller() {
