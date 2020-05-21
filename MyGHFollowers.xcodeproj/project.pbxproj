@@ -21,7 +21,7 @@
 		762CF00E245748D6009A0B1B /* RemoteFollowersProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */; };
 		764BE4752421398700F617B5 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BE4742421398700F617B5 /* String+Ext.swift */; };
 		76644754246C71E000A80C1D /* FollowersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76644753246C71E000A80C1D /* FollowersInteractor.swift */; };
-		76644756246C71F400A80C1D /* FolloweresInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76644755246C71F400A80C1D /* FolloweresInteractorInput.swift */; };
+		76644756246C71F400A80C1D /* FollowersInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76644755246C71F400A80C1D /* FollowersInteractorInput.swift */; };
 		76644758246C720800A80C1D /* FollowersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76644757246C720800A80C1D /* FollowersPresenter.swift */; };
 		7664475C246C726800A80C1D /* FollowersPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7664475B246C726800A80C1D /* FollowersPresenterDelegate.swift */; };
 		7664475E246C728D00A80C1D /* FollowersInteractorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7664475D246C728D00A80C1D /* FollowersInteractorDelegate.swift */; };
@@ -35,6 +35,7 @@
 		766E098F2430DE26001BF527 /* Another.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766E098E2430DE26001BF527 /* Another.storyboard */; };
 		76A64B4F2434678100298B20 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BE4742421398700F617B5 /* String+Ext.swift */; };
 		76A64B502434679A00298B20 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766E098A2430B5CE001BF527 /* UIViewController+Ext.swift */; };
+		76B3468C2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */; };
 		76BB81FC2461BCFC000A16F6 /* NetworkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FB2461BCFC000A16F6 /* NetworkSettings.swift */; };
 		76BB81FE2461BD49000A16F6 /* FollowerNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FD2461BD49000A16F6 /* FollowerNetworkProvider.swift */; };
 		76BB82002461BE74000A16F6 /* FollowerNetworkProviderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FF2461BE74000A16F6 /* FollowerNetworkProviderInput.swift */; };
@@ -100,7 +101,7 @@
 		762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFollowersProviderTest.swift; sourceTree = "<group>"; };
 		764BE4742421398700F617B5 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		76644753246C71E000A80C1D /* FollowersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersInteractor.swift; sourceTree = "<group>"; };
-		76644755246C71F400A80C1D /* FolloweresInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolloweresInteractorInput.swift; sourceTree = "<group>"; };
+		76644755246C71F400A80C1D /* FollowersInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersInteractorInput.swift; sourceTree = "<group>"; };
 		76644757246C720800A80C1D /* FollowersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersPresenter.swift; sourceTree = "<group>"; };
 		7664475B246C726800A80C1D /* FollowersPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersPresenterDelegate.swift; sourceTree = "<group>"; };
 		7664475D246C728D00A80C1D /* FollowersInteractorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersInteractorDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +110,7 @@
 		7664C04B2461D3D1007CE942 /* FollowerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCollectionViewCell.swift; sourceTree = "<group>"; };
 		766E098A2430B5CE001BF527 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		766E098E2430DE26001BF527 /* Another.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Another.storyboard; sourceTree = "<group>"; };
+		76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeColumnFlowLayout.swift; sourceTree = "<group>"; };
 		76BB81FB2461BCFC000A16F6 /* NetworkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettings.swift; sourceTree = "<group>"; };
 		76BB81FD2461BD49000A16F6 /* FollowerNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkProvider.swift; sourceTree = "<group>"; };
 		76BB81FF2461BE74000A16F6 /* FollowerNetworkProviderInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkProviderInput.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		76263AE124325B0A003B553D /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				76B3468A2476CC3500A5DB79 /* UICollectionViewLayout */,
 				7664C04A2461D3A0007CE942 /* Cells */,
 				76D2B9AA242CD09C009B4D3B /* AEAlertViewController.swift */,
 				7605CF3F240EC3D400460465 /* AETextField.swift */,
@@ -305,7 +308,7 @@
 		76644759246C720D00A80C1D /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				76644755246C71F400A80C1D /* FolloweresInteractorInput.swift */,
+				76644755246C71F400A80C1D /* FollowersInteractorInput.swift */,
 				76644753246C71E000A80C1D /* FollowersInteractor.swift */,
 				7664475D246C728D00A80C1D /* FollowersInteractorDelegate.swift */,
 			);
@@ -370,6 +373,14 @@
 				76644766246C76B700A80C1D /* FollowerNetworkProvider */,
 			);
 			path = Providers;
+			sourceTree = "<group>";
+		};
+		76B3468A2476CC3500A5DB79 /* UICollectionViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */,
+			);
+			path = UICollectionViewLayout;
 			sourceTree = "<group>";
 		};
 		76BC42E52461C1B8003E099D /* Models */ = {
@@ -637,10 +648,11 @@
 				76EAB850244E018A0093B7D2 /* UserNetowrkModel.swift in Sources */,
 				7605CF4B240EDB3600460465 /* AEButton.swift in Sources */,
 				76EDE62424334482002AE6FD /* FollowerNetowrkModel.swift in Sources */,
+				76B3468C2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift in Sources */,
 				7605CF12240EC04E00460465 /* SceneDelegate.swift in Sources */,
 				76644765246C766200A80C1D /* FollowerViewModel.swift in Sources */,
 				764BE4752421398700F617B5 /* String+Ext.swift in Sources */,
-				76644756246C71F400A80C1D /* FolloweresInteractorInput.swift in Sources */,
+				76644756246C71F400A80C1D /* FollowersInteractorInput.swift in Sources */,
 				76E8ED18242BAEF9002427C5 /* AEBodyLabel.swift in Sources */,
 				7605CF40240EC3D400460465 /* AETextField.swift in Sources */,
 				76BC42EF2461C777003E099D /* AEAvatarImageView.swift in Sources */,

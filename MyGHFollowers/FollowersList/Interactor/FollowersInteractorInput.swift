@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol FolloweresInteractorInput {
+protocol FollowersInteractorInput {
 	
 	func fetchFollowers(of username: String, pageNumber: Int)
 }

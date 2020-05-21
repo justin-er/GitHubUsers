@@ -9,7 +9,7 @@
 import Foundation
 import os
 
-class FollowersInteractor: FolloweresInteractorInput {
+class FollowersInteractor: FollowersInteractorInput {
 	
 	var followersProvider: FollowerNetworkProviderInput!
 	var delegate: FollowersInteractorDelegate?

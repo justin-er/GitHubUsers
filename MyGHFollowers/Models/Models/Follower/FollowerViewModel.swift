@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FollowerViewModel {
+struct FollowerViewModel: Hashable {
 	var login: String
     var avatarUrl: String
 
