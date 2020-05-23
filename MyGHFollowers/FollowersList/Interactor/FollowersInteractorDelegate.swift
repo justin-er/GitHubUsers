@@ -10,6 +10,8 @@ import Foundation
 
 protocol FollowersInteractorDelegate: class {
 	
-	func iteractorDidGet(result: Result<[Follower], FollowerNetworkError>)
+	func interactorDidGet(result: Result<[Follower], FollowerNetworkError>)
+	
+	func interactorDidGetAvatar(follower: Follower)
 }
 

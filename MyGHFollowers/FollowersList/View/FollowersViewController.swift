@@ -55,12 +55,24 @@ class FollowersViewController: UIViewController {
 		collectionView.register(FollowerCollectionViewCell.self, forCellWithReuseIdentifier: FollowerCollectionViewCell.reuseIdentifier)
 	}
 	
+	var firstItem = false
+	
 	func configDataSource() {
-		dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
+		dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { [weak self] (collectionView, indexPath, follower) -> UICollectionViewCell? in
+
+			
 			let followerCell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCollectionViewCell.reuseIdentifier,
 														  for: indexPath) as? FollowerCollectionViewCell
 			guard let cell = followerCell else { fatalError("Failed to dequeue cell!") }
+			
 			cell.setFollower(follower: follower)
+			
+			if self?.firstItem == false {
+				self?.firstItem = true
+				if follower.avatar == nil {
+					self?.interactor.getAvatar(of: follower.makeFollower())
+				}
+			}
 			
 			return cell
 		})
@@ -73,6 +85,21 @@ class FollowersViewController: UIViewController {
 }
 
 extension FollowersViewController: FollowersPresenterDelegate {
+	
+	func presenterDidGetAvater(_ presenter: FollowersPresenterInput, followerViewModel: FollowerViewModel) {
+		
+		guard let _ = followerViewModel.avatar else { return }
+		
+		let snapshot = dataSource.snapshot()
+		for currentFollower in snapshot.itemIdentifiers {
+			if currentFollower.login == followerViewModel.login {
+				currentFollower.avatar = followerViewModel.avatar
+				break
+			}
+		}
+		
+		dataSource.apply(snapshot)
+	}
 	
 	func presenterDidGet(result: Result<[FollowerViewModel], FollowerNetworkError>) {
 		switch result {

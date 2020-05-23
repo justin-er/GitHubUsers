@@ -14,7 +14,7 @@ protocol FollowerNetworkProviderInput {
 	
 	func getFollowers(of username: String, pageNumber: Int, completion: Completion?)
 	
-	func getAccountAvatar(urlString: String, completion: @escaping (Result<Data, AvatarNetworkError>) -> Void)
+	func getAvatar(for follower: Follower, completion: @escaping (Result<Follower, AvatarNetworkError>) -> Void)
 	
 }
 

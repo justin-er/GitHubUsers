@@ -11,5 +11,7 @@ import Foundation
 protocol FollowersInteractorInput {
 	
 	func getFollowers(of username: String, pageNumber: Int)
+	
+	func getAvatar(of follower: Follower)
 }
 

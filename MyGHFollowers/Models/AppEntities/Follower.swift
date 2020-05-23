@@ -8,9 +8,16 @@
 
 import Foundation
 
-struct Follower {
+class Follower {
 	
 	var login: String
     var avatarUrl: String
+	var avatar: Avatar?
+	
+	internal init(login: String, avatarUrl: String, avatar: Avatar? = nil) {
+		self.login = login
+		self.avatarUrl = avatarUrl
+		self.avatar = avatar
+	}
 }
 

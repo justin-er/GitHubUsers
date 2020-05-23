@@ -19,12 +19,24 @@ class FollowersInteractor: FollowersInteractorInput {
 			switch result {
 			case .failure(let error):
 				os_log("Error: %@", log: OSLog(subsystem: "Network Communication", category: "Error"), type: .default, error.localizedDescription)
-				self?.delegate?.iteractorDidGet(result: Result.failure(error))
+				self?.delegate?.interactorDidGet(result: Result.failure(error))
 			case .success(let followersNetworkModel):
 				let followers = followersNetworkModel.map { item -> Follower in
 					item.makeFollower()
 				}
-				self?.delegate?.iteractorDidGet(result: Result.success(followers))
+				self?.delegate?.interactorDidGet(result: Result.success(followers))
+			}
+		}
+	}
+	
+	func getAvatar(of follower: Follower) {
+		
+		followersProvider.getAvatar(for: follower) { [weak self] (result) in
+			switch result {
+			case .failure(let error):
+				os_log("Error: %@", log: OSLog(subsystem: "Network Communication", category: "Error"), type: .default, error.localizedDescription)
+			case .success(let follower):
+				self?.delegate?.interactorDidGetAvatar(follower: follower)
 			}
 		}
 	}

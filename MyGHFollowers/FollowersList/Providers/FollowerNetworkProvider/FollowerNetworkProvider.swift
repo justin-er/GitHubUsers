@@ -10,9 +10,9 @@ import Foundation
 
 class FollowerNetworkProvider: FollowerNetworkProviderInput {
 	
-	func getAccountAvatar(urlString: String, completion: @escaping (Result<Data, AvatarNetworkError>) -> Void) {
+	func getAvatar(for follower: Follower, completion: @escaping (Result<Follower, AvatarNetworkError>) -> Void) {
 		
-		let endPoint = urlString
+		let endPoint = follower.avatarUrl
         
         guard let url = URL(string: endPoint) else {
 			completion(Result.failure(AvatarNetworkError.invalidAvatarUrl))
@@ -41,7 +41,8 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
                 return
             }
             
-            completion(Result.success(data))
+			follower.avatar = Avatar.data(data)
+            completion(Result.success(follower))
         }
         
         task.resume()

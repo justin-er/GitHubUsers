@@ -34,6 +34,8 @@
 		766E098B2430B5CE001BF527 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766E098A2430B5CE001BF527 /* UIViewController+Ext.swift */; };
 		766E098F2430DE26001BF527 /* Another.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766E098E2430DE26001BF527 /* Another.storyboard */; };
 		7677D32E24791A08009EDAD1 /* AvatarNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7677D32D24791A08009EDAD1 /* AvatarNetworkError.swift */; };
+		7677D33024791F77009EDAD1 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7677D32F24791F77009EDAD1 /* Avatar.swift */; };
+		7677D33224792985009EDAD1 /* FollowersPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7677D33124792985009EDAD1 /* FollowersPresenterInput.swift */; };
 		76A64B4F2434678100298B20 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BE4742421398700F617B5 /* String+Ext.swift */; };
 		76A64B502434679A00298B20 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766E098A2430B5CE001BF527 /* UIViewController+Ext.swift */; };
 		76B3468C2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */; };
@@ -112,6 +114,8 @@
 		766E098A2430B5CE001BF527 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		766E098E2430DE26001BF527 /* Another.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Another.storyboard; sourceTree = "<group>"; };
 		7677D32D24791A08009EDAD1 /* AvatarNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarNetworkError.swift; sourceTree = "<group>"; };
+		7677D32F24791F77009EDAD1 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		7677D33124792985009EDAD1 /* FollowersPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersPresenterInput.swift; sourceTree = "<group>"; };
 		76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeColumnFlowLayout.swift; sourceTree = "<group>"; };
 		76BB81FB2461BCFC000A16F6 /* NetworkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettings.swift; sourceTree = "<group>"; };
 		76BB81FD2461BD49000A16F6 /* FollowerNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkProvider.swift; sourceTree = "<group>"; };
@@ -320,6 +324,7 @@
 		7664475A246C723800A80C1D /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				7677D33124792985009EDAD1 /* FollowersPresenterInput.swift */,
 				76644757246C720800A80C1D /* FollowersPresenter.swift */,
 				7664475B246C726800A80C1D /* FollowersPresenterDelegate.swift */,
 			);
@@ -380,6 +385,7 @@
 		7677D32C247919D1009EDAD1 /* Avatar */ = {
 			isa = PBXGroup;
 			children = (
+				7677D32F24791F77009EDAD1 /* Avatar.swift */,
 				7677D32D24791A08009EDAD1 /* AvatarNetworkError.swift */,
 			);
 			path = Avatar;
@@ -647,7 +653,9 @@
 				76FE61112423B95100A9CF0C /* FollowersViewController.swift in Sources */,
 				76644758246C720800A80C1D /* FollowersPresenter.swift in Sources */,
 				7605CF14240EC04E00460465 /* SearchViewController.swift in Sources */,
+				7677D33024791F77009EDAD1 /* Avatar.swift in Sources */,
 				7664475C246C726800A80C1D /* FollowersPresenterDelegate.swift in Sources */,
+				7677D33224792985009EDAD1 /* FollowersPresenterInput.swift in Sources */,
 				7605CF10240EC04D00460465 /* AppDelegate.swift in Sources */,
 				7616BA77241D576400E2E0FE /* FavoriteViewController.swift in Sources */,
 				76644754246C71E000A80C1D /* FollowersInteractor.swift in Sources */,

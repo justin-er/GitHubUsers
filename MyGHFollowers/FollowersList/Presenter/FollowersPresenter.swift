@@ -8,11 +8,14 @@
 
 import Foundation
 
-class FollowersPresenter: FollowersInteractorDelegate {
+class FollowersPresenter: FollowersPresenterInput {
 	
 	weak var delegate: FollowersPresenterDelegate?
+}
+
+extension FollowersPresenter: FollowersInteractorDelegate {
 	
-	func iteractorDidGet(result: Result<[Follower], FollowerNetworkError>) {
+	func interactorDidGet(result: Result<[Follower], FollowerNetworkError>) {
 		
 		switch result {
 		case .failure(let error):
@@ -23,7 +26,11 @@ class FollowersPresenter: FollowersInteractorDelegate {
 			}
 			delegate?.presenterDidGet(result: Result.success(followerViewModels))
 		}
+	}
+	
+	func interactorDidGetAvatar(follower: Follower) {
 		
+		delegate?.presenterDidGetAvater(self, followerViewModel: FollowerViewModel(with: follower))
 	}
 }
 
