@@ -14,8 +14,8 @@ class FollowersInteractor: FollowersInteractorInput {
 	var followersProvider: FollowerNetworkProviderInput!
 	var delegate: FollowersInteractorDelegate?
 	
-	func fetchFollowers(of username: String, pageNumber: Int) {
-		followersProvider.fetchFollowers(of: username, pageNumber: pageNumber) {[weak self] result in
+	func getFollowers(of username: String, pageNumber: Int) {
+		followersProvider.getFollowers(of: username, pageNumber: pageNumber) {[weak self] result in
 			switch result {
 			case .failure(let error):
 				os_log("Error: %@", log: OSLog(subsystem: "Network Communication", category: "Error"), type: .default, error.localizedDescription)

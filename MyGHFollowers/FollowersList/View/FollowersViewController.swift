@@ -34,7 +34,7 @@ class FollowersViewController: UIViewController {
 		configViewConroller()
 		configCollectionView()
 		configDataSource()
-		interactor.fetchFollowers(of: username, pageNumber: 1)
+		interactor.getFollowers(of: username, pageNumber: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,6 +61,7 @@ class FollowersViewController: UIViewController {
 														  for: indexPath) as? FollowerCollectionViewCell
 			guard let cell = followerCell else { fatalError("Failed to dequeue cell!") }
 			cell.setFollower(follower: follower)
+			
 			return cell
 		})
 	}
@@ -73,7 +74,7 @@ class FollowersViewController: UIViewController {
 
 extension FollowersViewController: FollowersPresenterDelegate {
 	
-	func presenterDidGet(result: Result<[FollowerViewModel], FollowerError>) {
+	func presenterDidGet(result: Result<[FollowerViewModel], FollowerNetworkError>) {
 		switch result {
 		case .failure(let follwerError):
 			switch follwerError {

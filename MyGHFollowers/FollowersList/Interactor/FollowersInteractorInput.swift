@@ -10,6 +10,6 @@ import Foundation
 
 protocol FollowersInteractorInput {
 	
-	func fetchFollowers(of username: String, pageNumber: Int)
+	func getFollowers(of username: String, pageNumber: Int)
 }
 

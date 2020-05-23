@@ -12,7 +12,7 @@ class FollowersPresenter: FollowersInteractorDelegate {
 	
 	weak var delegate: FollowersPresenterDelegate?
 	
-	func iteractorDidGet(result: Result<[Follower], FollowerError>) {
+	func iteractorDidGet(result: Result<[Follower], FollowerNetworkError>) {
 		
 		switch result {
 		case .failure(let error):

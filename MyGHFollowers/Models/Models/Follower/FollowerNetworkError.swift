@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum FollowerError: Error, LocalizedError  {
+enum FollowerNetworkError: Error, LocalizedError  {
 	
 	case invalidUsername
     case unableToComplete

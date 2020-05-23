@@ -10,8 +10,11 @@ import Foundation
 
 protocol FollowerNetworkProviderInput {
 	
-	typealias Completion = (Result<[FollowerNetowrkModel], FollowerError>) -> Void
+	typealias Completion = (Result<[FollowerNetowrkModel], FollowerNetworkError>) -> Void
 	
-	func fetchFollowers(of username: String, pageNumber: Int, completion: Completion?)
+	func getFollowers(of username: String, pageNumber: Int, completion: Completion?)
+	
+	func getAccountAvatar(urlString: String, completion: @escaping (Result<Data, AvatarNetworkError>) -> Void)
+	
 }
 

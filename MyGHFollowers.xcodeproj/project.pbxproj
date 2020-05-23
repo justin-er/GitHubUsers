@@ -17,7 +17,7 @@
 		7605CF40240EC3D400460465 /* AETextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF3F240EC3D400460465 /* AETextField.swift */; };
 		7605CF4B240EDB3600460465 /* AEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF4A240EDB3600460465 /* AEButton.swift */; };
 		7616BA77241D576400E2E0FE /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616BA76241D576400E2E0FE /* FavoriteViewController.swift */; };
-		762CF00C245743FA009A0B1B /* FollowerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00B245743FA009A0B1B /* FollowerError.swift */; };
+		762CF00C245743FA009A0B1B /* FollowerNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */; };
 		762CF00E245748D6009A0B1B /* RemoteFollowersProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */; };
 		764BE4752421398700F617B5 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BE4742421398700F617B5 /* String+Ext.swift */; };
 		76644754246C71E000A80C1D /* FollowersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76644753246C71E000A80C1D /* FollowersInteractor.swift */; };
@@ -33,6 +33,7 @@
 		7664C04D2461D3D1007CE942 /* FollowerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7664C04B2461D3D1007CE942 /* FollowerCollectionViewCell.swift */; };
 		766E098B2430B5CE001BF527 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766E098A2430B5CE001BF527 /* UIViewController+Ext.swift */; };
 		766E098F2430DE26001BF527 /* Another.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766E098E2430DE26001BF527 /* Another.storyboard */; };
+		7677D32E24791A08009EDAD1 /* AvatarNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7677D32D24791A08009EDAD1 /* AvatarNetworkError.swift */; };
 		76A64B4F2434678100298B20 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BE4742421398700F617B5 /* String+Ext.swift */; };
 		76A64B502434679A00298B20 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766E098A2430B5CE001BF527 /* UIViewController+Ext.swift */; };
 		76B3468C2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */; };
@@ -97,7 +98,7 @@
 		7605CF3F240EC3D400460465 /* AETextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AETextField.swift; sourceTree = "<group>"; };
 		7605CF4A240EDB3600460465 /* AEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEButton.swift; sourceTree = "<group>"; };
 		7616BA76241D576400E2E0FE /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
-		762CF00B245743FA009A0B1B /* FollowerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerError.swift; sourceTree = "<group>"; };
+		762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkError.swift; sourceTree = "<group>"; };
 		762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFollowersProviderTest.swift; sourceTree = "<group>"; };
 		764BE4742421398700F617B5 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		76644753246C71E000A80C1D /* FollowersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersInteractor.swift; sourceTree = "<group>"; };
@@ -110,6 +111,7 @@
 		7664C04B2461D3D1007CE942 /* FollowerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCollectionViewCell.swift; sourceTree = "<group>"; };
 		766E098A2430B5CE001BF527 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		766E098E2430DE26001BF527 /* Another.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Another.storyboard; sourceTree = "<group>"; };
+		7677D32D24791A08009EDAD1 /* AvatarNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarNetworkError.swift; sourceTree = "<group>"; };
 		76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeColumnFlowLayout.swift; sourceTree = "<group>"; };
 		76BB81FB2461BCFC000A16F6 /* NetworkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettings.swift; sourceTree = "<group>"; };
 		76BB81FD2461BD49000A16F6 /* FollowerNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkProvider.swift; sourceTree = "<group>"; };
@@ -336,8 +338,8 @@
 			isa = PBXGroup;
 			children = (
 				76EDE62324334482002AE6FD /* FollowerNetowrkModel.swift */,
+				762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */,
 				76644764246C766200A80C1D /* FollowerViewModel.swift */,
-				762CF00B245743FA009A0B1B /* FollowerError.swift */,
 			);
 			path = Follower;
 			sourceTree = "<group>";
@@ -375,6 +377,14 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
+		7677D32C247919D1009EDAD1 /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				7677D32D24791A08009EDAD1 /* AvatarNetworkError.swift */,
+			);
+			path = Avatar;
+			sourceTree = "<group>";
+		};
 		76B3468A2476CC3500A5DB79 /* UICollectionViewLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +396,7 @@
 		76BC42E52461C1B8003E099D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7677D32C247919D1009EDAD1 /* Avatar */,
 				76644762246C763900A80C1D /* Follower */,
 				76644763246C764E00A80C1D /* User */,
 			);
@@ -632,7 +643,7 @@
 			files = (
 				76BC42E72461C20A003E099D /* Follower.swift in Sources */,
 				766E098B2430B5CE001BF527 /* UIViewController+Ext.swift in Sources */,
-				762CF00C245743FA009A0B1B /* FollowerError.swift in Sources */,
+				762CF00C245743FA009A0B1B /* FollowerNetworkError.swift in Sources */,
 				76FE61112423B95100A9CF0C /* FollowersViewController.swift in Sources */,
 				76644758246C720800A80C1D /* FollowersPresenter.swift in Sources */,
 				7605CF14240EC04E00460465 /* SearchViewController.swift in Sources */,
@@ -654,6 +665,7 @@
 				764BE4752421398700F617B5 /* String+Ext.swift in Sources */,
 				76644756246C71F400A80C1D /* FollowersInteractorInput.swift in Sources */,
 				76E8ED18242BAEF9002427C5 /* AEBodyLabel.swift in Sources */,
+				7677D32E24791A08009EDAD1 /* AvatarNetworkError.swift in Sources */,
 				7605CF40240EC3D400460465 /* AETextField.swift in Sources */,
 				76BC42EF2461C777003E099D /* AEAvatarImageView.swift in Sources */,
 				76D2B9AB242CD09C009B4D3B /* AEAlertViewController.swift in Sources */,
