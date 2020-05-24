@@ -77,6 +77,7 @@ class SearchViewController: UIViewController {
     
     func configTextField() {
         view.addSubview(textField)
+		textField.text = "sallen0400"
         
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),

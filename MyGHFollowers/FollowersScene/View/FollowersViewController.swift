@@ -67,11 +67,8 @@ class FollowersViewController: UIViewController {
 			
 			cell.setFollower(follower: follower)
 			
-			if self?.firstItem == false {
-				self?.firstItem = true
-				if follower.avatar == nil {
-					self?.interactor.getAvatar(of: follower.makeFollower())
-				}
+			if follower.avatar == nil {
+				self?.interactor.getAvatar(of: follower.makeFollower())
 			}
 			
 			return cell
@@ -90,10 +87,11 @@ extension FollowersViewController: FollowersPresenterDelegate {
 		
 		guard let _ = followerViewModel.avatar else { return }
 		
-		let snapshot = dataSource.snapshot()
+		var snapshot = dataSource.snapshot()
 		for currentFollower in snapshot.itemIdentifiers {
 			if currentFollower.login == followerViewModel.login {
 				currentFollower.avatar = followerViewModel.avatar
+				snapshot.reloadItems([currentFollower])
 				break
 			}
 		}

@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import os
 
 class FollowerNetworkProvider: FollowerNetworkProviderInput {
 	
 	func getAvatar(for follower: Follower, completion: @escaping (Result<Follower, AvatarNetworkError>) -> Void) {
-		
+		print("Get avatar called...")
 		let endPoint = follower.avatarUrl
         
         guard let url = URL(string: endPoint) else {
@@ -30,6 +31,7 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
 				if response.statusCode == 404 {
 					completion(Result.failure(AvatarNetworkError.invalidAvatarUrl))
 				} else {
+					os_log("Network error: %d", response.statusCode)
 					completion(Result.failure(AvatarNetworkError.unableToComplete))
 				}
 				
@@ -51,7 +53,7 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
 	
 	func getFollowers(of username: String, pageNumber: Int, completion: Completion?) {
         
-		let endPoint = "\(NetworkSettings.baseUrl)\(username)/followers?per_page=50&page=\(pageNumber)"
+		let endPoint = "\(NetworkSettings.baseUrl)\(username)/followers?per_page=100&page=\(pageNumber)"
         
         guard let url = URL(string: endPoint) else {
             completion?(Result.failure(FollowerNetworkError.invalidUsername))
@@ -69,6 +71,7 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
 				if response.statusCode == 404 {
 					completion?(Result.failure(FollowerNetworkError.invalidUsername))
 				} else {
+					os_log("Network error: %d", response.statusCode)
 					completion?(Result.failure(FollowerNetworkError.unableToComplete))
 				}
 				

@@ -36,6 +36,8 @@ class FollowerCollectionViewCell: UICollectionViewCell {
 			case .image(let imageObject):
 				self.avatarImageView.image = imageObject as? UIImage
 			}
+		} else {
+			self.avatarImageView.image = AEAvatarImageView.placeholderImage
 		}
 	}
 	

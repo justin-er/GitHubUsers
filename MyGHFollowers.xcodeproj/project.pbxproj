@@ -203,9 +203,9 @@
 				76EAB84E244E00830093B7D2 /* Documents */,
 				76EDE6222433446E002AE6FD /* Models */,
 				762CF00A24574265009A0B1B /* Settings */,
-				7664474F246C718B00A80C1D /* SearchFollowers */,
-				76644750246C719300A80C1D /* FollowersList */,
-				76644751246C719E00A80C1D /* Favorites */,
+				7664474F246C718B00A80C1D /* SearchFollowersScene */,
+				76644750246C719300A80C1D /* FollowersScene */,
+				76644751246C719E00A80C1D /* FavoritesScene */,
 				76263AE124325B0A003B553D /* CustomViews */,
 				76263AE024325AD9003B553D /* Extensions */,
 				7605CF1D240EC05100460465 /* Info.plist */,
@@ -275,15 +275,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		7664474F246C718B00A80C1D /* SearchFollowers */ = {
+		7664474F246C718B00A80C1D /* SearchFollowersScene */ = {
 			isa = PBXGroup;
 			children = (
 				7605CF13240EC04E00460465 /* SearchViewController.swift */,
 			);
-			path = SearchFollowers;
+			path = SearchFollowersScene;
 			sourceTree = "<group>";
 		};
-		76644750246C719300A80C1D /* FollowersList */ = {
+		76644750246C719300A80C1D /* FollowersScene */ = {
 			isa = PBXGroup;
 			children = (
 				7664475F246C72B300A80C1D /* Composer */,
@@ -292,15 +292,15 @@
 				7664475A246C723800A80C1D /* Presenter */,
 				76678156247036140091FBE8 /* Providers */,
 			);
-			path = FollowersList;
+			path = FollowersScene;
 			sourceTree = "<group>";
 		};
-		76644751246C719E00A80C1D /* Favorites */ = {
+		76644751246C719E00A80C1D /* FavoritesScene */ = {
 			isa = PBXGroup;
 			children = (
 				7616BA76241D576400E2E0FE /* FavoriteViewController.swift */,
 			);
-			path = Favorites;
+			path = FavoritesScene;
 			sourceTree = "<group>";
 		};
 		76644752246C71C700A80C1D /* View */ = {

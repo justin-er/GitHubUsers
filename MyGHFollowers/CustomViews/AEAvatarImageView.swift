@@ -10,7 +10,7 @@ import UIKit
 
 class AEAvatarImageView: UIImageView {
 
-	let placeholderImage = UIImage(named: "Placeholder")
+	static let placeholderImage = UIImage(named: "Placeholder")
 		
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -22,7 +22,7 @@ class AEAvatarImageView: UIImageView {
 	}
 	
 	func config() {
-		self.image = placeholderImage
+		self.image = AEAvatarImageView.placeholderImage
 		layer.cornerRadius = 10
 		clipsToBounds = true
 		translatesAutoresizingMaskIntoConstraints = false
