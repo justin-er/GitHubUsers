@@ -88,10 +88,10 @@ extension FollowersViewController: FollowersPresenterDelegate {
 		guard let _ = followerViewModel.avatar else { return }
 		
 		var snapshot = dataSource.snapshot()
-		for currentFollower in snapshot.itemIdentifiers {
-			if currentFollower.login == followerViewModel.login {
-				currentFollower.avatar = followerViewModel.avatar
-				snapshot.reloadItems([currentFollower])
+		for follower in snapshot.itemIdentifiers {
+			if follower.login == followerViewModel.login {
+				follower.avatar = followerViewModel.avatar
+				snapshot.reloadItems([follower])
 				break
 			}
 		}
