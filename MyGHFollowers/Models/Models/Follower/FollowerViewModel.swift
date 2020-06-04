@@ -13,11 +13,13 @@ class FollowerViewModel {
 	var login: String
 	var avatarUrl: String
 	var avatar: Avatar?
+	var id: UUID
 	
 	init(with follower: Follower) {
 		self.login = follower.login
 		self.avatarUrl = follower.avatarUrl
 		self.avatar = follower.avatar
+		self.id = follower.id
 	}
 }
 
@@ -26,20 +28,21 @@ extension FollowerViewModel {
 	func makeFollower() -> Follower {
 		return Follower(login: self.login,
 								avatarUrl: self.avatarUrl,
-								avatar: self.avatar)
+								avatar: self.avatar,
+								id: self.id)
 	}
 }
 
 extension FollowerViewModel: Equatable {
 	
 	static func == (lhs: FollowerViewModel, rhs: FollowerViewModel) -> Bool {
-		return lhs.login == rhs.login
+		return lhs.id == rhs.id
 	}
 }
 
 extension FollowerViewModel: Hashable {
 	func hash(into hasher: inout Hasher) {
-		hasher.combine(login)
+		hasher.combine(id)
 	}
 }
 

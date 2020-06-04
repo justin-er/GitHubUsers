@@ -340,6 +340,7 @@
 		76644762246C763900A80C1D /* Follower */ = {
 			isa = PBXGroup;
 			children = (
+				76BC42E62461C20A003E099D /* Follower.swift */,
 				76EDE62324334482002AE6FD /* FollowerNetowrkModel.swift */,
 				762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */,
 				76644764246C766200A80C1D /* FollowerViewModel.swift */,
@@ -350,6 +351,7 @@
 		76644763246C764E00A80C1D /* User */ = {
 			isa = PBXGroup;
 			children = (
+				76BC42E82461C215003E099D /* User.swift */,
 				76EAB84F244E018A0093B7D2 /* UserNetowrkModel.swift */,
 			);
 			path = User;
@@ -417,15 +419,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		76BC42EA2461C21A003E099D /* AppEntities */ = {
-			isa = PBXGroup;
-			children = (
-				76BC42E62461C20A003E099D /* Follower.swift */,
-				76BC42E82461C215003E099D /* User.swift */,
-			);
-			path = AppEntities;
-			sourceTree = "<group>";
-		};
 		76BC42EB2461C6E4003E099D /* Design */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,7 +477,6 @@
 		76EDE6222433446E002AE6FD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				76BC42EA2461C21A003E099D /* AppEntities */,
 				76BC42E52461C1B8003E099D /* Models */,
 			);
 			path = Models;

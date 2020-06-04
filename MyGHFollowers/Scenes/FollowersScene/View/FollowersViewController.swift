@@ -89,7 +89,7 @@ extension FollowersViewController: FollowersPresenterDelegate {
 		
 		var snapshot = dataSource.snapshot()
 		for follower in snapshot.itemIdentifiers {
-			if follower.login == followerViewModel.login {
+			if follower.id == followerViewModel.id {
 				follower.avatar = followerViewModel.avatar
 				snapshot.reloadItems([follower])
 				break

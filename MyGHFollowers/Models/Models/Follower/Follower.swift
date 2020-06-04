@@ -13,11 +13,17 @@ class Follower {
 	var login: String
     var avatarUrl: String
 	var avatar: Avatar?
+	var id: UUID
 	
-	internal init(login: String, avatarUrl: String, avatar: Avatar? = nil) {
+	init(login: String, avatarUrl: String, avatar: Avatar? = nil, id: UUID) {
 		self.login = login
 		self.avatarUrl = avatarUrl
 		self.avatar = avatar
+		self.id = id
+	}
+	
+	convenience init(login: String, avatarUrl: String, avatar: Avatar? = nil) {
+		self.init(login: login, avatarUrl: avatarUrl, avatar: avatar, id: UUID())
 	}
 }
 
