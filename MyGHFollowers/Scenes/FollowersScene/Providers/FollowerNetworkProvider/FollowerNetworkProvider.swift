@@ -12,7 +12,7 @@ import os
 class FollowerNetworkProvider: FollowerNetworkProviderInput {
 	
 	func getAvatar(for follower: Follower, completion: @escaping (Result<Follower, AvatarNetworkError>) -> Void) {
-		print("Get avatar called...")
+
 		let endPoint = follower.avatarUrl
         
         guard let url = URL(string: endPoint) else {
