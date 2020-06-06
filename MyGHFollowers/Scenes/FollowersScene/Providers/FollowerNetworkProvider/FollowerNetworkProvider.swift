@@ -11,6 +11,12 @@ import os
 
 class FollowerNetworkProvider: FollowerNetworkProviderInput {
 	
+	let session: URLSession
+	
+	init(session: URLSession) {
+		self.session = session
+	}
+	
 	func getAvatar(for follower: Follower, completion: @escaping (Result<Follower, AvatarNetworkError>) -> Void) {
 
 		let endPoint = follower.avatarUrl
@@ -19,8 +25,8 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
 			completion(Result.failure(AvatarNetworkError.invalidAvatarUrl))
             return
         }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+		
+        let task = session.dataTask(with: url) { data, response, error in
             
             guard error == nil else {
                 completion(Result.failure(AvatarNetworkError.unableToComplete))
