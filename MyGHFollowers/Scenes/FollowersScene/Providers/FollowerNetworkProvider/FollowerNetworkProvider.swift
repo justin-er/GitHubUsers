@@ -11,10 +11,34 @@ import os
 
 class FollowerNetworkProvider: FollowerNetworkProviderInput {
 	
-	let session: URLSession
+	var isMoreFollowers: Bool = false
 	
-	init(session: URLSession) {
+	private var username: String = ""
+	private var pageNumber: Int = 1
+	
+	let session: URLSession
+	let stringAnalyzer: StringAnalyzerInput
+	
+	init(session: URLSession, stringAnalyzer: StringAnalyzerInput) {
 		self.session = session
+		self.stringAnalyzer = stringAnalyzer
+	}
+	
+	func lookForNext(string: String) -> Bool {
+		
+		guard let range = string.range(of: "rel=") else { return false }
+		
+		let lastIndex = string.index(range.upperBound, offsetBy: 6, limitedBy: string.endIndex)
+		guard let endIndex = lastIndex else { return false }
+		
+		let result = string[range.upperBound..<endIndex]
+		print(result)
+		if result == "\"next\"" {
+			return true
+		} else {
+			let suffix = string.suffix(from: endIndex)
+			return lookForNext(string: String(suffix))
+		}
 	}
 	
 	func getAvatar(for follower: Follower, completion: @escaping (Result<Follower, AvatarNetworkError>) -> Void) {
@@ -33,7 +57,12 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
                 return
             }
             
-            if let response = response as? HTTPURLResponse, response.statusCode != 200 {
+			guard let response = response as? HTTPURLResponse else {
+				completion(Result.failure(AvatarNetworkError.unableToComplete))
+				return
+			}
+				
+			if response.statusCode != 200 {
 				if response.statusCode == 404 {
 					completion(Result.failure(AvatarNetworkError.invalidAvatarUrl))
 				} else {
@@ -41,9 +70,9 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
 					completion(Result.failure(AvatarNetworkError.unableToComplete))
 				}
 				
-                return
-            }
-            
+				return
+			}
+			
             guard let data = data else {
                 completion(Result.failure(AvatarNetworkError.unableToComplete))
                 return
@@ -56,10 +85,9 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
         task.resume()
 	}
 	
-	
-	func getFollowers(of username: String, pageNumber: Int, completion: Completion?) {
+	private func getFollowers(of username: String, pageNumber: Int, completion: Completion?) {
         
-		let endPoint = "\(NetworkSettings.baseUrl)\(username)/followers?per_page=100&page=\(pageNumber)"
+		let endPoint = "\(NetworkSettings.baseUrl)\(username)/followers?per_page=\(NetworkSettings.followersNumberPerPage)&page=\(pageNumber)"
         
         guard let url = URL(string: endPoint) else {
             completion?(Result.failure(FollowerNetworkError.invalidUsername))
@@ -72,8 +100,13 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
                 completion?(Result.failure(FollowerNetworkError.unableToComplete))
                 return
             }
-            
-            if let response = response as? HTTPURLResponse, response.statusCode != 200 {
+			
+			guard let response = response as? HTTPURLResponse else {
+				completion?(Result.failure(FollowerNetworkError.unableToComplete))
+				return
+			}
+				
+			if response.statusCode != 200 {
 				if response.statusCode == 404 {
 					completion?(Result.failure(FollowerNetworkError.invalidUsername))
 				} else {
@@ -81,9 +114,13 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
 					completion?(Result.failure(FollowerNetworkError.unableToComplete))
 				}
 				
-                return
-            }
-            
+				return
+			}
+			
+			if let link = response.value(forHTTPHeaderField: "link") {
+				self.isMoreFollowers = self.stringAnalyzer.lookFor(prefix: "rel=", value: "\"next\"", in: link)
+			}
+			
             guard let data = data else {
                 completion?(Result.failure(FollowerNetworkError.unableToComplete))
                 return
@@ -100,5 +137,20 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
         
         task.resume()
     }
+	
+	func getNextFollowers(completion: Completion?) {
+		
+		if self.isMoreFollowers {
+			self.pageNumber += 1
+			getFollowers(of: username, pageNumber: pageNumber, completion: completion)
+		}
+	}
+	
+	func getFollowers(of username: String, completion: Completion?) {
+		
+		self.username = username
+		self.pageNumber = 1
+		getFollowers(of: username, pageNumber: pageNumber, completion: completion)
+	}
 }
 

@@ -34,7 +34,7 @@ class FollowersViewController: UIViewController {
 		configViewConroller()
 		configCollectionView()
 		configDataSource()
-		interactor.getFollowers(of: username, pageNumber: 1)
+		interactor.getFollowers(of: username)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,16 +53,17 @@ class FollowersViewController: UIViewController {
 		
 		collectionView.backgroundColor = UIColor.systemBackground
 		collectionView.register(FollowerCollectionViewCell.self, forCellWithReuseIdentifier: FollowerCollectionViewCell.reuseIdentifier)
+		
+		collectionView.delegate = self
 	}
 	
 	var firstItem = false
 	
 	func configDataSource() {
 		dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { [weak self] (collectionView, indexPath, follower) -> UICollectionViewCell? in
-
-			
-			let followerCell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCollectionViewCell.reuseIdentifier,
-														  for: indexPath) as? FollowerCollectionViewCell
+			let followerCell = collectionView.dequeueReusableCell(
+				withReuseIdentifier: FollowerCollectionViewCell.reuseIdentifier,
+				for: indexPath) as? FollowerCollectionViewCell
 			guard let cell = followerCell else { fatalError("Failed to dequeue cell!") }
 			
 			cell.setFollower(follower: follower)
@@ -83,6 +84,10 @@ class FollowersViewController: UIViewController {
 
 extension FollowersViewController: FollowersPresenterDelegate {
 	
+	enum CallbackType {
+		case first, next
+	}
+	
 	func presenterDidGetAvater(_ presenter: FollowersPresenterInput, followerViewModel: FollowerViewModel) {
 		
 		guard let _ = followerViewModel.avatar else { return }
@@ -99,7 +104,7 @@ extension FollowersViewController: FollowersPresenterDelegate {
 		dataSource.apply(snapshot)
 	}
 	
-	func presenterDidGet(result: Result<[FollowerViewModel], FollowerNetworkError>) {
+	fileprivate func processResult(_ result: Result<[FollowerViewModel], FollowerNetworkError>, type: CallbackType) {
 		switch result {
 		case .failure(let follwerError):
 			switch follwerError {
@@ -109,10 +114,43 @@ extension FollowersViewController: FollowersPresenterDelegate {
 				self.presentAEAlert(title: "Error", message: "Unable to complete. Try again.", buttonTitle: "OK")
 			}
 		case .success(let followers):
-			var snapshot = NSDiffableDataSourceSnapshot<SectionType, FollowerViewModel>()
-			snapshot.appendSections([SectionType.main])
-			snapshot.appendItems(followers)
-			self.dataSource.apply(snapshot)
+			switch type {
+			case .first:
+				var snapshot = NSDiffableDataSourceSnapshot<SectionType, FollowerViewModel>()
+				snapshot.appendSections([SectionType.main])
+				snapshot.appendItems(followers)
+				self.dataSource.apply(snapshot)
+			case .next:
+				var snapshot = self.dataSource.snapshot()
+				snapshot.appendItems(followers)
+				self.dataSource.apply(snapshot)
+			}
+		}
+	}
+	
+	func presenterDidGet(result: Result<[FollowerViewModel], FollowerNetworkError>) {
+		
+		processResult(result, type: .first)
+	}
+	
+	func presenterDidGetNext(result: Result<[FollowerViewModel], FollowerNetworkError>) {
+		
+		processResult(result, type: .next)
+	}
+}
+
+extension FollowersViewController: UICollectionViewDelegate {
+	
+	func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+		
+		let offsetY 		= scrollView.contentOffset.y
+		let height 			= scrollView.bounds.height
+		let contentHeight 	= scrollView.contentSize.height
+		
+		if offsetY + height >= contentHeight {
+			if interactor.isMoreFollowers {
+				interactor.getNextFollowers()
+			}
 		}
 	}
 }

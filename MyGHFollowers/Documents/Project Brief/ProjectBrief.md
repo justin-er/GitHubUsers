@@ -50,7 +50,7 @@ All commands should send to this url: https://api.github.com
 
 Example: 
 
-	https://api.github.com/users/octocat/followers
+	https://api.github.com/users/octocat/followers?per_page=100&page=1
 
 ####Getting user information (in this case a follower):
 

@@ -11,20 +11,54 @@ import os
 
 class FollowersInteractor: FollowersInteractorInput {
 	
-	var followersProvider: FollowerNetworkProviderInput!
-	var delegate: FollowersInteractorDelegate?
+	enum ResultType {
+		case first, next
+	}
 	
-	func getFollowers(of username: String, pageNumber: Int) {
-		followersProvider.getFollowers(of: username, pageNumber: pageNumber) {[weak self] result in
-			switch result {
-			case .failure(let error):
-				os_log("Error: %@", log: OSLog(subsystem: "Network Communication", category: "Error"), type: .default, error.localizedDescription)
-				self?.delegate?.interactorDidGet(result: Result.failure(error))
-			case .success(let followersNetworkModel):
-				let followers = followersNetworkModel.map { item -> Follower in
-					item.makeFollower()
-				}
-				self?.delegate?.interactorDidGet(result: Result.success(followers))
+	var followersProvider: 		FollowerNetworkProviderInput
+	var delegate: 				FollowersInteractorDelegate?
+	
+	var isMoreFollowers: Bool {
+		return followersProvider.isMoreFollowers
+	}
+	
+	init(followersProvider: FollowerNetworkProviderInput) {
+		self.followersProvider = followersProvider
+	}
+	
+	fileprivate func processResult(_ result: Result<[FollowerNetowrkModel], FollowerNetworkError>, type: ResultType) {
+		
+		switch result {
+		case .failure(let error):
+			os_log("Error: %@", log: OSLog(subsystem: "Network Communication", category: "Error"), type: .default, error.localizedDescription)
+			self.delegate?.interactorDidGet(result: Result.failure(error))
+		case .success(let followersNetworkModel):
+			let followers = followersNetworkModel.map { item -> Follower in
+				item.makeFollower()
+			}
+			
+			switch type {
+			case .first:
+				self.delegate?.interactorDidGet(result: Result.success(followers))
+			case .next:
+				self.delegate?.interactorDidGetNext(result: Result.success(followers))
+			}
+			
+		}
+	}
+	
+	func getFollowers(of username: String) {
+		
+		followersProvider.getFollowers(of: username) {[weak self] result in
+			self?.processResult(result, type: .first)
+		}
+	}
+	
+	func getNextFollowers() {
+		
+		if isMoreFollowers {
+			followersProvider.getNextFollowers {[weak self] result in
+				self?.processResult(result, type: .next)
 			}
 		}
 	}

@@ -10,7 +10,11 @@ import Foundation
 
 protocol FollowersInteractorInput {
 	
-	func getFollowers(of username: String, pageNumber: Int)
+	var isMoreFollowers: Bool { get }
+	
+	func getFollowers(of username: String)
+	
+	func getNextFollowers()
 	
 	func getAvatar(of follower: Follower)
 }

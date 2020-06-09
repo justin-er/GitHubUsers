@@ -10,5 +10,6 @@ import Foundation
 
 class NetworkSettings {
 	static let baseUrl = "https://api.github.com/users/"
+	static let followersNumberPerPage = 100
 }
 

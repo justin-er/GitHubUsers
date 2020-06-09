@@ -15,8 +15,11 @@ class FollowersPresenter: FollowersPresenterInput {
 
 extension FollowersPresenter: FollowersInteractorDelegate {
 	
-	func interactorDidGet(result: Result<[Follower], FollowerNetworkError>) {
-		
+	enum CallbackType {
+		case first, next
+	}
+	
+	fileprivate func processResult(_ result: Result<[Follower], FollowerNetworkError>, type: CallbackType) {
 		switch result {
 		case .failure(let error):
 			delegate?.presenterDidGet(result: Result.failure(error))
@@ -24,8 +27,23 @@ extension FollowersPresenter: FollowersInteractorDelegate {
 			let followerViewModels = followers.map { follower -> FollowerViewModel in
 				return FollowerViewModel(with: follower)
 			}
-			delegate?.presenterDidGet(result: Result.success(followerViewModels))
+			switch type {
+			case .first:
+				delegate?.presenterDidGet(result: Result.success(followerViewModels))
+			case .next:
+				delegate?.presenterDidGetNext(result: Result.success(followerViewModels))
+			}
 		}
+	}
+	
+	func interactorDidGet(result: Result<[Follower], FollowerNetworkError>) {
+		
+		processResult(result, type: .first)
+	}
+	
+	func interactorDidGetNext(result: Result<[Follower], FollowerNetworkError>) {
+		
+		processResult(result, type: .next)
 	}
 	
 	func interactorDidGetAvatar(follower: Follower) {
