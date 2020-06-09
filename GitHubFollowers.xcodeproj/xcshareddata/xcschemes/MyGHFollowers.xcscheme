@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "76E8ED01242BA624002427C5"
-               BuildableName = "CustomControlsTest.app"
-               BlueprintName = "CustomControlsTest"
-               ReferencedContainer = "container:MyGHFollowers.xcodeproj">
+               BlueprintIdentifier = "7605CF0B240EC04D00460465"
+               BuildableName = "GitHubFollowers.app"
+               BlueprintName = "GitHubFollowers"
+               ReferencedContainer = "container:GitHubFollowers.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7605CF21240EC05200460465"
+               BuildableName = "GitHubFollowersTests.xctest"
+               BlueprintName = "GitHubFollowersTests"
+               ReferencedContainer = "container:GitHubFollowers.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7605CF2C240EC05200460465"
+               BuildableName = "GitHubFollowersUITests.xctest"
+               BlueprintName = "GitHubFollowersUITests"
+               ReferencedContainer = "container:GitHubFollowers.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -44,10 +64,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "76E8ED01242BA624002427C5"
-            BuildableName = "CustomControlsTest.app"
-            BlueprintName = "CustomControlsTest"
-            ReferencedContainer = "container:MyGHFollowers.xcodeproj">
+            BlueprintIdentifier = "7605CF0B240EC04D00460465"
+            BuildableName = "GitHubFollowers.app"
+            BlueprintName = "GitHubFollowers"
+            ReferencedContainer = "container:GitHubFollowers.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,10 +81,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "76E8ED01242BA624002427C5"
-            BuildableName = "CustomControlsTest.app"
-            BlueprintName = "CustomControlsTest"
-            ReferencedContainer = "container:MyGHFollowers.xcodeproj">
+            BlueprintIdentifier = "7605CF0B240EC04D00460465"
+            BuildableName = "GitHubFollowers.app"
+            BlueprintName = "GitHubFollowers"
+            ReferencedContainer = "container:GitHubFollowers.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

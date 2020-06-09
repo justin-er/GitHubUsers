@@ -87,17 +87,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7605CF0C240EC04D00460465 /* MyGHFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGHFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7605CF0C240EC04D00460465 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7605CF0F240EC04D00460465 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7605CF11240EC04E00460465 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7605CF13240EC04E00460465 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7605CF18240EC05100460465 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7605CF1B240EC05100460465 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7605CF1D240EC05100460465 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7605CF22240EC05200460465 /* MyGHFollowersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyGHFollowersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7605CF22240EC05200460465 /* GitHubFollowersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubFollowersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7605CF26240EC05200460465 /* MyGHFollowersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGHFollowersTests.swift; sourceTree = "<group>"; };
 		7605CF28240EC05200460465 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7605CF2D240EC05200460465 /* MyGHFollowersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyGHFollowersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7605CF2D240EC05200460465 /* GitHubFollowersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubFollowersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7605CF31240EC05200460465 /* MyGHFollowersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGHFollowersUITests.swift; sourceTree = "<group>"; };
 		7605CF33240EC05200460465 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7605CF3F240EC3D400460465 /* AETextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AETextField.swift; sourceTree = "<group>"; };
@@ -193,9 +193,9 @@
 		7605CF0D240EC04D00460465 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7605CF0C240EC04D00460465 /* MyGHFollowers.app */,
-				7605CF22240EC05200460465 /* MyGHFollowersTests.xctest */,
-				7605CF2D240EC05200460465 /* MyGHFollowersUITests.xctest */,
+				7605CF0C240EC04D00460465 /* GitHubFollowers.app */,
+				7605CF22240EC05200460465 /* GitHubFollowersTests.xctest */,
+				7605CF2D240EC05200460465 /* GitHubFollowersUITests.xctest */,
 				76E8ED02242BA624002427C5 /* CustomControlsTest.app */,
 			);
 			name = Products;
@@ -526,9 +526,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7605CF0B240EC04D00460465 /* MyGHFollowers */ = {
+		7605CF0B240EC04D00460465 /* GitHubFollowers */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7605CF36240EC05200460465 /* Build configuration list for PBXNativeTarget "MyGHFollowers" */;
+			buildConfigurationList = 7605CF36240EC05200460465 /* Build configuration list for PBXNativeTarget "GitHubFollowers" */;
 			buildPhases = (
 				7605CF08240EC04D00460465 /* Sources */,
 				7605CF09240EC04D00460465 /* Frameworks */,
@@ -538,14 +538,14 @@
 			);
 			dependencies = (
 			);
-			name = MyGHFollowers;
+			name = GitHubFollowers;
 			productName = MyGHFollowers;
-			productReference = 7605CF0C240EC04D00460465 /* MyGHFollowers.app */;
+			productReference = 7605CF0C240EC04D00460465 /* GitHubFollowers.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7605CF21240EC05200460465 /* MyGHFollowersTests */ = {
+		7605CF21240EC05200460465 /* GitHubFollowersTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7605CF39240EC05200460465 /* Build configuration list for PBXNativeTarget "MyGHFollowersTests" */;
+			buildConfigurationList = 7605CF39240EC05200460465 /* Build configuration list for PBXNativeTarget "GitHubFollowersTests" */;
 			buildPhases = (
 				7605CF1E240EC05200460465 /* Sources */,
 				7605CF1F240EC05200460465 /* Frameworks */,
@@ -556,14 +556,14 @@
 			dependencies = (
 				7605CF24240EC05200460465 /* PBXTargetDependency */,
 			);
-			name = MyGHFollowersTests;
+			name = GitHubFollowersTests;
 			productName = MyGHFollowersTests;
-			productReference = 7605CF22240EC05200460465 /* MyGHFollowersTests.xctest */;
+			productReference = 7605CF22240EC05200460465 /* GitHubFollowersTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7605CF2C240EC05200460465 /* MyGHFollowersUITests */ = {
+		7605CF2C240EC05200460465 /* GitHubFollowersUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7605CF3C240EC05200460465 /* Build configuration list for PBXNativeTarget "MyGHFollowersUITests" */;
+			buildConfigurationList = 7605CF3C240EC05200460465 /* Build configuration list for PBXNativeTarget "GitHubFollowersUITests" */;
 			buildPhases = (
 				7605CF29240EC05200460465 /* Sources */,
 				7605CF2A240EC05200460465 /* Frameworks */,
@@ -574,9 +574,9 @@
 			dependencies = (
 				7605CF2F240EC05200460465 /* PBXTargetDependency */,
 			);
-			name = MyGHFollowersUITests;
+			name = GitHubFollowersUITests;
 			productName = MyGHFollowersUITests;
-			productReference = 7605CF2D240EC05200460465 /* MyGHFollowersUITests.xctest */;
+			productReference = 7605CF2D240EC05200460465 /* GitHubFollowersUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		76E8ED01242BA624002427C5 /* CustomControlsTest */ = {
@@ -622,7 +622,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7605CF07240EC04D00460465 /* Build configuration list for PBXProject "MyGHFollowers" */;
+			buildConfigurationList = 7605CF07240EC04D00460465 /* Build configuration list for PBXProject "GitHubFollowers" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -635,9 +635,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7605CF0B240EC04D00460465 /* MyGHFollowers */,
-				7605CF21240EC05200460465 /* MyGHFollowersTests */,
-				7605CF2C240EC05200460465 /* MyGHFollowersUITests */,
+				7605CF0B240EC04D00460465 /* GitHubFollowers */,
+				7605CF21240EC05200460465 /* GitHubFollowersTests */,
+				7605CF2C240EC05200460465 /* GitHubFollowersUITests */,
 				76E8ED01242BA624002427C5 /* CustomControlsTest */,
 			);
 		};
@@ -768,12 +768,12 @@
 /* Begin PBXTargetDependency section */
 		7605CF24240EC05200460465 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7605CF0B240EC04D00460465 /* MyGHFollowers */;
+			target = 7605CF0B240EC04D00460465 /* GitHubFollowers */;
 			targetProxy = 7605CF23240EC05200460465 /* PBXContainerItemProxy */;
 		};
 		7605CF2F240EC05200460465 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7605CF0B240EC04D00460465 /* MyGHFollowers */;
+			target = 7605CF0B240EC04D00460465 /* GitHubFollowers */;
 			targetProxy = 7605CF2E240EC05200460465 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -974,7 +974,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyGHFollowers.app/MyGHFollowers";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHubFollowers.app/GitHubFollowers";
 			};
 			name = Debug;
 		};
@@ -996,7 +996,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyGHFollowers.app/MyGHFollowers";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHubFollowers.app/GitHubFollowers";
 			};
 			name = Release;
 		};
@@ -1079,7 +1079,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7605CF07240EC04D00460465 /* Build configuration list for PBXProject "MyGHFollowers" */ = {
+		7605CF07240EC04D00460465 /* Build configuration list for PBXProject "GitHubFollowers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7605CF34240EC05200460465 /* Debug */,
@@ -1088,7 +1088,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7605CF36240EC05200460465 /* Build configuration list for PBXNativeTarget "MyGHFollowers" */ = {
+		7605CF36240EC05200460465 /* Build configuration list for PBXNativeTarget "GitHubFollowers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7605CF37240EC05200460465 /* Debug */,
@@ -1097,7 +1097,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7605CF39240EC05200460465 /* Build configuration list for PBXNativeTarget "MyGHFollowersTests" */ = {
+		7605CF39240EC05200460465 /* Build configuration list for PBXNativeTarget "GitHubFollowersTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7605CF3A240EC05200460465 /* Debug */,
@@ -1106,7 +1106,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7605CF3C240EC05200460465 /* Build configuration list for PBXNativeTarget "MyGHFollowersUITests" */ = {
+		7605CF3C240EC05200460465 /* Build configuration list for PBXNativeTarget "GitHubFollowersUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7605CF3D240EC05200460465 /* Debug */,
