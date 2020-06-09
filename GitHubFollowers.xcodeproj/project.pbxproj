@@ -182,9 +182,9 @@
 		7605CF03240EC04D00460465 = {
 			isa = PBXGroup;
 			children = (
-				7605CF0E240EC04D00460465 /* MyGHFollowers */,
-				7605CF25240EC05200460465 /* MyGHFollowersTests */,
-				7605CF30240EC05200460465 /* MyGHFollowersUITests */,
+				7605CF0E240EC04D00460465 /* GitHubFollowers */,
+				7605CF25240EC05200460465 /* GitHubFollowersTests */,
+				7605CF30240EC05200460465 /* GitHubFollowersUITests */,
 				76E8ED03242BA624002427C5 /* CustomControlsTest */,
 				7605CF0D240EC04D00460465 /* Products */,
 			);
@@ -201,7 +201,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7605CF0E240EC04D00460465 /* MyGHFollowers */ = {
+		7605CF0E240EC04D00460465 /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
 				76263AE324325BB3003B553D /* Support */,
@@ -216,26 +216,26 @@
 				76263AE024325AD9003B553D /* Extensions */,
 				7605CF1D240EC05100460465 /* Info.plist */,
 			);
-			path = MyGHFollowers;
+			path = GitHubFollowers;
 			sourceTree = "<group>";
 		};
-		7605CF25240EC05200460465 /* MyGHFollowersTests */ = {
+		7605CF25240EC05200460465 /* GitHubFollowersTests */ = {
 			isa = PBXGroup;
 			children = (
 				7605CF28240EC05200460465 /* Info.plist */,
 				7605CF26240EC05200460465 /* MyGHFollowersTests.swift */,
 				762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */,
 			);
-			path = MyGHFollowersTests;
+			path = GitHubFollowersTests;
 			sourceTree = "<group>";
 		};
-		7605CF30240EC05200460465 /* MyGHFollowersUITests */ = {
+		7605CF30240EC05200460465 /* GitHubFollowersUITests */ = {
 			isa = PBXGroup;
 			children = (
 				7605CF31240EC05200460465 /* MyGHFollowersUITests.swift */,
 				7605CF33240EC05200460465 /* Info.plist */,
 			);
-			path = MyGHFollowersUITests;
+			path = GitHubFollowersUITests;
 			sourceTree = "<group>";
 		};
 		76263AE024325AD9003B553D /* Extensions */ = {
