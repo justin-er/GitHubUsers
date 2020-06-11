@@ -10,5 +10,6 @@ import Foundation
 
 protocol StringAnalyzerInput {
 	
-	func lookFor(prefix: String, value: String, in string: String) -> Bool
+	///For exampel, it cac look for "öaldkjfKEY=VALUEöakdjflöd"
+	func lookFor(key: String, value: String, in string: String) -> Bool
 }

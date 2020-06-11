@@ -10,9 +10,9 @@ import Foundation
 
 class StringAnalyzer: StringAnalyzerInput {
 	
-	func lookFor(prefix: String, value: String, in string: String) -> Bool {
+	func lookFor(key: String, value: String, in string: String) -> Bool {
 		
-		guard let range = string.range(of: prefix) else { return false }
+		guard let range = string.range(of: key) else { return false }
 		
 		let lastIndex = string.index(range.upperBound, offsetBy: 6, limitedBy: string.endIndex)
 		guard let endIndex = lastIndex else { return false }
@@ -22,7 +22,7 @@ class StringAnalyzer: StringAnalyzerInput {
 			return true
 		} else {
 			let suffix = string.suffix(from: endIndex)
-			return lookFor(prefix: prefix, value: value, in: String(suffix))
+			return lookFor(key: key, value: value, in: String(suffix))
 		}
 	}
 }

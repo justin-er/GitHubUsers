@@ -24,23 +24,6 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
 		self.stringAnalyzer = stringAnalyzer
 	}
 	
-	func lookForNext(string: String) -> Bool {
-		
-		guard let range = string.range(of: "rel=") else { return false }
-		
-		let lastIndex = string.index(range.upperBound, offsetBy: 6, limitedBy: string.endIndex)
-		guard let endIndex = lastIndex else { return false }
-		
-		let result = string[range.upperBound..<endIndex]
-		print(result)
-		if result == "\"next\"" {
-			return true
-		} else {
-			let suffix = string.suffix(from: endIndex)
-			return lookForNext(string: String(suffix))
-		}
-	}
-	
 	func getAvatar(for follower: Follower, completion: @escaping (Result<Follower, AvatarNetworkError>) -> Void) {
 
 		let endPoint = follower.avatarUrl
@@ -118,7 +101,7 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
 			}
 			
 			if let link = response.value(forHTTPHeaderField: "link") {
-				self.isMoreFollowers = self.stringAnalyzer.lookFor(prefix: "rel=", value: "\"next\"", in: link)
+				self.isMoreFollowers = self.stringAnalyzer.lookFor(key: "rel=", value: "\"next\"", in: link)
 			}
 			
             guard let data = data else {
