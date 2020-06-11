@@ -14,15 +14,29 @@ class FollowersViewController: UIViewController {
 		case main
 	}
     
-	var interactor: FollowersInteractorInput!
-	var collectionView: UICollectionView!
-	var dataSource: UICollectionViewDiffableDataSource<SectionType, FollowerViewModel>!
+	private var interactor: 			FollowersInteractorInput
+	private var loadingViewProvider: 	LoadingViewProviderInput
+	
+	var collectionView: 	UICollectionView!
+	var dataSource: 		UICollectionViewDiffableDataSource<SectionType, FollowerViewModel>!
 	
     var username: String! {
         didSet {
             title = username
         }
     }
+
+	init(followersInteractor: FollowersInteractorInput, loadingViewProvider: LoadingViewProviderInput) {
+		
+		self.interactor = followersInteractor
+		self.loadingViewProvider = loadingViewProvider
+		
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
 	deinit {
 		print("SearchViewController did deinitialized!")
@@ -35,6 +49,7 @@ class FollowersViewController: UIViewController {
 		configCollectionView()
 		configDataSource()
 		interactor.getFollowers(of: username)
+		loadingViewProvider.showLoading(on: self.view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,6 +120,9 @@ extension FollowersViewController: FollowersPresenterDelegate {
 	}
 	
 	fileprivate func processResult(_ result: Result<[FollowerViewModel], FollowerNetworkError>, type: CallbackType) {
+		
+		self.loadingViewProvider.dismissLoading()
+		
 		switch result {
 		case .failure(let follwerError):
 			switch follwerError {
@@ -141,14 +159,29 @@ extension FollowersViewController: FollowersPresenterDelegate {
 
 extension FollowersViewController: UICollectionViewDelegate {
 	
-	func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 		
 		let offsetY 		= scrollView.contentOffset.y
-		let height 			= scrollView.bounds.height
+		let height 			= scrollView.frame.height
 		let contentHeight 	= scrollView.contentSize.height
 		
 		if offsetY + height >= contentHeight {
 			if interactor.isMoreFollowers {
+				loadingViewProvider.showLoading(on: self.view)
+				interactor.getNextFollowers()
+			}
+		}
+	}
+	
+	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+		
+		let offsetY 		= scrollView.contentOffset.y
+		let height 			= scrollView.frame.height
+		let contentHeight 	= scrollView.contentSize.height
+		
+		if offsetY + height >= contentHeight && !decelerate {
+			if interactor.isMoreFollowers {
+				loadingViewProvider.showLoading(on: self.view)
 				interactor.getNextFollowers()
 			}
 		}

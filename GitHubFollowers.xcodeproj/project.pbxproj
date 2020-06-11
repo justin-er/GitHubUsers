@@ -22,6 +22,8 @@
 		763D408D248FDFE10024772A /* StringAnalyzerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D408B248FDFE10024772A /* StringAnalyzerInput.swift */; };
 		763D408E248FDFE10024772A /* StringAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D408C248FDFE10024772A /* StringAnalyzer.swift */; };
 		764BE4752421398700F617B5 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BE4742421398700F617B5 /* String+Ext.swift */; };
+		764FA218249230A50020C57A /* LoadingViewProviderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FA216249230A50020C57A /* LoadingViewProviderInput.swift */; };
+		764FA219249230A50020C57A /* LoadingViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FA217249230A50020C57A /* LoadingViewProvider.swift */; };
 		76644754246C71E000A80C1D /* FollowersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76644753246C71E000A80C1D /* FollowersInteractor.swift */; };
 		76644756246C71F400A80C1D /* FollowersInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76644755246C71F400A80C1D /* FollowersInteractorInput.swift */; };
 		76644758246C720800A80C1D /* FollowersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76644757246C720800A80C1D /* FollowersPresenter.swift */; };
@@ -108,6 +110,8 @@
 		763D408B248FDFE10024772A /* StringAnalyzerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringAnalyzerInput.swift; sourceTree = "<group>"; };
 		763D408C248FDFE10024772A /* StringAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringAnalyzer.swift; sourceTree = "<group>"; };
 		764BE4742421398700F617B5 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		764FA216249230A50020C57A /* LoadingViewProviderInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewProviderInput.swift; sourceTree = "<group>"; };
+		764FA217249230A50020C57A /* LoadingViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewProvider.swift; sourceTree = "<group>"; };
 		76644753246C71E000A80C1D /* FollowersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersInteractor.swift; sourceTree = "<group>"; };
 		76644755246C71F400A80C1D /* FollowersInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersInteractorInput.swift; sourceTree = "<group>"; };
 		76644757246C720800A80C1D /* FollowersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersPresenter.swift; sourceTree = "<group>"; };
@@ -294,8 +298,18 @@
 			isa = PBXGroup;
 			children = (
 				763D408F248FDFE80024772A /* StringAnalyzer */,
+				764FA21A249230AA0020C57A /* LoadingViewProvider */,
 			);
 			path = Gateways;
+			sourceTree = "<group>";
+		};
+		764FA21A249230AA0020C57A /* LoadingViewProvider */ = {
+			isa = PBXGroup;
+			children = (
+				764FA216249230A50020C57A /* LoadingViewProviderInput.swift */,
+				764FA217249230A50020C57A /* LoadingViewProvider.swift */,
+			);
+			path = LoadingViewProvider;
 			sourceTree = "<group>";
 		};
 		7664474F246C718B00A80C1D /* SearchFollowersScene */ = {
@@ -694,6 +708,7 @@
 				763D408D248FDFE10024772A /* StringAnalyzerInput.swift in Sources */,
 				76FE61112423B95100A9CF0C /* FollowersViewController.swift in Sources */,
 				76644758246C720800A80C1D /* FollowersPresenter.swift in Sources */,
+				764FA218249230A50020C57A /* LoadingViewProviderInput.swift in Sources */,
 				7605CF14240EC04E00460465 /* SearchViewController.swift in Sources */,
 				7677D33024791F77009EDAD1 /* Avatar.swift in Sources */,
 				7664475C246C726800A80C1D /* FollowersPresenterDelegate.swift in Sources */,
@@ -719,6 +734,7 @@
 				76E8ED18242BAEF9002427C5 /* AEBodyLabel.swift in Sources */,
 				7677D32E24791A08009EDAD1 /* AvatarNetworkError.swift in Sources */,
 				7605CF40240EC3D400460465 /* AETextField.swift in Sources */,
+				764FA219249230A50020C57A /* LoadingViewProvider.swift in Sources */,
 				76BC42EF2461C777003E099D /* AEAvatarImageView.swift in Sources */,
 				76D2B9AB242CD09C009B4D3B /* AEAlertViewController.swift in Sources */,
 				76BB82002461BE74000A16F6 /* FollowerNetworkProviderInput.swift in Sources */,

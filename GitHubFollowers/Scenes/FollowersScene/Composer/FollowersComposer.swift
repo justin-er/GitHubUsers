@@ -12,13 +12,14 @@ class FollowersViewControllerComposer {
 
 	static func makeModule() -> FollowersViewController {
 		
-		let viewController = FollowersViewController()
 		let stringAnalyzer = StringAnalyzer()
 		let followersProvider = FollowerNetworkProvider(session: NetworkManager.shared.session, stringAnalyzer: stringAnalyzer)
 		let interactor = FollowersInteractor(followersProvider: followersProvider)
 		let presenter = FollowersPresenter()
+		let loadingViewProvider = LoadingViewProvider()
 		
-		viewController.interactor = interactor
+		let viewController = FollowersViewController(followersInteractor: interactor,
+													 loadingViewProvider: loadingViewProvider)
 		interactor.delegate = presenter
 		presenter.delegate = viewController
 		
