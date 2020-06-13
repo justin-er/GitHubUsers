@@ -14,8 +14,9 @@ class FollowersViewController: UIViewController {
 		case main
 	}
     
-	private var interactor: 			FollowersInteractorInput
-	private var loadingViewProvider: 	LoadingViewProviderInput
+	private var interactor: 				FollowersInteractorInput
+	private var loadingViewProvider: 		LoadingViewProviderInput
+	private var emptyStateViewProvider:		EmptyStateViewProviderInput
 	
 	var collectionView: 	UICollectionView!
 	var dataSource: 		UICollectionViewDiffableDataSource<SectionType, FollowerViewModel>!
@@ -26,10 +27,11 @@ class FollowersViewController: UIViewController {
         }
     }
 
-	init(followersInteractor: FollowersInteractorInput, loadingViewProvider: LoadingViewProviderInput) {
+	init(followersInteractor: FollowersInteractorInput, loadingViewProvider: LoadingViewProviderInput, emptyStateViewProvider: EmptyStateViewProviderInput) {
 		
 		self.interactor = followersInteractor
 		self.loadingViewProvider = loadingViewProvider
+		self.emptyStateViewProvider = emptyStateViewProvider
 		
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -134,6 +136,14 @@ extension FollowersViewController: FollowersPresenterDelegate {
 		case .success(let followers):
 			switch type {
 			case .first:
+				if followers.isEmpty {
+					DispatchQueue.main.async { [weak self] in
+						guard let self = self else { return }
+						self.emptyStateViewProvider.showEmptyState(message: "There is no follower", on: self.view)
+					}
+					break
+				}
+				
 				var snapshot = NSDiffableDataSourceSnapshot<SectionType, FollowerViewModel>()
 				snapshot.appendSections([SectionType.main])
 				snapshot.appendItems(followers)
