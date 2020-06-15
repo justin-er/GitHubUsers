@@ -117,18 +117,21 @@ extension FollowersViewController: FollowersPresenterDelegate {
 	
 	func presenterDidGetAvater(_ presenter: FollowersPresenterInput, followerViewModel: FollowerViewModel) {
 		
-		guard let _ = followerViewModel.avatar else { return }
-		
-		var snapshot = dataSource.snapshot()
-		for follower in snapshot.itemIdentifiers {
-			if follower.id == followerViewModel.id {
-				follower.avatar = followerViewModel.avatar
-				snapshot.reloadItems([follower])
-				break
+		DispatchQueue.main.async { [weak self] in
+			guard let self = self else { return }
+			guard let _ = followerViewModel.avatar else { return }
+			
+			var snapshot = self.dataSource.snapshot()
+			for follower in snapshot.itemIdentifiers {
+				if follower.id == followerViewModel.id {
+					follower.avatar = followerViewModel.avatar
+					snapshot.reloadItems([follower])
+					break
+				}
 			}
+			
+			self.dataSource.apply(snapshot)
 		}
-		
-		dataSource.apply(snapshot)
 	}
 	
 	fileprivate func processResult(_ result: Result<[FollowerViewModel], FollowerNetworkError>, type: CallbackType) {
@@ -146,19 +149,31 @@ extension FollowersViewController: FollowersPresenterDelegate {
 		case .success(let followers):
 			switch type {
 			case .first, .next:
-				if followers.isEmpty {
-					DispatchQueue.main.async { [weak self] in
-						guard let self = self else { return }
-						self.emptyStateViewProvider.showEmptyState(message: "There is no follower", on: self.view)
-					}
-					break
-				}
-				
-				var snapshot = NSDiffableDataSourceSnapshot<SectionType, FollowerViewModel>()
-				snapshot.appendSections([SectionType.main])
-				snapshot.appendItems(followers)
-				self.dataSource.apply(snapshot)
+				updateUI(followers: followers, emptyStateMessage: "There is no follower")
 			}
+		}
+	}
+	
+	private func updateUI(followers: [FollowerViewModel], emptyStateMessage: String) {
+		
+		if followers.isEmpty {
+			DispatchQueue.main.async { [weak self] in
+				guard let self = self else { return }
+				var snapshot = self.dataSource.snapshot()
+				snapshot.deleteAllItems()
+				self.dataSource.apply(snapshot)
+				
+				self.emptyStateViewProvider.showEmptyState(message: emptyStateMessage, on: self.view)
+			}
+			return
+		}
+		
+		DispatchQueue.main.async {
+			self.emptyStateViewProvider.dismissEmptyState()
+			var snapshot = NSDiffableDataSourceSnapshot<SectionType, FollowerViewModel>()
+			snapshot.appendSections([SectionType.main])
+			snapshot.appendItems(followers)
+			self.dataSource.apply(snapshot)
 		}
 	}
 	
@@ -209,17 +224,22 @@ extension FollowersViewController: UISearchResultsUpdating {
 	func updateSearchResults(for searchController: UISearchController) {
 		
 		guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+			let followers = presenter.cancelFilter()
+			updateUI(followers: followers, emptyStateMessage: "There is no follower")
 			return
 		}
 		
-		print(filter)
+		let followers = presenter.filter(with: filter)
+		updateUI(followers: followers, emptyStateMessage: "No matching follower!")
 	}
 }
 
 extension FollowersViewController: UISearchBarDelegate {
 	
 	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-		print("cancel button tapped")
+	
+		let followers = presenter.cancelFilter()
+		updateUI(followers: followers, emptyStateMessage: "There is no follower")
 	}
 }
 

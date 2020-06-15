@@ -18,7 +18,7 @@ class FollowersPresenter: FollowersPresenterInput {
 		
 		guard !filter.isEmpty else { return followerViewModels }
 		
-		return followerViewModels.filter() { $0.login.contains(filter) }
+		return followerViewModels.filter() { $0.login.lowercased().contains(filter.lowercased()) }
 	}
 	
 	func cancelFilter() -> [FollowerViewModel] {
