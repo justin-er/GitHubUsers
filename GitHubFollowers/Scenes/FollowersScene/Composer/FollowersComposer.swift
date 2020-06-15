@@ -21,6 +21,7 @@ class FollowersViewControllerComposer {
 		
 		let viewController = FollowersViewController(followersInteractor: interactor,
 													 loadingViewProvider: loadingViewProvider,
+													 presenter: presenter,
 													 emptyStateViewProvider: emptyStateProvider)
 		interactor.delegate = presenter
 		presenter.delegate = viewController

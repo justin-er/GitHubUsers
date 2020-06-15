@@ -10,5 +10,8 @@ import Foundation
 
 protocol FollowersPresenterInput {
 	
+	func filter(with filter: String) -> [FollowerViewModel]
+	
+	func cancelFilter() -> [FollowerViewModel]
 }
 

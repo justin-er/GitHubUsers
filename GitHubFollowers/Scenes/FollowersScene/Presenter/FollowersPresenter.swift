@@ -11,6 +11,20 @@ import Foundation
 class FollowersPresenter: FollowersPresenterInput {
 	
 	weak var delegate: FollowersPresenterDelegate?
+	
+	var followerViewModels = [FollowerViewModel]()
+	
+	func filter(with filter: String) -> [FollowerViewModel] {
+		
+		guard !filter.isEmpty else { return followerViewModels }
+		
+		return followerViewModels.filter() { $0.login.contains(filter) }
+	}
+	
+	func cancelFilter() -> [FollowerViewModel] {
+		
+		return followerViewModels
+	}
 }
 
 extension FollowersPresenter: FollowersInteractorDelegate {
@@ -24,13 +38,16 @@ extension FollowersPresenter: FollowersInteractorDelegate {
 		case .failure(let error):
 			delegate?.presenterDidGet(result: Result.failure(error))
 		case .success(let followers):
-			let followerViewModels = followers.map { follower -> FollowerViewModel in
+			let newFollowerViewModels = followers.map { follower -> FollowerViewModel in
 				return FollowerViewModel(with: follower)
 			}
 			switch type {
 			case .first:
+				followerViewModels.removeAll()
+				followerViewModels.append(contentsOf: newFollowerViewModels)
 				delegate?.presenterDidGet(result: Result.success(followerViewModels))
 			case .next:
+				followerViewModels.append(contentsOf: newFollowerViewModels)
 				delegate?.presenterDidGetNext(result: Result.success(followerViewModels))
 			}
 		}

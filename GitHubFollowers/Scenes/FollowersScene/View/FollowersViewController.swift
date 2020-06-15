@@ -16,6 +16,7 @@ class FollowersViewController: UIViewController {
     
 	private var interactor: 				FollowersInteractorInput
 	private var loadingViewProvider: 		LoadingViewProviderInput
+	private let presenter:					FollowersPresenterInput
 	private var emptyStateViewProvider:		EmptyStateViewProviderInput
 	
 	var collectionView: 	UICollectionView!
@@ -27,11 +28,12 @@ class FollowersViewController: UIViewController {
         }
     }
 
-	init(followersInteractor: FollowersInteractorInput, loadingViewProvider: LoadingViewProviderInput, emptyStateViewProvider: EmptyStateViewProviderInput) {
+	init(followersInteractor: FollowersInteractorInput, loadingViewProvider: LoadingViewProviderInput, presenter: FollowersPresenterInput, emptyStateViewProvider: EmptyStateViewProviderInput) {
 		
-		self.interactor = followersInteractor
-		self.loadingViewProvider = loadingViewProvider
-		self.emptyStateViewProvider = emptyStateViewProvider
+		self.interactor 				= followersInteractor
+		self.loadingViewProvider 		= loadingViewProvider
+		self.emptyStateViewProvider 	= emptyStateViewProvider
+		self.presenter 					= presenter
 		
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -48,6 +50,7 @@ class FollowersViewController: UIViewController {
         
         super.viewDidLoad()
 		configViewConroller()
+		configSearchBar()
 		configCollectionView()
 		configDataSource()
 		interactor.getFollowers(of: username)
@@ -72,6 +75,13 @@ class FollowersViewController: UIViewController {
 		collectionView.register(FollowerCollectionViewCell.self, forCellWithReuseIdentifier: FollowerCollectionViewCell.reuseIdentifier)
 		
 		collectionView.delegate = self
+	}
+	
+	func configSearchBar() {
+		let searchController = UISearchController()
+		searchController.searchResultsUpdater = self
+		searchController.searchBar.delegate = self
+		navigationItem.searchController = searchController
 	}
 	
 	var firstItem = false
@@ -135,7 +145,7 @@ extension FollowersViewController: FollowersPresenterDelegate {
 			}
 		case .success(let followers):
 			switch type {
-			case .first:
+			case .first, .next:
 				if followers.isEmpty {
 					DispatchQueue.main.async { [weak self] in
 						guard let self = self else { return }
@@ -146,10 +156,6 @@ extension FollowersViewController: FollowersPresenterDelegate {
 				
 				var snapshot = NSDiffableDataSourceSnapshot<SectionType, FollowerViewModel>()
 				snapshot.appendSections([SectionType.main])
-				snapshot.appendItems(followers)
-				self.dataSource.apply(snapshot)
-			case .next:
-				var snapshot = self.dataSource.snapshot()
 				snapshot.appendItems(followers)
 				self.dataSource.apply(snapshot)
 			}
@@ -197,3 +203,23 @@ extension FollowersViewController: UICollectionViewDelegate {
 		}
 	}
 }
+
+extension FollowersViewController: UISearchResultsUpdating {
+	
+	func updateSearchResults(for searchController: UISearchController) {
+		
+		guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+			return
+		}
+		
+		print(filter)
+	}
+}
+
+extension FollowersViewController: UISearchBarDelegate {
+	
+	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+		print("cancel button tapped")
+	}
+}
+
