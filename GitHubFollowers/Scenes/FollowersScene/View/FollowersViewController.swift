@@ -27,7 +27,7 @@ class FollowersViewController: UIViewController {
             title = username
         }
     }
-
+	
 	init(followersInteractor: FollowersInteractorInput, loadingViewProvider: LoadingViewProviderInput, presenter: FollowersPresenterInput, emptyStateViewProvider: EmptyStateViewProviderInput) {
 		
 		self.interactor 				= followersInteractor
