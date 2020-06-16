@@ -190,6 +190,13 @@ extension FollowersViewController: FollowersPresenterDelegate {
 
 extension FollowersViewController: UICollectionViewDelegate {
 	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		
+		guard let selectedViewModel = self.dataSource.itemIdentifier(for: indexPath) else { return }
+		let userNavigationController = UserNavigationControllerComposer.makeModule(follower: selectedViewModel)
+		present(userNavigationController, animated: true)
+	}
+	
 	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 		
 		let offsetY 		= scrollView.contentOffset.y
