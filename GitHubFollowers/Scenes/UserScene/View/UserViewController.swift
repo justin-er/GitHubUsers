@@ -44,3 +44,22 @@ class UserViewController: UIViewController {
 	}
 
 }
+
+extension UserViewController: UserPresenterDelegate {
+	
+	func presenterDidGet(result: Result<UserViewModel, UserNetworkError>) {
+		
+		switch result {
+		case .failure(let userNetworkError):
+			switch userNetworkError {
+			case .invalidUsername:
+				self.presentAEAlert(title: "Error", message: "Ivalid username!", buttonTitle: "OK")
+			case .unableToComplete:
+				self.presentAEAlert(title: "Error", message: "Unable to complete. Try again.", buttonTitle: "OK")
+			}
+		case .success(let userViewModel):
+			print(userViewModel)
+		}
+	}
+	
+}

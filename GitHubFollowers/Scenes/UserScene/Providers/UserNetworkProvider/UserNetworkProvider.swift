@@ -50,7 +50,6 @@ class UserNetworkProvider: UserNetworkProviderInput {
             
             do {
                 let decoder = JSONDecoder()
-				print(data)
                 let userNetworkModel = try decoder.decode(UserNetworkModel.self, from: data)
 				
 				guard let user = userNetworkModel.makeUser() else {

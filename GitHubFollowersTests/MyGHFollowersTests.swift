@@ -8,7 +8,7 @@
 
 import XCTest
 import UIKit
-@testable import MyGHFollowers
+@testable import GitHubFollowers
 
 class MyGHFollowersTests: XCTestCase {
 

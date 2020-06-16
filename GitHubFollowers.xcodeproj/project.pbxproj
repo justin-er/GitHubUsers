@@ -74,10 +74,10 @@
 		76E9B88124991F240049D996 /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9B87F24991F240049D996 /* UserInteractor.swift */; };
 		76E9B88524991F590049D996 /* UserNetworkProviderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9B88324991F590049D996 /* UserNetworkProviderInput.swift */; };
 		76E9B88624991F590049D996 /* UserNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9B88424991F590049D996 /* UserNetworkProvider.swift */; };
-		76E9B88F24991FD30049D996 /* UserInfoPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9B88D24991FD30049D996 /* UserInfoPresenterInput.swift */; };
-		76E9B89024991FD30049D996 /* UserInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9B88E24991FD30049D996 /* UserInfoPresenter.swift */; };
+		76E9B88F24991FD30049D996 /* UserPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9B88D24991FD30049D996 /* UserPresenterInput.swift */; };
+		76E9B89024991FD30049D996 /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9B88E24991FD30049D996 /* UserPresenter.swift */; };
 		76E9B893249920320049D996 /* UserInteractorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9B892249920320049D996 /* UserInteractorDelegate.swift */; };
-		76E9B8952499206C0049D996 /* UserInfoPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9B8942499206C0049D996 /* UserInfoPresenterDelegate.swift */; };
+		76E9B8952499206C0049D996 /* UserPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9B8942499206C0049D996 /* UserPresenterDelegate.swift */; };
 		76E9B897249921430049D996 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9B896249921430049D996 /* UserViewModel.swift */; };
 		76E9B899249922B80049D996 /* UserNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9B898249922B80049D996 /* UserNetworkError.swift */; };
 		76EAB84D244E00790093B7D2 /* ProjectBrief.md in Resources */ = {isa = PBXBuildFile; fileRef = 76EAB84C244E00790093B7D2 /* ProjectBrief.md */; };
@@ -169,10 +169,10 @@
 		76E9B87F24991F240049D996 /* UserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
 		76E9B88324991F590049D996 /* UserNetworkProviderInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkProviderInput.swift; sourceTree = "<group>"; };
 		76E9B88424991F590049D996 /* UserNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkProvider.swift; sourceTree = "<group>"; };
-		76E9B88D24991FD30049D996 /* UserInfoPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoPresenterInput.swift; sourceTree = "<group>"; };
-		76E9B88E24991FD30049D996 /* UserInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoPresenter.swift; sourceTree = "<group>"; };
+		76E9B88D24991FD30049D996 /* UserPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenterInput.swift; sourceTree = "<group>"; };
+		76E9B88E24991FD30049D996 /* UserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
 		76E9B892249920320049D996 /* UserInteractorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractorDelegate.swift; sourceTree = "<group>"; };
-		76E9B8942499206C0049D996 /* UserInfoPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoPresenterDelegate.swift; sourceTree = "<group>"; };
+		76E9B8942499206C0049D996 /* UserPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenterDelegate.swift; sourceTree = "<group>"; };
 		76E9B896249921430049D996 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		76E9B898249922B80049D996 /* UserNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkError.swift; sourceTree = "<group>"; };
 		76EAB84C244E00790093B7D2 /* ProjectBrief.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ProjectBrief.md; sourceTree = "<group>"; };
@@ -537,8 +537,8 @@
 			children = (
 				7664474F246C718B00A80C1D /* SearchFollowersScene */,
 				76644750246C719300A80C1D /* FollowersScene */,
-				76644751246C719E00A80C1D /* FavoritesScene */,
 				76472136249913E200B409A8 /* UserScene */,
+				76644751246C719E00A80C1D /* FavoritesScene */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -624,9 +624,9 @@
 		76E9B89124991FD60049D996 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				76E9B88D24991FD30049D996 /* UserInfoPresenterInput.swift */,
-				76E9B88E24991FD30049D996 /* UserInfoPresenter.swift */,
-				76E9B8942499206C0049D996 /* UserInfoPresenterDelegate.swift */,
+				76E9B88D24991FD30049D996 /* UserPresenterInput.swift */,
+				76E9B88E24991FD30049D996 /* UserPresenter.swift */,
+				76E9B8942499206C0049D996 /* UserPresenterDelegate.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -868,12 +868,12 @@
 				7664C04C2461D3D1007CE942 /* FollowerCollectionViewCell.swift in Sources */,
 				76BC42E92461C215003E099D /* User.swift in Sources */,
 				76BB81FC2461BCFC000A16F6 /* NetworkSettings.swift in Sources */,
-				76E9B89024991FD30049D996 /* UserInfoPresenter.swift in Sources */,
+				76E9B89024991FD30049D996 /* UserPresenter.swift in Sources */,
 				76BB81FE2461BD49000A16F6 /* FollowerNetworkProvider.swift in Sources */,
 				764FA22324925CA40020C57A /* EmptyStateViewProvider.swift in Sources */,
-				76E9B8952499206C0049D996 /* UserInfoPresenterDelegate.swift in Sources */,
+				76E9B8952499206C0049D996 /* UserPresenterDelegate.swift in Sources */,
 				76EAB850244E018A0093B7D2 /* UserNetworkModel.swift in Sources */,
-				76E9B88F24991FD30049D996 /* UserInfoPresenterInput.swift in Sources */,
+				76E9B88F24991FD30049D996 /* UserPresenterInput.swift in Sources */,
 				76E9B88624991F590049D996 /* UserNetworkProvider.swift in Sources */,
 				7605CF4B240EDB3600460465 /* AEButton.swift in Sources */,
 				76E9B87D249916640049D996 /* UserNavigationControllerComposer.swift in Sources */,
@@ -1135,7 +1135,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S7T2CRG623;
-				INFOPLIST_FILE = MyGHFollowersTests/Info.plist;
+				INFOPLIST_FILE = GitHubFollowersTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1157,7 +1157,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S7T2CRG623;
-				INFOPLIST_FILE = MyGHFollowersTests/Info.plist;
+				INFOPLIST_FILE = GitHubFollowersTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1178,7 +1178,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S7T2CRG623;
-				INFOPLIST_FILE = MyGHFollowersUITests/Info.plist;
+				INFOPLIST_FILE = GitHubFollowersUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1198,7 +1198,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S7T2CRG623;
-				INFOPLIST_FILE = MyGHFollowersUITests/Info.plist;
+				INFOPLIST_FILE = GitHubFollowersUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

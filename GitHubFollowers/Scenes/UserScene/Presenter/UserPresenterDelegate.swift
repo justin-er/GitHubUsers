@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol UserPresenterDelegate {
+protocol UserPresenterDelegate: class {
 	
-	func presenterDidGet(user: UserViewModel)
+	func presenterDidGet(result: Result<UserViewModel, UserNetworkError>)
 }
 

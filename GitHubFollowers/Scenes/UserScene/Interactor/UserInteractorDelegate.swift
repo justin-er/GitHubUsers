@@ -10,6 +10,6 @@ import Foundation
 
 protocol UserInteractorDelegate {
 	
-	func interactoreDidGet(user: User)
+	func interactorDidGet(result: Result<User, UserNetworkError>)
 }
 

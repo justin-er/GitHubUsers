@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import MyGHFollowers
+@testable import GitHubFollowers
 
 class RemoteFollowersProviderTest: XCTestCase {
 
@@ -23,8 +23,10 @@ class RemoteFollowersProviderTest: XCTestCase {
     func testFetchFollowers() throws {
         let loadingFollowersExpectation = expectation(description: "Waiting for fetching followers")
         
-		let provider = FollowerNetwrokProvider()
-		provider.fetchFollowers(of: "octocat", pageNumber: 1) { result in
+		
+		let provider = FollowerNetworkProvider(session: URLSession.shared, stringAnalyzer: StringAnalyzer())
+		
+		provider.getFollowers(of: "octocat") { result in
             switch result {
             case let .failure(error):
                 print(error)

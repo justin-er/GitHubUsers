@@ -11,17 +11,19 @@ import Foundation
 class UserInteractor: UserInteractorInput {
 	
 	private let userNetworkProvider: UserNetworkProviderInput
+	var delegate: UserInteractorDelegate?
 	
-	init(userNetworkProvider: UserNetworkProviderInput) {
+	init(userNetworkProvider: UserNetworkProviderInput, delegate: UserInteractorDelegate) {
 		
 		self.userNetworkProvider = userNetworkProvider
+		self.delegate = delegate
 	}
 	
 	func getUser(username: String) {
 		
 		userNetworkProvider.getUser(username: username) { result in
 			
-			print(result)
+			self.delegate?.interactorDidGet(result: result)
 		}
 	}
 }
