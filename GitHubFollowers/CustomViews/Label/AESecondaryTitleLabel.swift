@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AETitleLabel: UILabel {
+class AESecondaryTitleLabel: UILabel {
 
     required init?(coder: NSCoder) {
         fatalError("This control should not be used in Storyboads!")
@@ -23,7 +23,7 @@ class AETitleLabel: UILabel {
         self.init(frame: .zero)
         
         self.textAlignment = textAlignment
-        self.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
+        self.font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
         config()
     }
     

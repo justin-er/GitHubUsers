@@ -47,6 +47,8 @@
 		769A4F36248BE01100B59077 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A4F35248BE01100B59077 /* NetworkManager.swift */; };
 		76A64B4F2434678100298B20 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BE4742421398700F617B5 /* String+Ext.swift */; };
 		76A64B502434679A00298B20 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766E098A2430B5CE001BF527 /* UIViewController+Ext.swift */; };
+		76B1CDDB249A78950092F8B6 /* AESecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B1CDD8249A78950092F8B6 /* AESecondaryTitleLabel.swift */; };
+		76B1CDDC249A789F0092F8B6 /* AESecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B1CDD8249A78950092F8B6 /* AESecondaryTitleLabel.swift */; };
 		76B3468C2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */; };
 		76BB81FC2461BCFC000A16F6 /* NetworkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FB2461BCFC000A16F6 /* NetworkSettings.swift */; };
 		76BB81FE2461BD49000A16F6 /* FollowerNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FD2461BD49000A16F6 /* FollowerNetworkProvider.swift */; };
@@ -145,6 +147,7 @@
 		7677D32F24791F77009EDAD1 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		7677D33124792985009EDAD1 /* FollowersPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersPresenterInput.swift; sourceTree = "<group>"; };
 		769A4F35248BE01100B59077 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		76B1CDD8249A78950092F8B6 /* AESecondaryTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AESecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeColumnFlowLayout.swift; sourceTree = "<group>"; };
 		76BB81FB2461BCFC000A16F6 /* NetworkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettings.swift; sourceTree = "<group>"; };
 		76BB81FD2461BD49000A16F6 /* FollowerNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkProvider.swift; sourceTree = "<group>"; };
@@ -400,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				76E8ECFC242BA1BA002427C5 /* AETitleLabel.swift */,
+				76B1CDD8249A78950092F8B6 /* AESecondaryTitleLabel.swift */,
 				76E8ED17242BAEF9002427C5 /* AEBodyLabel.swift */,
 			);
 			path = Label;
@@ -857,6 +861,7 @@
 				7677D33024791F77009EDAD1 /* Avatar.swift in Sources */,
 				7664475C246C726800A80C1D /* FollowersPresenterDelegate.swift in Sources */,
 				7677D33224792985009EDAD1 /* FollowersPresenterInput.swift in Sources */,
+				76B1CDDB249A78950092F8B6 /* AESecondaryTitleLabel.swift in Sources */,
 				7605CF10240EC04D00460465 /* AppDelegate.swift in Sources */,
 				7616BA77241D576400E2E0FE /* FavoriteViewController.swift in Sources */,
 				76E9B88524991F590049D996 /* UserNetworkProviderInput.swift in Sources */,
@@ -928,6 +933,7 @@
 				76D2B9B6242CEB4D009B4D3B /* AEBodyLabel.swift in Sources */,
 				76D2B9B7242CEB4D009B4D3B /* AEAlertViewController.swift in Sources */,
 				76E8ED07242BA624002427C5 /* SceneDelegate.swift in Sources */,
+				76B1CDDC249A789F0092F8B6 /* AESecondaryTitleLabel.swift in Sources */,
 				76D2B9B5242CEB4D009B4D3B /* AETitleLabel.swift in Sources */,
 				7664C0482461CA0B007CE942 /* AEAvatarImageView.swift in Sources */,
 				76D2B9B4242CEB4D009B4D3B /* AEButton.swift in Sources */,
