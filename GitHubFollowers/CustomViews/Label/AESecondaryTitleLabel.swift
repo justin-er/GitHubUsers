@@ -18,11 +18,10 @@ class AESecondaryTitleLabel: UILabel {
         super.init(frame: frame)
     }
     
-    convenience init(textAlignment: NSTextAlignment, fontSize: CGFloat) {
+    convenience init(fontSize: CGFloat) {
         
         self.init(frame: .zero)
-        
-        self.textAlignment = textAlignment
+
         self.font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
         config()
     }

@@ -49,6 +49,7 @@
 		76A64B502434679A00298B20 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766E098A2430B5CE001BF527 /* UIViewController+Ext.swift */; };
 		76B1CDDB249A78950092F8B6 /* AESecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B1CDD8249A78950092F8B6 /* AESecondaryTitleLabel.swift */; };
 		76B1CDDC249A789F0092F8B6 /* AESecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B1CDD8249A78950092F8B6 /* AESecondaryTitleLabel.swift */; };
+		76B1CDDE249A79400092F8B6 /* UserHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B1CDDD249A79400092F8B6 /* UserHeaderViewController.swift */; };
 		76B3468C2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */; };
 		76BB81FC2461BCFC000A16F6 /* NetworkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FB2461BCFC000A16F6 /* NetworkSettings.swift */; };
 		76BB81FE2461BD49000A16F6 /* FollowerNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FD2461BD49000A16F6 /* FollowerNetworkProvider.swift */; };
@@ -148,6 +149,7 @@
 		7677D33124792985009EDAD1 /* FollowersPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersPresenterInput.swift; sourceTree = "<group>"; };
 		769A4F35248BE01100B59077 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		76B1CDD8249A78950092F8B6 /* AESecondaryTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AESecondaryTitleLabel.swift; sourceTree = "<group>"; };
+		76B1CDDD249A79400092F8B6 /* UserHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderViewController.swift; sourceTree = "<group>"; };
 		76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeColumnFlowLayout.swift; sourceTree = "<group>"; };
 		76BB81FB2461BCFC000A16F6 /* NetworkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettings.swift; sourceTree = "<group>"; };
 		76BB81FD2461BD49000A16F6 /* FollowerNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkProvider.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				76472134249913DD00B409A8 /* UserViewController.swift */,
+				76B1CDDD249A79400092F8B6 /* UserHeaderViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -885,6 +888,7 @@
 				76EDE62424334482002AE6FD /* FollowerNetowrkModel.swift in Sources */,
 				76B3468C2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift in Sources */,
 				7605CF12240EC04E00460465 /* SceneDelegate.swift in Sources */,
+				76B1CDDE249A79400092F8B6 /* UserHeaderViewController.swift in Sources */,
 				763D408E248FDFE10024772A /* StringAnalyzer.swift in Sources */,
 				76E9B88124991F240049D996 /* UserInteractor.swift in Sources */,
 				76644765246C766200A80C1D /* FollowerViewModel.swift in Sources */,
