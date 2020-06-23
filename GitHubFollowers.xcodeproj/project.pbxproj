@@ -41,6 +41,9 @@
 		7664C04D2461D3D1007CE942 /* FollowerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7664C04B2461D3D1007CE942 /* FollowerCollectionViewCell.swift */; };
 		766E098B2430B5CE001BF527 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766E098A2430B5CE001BF527 /* UIViewController+Ext.swift */; };
 		766E098F2430DE26001BF527 /* Another.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766E098E2430DE26001BF527 /* Another.storyboard */; };
+		7675BEA6249E758A0065E731 /* FollowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76644764246C766200A80C1D /* FollowerViewModel.swift */; };
+		7675BEA7249E75B20065E731 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7677D32F24791F77009EDAD1 /* Avatar.swift */; };
+		7675BEA8249E75B70065E731 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BC42E62461C20A003E099D /* Follower.swift */; };
 		7677D32E24791A08009EDAD1 /* AvatarNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7677D32D24791A08009EDAD1 /* AvatarNetworkError.swift */; };
 		7677D33024791F77009EDAD1 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7677D32F24791F77009EDAD1 /* Avatar.swift */; };
 		7677D33224792985009EDAD1 /* FollowersPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7677D33124792985009EDAD1 /* FollowersPresenterInput.swift */; };
@@ -929,8 +932,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7675BEA6249E758A0065E731 /* FollowerViewModel.swift in Sources */,
 				7664C04D2461D3D1007CE942 /* FollowerCollectionViewCell.swift in Sources */,
 				76A64B4F2434678100298B20 /* String+Ext.swift in Sources */,
+				7675BEA8249E75B70065E731 /* Follower.swift in Sources */,
+				7675BEA7249E75B20065E731 /* Avatar.swift in Sources */,
 				76E8ED09242BA624002427C5 /* ViewController.swift in Sources */,
 				76A64B502434679A00298B20 /* UIViewController+Ext.swift in Sources */,
 				76E8ED05242BA624002427C5 /* AppDelegate.swift in Sources */,

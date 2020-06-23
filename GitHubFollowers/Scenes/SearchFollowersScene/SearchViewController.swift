@@ -10,19 +10,26 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    let logoImageView = UIImageView()
-    let textField = AETextField()
-    let callToActionButton = AEButton(backgroundColor: UIColor.systemGreen, text: "Get followers")
+	let scrollView 			= UIScrollView(frame: .zero)
+	let contentView			= UIView(frame: .zero)
+    let logoImageView 		= UIImageView()
+    let textField 			= AETextField()
+    let callToActionButton 	= AEButton(backgroundColor: UIColor.systemGreen, text: "Get followers")
     
-    override func viewDidLoad() {
+	var activeTextField: UITextField!
+	
+	override func viewDidLoad() {
         
         super.viewDidLoad()
-        view.backgroundColor = UIColor.secondarySystemBackground
-        
+		
+		configViewController()
+		configScrollView()
+		configContentView()
         configLogoImageView()
         configTextField()
         configCallToActionButton()
         configDismissKeyboadTabGesture()
+		registerForKeyboardNotifications()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +37,40 @@ class SearchViewController: UIViewController {
 //        navigationController?.navigationBar.isHidden = true
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
-    
+	
+	func registerForKeyboardNotifications(){
+		//Adding notifies on keyboard appearing
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIWindow.keyboardWillShowNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIWindow.keyboardWillHideNotification, object: nil)
+	}
+	
+	@objc
+	func keyboardWillShow(notification: NSNotification) {
+		
+		guard let keyboareRect =  notification.userInfo?[UIWindow.keyboardFrameBeginUserInfoKey] as? CGRect else { return }
+		let keyboardSize = keyboareRect.size
+		
+		let insets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+		scrollView.contentInset = insets
+		scrollView.scrollIndicatorInsets = insets
+		
+		var aRect = self.view.frame
+		aRect.size.height -= keyboardSize.height
+		
+		guard let activeTextField = self.activeTextField else { return }
+		
+		if !aRect.contains(activeTextField.frame.origin) {
+			scrollView.scrollRectToVisible(activeTextField.frame, animated: true)
+		}
+	}
+	
+	@objc
+	func keyboardWillHide(notification: NSNotification) {
+		
+		scrollView.contentInset = UIEdgeInsets.zero
+		scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+	}
+
     @objc func actionButtonTapped() {
         pushFollowersListViewController()
     }
@@ -58,31 +98,64 @@ class SearchViewController: UIViewController {
     }
     
     @objc func endEdit() {
+		
         view.endEditing(true)
     }
+	
+	private func configViewController() {
+		
+		view.backgroundColor = UIColor.secondarySystemBackground
+	}
+	
+	func configScrollView() {
+		
+		scrollView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(scrollView)
+		NSLayoutConstraint.activate([
+			scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+			scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+			scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+		])
+	}
+	
+	func configContentView() {
+
+		scrollView.addSubview(contentView)
+		contentView.translatesAutoresizingMaskIntoConstraints = false
+		
+		NSLayoutConstraint.activate([
+			contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+			contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+			contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+			contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+			contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+		])
+	}
     
     func configLogoImageView() {
         
-        view.addSubview(logoImageView)
+        contentView.addSubview(logoImageView)
         logoImageView.image = UIImage(named: "Logo")
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 80),
-            logoImageView.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
+			logoImageView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor, constant: 80),
+			logoImageView.centerXAnchor.constraint(equalTo: contentView.layoutMarginsGuide.centerXAnchor),
             logoImageView.heightAnchor.constraint(equalToConstant: 200),
             logoImageView.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
     
     func configTextField() {
-        view.addSubview(textField)
+        contentView.addSubview(textField)
 		textField.text = "sallen0400"
+		textField.isUserInteractionEnabled = true
         
         NSLayoutConstraint.activate([
-            textField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
-            textField.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            textField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            textField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 100),
+            textField.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            textField.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
             textField.heightAnchor.constraint(equalToConstant: 50)
         ])
         
@@ -91,13 +164,15 @@ class SearchViewController: UIViewController {
     
     func configCallToActionButton() {
 
-        view.addSubview(callToActionButton)
+        contentView.addSubview(callToActionButton)
         
         NSLayoutConstraint.activate([
-            callToActionButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -50),
-            callToActionButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            callToActionButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            callToActionButton.heightAnchor.constraint(equalToConstant: 50)
+			callToActionButton.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 50),
+            callToActionButton.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            callToActionButton.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+			callToActionButton.heightAnchor.constraint(equalToConstant: 50),
+			callToActionButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50),
+            
         ])
         
         callToActionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
@@ -114,4 +189,12 @@ extension SearchViewController: UITextFieldDelegate {
         
         return true
     }
+	
+	func textFieldDidBeginEditing(_ textField: UITextField) {
+		activeTextField = textField
+	}
+	
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		activeTextField = nil
+	}
 }
