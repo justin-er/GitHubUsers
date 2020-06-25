@@ -12,6 +12,7 @@ class UserViewController: UIViewController {
 	
 	private var follower: FollowerViewModel
 	private var interactor: UserInteractorInput
+	private var headerContentView = UIView()
 	
 	init(follower: FollowerViewModel, interactor: UserInteractorInput) {
 		
@@ -29,8 +30,23 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
 		title = follower.login
         configViewController()
+		configHeaderContentView()
 		interactor.getUser(username: self.follower.login)
     }
+	
+	func configHeaderContentView() {
+		
+		headerContentView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(headerContentView)
+		headerContentView.backgroundColor = UIColor.systemPink
+		
+		NSLayoutConstraint.activate([
+			headerContentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+			headerContentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+			headerContentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+			headerContentView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -300)
+		])
+	}
 
 	func configViewController() {
 		self.view.backgroundColor = UIColor.systemBackground
