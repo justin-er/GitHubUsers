@@ -54,6 +54,7 @@
 		76B1CDDC249A789F0092F8B6 /* AESecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B1CDD8249A78950092F8B6 /* AESecondaryTitleLabel.swift */; };
 		76B1CDDE249A79400092F8B6 /* UserHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B1CDDD249A79400092F8B6 /* UserHeaderViewController.swift */; };
 		76B3468C2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */; };
+		76B7691824A6006200582EBC /* UserHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B7691724A6006200582EBC /* UserHeaderViewModel.swift */; };
 		76BB81FC2461BCFC000A16F6 /* NetworkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FB2461BCFC000A16F6 /* NetworkSettings.swift */; };
 		76BB81FE2461BD49000A16F6 /* FollowerNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FD2461BD49000A16F6 /* FollowerNetworkProvider.swift */; };
 		76BB82002461BE74000A16F6 /* FollowerNetworkProviderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FF2461BE74000A16F6 /* FollowerNetworkProviderInput.swift */; };
@@ -88,6 +89,7 @@
 		76E9B899249922B80049D996 /* UserNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9B898249922B80049D996 /* UserNetworkError.swift */; };
 		76EAB84D244E00790093B7D2 /* ProjectBrief.md in Resources */ = {isa = PBXBuildFile; fileRef = 76EAB84C244E00790093B7D2 /* ProjectBrief.md */; };
 		76EAB850244E018A0093B7D2 /* UserNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EAB84F244E018A0093B7D2 /* UserNetworkModel.swift */; };
+		76ECF88E24A5E21B009EDA91 /* UserHeaderViewControllerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ECF88D24A5E21B009EDA91 /* UserHeaderViewControllerComposer.swift */; };
 		76EDE62424334482002AE6FD /* FollowerNetowrkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EDE62324334482002AE6FD /* FollowerNetowrkModel.swift */; };
 		76FE61112423B95100A9CF0C /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE61102423B95100A9CF0C /* FollowersViewController.swift */; };
 /* End PBXBuildFile section */
@@ -154,6 +156,7 @@
 		76B1CDD8249A78950092F8B6 /* AESecondaryTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AESecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		76B1CDDD249A79400092F8B6 /* UserHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderViewController.swift; sourceTree = "<group>"; };
 		76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeColumnFlowLayout.swift; sourceTree = "<group>"; };
+		76B7691724A6006200582EBC /* UserHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderViewModel.swift; sourceTree = "<group>"; };
 		76BB81FB2461BCFC000A16F6 /* NetworkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettings.swift; sourceTree = "<group>"; };
 		76BB81FD2461BD49000A16F6 /* FollowerNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkProvider.swift; sourceTree = "<group>"; };
 		76BB81FF2461BE74000A16F6 /* FollowerNetworkProviderInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkProviderInput.swift; sourceTree = "<group>"; };
@@ -185,6 +188,7 @@
 		76E9B898249922B80049D996 /* UserNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkError.swift; sourceTree = "<group>"; };
 		76EAB84C244E00790093B7D2 /* ProjectBrief.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ProjectBrief.md; sourceTree = "<group>"; };
 		76EAB84F244E018A0093B7D2 /* UserNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkModel.swift; sourceTree = "<group>"; };
+		76ECF88D24A5E21B009EDA91 /* UserHeaderViewControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderViewControllerComposer.swift; sourceTree = "<group>"; };
 		76EDE62324334482002AE6FD /* FollowerNetowrkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetowrkModel.swift; sourceTree = "<group>"; };
 		76FE61102423B95100A9CF0C /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -357,7 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				76472134249913DD00B409A8 /* UserViewController.swift */,
-				76B1CDDD249A79400092F8B6 /* UserHeaderViewController.swift */,
+				76ECF88B24A5DD09009EDA91 /* Header */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -511,8 +515,8 @@
 			children = (
 				76BC42E82461C215003E099D /* User.swift */,
 				76EAB84F244E018A0093B7D2 /* UserNetworkModel.swift */,
-				76E9B896249921430049D996 /* UserViewModel.swift */,
 				76E9B898249922B80049D996 /* UserNetworkError.swift */,
+				76B7691624A6004A00582EBC /* ViewModel */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -586,6 +590,15 @@
 			path = UICollectionViewLayout;
 			sourceTree = "<group>";
 		};
+		76B7691624A6004A00582EBC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				76E9B896249921430049D996 /* UserViewModel.swift */,
+				76B7691724A6006200582EBC /* UserHeaderViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		76BC42EB2461C6E4003E099D /* Design */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,6 +668,31 @@
 				76EAB84B244E00790093B7D2 /* Project Brief */,
 			);
 			path = Documents;
+			sourceTree = "<group>";
+		};
+		76ECF88B24A5DD09009EDA91 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				76ECF88F24A5E221009EDA91 /* Composer */,
+				76ECF88C24A5DDA9009EDA91 /* View */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		76ECF88C24A5DDA9009EDA91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				76B1CDDD249A79400092F8B6 /* UserHeaderViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		76ECF88F24A5E221009EDA91 /* Composer */ = {
+			isa = PBXGroup;
+			children = (
+				76ECF88D24A5E21B009EDA91 /* UserHeaderViewControllerComposer.swift */,
+			);
+			path = Composer;
 			sourceTree = "<group>";
 		};
 		76EDE620243314C0002AE6FD /* Support */ = {
@@ -893,6 +931,7 @@
 				7605CF12240EC04E00460465 /* SceneDelegate.swift in Sources */,
 				76B1CDDE249A79400092F8B6 /* UserHeaderViewController.swift in Sources */,
 				763D408E248FDFE10024772A /* StringAnalyzer.swift in Sources */,
+				76ECF88E24A5E21B009EDA91 /* UserHeaderViewControllerComposer.swift in Sources */,
 				76E9B88124991F240049D996 /* UserInteractor.swift in Sources */,
 				76644765246C766200A80C1D /* FollowerViewModel.swift in Sources */,
 				764BE4752421398700F617B5 /* String+Ext.swift in Sources */,
@@ -906,6 +945,7 @@
 				76D2B9AB242CD09C009B4D3B /* AEAlertViewController.swift in Sources */,
 				76BB82002461BE74000A16F6 /* FollowerNetworkProviderInput.swift in Sources */,
 				76E9B893249920320049D996 /* UserInteractorDelegate.swift in Sources */,
+				76B7691824A6006200582EBC /* UserHeaderViewModel.swift in Sources */,
 				7664475E246C728D00A80C1D /* FollowersInteractorDelegate.swift in Sources */,
 				76644761246C72C300A80C1D /* FollowersComposer.swift in Sources */,
 			);

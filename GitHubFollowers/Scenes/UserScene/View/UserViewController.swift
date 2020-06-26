@@ -23,10 +23,12 @@ class UserViewController: UIViewController {
 	}
 	
 	required init?(coder: NSCoder) {
+		
 		fatalError("init(coder:) has not been implemented")
 	}
 	
     override func viewDidLoad() {
+		
         super.viewDidLoad()
 		title = follower.login
         configViewController()
@@ -38,17 +40,38 @@ class UserViewController: UIViewController {
 		
 		headerContentView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(headerContentView)
-		headerContentView.backgroundColor = UIColor.systemPink
 		
 		NSLayoutConstraint.activate([
-			headerContentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-			headerContentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-			headerContentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-			headerContentView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -300)
+			headerContentView.topAnchor.constraint(equalTo: view.topAnchor),
+			headerContentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			headerContentView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
 		])
+		
+		let tempUser = UserHeaderViewModel(avater: follower.avatar,
+										   login: nil,
+										   name: nil,
+										   location: nil,
+										   bio: nil)
+		
+		let headerViewController = UserHeaderViewControllerComposer.makeModule(user: tempUser)
+		
+		addChild(headerViewController)
+		headerContentView.addSubview(headerViewController.view)
+		
+		headerViewController.view.translatesAutoresizingMaskIntoConstraints = false
+		
+		NSLayoutConstraint.activate([
+			headerViewController.view.topAnchor.constraint(equalTo: headerContentView.topAnchor),
+			headerViewController.view.bottomAnchor.constraint(equalTo: headerContentView.bottomAnchor),
+			headerViewController.view.leadingAnchor.constraint(equalTo: headerContentView.leadingAnchor),
+			headerViewController.view.trailingAnchor.constraint(equalTo: headerContentView.trailingAnchor)
+		])
+		
+		headerViewController.didMove(toParent: self)
 	}
 
 	func configViewController() {
+		
 		self.view.backgroundColor = UIColor.systemBackground
 		let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
 		self.navigationItem.rightBarButtonItem = doneButton
@@ -56,6 +79,7 @@ class UserViewController: UIViewController {
 	
 	@objc
 	func doneButtonTapped() {
+		
 		self.dismiss(animated: true)
 	}
 
@@ -66,14 +90,21 @@ extension UserViewController: UserPresenterDelegate {
 	func presenterDidGet(result: Result<UserViewModel, UserNetworkError>) {
 		
 		switch result {
+			
 		case .failure(let userNetworkError):
+			
 			switch userNetworkError {
+				
 			case .invalidUsername:
+				
 				self.presentAEAlert(title: "Error", message: "Ivalid username!", buttonTitle: "OK")
+			
 			case .unableToComplete:
+				
 				self.presentAEAlert(title: "Error", message: "Unable to complete. Try again.", buttonTitle: "OK")
 			}
 		case .success(let userViewModel):
+			
 			print(userViewModel)
 		}
 	}

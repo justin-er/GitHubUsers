@@ -10,6 +10,23 @@ import Foundation
 
 struct UserViewModel {
 	
+	internal init(login: String, avatarUrl: String, name: String? = nil, location: String? = nil, bio: String? = nil, publicRepos: Int, publicGists: Int, htmlUrl: String, following: Int, followers: Int, createdAt: String, avatar: Avatar? = nil) {
+		
+		self.login = login
+		self.avatarUrl = avatarUrl
+		self.name = name
+		self.location = location
+		self.bio = bio
+		self.publicRepos = publicRepos
+		self.publicGists = publicGists
+		self.htmlUrl = htmlUrl
+		self.following = following
+		self.followers = followers
+		self.createdAt = createdAt
+		self.avatar = avatar
+	}
+	
+	
 	let login: String
     let avatarUrl: String
     var name: String?
@@ -21,6 +38,7 @@ struct UserViewModel {
     let following: Int
     let followers: Int
     let createdAt: String
+	var avatar: Avatar?
 	
 	var dateFormatter: DateFormatter = {
 		let formatter = DateFormatter()
