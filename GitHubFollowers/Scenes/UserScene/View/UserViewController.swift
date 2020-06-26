@@ -30,7 +30,6 @@ class UserViewController: UIViewController {
     override func viewDidLoad() {
 		
         super.viewDidLoad()
-		title = follower.login
         configViewController()
 		configHeaderContentView()
 		interactor.getUser(username: self.follower.login)
@@ -48,7 +47,7 @@ class UserViewController: UIViewController {
 		])
 		
 		let tempUser = UserHeaderViewModel(avater: follower.avatar,
-										   login: nil,
+										   login: follower.login,
 										   name: nil,
 										   location: nil,
 										   bio: nil)

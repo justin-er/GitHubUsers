@@ -36,6 +36,7 @@ class UserHeaderViewController: UIViewController {
         super.viewDidLoad()
 		configViewController()
 		configAvatarImageView()
+		configuserNameLabel()
     }
 	
 	func updateUI(user: UserHeaderViewModel) {
@@ -43,7 +44,6 @@ class UserHeaderViewController: UIViewController {
 		switch user.avater {
 			
 		case let .data(data):
-			
 			guard let image = UIImage(data: data) else {
 				
 				avatarImageView.image = UIImage(named: "Placeholder")
@@ -53,7 +53,6 @@ class UserHeaderViewController: UIViewController {
 			avatarImageView.image = image
 		
 		case let .image(any):
-			
 			guard let image = any as? UIImage else {
 				
 				avatarImageView.image = UIImage(named: "Placeholder")
@@ -61,11 +60,12 @@ class UserHeaderViewController: UIViewController {
 			}
 			
 			avatarImageView.image = image
-			
+
 		case .none:
-			
 			avatarImageView.image = UIImage(named: "Placeholder")
 		}
+		
+		userNameLabel.text = user.login
 	}
 	
 	func configViewController() {
@@ -84,6 +84,18 @@ class UserHeaderViewController: UIViewController {
 			avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: hPadding),
 			avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: vPadding),
 			avatarImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -hPadding)
+		])
+	}
+	
+	func configuserNameLabel() {
+		
+		view.addSubview(userNameLabel)
+		userNameLabel.translatesAutoresizingMaskIntoConstraints = false
+		
+		NSLayoutConstraint.activate([
+			userNameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
+			userNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: hPadding),
+			userNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hPadding)
 		])
 	}
 }
