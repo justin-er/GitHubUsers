@@ -36,7 +36,11 @@ class UserHeaderViewController: UIViewController {
         super.viewDidLoad()
 		configViewController()
 		configAvatarImageView()
-		configuserNameLabel()
+		configUserNameLabel()
+		configNameLabel()
+		configLocationImage()
+		configLocationLabel()
+		configBioLabel()
     }
 	
 	func updateUI(user: UserHeaderViewModel) {
@@ -65,12 +69,18 @@ class UserHeaderViewController: UIViewController {
 			avatarImageView.image = UIImage(named: "Placeholder")
 		}
 		
-		userNameLabel.text = user.login
+		userNameLabel.text 		= user.login
+		nameLabel.text 			= user.name
+		locationLable.text 		= user.location ?? "No Location"
+		bioLabel.text 			= user.bio ?? "No bio available"
+		
+		locationImageView.image 	= UIImage(systemName: "mappin.and.ellipse")
+		locationImageView.tintColor = .secondaryLabel
 	}
 	
 	func configViewController() {
 		
-		view.backgroundColor = UIColor.systemBackground
+		view.backgroundColor = UIColor.systemPink
 	}
 	
 	func configAvatarImageView() {
@@ -82,12 +92,11 @@ class UserHeaderViewController: UIViewController {
 			avatarImageView.widthAnchor.constraint(equalToConstant: 120),
 			avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
 			avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: hPadding),
-			avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: vPadding),
-			avatarImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -hPadding)
+			avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: vPadding)
 		])
 	}
 	
-	func configuserNameLabel() {
+	func configUserNameLabel() {
 		
 		view.addSubview(userNameLabel)
 		userNameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -96,6 +105,57 @@ class UserHeaderViewController: UIViewController {
 			userNameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
 			userNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: hPadding),
 			userNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hPadding)
+		])
+	}
+	
+	func configNameLabel() {
+		
+		view.addSubview(nameLabel)
+		nameLabel.translatesAutoresizingMaskIntoConstraints = false
+		
+		NSLayoutConstraint.activate([
+			nameLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: vPadding),
+			nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: hPadding),
+			nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hPadding)
+		])
+	}
+	
+	func configLocationImage() {
+		
+		view.addSubview(locationImageView)
+		locationImageView.translatesAutoresizingMaskIntoConstraints = false
+		
+		NSLayoutConstraint.activate([
+			locationImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: hPadding),
+			locationImageView.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 0),
+			locationImageView.heightAnchor.constraint(equalTo: locationImageView.widthAnchor),
+			locationImageView.widthAnchor.constraint(equalToConstant: 20)
+		])
+	}
+	
+	func configLocationLabel() {
+		
+		view.addSubview(locationLable)
+		locationLable.translatesAutoresizingMaskIntoConstraints = false
+		
+		NSLayoutConstraint.activate([
+			locationLable.leadingAnchor.constraint(equalTo: locationImageView.trailingAnchor, constant: 5),
+			locationLable.bottomAnchor.constraint(equalTo: locationImageView.bottomAnchor, constant: 0),
+			locationLable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hPadding)
+		])
+	}
+	
+	func configBioLabel() {
+	
+		bioLabel.numberOfLines 	= 3
+		view.addSubview(bioLabel)
+		bioLabel.translatesAutoresizingMaskIntoConstraints = false
+		
+		NSLayoutConstraint.activate([
+			bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: vPadding),
+			bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
+			bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hPadding),
+			bioLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -hPadding)
 		])
 	}
 }
