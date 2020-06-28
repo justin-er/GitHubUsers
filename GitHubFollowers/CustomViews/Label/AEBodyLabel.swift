@@ -30,7 +30,7 @@ class AEBodyLabel: UILabel {
         
         font = UIFont.preferredFont(forTextStyle: .body)
         textColor = UIColor.secondaryLabel
-        lineBreakMode = .byWordWrapping
+		lineBreakMode = .byTruncatingTail
         translatesAutoresizingMaskIntoConstraints = false
     }
 
