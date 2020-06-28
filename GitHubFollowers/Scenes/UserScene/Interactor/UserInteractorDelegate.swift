@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol UserInteractorDelegate {
+protocol UserInteractorDelegate: class {
 	
 	func interactorDidGet(result: Result<User, UserNetworkError>)
 }

@@ -10,4 +10,5 @@ import Foundation
 
 protocol UserPresenterInput {
 	
+	func getUserDetail(of follower: FollowerViewModel)
 }

@@ -11,13 +11,13 @@ import UIKit
 class UserViewController: UIViewController {
 	
 	private var follower: FollowerViewModel
-	private var interactor: UserInteractorInput
+	private var persenter: UserPresenterInput
 	private var headerContentView = UIView()
 	
-	init(follower: FollowerViewModel, interactor: UserInteractorInput) {
+	init(follower: FollowerViewModel, presenter: UserPresenterInput) {
 		
 		self.follower = follower
-		self.interactor = interactor
+		self.persenter = presenter
 		
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -32,8 +32,8 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         configViewController()
 		configHeaderContentView()
-		interactor.getUser(username: self.follower.login)
-    }
+		persenter.getUserDetail(of: self.follower)
+	}
 	
 	func configHeaderContentView() {
 		

@@ -10,7 +10,21 @@ import Foundation
 
 class UserPresenter: UserPresenterInput {
 	
+	public let interactor: UserInteractorInput
 	weak var delegate: UserPresenterDelegate?
+	
+	init(interactor: UserInteractorInput) {
+		
+		self.interactor = interactor
+	}
+	
+	private var avatar: Avatar?
+
+	func getUserDetail(of follower: FollowerViewModel) {
+		
+		self.avatar = follower.avatar
+		interactor.getUser(username: follower.login)
+	}
 }
 
 extension UserPresenter: UserInteractorDelegate {
@@ -21,7 +35,9 @@ extension UserPresenter: UserInteractorDelegate {
 		case .failure(let userNetworkError):
 			delegate?.presenterDidGet(result: Result.failure(userNetworkError))
 		case .success(let user):
-			delegate?.presenterDidGet(result: Result.success(UserViewModel(user: user)))
+			var userViewModel = UserViewModel(user: user)
+			userViewModel.avatar = self.avatar
+			delegate?.presenterDidGet(result: Result.success(userViewModel))
 		}
 	}
 

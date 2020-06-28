@@ -13,9 +13,10 @@ class UserViewControllerComposer {
 	static func makeModule(follower: FollowerViewModel) -> UserViewController {
 		
 		let userNetworkProvider = UserNetworkProvider()
-		let userPresenter 		= UserPresenter()
-		let userInteractor 		= UserInteractor(userNetworkProvider: userNetworkProvider, delegate: userPresenter)
-		let viewController 		= UserViewController(follower: follower, interactor: userInteractor)
+		let userInteractor 		= UserInteractor(userNetworkProvider: userNetworkProvider)
+		let userPresenter 		= UserPresenter(interactor: userInteractor)
+		userInteractor.delegate = userPresenter
+		let viewController 		= UserViewController(follower: follower, presenter: userPresenter)
 		userPresenter.delegate 	= viewController
 		
 		return viewController
