@@ -14,6 +14,8 @@ class UserViewController: UIViewController {
 	private var persenter: UserPresenterInput
 	private var headerContentView = UIView()
 	
+	private let headerViewController = UserHeaderViewControllerComposer.makeModule()
+	
 	init(follower: FollowerViewModel, presenter: UserPresenterInput) {
 		
 		self.follower = follower
@@ -46,14 +48,6 @@ class UserViewController: UIViewController {
 			headerContentView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
 		])
 		
-		let tempUser = UserHeaderViewModel(avater: follower.avatar,
-										   login: follower.login,
-										   name: "Jafar",
-										   location: "San Fransisco",
-										   bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
-		
-		let headerViewController = UserHeaderViewControllerComposer.makeModule(user: tempUser)
-		
 		addChild(headerViewController)
 		headerContentView.addSubview(headerViewController.view)
 		
@@ -67,6 +61,21 @@ class UserViewController: UIViewController {
 		])
 		
 		headerViewController.didMove(toParent: self)
+		
+		let tempUserViewModel = UserViewModel(login: follower.login,
+		avatarUrl: follower.avatarUrl,
+		name: nil,
+		location: nil,
+		bio: nil,
+		publicRepos: nil,
+		publicGists: nil,
+		htmlUrl: nil,
+		following: nil,
+		followers: nil,
+		createdAt: nil,
+		avatar: follower.avatar)
+		
+		headerViewController.updateUI(user: tempUserViewModel)
 	}
 
 	func configViewController() {
@@ -103,8 +112,8 @@ extension UserViewController: UserPresenterDelegate {
 				self.presentAEAlert(title: "Error", message: "Unable to complete. Try again.", buttonTitle: "OK")
 			}
 		case .success(let userViewModel):
-			
 			print(userViewModel)
+			headerViewController.updateUI(user: userViewModel)
 		}
 	}
 	

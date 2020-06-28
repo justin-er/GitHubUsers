@@ -20,10 +20,9 @@ class UserHeaderViewController: UIViewController {
 	let vPadding: CGFloat = 16
 	let hPadding: CGFloat = 12
 	
-	init(user: UserHeaderViewModel) {
+	init() {
 		
 		super.init(nibName: nil, bundle: nil)
-		updateUI(user: user)
 	}
 	 
 	required init?(coder: NSCoder) {
@@ -43,44 +42,49 @@ class UserHeaderViewController: UIViewController {
 		configBioLabel()
     }
 	
-	func updateUI(user: UserHeaderViewModel) {
+	func updateUI(user: UserViewModel) {
 		
-		switch user.avater {
+		DispatchQueue.main.async { [weak self] in
 			
-		case let .data(data):
-			guard let image = UIImage(data: data) else {
+			guard let self = self else { return }
+			
+			switch user.avatar {
 				
-				avatarImageView.image = UIImage(named: "Placeholder")
-				break
-			}
-			
-			avatarImageView.image = image
-		
-		case let .image(any):
-			guard let image = any as? UIImage else {
+			case let .data(data):
+				guard let image = UIImage(data: data) else {
+					
+					self.avatarImageView.image = UIImage(named: "Placeholder")
+					break
+				}
 				
-				avatarImageView.image = UIImage(named: "Placeholder")
-				break
-			}
+				self.avatarImageView.image = image
 			
-			avatarImageView.image = image
+			case let .image(any):
+				guard let image = any as? UIImage else {
+					
+					self.avatarImageView.image = UIImage(named: "Placeholder")
+					break
+				}
+				
+				self.avatarImageView.image = image
 
-		case .none:
-			avatarImageView.image = UIImage(named: "Placeholder")
+			case .none:
+				self.avatarImageView.image = UIImage(named: "Placeholder")
+			}
+			
+			self.userNameLabel.text 		= user.login
+			self.nameLabel.text 			= user.name
+			self.locationLable.text 		= user.location ?? "No Location"
+			self.bioLabel.text 			= user.bio ?? "No bio available"
+			
+			self.locationImageView.image 	= UIImage(systemName: "mappin.and.ellipse")
+			self.locationImageView.tintColor = .secondaryLabel
 		}
-		
-		userNameLabel.text 		= user.login
-		nameLabel.text 			= user.name
-		locationLable.text 		= user.location ?? "No Location"
-		bioLabel.text 			= user.bio ?? "No bio available"
-		
-		locationImageView.image 	= UIImage(systemName: "mappin.and.ellipse")
-		locationImageView.tintColor = .secondaryLabel
 	}
 	
 	func configViewController() {
 		
-		view.backgroundColor = UIColor.systemPink
+		view.backgroundColor = UIColor.systemBackground
 	}
 	
 	func configAvatarImageView() {

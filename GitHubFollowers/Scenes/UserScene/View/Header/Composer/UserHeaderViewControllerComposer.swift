@@ -10,9 +10,9 @@ import Foundation
 
 class UserHeaderViewControllerComposer {
 	
-	static func makeModule(user: UserHeaderViewModel) -> UserHeaderViewController {
+	static func makeModule() -> UserHeaderViewController {
 		
-		let viewController = UserHeaderViewController(user: user)
+		let viewController = UserHeaderViewController()
 		return viewController
 	}
 }
