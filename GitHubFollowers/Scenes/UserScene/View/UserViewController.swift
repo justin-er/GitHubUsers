@@ -10,13 +10,17 @@ import UIKit
 
 class UserViewController: UIViewController {
 	
+	private let loadingViewProvider: LoadingViewProviderInput
+	
 	private var follower: FollowerViewModel
 	private var persenter: UserPresenterInput
 	private var headerContentView = UIView()
 	
 	private let headerViewController = UserHeaderViewControllerComposer.makeModule()
 	
-	init(follower: FollowerViewModel, presenter: UserPresenterInput) {
+	init(follower: FollowerViewModel, presenter: UserPresenterInput, loadingViewProvider: LoadingViewProviderInput) {
+		
+		self.loadingViewProvider = loadingViewProvider
 		
 		self.follower = follower
 		self.persenter = presenter
@@ -35,6 +39,7 @@ class UserViewController: UIViewController {
         configViewController()
 		configHeaderContentView()
 		persenter.getUserDetail(of: self.follower)
+		loadingViewProvider.showLoading(on: self.view)
 	}
 	
 	func configHeaderContentView() {
@@ -64,9 +69,9 @@ class UserViewController: UIViewController {
 		
 		let tempUserViewModel = UserViewModel(login: follower.login,
 		avatarUrl: follower.avatarUrl,
-		name: nil,
-		location: nil,
-		bio: nil,
+		name: "",
+		location: "",
+		bio: "",
 		publicRepos: nil,
 		publicGists: nil,
 		htmlUrl: nil,
@@ -96,6 +101,8 @@ class UserViewController: UIViewController {
 extension UserViewController: UserPresenterDelegate {
 	
 	func presenterDidGet(result: Result<UserViewModel, UserNetworkError>) {
+		
+		loadingViewProvider.dismissLoading()
 		
 		switch result {
 			

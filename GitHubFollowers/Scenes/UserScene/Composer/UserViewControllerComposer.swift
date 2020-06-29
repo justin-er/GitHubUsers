@@ -16,7 +16,10 @@ class UserViewControllerComposer {
 		let userInteractor 		= UserInteractor(userNetworkProvider: userNetworkProvider)
 		let userPresenter 		= UserPresenter(interactor: userInteractor)
 		userInteractor.delegate = userPresenter
-		let viewController 		= UserViewController(follower: follower, presenter: userPresenter)
+		let loadingViewProvider	= LoadingViewProvider()
+		let viewController 		= UserViewController(follower: follower,
+														presenter: userPresenter,
+														loadingViewProvider: loadingViewProvider)
 		userPresenter.delegate 	= viewController
 		
 		return viewController

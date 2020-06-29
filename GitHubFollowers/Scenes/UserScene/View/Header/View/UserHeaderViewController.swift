@@ -75,10 +75,10 @@ class UserHeaderViewController: UIViewController {
 			self.userNameLabel.text 		= user.login
 			self.nameLabel.text 			= user.name
 			self.locationLable.text 		= user.location ?? "No Location"
-			self.bioLabel.text 			= user.bio ?? "No bio available"
+			self.bioLabel.text 				= user.bio ?? "No bio available"
 			
-			self.locationImageView.image 	= UIImage(systemName: "mappin.and.ellipse")
-			self.locationImageView.tintColor = .secondaryLabel
+			self.locationImageView.image 		= UIImage(systemName: "mappin.and.ellipse")
+			self.locationImageView.tintColor 	= .secondaryLabel
 		}
 	}
 	
