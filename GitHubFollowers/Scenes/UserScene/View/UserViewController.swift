@@ -14,10 +14,15 @@ class UserViewController: UIViewController {
 	
 	private var follower: FollowerViewModel
 	private var persenter: UserPresenterInput
-	private var headerContentView = UIView()
+	
+	private var headerContentView 	= UIView()
+	private var viewOne				= UIView()
+	private var	viewTwo				= UIView()
 	
 	private let hMargin: CGFloat	= 16
 	private let vMargin: CGFloat	= 16
+	private let hPadding: CGFloat	= 16
+	private let vPadding: CGFloat	= 16
 	
 	private let headerViewController = UserHeaderViewControllerComposer.makeModule()
 	
@@ -41,6 +46,8 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         configViewController()
 		configHeaderContentView()
+		configViewOne()
+		configViewTwo()
 		persenter.getUserDetail(of: self.follower)
 		loadingViewProvider.showLoading(on: self.view)
 	}
@@ -104,6 +111,33 @@ class UserViewController: UIViewController {
 	func doneButtonTapped() {
 		
 		self.dismiss(animated: true)
+	}
+	
+	func configViewOne() {
+		viewOne.backgroundColor = UIColor.systemPink
+		viewOne.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(viewOne)
+		
+		NSLayoutConstraint.activate([
+			viewOne.heightAnchor.constraint(equalToConstant: 100),
+			viewOne.topAnchor.constraint(equalTo: headerContentView.bottomAnchor, constant: hPadding),
+			viewOne.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: vMargin),
+			viewOne.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -vMargin)
+		])
+	}
+	
+	func configViewTwo() {
+		
+		viewTwo.backgroundColor = UIColor.systemBlue
+		viewTwo.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(viewTwo)
+		
+		NSLayoutConstraint.activate([
+			viewTwo.heightAnchor.constraint(equalToConstant: 100),
+			viewTwo.topAnchor.constraint(equalTo: viewOne.bottomAnchor, constant: hPadding),
+			viewTwo.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: vMargin),
+			viewTwo.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -vMargin)
+		])
 	}
 }
 
