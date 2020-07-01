@@ -16,6 +16,9 @@ class UserViewController: UIViewController {
 	private var persenter: UserPresenterInput
 	private var headerContentView = UIView()
 	
+	private let hMargin: CGFloat	= 16
+	private let vMargin: CGFloat	= 16
+	
 	private let headerViewController = UserHeaderViewControllerComposer.makeModule()
 	
 	init(follower: FollowerViewModel, presenter: UserPresenterInput, loadingViewProvider: LoadingViewProviderInput) {
@@ -42,30 +45,37 @@ class UserViewController: UIViewController {
 		loadingViewProvider.showLoading(on: self.view)
 	}
 	
+	private func add(childViewController: UIViewController, toContentView contentView: UIView) {
+		
+		addChild(childViewController)
+		contentView.addSubview(headerViewController.view)
+		
+		childViewController.view.translatesAutoresizingMaskIntoConstraints = false
+		
+		NSLayoutConstraint.activate([
+			
+			childViewController.view.topAnchor.constraint(equalTo: headerContentView.topAnchor),
+			childViewController.view.bottomAnchor.constraint(equalTo: headerContentView.bottomAnchor),
+			childViewController.view.leadingAnchor.constraint(equalTo: headerContentView.leadingAnchor),
+			childViewController.view.trailingAnchor.constraint(equalTo: headerContentView.trailingAnchor)
+		])
+		
+		childViewController.didMove(toParent: self)
+	}
+	
 	func configHeaderContentView() {
 		
 		headerContentView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(headerContentView)
 		
 		NSLayoutConstraint.activate([
-			headerContentView.topAnchor.constraint(equalTo: view.topAnchor),
-			headerContentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			headerContentView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+			
+			headerContentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: vMargin),
+			headerContentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: hMargin),
+			headerContentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -hMargin)
 		])
 		
-		addChild(headerViewController)
-		headerContentView.addSubview(headerViewController.view)
-		
-		headerViewController.view.translatesAutoresizingMaskIntoConstraints = false
-		
-		NSLayoutConstraint.activate([
-			headerViewController.view.topAnchor.constraint(equalTo: headerContentView.topAnchor),
-			headerViewController.view.bottomAnchor.constraint(equalTo: headerContentView.bottomAnchor),
-			headerViewController.view.leadingAnchor.constraint(equalTo: headerContentView.leadingAnchor),
-			headerViewController.view.trailingAnchor.constraint(equalTo: headerContentView.trailingAnchor)
-		])
-		
-		headerViewController.didMove(toParent: self)
+		add(childViewController: headerViewController, toContentView : headerContentView)
 		
 		let tempUserViewModel = UserViewModel(login: follower.login,
 		avatarUrl: follower.avatarUrl,
@@ -95,7 +105,6 @@ class UserViewController: UIViewController {
 		
 		self.dismiss(animated: true)
 	}
-
 }
 
 extension UserViewController: UserPresenterDelegate {
@@ -119,7 +128,7 @@ extension UserViewController: UserPresenterDelegate {
 				self.presentAEAlert(title: "Error", message: "Unable to complete. Try again.", buttonTitle: "OK")
 			}
 		case .success(let userViewModel):
-			print(userViewModel)
+			
 			headerViewController.updateUI(user: userViewModel)
 		}
 	}

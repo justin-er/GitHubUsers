@@ -17,8 +17,10 @@ class UserHeaderViewController: UIViewController {
 	let locationLable			= AESecondaryTitleLabel(fontSize: 18)
 	let bioLabel 				= AEBodyLabel(textAlignment: .left)
 	
-	let vPadding: CGFloat = 16
-	let hPadding: CGFloat = 12
+	let vMargin: CGFloat	= 0
+	let hMargin: CGFloat	= 0
+	let vPadding: CGFloat 	= 16
+	let hPadding: CGFloat 	= 12
 	
 	init() {
 		
@@ -95,8 +97,8 @@ class UserHeaderViewController: UIViewController {
 		NSLayoutConstraint.activate([
 			avatarImageView.widthAnchor.constraint(equalToConstant: 120),
 			avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
-			avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: hPadding),
-			avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: vPadding)
+			avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: hMargin),
+			avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: vMargin)
 		])
 	}
 	
@@ -108,7 +110,7 @@ class UserHeaderViewController: UIViewController {
 		NSLayoutConstraint.activate([
 			userNameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
 			userNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: hPadding),
-			userNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hPadding)
+			userNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hMargin)
 		])
 	}
 	
@@ -120,7 +122,7 @@ class UserHeaderViewController: UIViewController {
 		NSLayoutConstraint.activate([
 			nameLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: vPadding),
 			nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: hPadding),
-			nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hPadding)
+			nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hMargin)
 		])
 	}
 	
@@ -145,7 +147,7 @@ class UserHeaderViewController: UIViewController {
 		NSLayoutConstraint.activate([
 			locationLable.leadingAnchor.constraint(equalTo: locationImageView.trailingAnchor, constant: 5),
 			locationLable.bottomAnchor.constraint(equalTo: locationImageView.bottomAnchor, constant: 0),
-			locationLable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hPadding)
+			locationLable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hMargin)
 		])
 	}
 	
@@ -158,8 +160,8 @@ class UserHeaderViewController: UIViewController {
 		NSLayoutConstraint.activate([
 			bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: vPadding),
 			bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
-			bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hPadding),
-			bioLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -hPadding)
+			bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hMargin),
+			bioLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -hMargin)
 		])
 	}
 }
