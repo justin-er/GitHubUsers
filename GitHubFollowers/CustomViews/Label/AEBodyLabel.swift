@@ -31,7 +31,7 @@ class AEBodyLabel: UILabel {
         font = UIFont.preferredFont(forTextStyle: .body)
         textColor = UIColor.secondaryLabel
 		lineBreakMode = .byTruncatingTail
-        translatesAutoresizingMaskIntoConstraints = false
+
     }
 
 }

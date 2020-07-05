@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         
 //        configAETitleLabel()
 //        configAEBodyLabel()
+		configAEItemInfoView()
     }
 
     @IBAction func doSomethingTapped(_ sender: Any) {
@@ -26,8 +27,27 @@ class ViewController: UIViewController {
 //        configAlert()
 //        configActionSheet()
 //        configPopoverAEAlert()
-		configAEAvatarImageView()
+//		configAEAvatarImageView()
+		
     }
+	
+	func configAEItemInfoView() {
+		
+		let itemInfoView = AEItemInfoView(frame: .zero)
+		itemInfoView.set(type: .publicRepos, title: "Public Repos", count: 23)
+		itemInfoView.backgroundColor = UIColor.systemPink
+		view.addSubview(itemInfoView)
+		
+		itemInfoView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleRightMargin, .flexibleBottomMargin]
+		
+//		itemInfoView.translatesAutoresizingMaskIntoConstraints = false
+//
+//		NSLayoutConstraint.activate([
+//
+//			itemInfoView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+//			itemInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+//		])
+	}
 	
 	var imageView: AEAvatarImageView?
 	func configAEAvatarImageView() {

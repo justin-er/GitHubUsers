@@ -70,6 +70,7 @@ class AEAlertViewController: UIViewController {
     
     func configAlertTitle() {
         
+		alertTitle.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(alertTitle)
         
         NSLayoutConstraint.activate([
@@ -84,6 +85,7 @@ class AEAlertViewController: UIViewController {
     func configAlertMessage() {
             
         alertMessage.numberOfLines = 0
+		alertMessage.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(alertMessage)
         
         NSLayoutConstraint.activate([
@@ -96,6 +98,7 @@ class AEAlertViewController: UIViewController {
     
     func configAlertActionButton() {
         
+		alertActionButton.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(alertActionButton)
         alertActionButton.addTarget(self, action: #selector(actionHandler), for: .touchUpInside)
         

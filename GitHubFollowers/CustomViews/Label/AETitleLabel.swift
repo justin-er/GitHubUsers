@@ -33,6 +33,5 @@ class AETitleLabel: UILabel {
         lineBreakMode = .byTruncatingTail
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.9
-        translatesAutoresizingMaskIntoConstraints = false
     }
 }

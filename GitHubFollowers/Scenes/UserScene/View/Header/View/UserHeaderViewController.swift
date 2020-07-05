@@ -95,7 +95,7 @@ class UserHeaderViewController: UIViewController {
 		avatarImageView.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint.activate([
-			avatarImageView.widthAnchor.constraint(equalToConstant: 120),
+			avatarImageView.widthAnchor.constraint(equalToConstant: 100),
 			avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
 			avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: hMargin),
 			avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: vMargin)
@@ -120,7 +120,7 @@ class UserHeaderViewController: UIViewController {
 		nameLabel.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint.activate([
-			nameLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: vPadding),
+			nameLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 8),
 			nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: hPadding),
 			nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hMargin)
 		])
