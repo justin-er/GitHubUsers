@@ -31,22 +31,25 @@ class ViewController: UIViewController {
 		
     }
 	
+	@IBOutlet weak var sampleLabel: UILabel!
+	@IBAction func testButtonTapped(_ sender: Any) {
+		
+		sampleLabel.text = sampleLabel.text! + "nothing"
+	}
+	
 	func configAEItemInfoView() {
 		
 		let itemInfoView = AEItemInfoView(frame: .zero)
 		itemInfoView.set(type: .publicRepos, title: "Public Repos", count: 23)
 		itemInfoView.backgroundColor = UIColor.systemPink
+		itemInfoView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(itemInfoView)
 		
-		itemInfoView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleRightMargin, .flexibleBottomMargin]
+		NSLayoutConstraint.activate([
 		
-//		itemInfoView.translatesAutoresizingMaskIntoConstraints = false
-//
-//		NSLayoutConstraint.activate([
-//
-//			itemInfoView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-//			itemInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-//		])
+			itemInfoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+			itemInfoView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20)
+		])
 	}
 	
 	var imageView: AEAvatarImageView?
