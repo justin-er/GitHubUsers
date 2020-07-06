@@ -29,7 +29,7 @@ class AETitleLabel: UILabel {
     
     private func config() {
         
-        textColor = UIColor.secondaryLabel
+        textColor = UIColor.label
         lineBreakMode = .byTruncatingTail
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.9

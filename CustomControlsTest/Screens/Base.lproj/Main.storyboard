@@ -23,8 +23,17 @@
                                     <action selector="testButtonTapped:" destination="8af-Qt-5CI" eventType="touchUpInside" id="d2j-pt-JIF"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oAL-Vc-RkM">
+                                <rect key="frame" x="87" y="135" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="oAL-Vc-RkM" firstAttribute="leading" secondItem="dnO-bw-Fed" secondAttribute="leading" constant="87" id="MEr-Xl-yxO"/>
+                            <constraint firstItem="oAL-Vc-RkM" firstAttribute="top" secondItem="dnO-bw-Fed" secondAttribute="top" constant="91" id="ZeU-mw-lde"/>
+                            <constraint firstItem="dnO-bw-Fed" firstAttribute="trailing" secondItem="oAL-Vc-RkM" secondAttribute="trailing" constant="87" id="uzJ-hF-LL9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dnO-bw-Fed"/>
                     </view>
                 </viewController>

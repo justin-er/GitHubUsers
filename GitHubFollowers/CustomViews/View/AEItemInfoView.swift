@@ -37,12 +37,16 @@ class AEItemInfoView: UIView {
 	func configTitleLabel() {
 		
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
+		titleLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 751), for: .vertical)
 		self.addSubview(titleLabel)
 		
+		let constraint01 = titleLabel.topAnchor.constraint(equalTo: self.topAnchor)
+		let constraint02 = titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+		
 		NSLayoutConstraint.activate([
-	
-			titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
-			titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+			
+			constraint01,
+			constraint02
 		])
 	}
 	
@@ -50,15 +54,23 @@ class AEItemInfoView: UIView {
 		
 		symbolImageView.contentMode = .scaleAspectFill
 		symbolImageView.translatesAutoresizingMaskIntoConstraints = false
+		symbolImageView.tintColor = .label
+		
 		self.addSubview(symbolImageView)
+		
+		let constraint01	= symbolImageView.topAnchor.constraint(equalTo: self.topAnchor)
+		let constraint02	= symbolImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+		let constraint03	= symbolImageView.trailingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: -8)
+		let constraint04	= symbolImageView.heightAnchor.constraint(equalTo: symbolImageView.widthAnchor)
+		let constraint05	= symbolImageView.heightAnchor.constraint(equalTo: titleLabel.heightAnchor)
 		
 		NSLayoutConstraint.activate([
 		
-			symbolImageView.topAnchor.constraint(equalTo: self.topAnchor),
-			symbolImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-			symbolImageView.trailingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: -8),
-			symbolImageView.heightAnchor.constraint(equalTo: symbolImageView.widthAnchor),
-			symbolImageView.heightAnchor.constraint(equalTo: titleLabel.heightAnchor)
+			constraint01,
+			constraint02,
+			constraint03,
+			constraint04,
+			constraint05,
 		])
 	}
 	
@@ -69,7 +81,7 @@ class AEItemInfoView: UIView {
 		
 		NSLayoutConstraint.activate([
 		
-			countLabel.topAnchor.constraint(equalTo: symbolImageView.bottomAnchor),
+			countLabel.topAnchor.constraint(equalTo: symbolImageView.bottomAnchor, constant: 8),
 			countLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
 			countLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
 			countLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
@@ -87,11 +99,11 @@ class AEItemInfoView: UIView {
 		case .publicGists:
 			
 			symbolImageView.image = UIImage(systemName: "text.alignleft")
-		
+			
 		case .following:
 			
 			symbolImageView.image = UIImage(systemName: "heart")
-		
+			
 		case .follwers:
 			
 			symbolImageView.image = UIImage(systemName: "person.2")

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7602E2C724B32E8F00CE156F /* AEItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7602E2C624B32E8F00CE156F /* AEItemInfoViewController.swift */; };
 		7602E2C924B3343A00CE156F /* AERepoItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7602E2C824B3343A00CE156F /* AERepoItemInfoViewController.swift */; };
-		7602E2CB24B3358100CE156F /* AEFollowerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7602E2CA24B3358100CE156F /* AEFollowerItemViewController.swift */; };
+		7602E2CB24B3358100CE156F /* AEFollowerItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7602E2CA24B3358100CE156F /* AEFollowerItemInfoViewController.swift */; };
 		7605CF10240EC04D00460465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF0F240EC04D00460465 /* AppDelegate.swift */; };
 		7605CF12240EC04E00460465 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF11240EC04E00460465 /* SceneDelegate.swift */; };
 		7605CF14240EC04E00460465 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF13240EC04E00460465 /* SearchViewController.swift */; };
@@ -121,7 +121,7 @@
 /* Begin PBXFileReference section */
 		7602E2C624B32E8F00CE156F /* AEItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEItemInfoViewController.swift; sourceTree = "<group>"; };
 		7602E2C824B3343A00CE156F /* AERepoItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERepoItemInfoViewController.swift; sourceTree = "<group>"; };
-		7602E2CA24B3358100CE156F /* AEFollowerItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEFollowerItemViewController.swift; sourceTree = "<group>"; };
+		7602E2CA24B3358100CE156F /* AEFollowerItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEFollowerItemInfoViewController.swift; sourceTree = "<group>"; };
 		7605CF0C240EC04D00460465 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7605CF0F240EC04D00460465 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7605CF11240EC04E00460465 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +237,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7602E2CC24B3380300CE156F /* InfoItems */ = {
+			isa = PBXGroup;
+			children = (
+				7602E2C624B32E8F00CE156F /* AEItemInfoViewController.swift */,
+				7602E2C824B3343A00CE156F /* AERepoItemInfoViewController.swift */,
+				7602E2CA24B3358100CE156F /* AEFollowerItemInfoViewController.swift */,
+			);
+			path = InfoItems;
+			sourceTree = "<group>";
+		};
 		7605CF03240EC04D00460465 = {
 			isa = PBXGroup;
 			children = (
@@ -309,7 +319,6 @@
 			isa = PBXGroup;
 			children = (
 				76B3468A2476CC3500A5DB79 /* UICollectionViewLayout */,
-				7664C04A2461D3A0007CE942 /* Cells */,
 				764FA22924925EB60020C57A /* ViewController */,
 				764FA22524925E800020C57A /* TextField */,
 				764FA22624925E8A0020C57A /* Button */,
@@ -375,6 +384,7 @@
 			children = (
 				76472134249913DD00B409A8 /* UserViewController.swift */,
 				76ECF88B24A5DD09009EDA91 /* Header */,
+				7602E2CC24B3380300CE156F /* InfoItems */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -444,9 +454,6 @@
 			isa = PBXGroup;
 			children = (
 				76D2B9AA242CD09C009B4D3B /* AEAlertViewController.swift */,
-				7602E2C624B32E8F00CE156F /* AEItemInfoViewController.swift */,
-				7602E2C824B3343A00CE156F /* AERepoItemInfoViewController.swift */,
-				7602E2CA24B3358100CE156F /* AEFollowerItemViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -483,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				76FE61102423B95100A9CF0C /* FollowersViewController.swift */,
+				7664C04A2461D3A0007CE942 /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -951,7 +959,7 @@
 				76E9B8952499206C0049D996 /* UserPresenterDelegate.swift in Sources */,
 				76EAB850244E018A0093B7D2 /* UserNetworkModel.swift in Sources */,
 				76E9B88F24991FD30049D996 /* UserPresenterInput.swift in Sources */,
-				7602E2CB24B3358100CE156F /* AEFollowerItemViewController.swift in Sources */,
+				7602E2CB24B3358100CE156F /* AEFollowerItemInfoViewController.swift in Sources */,
 				76E9B88624991F590049D996 /* UserNetworkProvider.swift in Sources */,
 				7605CF4B240EDB3600460465 /* AEButton.swift in Sources */,
 				76E9B87D249916640049D996 /* UserNavigationControllerComposer.swift in Sources */,

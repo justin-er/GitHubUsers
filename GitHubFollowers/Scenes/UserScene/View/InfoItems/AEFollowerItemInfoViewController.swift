@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AEFollowerItemViewController: AEItemInfoViewController {
+class AEFollowerItemInfoViewController: AEItemInfoViewController {
 	
 	override init(user: UserViewModel) {
 		

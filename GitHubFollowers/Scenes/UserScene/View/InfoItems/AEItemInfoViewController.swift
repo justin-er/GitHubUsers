@@ -15,7 +15,7 @@ class AEItemInfoViewController: UIViewController {
 	let stackView		= UIStackView()
 	let actionsButton	= AEButton()
 	
-	let padding: CGFloat = 16
+	let padding: CGFloat = 20
 	
 	let user: UserViewModel
 	
@@ -35,8 +35,6 @@ class AEItemInfoViewController: UIViewController {
 		super.viewDidLoad()
 
 		configViewController()
-		configItemInfoViewOne()
-		configItemInfoViewTwo()
 		configStackView()
 		configActionButton()
     }
@@ -47,41 +45,41 @@ class AEItemInfoViewController: UIViewController {
 		view.backgroundColor 		= .secondarySystemBackground
 	}
 	
-	func configItemInfoViewOne() {
-		
-		itemInfoViewOne.translatesAutoresizingMaskIntoConstraints = false
-	}
-	
-	func configItemInfoViewTwo() {
-		
-		itemInfoViewTwo.translatesAutoresizingMaskIntoConstraints = false
-	}
-	
 	func configStackView() {
 		
 		stackView.axis			= .horizontal
 		stackView.distribution 	= .equalSpacing
 		stackView.alignment		= .center
 		
+		itemInfoViewOne.translatesAutoresizingMaskIntoConstraints = false
+		itemInfoViewTwo.translatesAutoresizingMaskIntoConstraints = false
+		
 		stackView.addArrangedSubview(itemInfoViewOne)
 		stackView.addArrangedSubview(itemInfoViewTwo)
 		
+		stackView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(stackView)
+		
 		NSLayoutConstraint.activate([
 		
-			stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-			stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-			stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+			stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
+			stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: padding),
+			stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -padding)
 		])
 	}
 	
 	func configActionButton() {
+		
+		actionsButton.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(actionsButton)
 		
 		NSLayoutConstraint.activate([
 		
 			actionsButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: padding),
 			actionsButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: padding),
 			actionsButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
-			actionsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding)
+			actionsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding),
+			actionsButton.heightAnchor.constraint(equalToConstant: 44)
 		])
 	}
 }

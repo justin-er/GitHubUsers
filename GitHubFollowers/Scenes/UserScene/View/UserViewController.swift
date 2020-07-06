@@ -55,16 +55,16 @@ class UserViewController: UIViewController {
 	private func add(childViewController: UIViewController, toContentView contentView: UIView) {
 		
 		addChild(childViewController)
-		contentView.addSubview(headerViewController.view)
+		contentView.addSubview(childViewController.view)
 		
 		childViewController.view.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint.activate([
 			
-			childViewController.view.topAnchor.constraint(equalTo: headerContentView.topAnchor),
-			childViewController.view.bottomAnchor.constraint(equalTo: headerContentView.bottomAnchor),
-			childViewController.view.leadingAnchor.constraint(equalTo: headerContentView.leadingAnchor),
-			childViewController.view.trailingAnchor.constraint(equalTo: headerContentView.trailingAnchor)
+			childViewController.view.topAnchor.constraint(equalTo: contentView.topAnchor),
+			childViewController.view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+			childViewController.view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+			childViewController.view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
 		])
 		
 		childViewController.didMove(toParent: self)
@@ -114,12 +114,11 @@ class UserViewController: UIViewController {
 	}
 	
 	func configViewOne() {
-		viewOne.backgroundColor = UIColor.systemPink
 		viewOne.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(viewOne)
 		
 		NSLayoutConstraint.activate([
-			viewOne.heightAnchor.constraint(equalToConstant: 100),
+			
 			viewOne.topAnchor.constraint(equalTo: headerContentView.bottomAnchor, constant: hPadding),
 			viewOne.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: vMargin),
 			viewOne.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -vMargin)
@@ -128,12 +127,11 @@ class UserViewController: UIViewController {
 	
 	func configViewTwo() {
 		
-		viewTwo.backgroundColor = UIColor.systemBlue
 		viewTwo.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(viewTwo)
 		
 		NSLayoutConstraint.activate([
-			viewTwo.heightAnchor.constraint(equalToConstant: 100),
+			
 			viewTwo.topAnchor.constraint(equalTo: viewOne.bottomAnchor, constant: hPadding),
 			viewTwo.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: vMargin),
 			viewTwo.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -vMargin)
@@ -163,8 +161,12 @@ extension UserViewController: UserPresenterDelegate {
 			}
 		case .success(let userViewModel):
 			
-			headerViewController.updateUI(user: userViewModel)
+			DispatchQueue.main.async {
+				
+				self.headerViewController.updateUI(user: userViewModel)
+				self.add(childViewController: AERepoItemInfoViewController(user: userViewModel), toContentView: self.viewOne)
+				self.add(childViewController: AEFollowerItemInfoViewController(user: userViewModel), toContentView: self.viewTwo)
+			}
 		}
 	}
-	
 }
