@@ -18,6 +18,8 @@ class SearchViewController: UIViewController {
     
 	var activeTextField: UITextField!
 	
+	let padding = CGFloat(16)
+	
 	override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -154,8 +156,8 @@ class SearchViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 100),
-            textField.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
-            textField.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+			textField.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: padding),
+			textField.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor, constant: -padding),
             textField.heightAnchor.constraint(equalToConstant: 50)
         ])
         
@@ -168,8 +170,8 @@ class SearchViewController: UIViewController {
         
         NSLayoutConstraint.activate([
 			callToActionButton.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 50),
-            callToActionButton.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
-            callToActionButton.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+			callToActionButton.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: padding),
+			callToActionButton.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor, constant: -padding),
 			callToActionButton.heightAnchor.constraint(equalToConstant: 50),
 			callToActionButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50),
             
