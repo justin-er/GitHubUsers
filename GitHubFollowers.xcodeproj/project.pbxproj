@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7602E2C724B32E8F00CE156F /* AEItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7602E2C624B32E8F00CE156F /* AEItemInfoViewController.swift */; };
+		7602E2C924B3343A00CE156F /* AERepoItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7602E2C824B3343A00CE156F /* AERepoItemInfoViewController.swift */; };
+		7602E2CB24B3358100CE156F /* AEFollowerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7602E2CA24B3358100CE156F /* AEFollowerItemViewController.swift */; };
 		7605CF10240EC04D00460465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF0F240EC04D00460465 /* AppDelegate.swift */; };
 		7605CF12240EC04E00460465 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF11240EC04E00460465 /* SceneDelegate.swift */; };
 		7605CF14240EC04E00460465 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF13240EC04E00460465 /* SearchViewController.swift */; };
@@ -116,6 +119,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7602E2C624B32E8F00CE156F /* AEItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEItemInfoViewController.swift; sourceTree = "<group>"; };
+		7602E2C824B3343A00CE156F /* AERepoItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERepoItemInfoViewController.swift; sourceTree = "<group>"; };
+		7602E2CA24B3358100CE156F /* AEFollowerItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEFollowerItemViewController.swift; sourceTree = "<group>"; };
 		7605CF0C240EC04D00460465 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7605CF0F240EC04D00460465 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7605CF11240EC04E00460465 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -438,6 +444,9 @@
 			isa = PBXGroup;
 			children = (
 				76D2B9AA242CD09C009B4D3B /* AEAlertViewController.swift */,
+				7602E2C624B32E8F00CE156F /* AEItemInfoViewController.swift */,
+				7602E2C824B3343A00CE156F /* AERepoItemInfoViewController.swift */,
+				7602E2CA24B3358100CE156F /* AEFollowerItemViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -927,6 +936,7 @@
 				76E9B88524991F590049D996 /* UserNetworkProviderInput.swift in Sources */,
 				769736CE24B1E8FD0085DE7C /* AEItemInfoViewType.swift in Sources */,
 				764FA22224925CA40020C57A /* EmptyStateViewProviderInput.swift in Sources */,
+				7602E2C924B3343A00CE156F /* AERepoItemInfoViewController.swift in Sources */,
 				769736CB24B1E1BD0085DE7C /* AEItemInfoView.swift in Sources */,
 				76644754246C71E000A80C1D /* FollowersInteractor.swift in Sources */,
 				769A4F36248BE01100B59077 /* NetworkManager.swift in Sources */,
@@ -941,6 +951,7 @@
 				76E9B8952499206C0049D996 /* UserPresenterDelegate.swift in Sources */,
 				76EAB850244E018A0093B7D2 /* UserNetworkModel.swift in Sources */,
 				76E9B88F24991FD30049D996 /* UserPresenterInput.swift in Sources */,
+				7602E2CB24B3358100CE156F /* AEFollowerItemViewController.swift in Sources */,
 				76E9B88624991F590049D996 /* UserNetworkProvider.swift in Sources */,
 				7605CF4B240EDB3600460465 /* AEButton.swift in Sources */,
 				76E9B87D249916640049D996 /* UserNavigationControllerComposer.swift in Sources */,
@@ -956,6 +967,7 @@
 				76644756246C71F400A80C1D /* FollowersInteractorInput.swift in Sources */,
 				76E8ED18242BAEF9002427C5 /* AEBodyLabel.swift in Sources */,
 				7677D32E24791A08009EDAD1 /* AvatarNetworkError.swift in Sources */,
+				7602E2C724B32E8F00CE156F /* AEItemInfoViewController.swift in Sources */,
 				7605CF40240EC3D400460465 /* AETextField.swift in Sources */,
 				764FA219249230A50020C57A /* LoadingViewProvider.swift in Sources */,
 				76E9B88024991F240049D996 /* UserInteractorInput.swift in Sources */,

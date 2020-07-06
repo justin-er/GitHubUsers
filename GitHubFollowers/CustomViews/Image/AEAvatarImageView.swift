@@ -25,6 +25,5 @@ class AEAvatarImageView: UIImageView {
 		self.image = AEAvatarImageView.placeholderImage
 		layer.cornerRadius = 10
 		clipsToBounds = true
-		translatesAutoresizingMaskIntoConstraints = false
 	}
 }

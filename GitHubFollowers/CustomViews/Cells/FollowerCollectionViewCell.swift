@@ -45,6 +45,9 @@ class FollowerCollectionViewCell: UICollectionViewCell {
 		addSubview(avatarImageView)
 		addSubview(usernameLabel)
 		
+		avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+		usernameLabel.translatesAutoresizingMaskIntoConstraints = false
+		
 		NSLayoutConstraint.activate([
 			avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
 			avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),

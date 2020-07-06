@@ -36,4 +36,10 @@ class AEButton: UIButton {
         titleLabel?.textColor = .white
         backgroundColor = UIColor.tertiarySystemBackground
     }
+	
+	public func set(backgroundColor: UIColor, text: String) {
+		
+		self.backgroundColor = backgroundColor
+        self.setTitle(text, for: .normal)
+	}
 }
