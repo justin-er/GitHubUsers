@@ -24,7 +24,7 @@ class UserViewController: UIViewController {
 	private let hPadding: CGFloat	= 16
 	private let vPadding: CGFloat	= 16
 	
-	private let headerViewController 			= UserHeaderViewControllerComposer.makeModule()
+	private let headerViewController 			= UserHeaderViewController(user: nil)
 	private let repoItemViewConroller			= AERepoItemInfoViewController(user: nil)
 	private let followerItemViewController		= AEFollowerItemInfoViewController(user: nil)
 	
@@ -168,6 +168,7 @@ extension UserViewController: UserPresenterDelegate {
 				
 				self.presentAEAlert(title: "Error", message: "Unable to complete. Try again.", buttonTitle: "OK")
 			}
+			
 		case .success(let userViewModel):
 			
 			DispatchQueue.main.async {

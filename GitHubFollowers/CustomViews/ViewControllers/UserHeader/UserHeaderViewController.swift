@@ -22,9 +22,10 @@ class UserHeaderViewController: UIViewController {
 	let vPadding: CGFloat 	= 16
 	let hPadding: CGFloat 	= 12
 	
-	init() {
+	init(user: UserViewModel?) {
 		
 		super.init(nibName: nil, bundle: nil)
+		self.user = user
 	}
 	 
 	required init?(coder: NSCoder) {
