@@ -15,7 +15,7 @@ class FollowerCollectionViewCell: UICollectionViewCell {
 	}
 	
 	let avatarImageView = AEAvatarImageView(frame: .zero)
-	let usernameLabel	= AETitleLabel(textAlignment: .center, fontSize: 16)
+	let usernameLabel	= AEHeadlineLabel(textAlignment: .center)
 	let padding: CGFloat = 8
 	
 	override init(frame: CGRect) {

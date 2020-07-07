@@ -11,8 +11,8 @@ import UIKit
 class AEItemInfoView: UIView {
 	
 	let symbolImageView = UIImageView()
-	let titleLabel 		= AETitleLabel(textAlignment: .center, fontSize: 16)
-	let countLabel		= AETitleLabel(textAlignment: .center, fontSize: 16)
+	let titleLabel 		= AEHeadlineLabel(textAlignment: .center)
+	let countLabel		= AEHeadlineLabel(textAlignment: .center)
 	
 	override init(frame: CGRect) {
 		

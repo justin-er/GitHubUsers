@@ -11,7 +11,7 @@ import UIKit
 class AEAlertViewController: UIViewController {
 
     let containerView = UIView()
-    let alertTitle = AETitleLabel(textAlignment: .center, fontSize: 18)
+    let alertTitle = AETitleLabel(textAlignment: .center)
     let alertMessage = AEBodyLabel(textAlignment: .center)
     let alertActionButton = AEButton(backgroundColor: UIColor.systemPink, text: "OK")
     

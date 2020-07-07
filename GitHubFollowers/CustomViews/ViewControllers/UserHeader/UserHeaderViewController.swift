@@ -11,7 +11,7 @@ import UIKit
 class UserHeaderViewController: UIViewController {
 
 	let avatarImageView 		= AEAvatarImageView(frame: .zero)
-	let userNameLabel			= AETitleLabel(textAlignment: .left, fontSize: 34.0)
+	let userNameLabel			= AETitleLabel(textAlignment: .left)
 	let nameLabel				= AESecondaryTitleLabel(fontSize: 18)
 	let locationImageView		= UIImageView(frame: .zero)
 	let locationLable			= AESecondaryTitleLabel(fontSize: 18)

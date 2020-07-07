@@ -17,7 +17,7 @@ class EmptyStateViewProvider: EmptyStateViewProviderInput {
 	init() {
 		self.contentView = UIView()
 
-		label 				= AETitleLabel(textAlignment: .center, fontSize: 28)
+		label 				= AETitleLabel(textAlignment: .center)
 		imageView 			= UIImageView(frame: .zero)
 		imageView.image 	= UIImage(named: "EmptyStateLogo")
 		

@@ -1,5 +1,5 @@
 //
-//  AETitleLabel2.swift
+//  AEHeadlineLabel.swift
 //  GitHubFollowers
 //
 //  Created by Amirreza Eghtedari on 07.07.20.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class AETitleLabel: UILabel {
+class AEHeadlineLabel: UILabel {
 
-	init(textAlignment: NSTextAlignment) {
+    init(textAlignment: NSTextAlignment) {
 		
 		super.init(frame: .zero)
 		
 		self.textAlignment 				= textAlignment
-		self.font 						= UIFont.preferredFont(forTextStyle: .title1)
+		self.font 						= UIFont.preferredFont(forTextStyle: .headline)
 		self.textColor 					= .label
 		self.numberOfLines				= 1
 		self.lineBreakMode				= .byTruncatingTail
@@ -27,4 +27,5 @@ class AETitleLabel: UILabel {
 		
 		fatalError("init(coder:) has not been implemented")
 	}
+
 }
