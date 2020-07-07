@@ -61,7 +61,6 @@
 		76B1CDDC249A789F0092F8B6 /* AESecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B1CDD8249A78950092F8B6 /* AESecondaryTitleLabel.swift */; };
 		76B1CDDE249A79400092F8B6 /* UserHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B1CDDD249A79400092F8B6 /* UserHeaderViewController.swift */; };
 		76B3468C2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */; };
-		76B7691824A6006200582EBC /* UserHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B7691724A6006200582EBC /* UserHeaderViewModel.swift */; };
 		76BB81FC2461BCFC000A16F6 /* NetworkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FB2461BCFC000A16F6 /* NetworkSettings.swift */; };
 		76BB81FE2461BD49000A16F6 /* FollowerNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FD2461BD49000A16F6 /* FollowerNetworkProvider.swift */; };
 		76BB82002461BE74000A16F6 /* FollowerNetworkProviderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FF2461BE74000A16F6 /* FollowerNetworkProviderInput.swift */; };
@@ -167,7 +166,6 @@
 		76B1CDD8249A78950092F8B6 /* AESecondaryTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AESecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		76B1CDDD249A79400092F8B6 /* UserHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderViewController.swift; sourceTree = "<group>"; };
 		76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeColumnFlowLayout.swift; sourceTree = "<group>"; };
-		76B7691724A6006200582EBC /* UserHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderViewModel.swift; sourceTree = "<group>"; };
 		76BB81FB2461BCFC000A16F6 /* NetworkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettings.swift; sourceTree = "<group>"; };
 		76BB81FD2461BD49000A16F6 /* FollowerNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkProvider.swift; sourceTree = "<group>"; };
 		76BB81FF2461BE74000A16F6 /* FollowerNetworkProviderInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkProviderInput.swift; sourceTree = "<group>"; };
@@ -538,7 +536,7 @@
 				76BC42E82461C215003E099D /* User.swift */,
 				76EAB84F244E018A0093B7D2 /* UserNetworkModel.swift */,
 				76E9B898249922B80049D996 /* UserNetworkError.swift */,
-				76B7691624A6004A00582EBC /* ViewModel */,
+				76E9B896249921430049D996 /* UserViewModel.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -619,15 +617,6 @@
 				76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */,
 			);
 			path = UICollectionViewLayout;
-			sourceTree = "<group>";
-		};
-		76B7691624A6004A00582EBC /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				76E9B896249921430049D996 /* UserViewModel.swift */,
-				76B7691724A6006200582EBC /* UserHeaderViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		76BC42EB2461C6E4003E099D /* Design */ = {
@@ -963,7 +952,6 @@
 				76D2B9AB242CD09C009B4D3B /* AEAlertViewController.swift in Sources */,
 				76BB82002461BE74000A16F6 /* FollowerNetworkProviderInput.swift in Sources */,
 				76E9B893249920320049D996 /* UserInteractorDelegate.swift in Sources */,
-				76B7691824A6006200582EBC /* UserHeaderViewModel.swift in Sources */,
 				7664475E246C728D00A80C1D /* FollowersInteractorDelegate.swift in Sources */,
 				76644761246C72C300A80C1D /* FollowersComposer.swift in Sources */,
 			);
