@@ -24,7 +24,9 @@ class UserViewController: UIViewController {
 	private let hPadding: CGFloat	= 16
 	private let vPadding: CGFloat	= 16
 	
-	private let headerViewController = UserHeaderViewControllerComposer.makeModule()
+	private let headerViewController 			= UserHeaderViewControllerComposer.makeModule()
+	private let repoItemViewConroller			= AERepoItemInfoViewController(user: nil)
+	private let followerItemViewController		= AEFollowerItemInfoViewController(user: nil)
 	
 	init(follower: FollowerViewModel, presenter: UserPresenterInput, loadingViewProvider: LoadingViewProviderInput) {
 		
@@ -97,7 +99,7 @@ class UserViewController: UIViewController {
 		createdAt: nil,
 		avatar: follower.avatar)
 		
-		headerViewController.updateUI(user: tempUserViewModel)
+		headerViewController.user = tempUserViewModel
 	}
 
 	func configViewController() {
@@ -114,6 +116,7 @@ class UserViewController: UIViewController {
 	}
 	
 	func configViewOne() {
+		
 		viewOne.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(viewOne)
 		
@@ -123,6 +126,9 @@ class UserViewController: UIViewController {
 			viewOne.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: vMargin),
 			viewOne.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -vMargin)
 		])
+		
+		self.add(childViewController: repoItemViewConroller, toContentView: self.viewOne)
+		viewOne.isHidden = true
 	}
 	
 	func configViewTwo() {
@@ -136,6 +142,9 @@ class UserViewController: UIViewController {
 			viewTwo.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: vMargin),
 			viewTwo.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -vMargin)
 		])
+		
+		self.add(childViewController: followerItemViewController, toContentView: self.viewTwo)
+		viewTwo.isHidden = true
 	}
 }
 
@@ -163,9 +172,13 @@ extension UserViewController: UserPresenterDelegate {
 			
 			DispatchQueue.main.async {
 				
-				self.headerViewController.updateUI(user: userViewModel)
-				self.add(childViewController: AERepoItemInfoViewController(user: userViewModel), toContentView: self.viewOne)
-				self.add(childViewController: AEFollowerItemInfoViewController(user: userViewModel), toContentView: self.viewTwo)
+				self.headerViewController.user = userViewModel
+				
+				self.viewOne.isHidden = false
+				self.repoItemViewConroller.user = userViewModel
+				
+				self.viewTwo.isHidden = false
+				self.followerItemViewController.user = userViewModel
 			}
 		}
 	}

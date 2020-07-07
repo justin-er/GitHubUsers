@@ -17,11 +17,18 @@ class AEItemInfoViewController: UIViewController {
 	
 	let padding: CGFloat = 20
 	
-	let user: UserViewModel
+	private var _user: UserViewModel?
 	
-	init(user: UserViewModel) {
+	public var user: UserViewModel? {
 		
-		self.user = user
+		get { return _user }
+		
+		set { _user = newValue }
+	}
+	
+	init(user: UserViewModel?) {
+		
+		self._user = user
 		super.init(nibName: nil, bundle: nil)
 	}
 	

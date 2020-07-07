@@ -44,11 +44,11 @@ class UserHeaderViewController: UIViewController {
 		configBioLabel()
     }
 	
-	func updateUI(user: UserViewModel) {
+	var user: UserViewModel? {
 		
-		DispatchQueue.main.async { [weak self] in
+		didSet {
 			
-			guard let self = self else { return }
+			guard let user = user else { return }
 			
 			switch user.avatar {
 				
@@ -59,28 +59,28 @@ class UserHeaderViewController: UIViewController {
 					break
 				}
 				
-				self.avatarImageView.image = image
+				avatarImageView.image = image
 			
 			case let .image(any):
 				guard let image = any as? UIImage else {
 					
-					self.avatarImageView.image = UIImage(named: "Placeholder")
+					avatarImageView.image = UIImage(named: "Placeholder")
 					break
 				}
 				
-				self.avatarImageView.image = image
+				avatarImageView.image = image
 
 			case .none:
-				self.avatarImageView.image = UIImage(named: "Placeholder")
+				avatarImageView.image = UIImage(named: "Placeholder")
 			}
 			
-			self.userNameLabel.text 		= user.login
-			self.nameLabel.text 			= user.name
-			self.locationLable.text 		= user.location ?? "No Location"
-			self.bioLabel.text 				= user.bio ?? "No bio available"
+			userNameLabel.text 		= user.login
+			nameLabel.text 			= user.name
+			locationLable.text 		= user.location ?? "No Location"
+			bioLabel.text 			= user.bio ?? "No bio available"
 			
-			self.locationImageView.image 		= UIImage(systemName: "mappin.and.ellipse")
-			self.locationImageView.tintColor 	= .secondaryLabel
+			locationImageView.image 		= UIImage(systemName: "mappin.and.ellipse")
+			locationImageView.tintColor 	= .secondaryLabel
 		}
 	}
 	
@@ -132,6 +132,7 @@ class UserHeaderViewController: UIViewController {
 		locationImageView.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint.activate([
+			
 			locationImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: hPadding),
 			locationImageView.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 0),
 			locationImageView.heightAnchor.constraint(equalTo: locationImageView.widthAnchor),
@@ -145,6 +146,7 @@ class UserHeaderViewController: UIViewController {
 		locationLable.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint.activate([
+			
 			locationLable.leadingAnchor.constraint(equalTo: locationImageView.trailingAnchor, constant: 5),
 			locationLable.bottomAnchor.constraint(equalTo: locationImageView.bottomAnchor, constant: 0),
 			locationLable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hMargin)

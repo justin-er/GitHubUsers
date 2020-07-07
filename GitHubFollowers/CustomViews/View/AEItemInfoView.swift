@@ -36,6 +36,7 @@ class AEItemInfoView: UIView {
 	
 	func configTitleLabel() {
 		
+		titleLabel.text = "Lorem Ipsum"
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 		titleLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 751), for: .vertical)
 		self.addSubview(titleLabel)
@@ -52,9 +53,10 @@ class AEItemInfoView: UIView {
 	
 	func configSymbolImageView() {
 		
+		symbolImageView.image 		= UIImage(systemName: "folder")
 		symbolImageView.contentMode = .scaleAspectFill
 		symbolImageView.translatesAutoresizingMaskIntoConstraints = false
-		symbolImageView.tintColor = .label
+		symbolImageView.tintColor 	= .label
 		
 		self.addSubview(symbolImageView)
 		
@@ -76,6 +78,7 @@ class AEItemInfoView: UIView {
 	
 	func configCountLabel() {
 		
+		countLabel.text = "0"
 		countLabel.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(countLabel)
 		
@@ -88,32 +91,42 @@ class AEItemInfoView: UIView {
 		])
 	}
 	
-	private func setImage(type: AEItemInfoViewType) {
+	public var title: String? {
 		
-		switch type {
+		set {
 			
-		case AEItemInfoViewType.publicRepos:
-			
-			symbolImageView.image = UIImage(systemName: "folder")
+			titleLabel.text = newValue
+		}
 		
-		case .publicGists:
+		get {
 			
-			symbolImageView.image = UIImage(systemName: "text.alignleft")
-			
-		case .following:
-			
-			symbolImageView.image = UIImage(systemName: "heart")
-			
-		case .follwers:
-			
-			symbolImageView.image = UIImage(systemName: "person.2")
+			return titleLabel.text
 		}
 	}
 	
-	func set(type: AEItemInfoViewType, title: String, count: Int) {
+	public var image: UIImage? {
 		
-		setImage(type: type)
-		titleLabel.text = title
-		countLabel.text = String(count)
+		set {
+			
+			symbolImageView.image = newValue
+		}
+		
+		get {
+			
+			return symbolImageView.image
+		}
+	}
+	
+	public var count: Int? {
+		
+		set {
+			
+			countLabel.text = String(newValue ?? 0)
+		}
+		
+		get {
+			
+			return Int(countLabel.text ?? "0")
+		}
 	}
 }

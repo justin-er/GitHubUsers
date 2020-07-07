@@ -6,11 +6,11 @@
 //  Copyright © 2020 Amirreza Eghtedari. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class AEFollowerItemInfoViewController: AEItemInfoViewController {
 	
-	override init(user: UserViewModel) {
+	override init(user: UserViewModel?) {
 		
 		super.init(user: user)
 		config()
@@ -23,8 +23,14 @@ class AEFollowerItemInfoViewController: AEItemInfoViewController {
 	
 	func config() {
 		
-		self.itemInfoViewOne.set(type: .follwers	, title: "Followers",	 count: user.followers ?? 0)
-		self.itemInfoViewTwo.set(type: .following	, title: "Followings",	 count: user.following ?? 0)
+		self.itemInfoViewOne.title 	= "Following"
+		self.itemInfoViewOne.image	= UIImage(systemName: "suit.heart")
+		self.itemInfoViewOne.count	= user?.following ?? 0
+		
+		self.itemInfoViewTwo.title 	= "Followers"
+		self.itemInfoViewTwo.image	= UIImage(systemName: "person.2")
+		self.itemInfoViewTwo.count	= user?.followers ?? 0
+		
 		self.actionsButton.set(backgroundColor: .systemGreen, text: "Get Followers")
 	}
 }
