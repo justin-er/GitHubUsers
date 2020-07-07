@@ -50,13 +50,10 @@ class UserNetworkProvider: UserNetworkProviderInput {
             
             do {
                 let decoder = JSONDecoder()
-                let userNetworkModel = try decoder.decode(UserNetworkModel.self, from: data)
+				decoder.keyDecodingStrategy 	= .convertFromSnakeCase
+				decoder.dateDecodingStrategy 	= .iso8601
 				
-				guard let user = userNetworkModel.makeUser() else {
-					completion(Result.failure(UserNetworkError.unableToComplete))
-					return
-				}
-				
+				let user = try decoder.decode(User.self, from: data)
                 completion(Result.success(user))
             } catch {
                 completion(Result.failure(UserNetworkError.unableToComplete))

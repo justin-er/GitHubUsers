@@ -94,7 +94,6 @@
 		76E9B897249921430049D996 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9B896249921430049D996 /* UserViewModel.swift */; };
 		76E9B899249922B80049D996 /* UserNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9B898249922B80049D996 /* UserNetworkError.swift */; };
 		76EAB84D244E00790093B7D2 /* ProjectBrief.md in Resources */ = {isa = PBXBuildFile; fileRef = 76EAB84C244E00790093B7D2 /* ProjectBrief.md */; };
-		76EAB850244E018A0093B7D2 /* UserNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EAB84F244E018A0093B7D2 /* UserNetworkModel.swift */; };
 		76EDE62424334482002AE6FD /* FollowerNetowrkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EDE62324334482002AE6FD /* FollowerNetowrkModel.swift */; };
 		76FE61112423B95100A9CF0C /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE61102423B95100A9CF0C /* FollowersViewController.swift */; };
 /* End PBXBuildFile section */
@@ -196,7 +195,6 @@
 		76E9B896249921430049D996 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		76E9B898249922B80049D996 /* UserNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkError.swift; sourceTree = "<group>"; };
 		76EAB84C244E00790093B7D2 /* ProjectBrief.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ProjectBrief.md; sourceTree = "<group>"; };
-		76EAB84F244E018A0093B7D2 /* UserNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkModel.swift; sourceTree = "<group>"; };
 		76EDE62324334482002AE6FD /* FollowerNetowrkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetowrkModel.swift; sourceTree = "<group>"; };
 		76FE61102423B95100A9CF0C /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -534,7 +532,6 @@
 			isa = PBXGroup;
 			children = (
 				76BC42E82461C215003E099D /* User.swift */,
-				76EAB84F244E018A0093B7D2 /* UserNetworkModel.swift */,
 				76E9B898249922B80049D996 /* UserNetworkError.swift */,
 				76E9B896249921430049D996 /* UserViewModel.swift */,
 			);
@@ -927,7 +924,6 @@
 				76BB81FE2461BD49000A16F6 /* FollowerNetworkProvider.swift in Sources */,
 				764FA22324925CA40020C57A /* EmptyStateViewProvider.swift in Sources */,
 				76E9B8952499206C0049D996 /* UserPresenterDelegate.swift in Sources */,
-				76EAB850244E018A0093B7D2 /* UserNetworkModel.swift in Sources */,
 				76E9B88F24991FD30049D996 /* UserPresenterInput.swift in Sources */,
 				7602E2CB24B3358100CE156F /* AEFollowerItemInfoViewController.swift in Sources */,
 				76E9B88624991F590049D996 /* UserNetworkProvider.swift in Sources */,
