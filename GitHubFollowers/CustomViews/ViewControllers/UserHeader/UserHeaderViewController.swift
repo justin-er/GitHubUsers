@@ -12,9 +12,9 @@ class UserHeaderViewController: UIViewController {
 
 	let avatarImageView 		= AEAvatarImageView(frame: .zero)
 	let userNameLabel			= AETitleLabel(textAlignment: .left)
-	let nameLabel				= AESecondaryTitleLabel(fontSize: 18)
+	let nameLabel				= AESecondaryTitleLabel(textAlignment: .right)
 	let locationImageView		= UIImageView(frame: .zero)
-	let locationLable			= AESecondaryTitleLabel(fontSize: 18)
+	let locationLable			= AESecondaryTitleLabel(textAlignment: .right)
 	let bioLabel 				= AEBodyLabel(textAlignment: .left)
 	
 	let vMargin: CGFloat	= 0

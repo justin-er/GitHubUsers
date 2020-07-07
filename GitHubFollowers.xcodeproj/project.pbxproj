@@ -430,8 +430,8 @@
 			isa = PBXGroup;
 			children = (
 				76B5EBCD24B4938E008947CA /* AETitleLabel.swift */,
-				76B5EBCF24B497A3008947CA /* AEHeadlineLabel.swift */,
 				76B1CDD8249A78950092F8B6 /* AESecondaryTitleLabel.swift */,
+				76B5EBCF24B497A3008947CA /* AEHeadlineLabel.swift */,
 				76E8ED17242BAEF9002427C5 /* AEBodyLabel.swift */,
 			);
 			path = Labels;

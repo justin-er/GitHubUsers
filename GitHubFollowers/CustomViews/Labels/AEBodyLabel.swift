@@ -23,15 +23,8 @@ class AEBodyLabel: UILabel {
         self.init(frame: .zero)
         
         self.textAlignment = textAlignment
-        config()
-    }
-    
-    private func config() {
-        
         font = UIFont.preferredFont(forTextStyle: .body)
         textColor = UIColor.secondaryLabel
 		lineBreakMode = .byTruncatingTail
-
     }
-
 }

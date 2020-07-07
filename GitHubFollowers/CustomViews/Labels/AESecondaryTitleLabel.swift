@@ -18,19 +18,15 @@ class AESecondaryTitleLabel: UILabel {
         super.init(frame: frame)
     }
     
-    convenience init(fontSize: CGFloat) {
+	convenience init(textAlignment: NSTextAlignment) {
         
         self.init(frame: .zero)
 
-        self.font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
-        config()
-    }
-    
-    private func config() {
-        
+		self.font = UIFont.preferredFont(forTextStyle: .title3)
         textColor = UIColor.secondaryLabel
         lineBreakMode = .byTruncatingTail
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.9
     }
+
 }
