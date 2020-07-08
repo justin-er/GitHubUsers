@@ -10,11 +10,11 @@ import Foundation
 
 protocol FollowersInteractorDelegate: class {
 	
-	func interactroDidStartGetting(_: FollowersInteractorInput)
+	func interactroDidStartGettingFollowers(_: FollowersInteractorInput, of username: String)
 	
 	func interactorDidGet(_: FollowersInteractorInput, result: Result<[Follower], FollowerNetworkError>)
 	
-	func interactroDidStartGettingNext(_: FollowersInteractorInput)
+	func interactroDidStartGettingNextFollowers(_: FollowersInteractorInput)
 	
 	func interactorDidGetNext(_: FollowersInteractorInput, result: Result<[Follower], FollowerNetworkError>)
 	

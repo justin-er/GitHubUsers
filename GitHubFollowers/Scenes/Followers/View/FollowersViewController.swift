@@ -45,7 +45,7 @@ class FollowersViewController: UIViewController {
 	
 	deinit {
 		
-		print("SearchViewController did deinitialized!")
+		print("FollowersViewController did deinitialized!")
 	}
     
     override func viewDidLoad() {
@@ -181,8 +181,9 @@ extension FollowersViewController: FollowersPresenterDelegate {
 		}
 	}
 	
-	func presenterDidStartGetting(_ presenter: FollowersPresenterInput) {
+	func presenterDidStartGettingFollowers(_ presenter: FollowersPresenterInput, of username: String) {
 		
+		self.username = username
 		loadingViewProvider.showLoading(on: view)
 	}
 	
@@ -192,7 +193,7 @@ extension FollowersViewController: FollowersPresenterDelegate {
 		processResult(result, type: .first)
 	}
 	
-	func presenterDidStartGettingNext(_ presenter: FollowersPresenterInput) {
+	func presenterDidStartGettingNextFollowers(_ presenter: FollowersPresenterInput) {
 		
 		loadingViewProvider.showLoading(on: view)
 	}

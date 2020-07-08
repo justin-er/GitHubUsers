@@ -53,9 +53,9 @@ extension FollowersPresenter: FollowersInteractorDelegate {
 		}
 	}
 	
-	func interactroDidStartGetting(_: FollowersInteractorInput) {
+	func interactroDidStartGettingFollowers(_: FollowersInteractorInput, of username: String) {
 		
-		delegate?.presenterDidStartGetting(self)
+		delegate?.presenterDidStartGettingFollowers(self, of: username)
 	}
 	
 	func interactorDidGet(_: FollowersInteractorInput, result: Result<[Follower], FollowerNetworkError>) {
@@ -63,9 +63,9 @@ extension FollowersPresenter: FollowersInteractorDelegate {
 		processResult(result, type: .first)
 	}
 	
-	func interactroDidStartGettingNext(_: FollowersInteractorInput) {
+	func interactroDidStartGettingNextFollowers(_: FollowersInteractorInput) {
 		
-		delegate?.presenterDidStartGettingNext(self)
+		delegate?.presenterDidStartGettingNextFollowers(self)
 	}
 	
 	func interactorDidGetNext(_: FollowersInteractorInput, result: Result<[Follower], FollowerNetworkError>) {
