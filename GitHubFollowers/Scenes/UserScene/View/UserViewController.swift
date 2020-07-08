@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class UserViewController: UIViewController {
 	
@@ -27,6 +28,7 @@ class UserViewController: UIViewController {
 	private let headerViewController 			= UserHeaderViewController(user: nil)
 	private let repoItemViewConroller			= AERepoItemInfoViewController(user: nil)
 	private let followerItemViewController		= AEFollowerItemInfoViewController(user: nil)
+	private let createdAtLabel					= AEBodyLabel(textAlignment: .center)
 	
 	init(follower: FollowerViewModel, presenter: UserPresenterInput, loadingViewProvider: LoadingViewProviderInput) {
 		
@@ -50,6 +52,11 @@ class UserViewController: UIViewController {
 		configHeaderContentView()
 		configViewOne()
 		configViewTwo()
+		configCreatedAtLabel()
+		
+		repoItemViewConroller.delegate 			= self
+		followerItemViewController.delegate 	= self
+		
 		persenter.getUserDetail(of: self.follower)
 		loadingViewProvider.showLoading(on: self.view)
 	}
@@ -146,6 +153,19 @@ class UserViewController: UIViewController {
 		self.add(childViewController: followerItemViewController, toContentView: self.viewTwo)
 		viewTwo.isHidden = true
 	}
+	
+	func configCreatedAtLabel() {
+		
+		createdAtLabel.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(createdAtLabel)
+		
+		NSLayoutConstraint.activate([
+		
+			createdAtLabel.topAnchor.constraint(equalTo: viewTwo.bottomAnchor, constant: 16),
+			createdAtLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+			createdAtLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
+		])
+	}
 }
 
 extension UserViewController: UserPresenterDelegate {
@@ -180,7 +200,30 @@ extension UserViewController: UserPresenterDelegate {
 				
 				self.viewTwo.isHidden = false
 				self.followerItemViewController.user = userViewModel
+				
+				self.createdAtLabel.text = "Github since \(userViewModel.createdAt ?? "")"
 			}
 		}
+	}
+}
+
+extension UserViewController: AERepoItemInfoViewControllerDelegate {
+	
+	func repoItemInfoViewControllerDidTapActionButton(_: AERepoItemInfoViewController, user: UserViewModel) {
+		
+		guard let htmlUrl = user.htmlUrl, let url = URL(string: htmlUrl) else { return }
+		
+		let safariViewController = SFSafariViewController(url: url)
+		safariViewController.preferredControlTintColor = .systemGreen
+		
+		present(safariViewController, animated: true)
+	}
+}
+
+extension UserViewController: AEFollowerItemInfoViewControllerDelegate {
+	
+	func followerItemViewControllerDidTapActionButton(_: AEFollowerItemInfoViewController, user: UserViewModel) {
+	
+		
 	}
 }

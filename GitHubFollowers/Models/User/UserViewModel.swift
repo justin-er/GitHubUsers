@@ -41,7 +41,7 @@ struct UserViewModel {
 	
 	var dateFormatter: DateFormatter = {
 		let formatter = DateFormatter()
-		formatter.dateFormat = "yyyy.MM.dd, HH:mm"
+		formatter.dateFormat = "MMM yyyy"
 		return formatter
 	}()
 	

@@ -10,6 +10,8 @@ import UIKit
 
 class AERepoItemInfoViewController: AEItemInfoViewController {
 	
+	var delegate: AERepoItemInfoViewControllerDelegate?
+	
 	override init(user: UserViewModel?) {
 		
 		super.init(user: user)
@@ -23,15 +25,25 @@ class AERepoItemInfoViewController: AEItemInfoViewController {
 	
 	private func config() {
 		
-		self.itemInfoViewOne.title 	= "Public Repos"
-		self.itemInfoViewOne.image	= UIImage(systemName: "folder")
-		self.itemInfoViewOne.count	= user?.publicRepos ?? 0
+		itemInfoViewOne.title 	= "Public Repos"
+		itemInfoViewOne.image	= UIImage(systemName: "folder")
+		itemInfoViewOne.count	= user?.publicRepos ?? 0
 		
-		self.itemInfoViewTwo.title 	= "Public Gists"
-		self.itemInfoViewTwo.image	= UIImage(systemName: "text.alignleft")
-		self.itemInfoViewTwo.count	= user?.publicGists ?? 0
+		itemInfoViewTwo.title 	= "Public Gists"
+		itemInfoViewTwo.image	= UIImage(systemName: "text.alignleft")
+		itemInfoViewTwo.count	= user?.publicGists ?? 0
 		
-		self.actionsButton.set(backgroundColor: .systemPurple, text: "Github Profile")
+		actionsButton.set(backgroundColor: .systemPurple, text: "Github Profile")
+		
+		actionsButton.addTarget(self, action: #selector(didTapActionButton), for: .touchUpInside)
+	}
+	
+	@objc
+	func didTapActionButton() {
+		
+		guard let user = user else { return }
+		
+		delegate?.repoItemInfoViewControllerDidTapActionButton(self, user: user)
 	}
 	
 	override var user: UserViewModel? {
