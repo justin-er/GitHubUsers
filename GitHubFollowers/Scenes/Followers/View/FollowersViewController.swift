@@ -45,7 +45,6 @@ class FollowersViewController: UIViewController {
 	
 	deinit {
 		
-		print("FollowersViewController did deinitialized!")
 	}
     
     override func viewDidLoad() {
