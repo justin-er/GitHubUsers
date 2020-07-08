@@ -15,7 +15,7 @@ class UserViewController: UIViewController {
 	
 	private var follower: FollowerViewModel
 	private var persenter: UserPresenterInput
-	private weak var followersInteractorInput: FollowersInteractorInput?
+	private weak var followersInteractor: FollowersInteractorInput?
 	
 	private var headerContentView 	= UIView()
 	private var viewOne				= UIView()
@@ -34,7 +34,7 @@ class UserViewController: UIViewController {
 	init(follower: FollowerViewModel, presenter: UserPresenterInput, loadingViewProvider: LoadingViewProviderInput, followersInteractorInput: FollowersInteractorInput) {
 		
 		self.loadingViewProvider 			= loadingViewProvider
-		self.followersInteractorInput	= followersInteractorInput
+		self.followersInteractor	= followersInteractorInput
 		self.follower 						= follower
 		self.persenter 						= presenter
 		
@@ -225,7 +225,13 @@ extension UserViewController: AEFollowerItemInfoViewControllerDelegate {
 	
 	func followerItemViewControllerDidTapActionButton(_: AEFollowerItemInfoViewController, user: UserViewModel) {
 	
-		followersInteractorInput?.getFollowers(of: user.login)
+		guard user.followers != 0 else {
+			
+			self.presentAEAlert(title: "No Followers", message: "This user has no followers 😞. That's a shame.", buttonTitle: "OK")
+			return
+		}
+		
+		followersInteractor?.getFollowers(of: user.login)
 		dismiss(animated: true)
 	}
 }

@@ -84,6 +84,7 @@ class FollowersViewController: UIViewController {
 		let searchController = UISearchController()
 		searchController.searchResultsUpdater = self
 		searchController.searchBar.delegate = self
+		searchController.obscuresBackgroundDuringPresentation = false
 		navigationItem.searchController = searchController
 	}
 	
