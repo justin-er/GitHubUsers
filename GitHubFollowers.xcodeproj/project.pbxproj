@@ -367,7 +367,7 @@
 			path = Gateways;
 			sourceTree = "<group>";
 		};
-		76472136249913E200B409A8 /* UserScene */ = {
+		76472136249913E200B409A8 /* User */ = {
 			isa = PBXGroup;
 			children = (
 				7647213A2499141200B409A8 /* Composer */,
@@ -376,7 +376,7 @@
 				76E9B89124991FD60049D996 /* Presenter */,
 				76E9B88724991F5E0049D996 /* Providers */,
 			);
-			path = UserScene;
+			path = User;
 			sourceTree = "<group>";
 		};
 		76472137249913EE00B409A8 /* View */ = {
@@ -459,15 +459,15 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		7664474F246C718B00A80C1D /* SearchFollowersScene */ = {
+		7664474F246C718B00A80C1D /* SearchFollowers */ = {
 			isa = PBXGroup;
 			children = (
 				7605CF13240EC04E00460465 /* SearchViewController.swift */,
 			);
-			path = SearchFollowersScene;
+			path = SearchFollowers;
 			sourceTree = "<group>";
 		};
-		76644750246C719300A80C1D /* FollowersScene */ = {
+		76644750246C719300A80C1D /* Followers */ = {
 			isa = PBXGroup;
 			children = (
 				7664475F246C72B300A80C1D /* Composer */,
@@ -476,15 +476,15 @@
 				7664475A246C723800A80C1D /* Presenter */,
 				76678156247036140091FBE8 /* Providers */,
 			);
-			path = FollowersScene;
+			path = Followers;
 			sourceTree = "<group>";
 		};
-		76644751246C719E00A80C1D /* FavoritesScene */ = {
+		76644751246C719E00A80C1D /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
 				7616BA76241D576400E2E0FE /* FavoriteViewController.swift */,
 			);
-			path = FavoritesScene;
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		76644752246C71C700A80C1D /* View */ = {
@@ -572,10 +572,10 @@
 		7671079424895F5800478FAC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				7664474F246C718B00A80C1D /* SearchFollowersScene */,
-				76644750246C719300A80C1D /* FollowersScene */,
-				76472136249913E200B409A8 /* UserScene */,
-				76644751246C719E00A80C1D /* FavoritesScene */,
+				7664474F246C718B00A80C1D /* SearchFollowers */,
+				76644750246C719300A80C1D /* Followers */,
+				76472136249913E200B409A8 /* User */,
+				76644751246C719E00A80C1D /* Favorites */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";

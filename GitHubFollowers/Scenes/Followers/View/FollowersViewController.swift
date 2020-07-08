@@ -39,10 +39,12 @@ class FollowersViewController: UIViewController {
 	}
 	
 	required init?(coder: NSCoder) {
+		
 		fatalError("init(coder:) has not been implemented")
 	}
 	
 	deinit {
+		
 		print("SearchViewController did deinitialized!")
 	}
     
@@ -54,7 +56,6 @@ class FollowersViewController: UIViewController {
 		configCollectionView()
 		configDataSource()
 		interactor.getFollowers(of: username)
-		loadingViewProvider.showLoading(on: self.view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +68,7 @@ class FollowersViewController: UIViewController {
     }
 	
 	func configCollectionView() {
+		
 		collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: ThreeColumnFlowLayout())
 		collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 		view.addSubview(collectionView)
@@ -78,6 +80,7 @@ class FollowersViewController: UIViewController {
 	}
 	
 	func configSearchBar() {
+		
 		let searchController = UISearchController()
 		searchController.searchResultsUpdater = self
 		searchController.searchBar.delegate = self
@@ -87,6 +90,7 @@ class FollowersViewController: UIViewController {
 	var firstItem = false
 	
 	func configDataSource() {
+		
 		dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { [weak self] (collectionView, indexPath, follower) -> UICollectionViewCell? in
 			let followerCell = collectionView.dequeueReusableCell(
 				withReuseIdentifier: FollowerCollectionViewCell.reuseIdentifier,
@@ -104,6 +108,7 @@ class FollowersViewController: UIViewController {
 	}
 	
 	func configViewConroller() {
+		
 		view.backgroundColor = UIColor.secondarySystemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
 	}
@@ -135,8 +140,6 @@ extension FollowersViewController: FollowersPresenterDelegate {
 	}
 	
 	fileprivate func processResult(_ result: Result<[FollowerViewModel], FollowerNetworkError>, type: CallbackType) {
-		
-		self.loadingViewProvider.dismissLoading()
 		
 		switch result {
 		case .failure(let follwerError):
@@ -177,13 +180,25 @@ extension FollowersViewController: FollowersPresenterDelegate {
 		}
 	}
 	
-	func presenterDidGet(result: Result<[FollowerViewModel], FollowerNetworkError>) {
+	func presenterDidStartGetting(_ presenter: FollowersPresenterInput) {
 		
+		loadingViewProvider.showLoading(on: view)
+	}
+	
+	func presenterDidGet(_: FollowersPresenterInput, result: Result<[FollowerViewModel], FollowerNetworkError>) {
+		
+		self.loadingViewProvider.dismissLoading()
 		processResult(result, type: .first)
 	}
 	
-	func presenterDidGetNext(result: Result<[FollowerViewModel], FollowerNetworkError>) {
+	func presenterDidStartGettingNext(_ presenter: FollowersPresenterInput) {
 		
+		loadingViewProvider.showLoading(on: view)
+	}
+	
+	func presenterDidGetNext(_: FollowersPresenterInput, result: Result<[FollowerViewModel], FollowerNetworkError>) {
+		
+		self.loadingViewProvider.dismissLoading()
 		processResult(result, type: .next)
 	}
 }
@@ -193,7 +208,8 @@ extension FollowersViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
 		guard let selectedViewModel = self.dataSource.itemIdentifier(for: indexPath) else { return }
-		let userNavigationController = UserNavigationControllerComposer.makeModule(follower: selectedViewModel)
+		let userNavigationController = UserNavigationControllerComposer.makeModule(follower: selectedViewModel,
+																				   followersInteractorInput: interactor)
 		present(userNavigationController, animated: true)
 	}
 	

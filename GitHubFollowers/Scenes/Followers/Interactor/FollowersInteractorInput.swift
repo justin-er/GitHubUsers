@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol FollowersInteractorInput {
+protocol FollowersInteractorInput: class {
 	
 	var isMoreFollowers: Bool { get }
 	

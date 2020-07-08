@@ -10,9 +10,10 @@ import UIKit
 
 class UserNavigationControllerComposer {
 	
-	static func makeModule(follower: FollowerViewModel) -> UINavigationController {
+	static func makeModule(follower: FollowerViewModel, followersInteractorInput: FollowersInteractorInput) -> UINavigationController {
 		
-		let userInfoVC = UserViewControllerComposer.makeModule(follower: follower)
+		let userInfoVC = UserViewControllerComposer.makeModule(follower: follower,
+															   followersInteractorInput: followersInteractorInput)
 		let nc = UINavigationController(rootViewController: userInfoVC)
 		return nc
 	}

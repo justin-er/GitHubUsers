@@ -15,6 +15,7 @@ class UserViewController: UIViewController {
 	
 	private var follower: FollowerViewModel
 	private var persenter: UserPresenterInput
+	private weak var followersInteractorInput: FollowersInteractorInput?
 	
 	private var headerContentView 	= UIView()
 	private var viewOne				= UIView()
@@ -30,12 +31,12 @@ class UserViewController: UIViewController {
 	private let followerItemViewController		= AEFollowerItemInfoViewController(user: nil)
 	private let createdAtLabel					= AEBodyLabel(textAlignment: .center)
 	
-	init(follower: FollowerViewModel, presenter: UserPresenterInput, loadingViewProvider: LoadingViewProviderInput) {
+	init(follower: FollowerViewModel, presenter: UserPresenterInput, loadingViewProvider: LoadingViewProviderInput, followersInteractorInput: FollowersInteractorInput) {
 		
-		self.loadingViewProvider = loadingViewProvider
-		
-		self.follower = follower
-		self.persenter = presenter
+		self.loadingViewProvider 			= loadingViewProvider
+		self.followersInteractorInput	= followersInteractorInput
+		self.follower 						= follower
+		self.persenter 						= presenter
 		
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -224,6 +225,7 @@ extension UserViewController: AEFollowerItemInfoViewControllerDelegate {
 	
 	func followerItemViewControllerDidTapActionButton(_: AEFollowerItemInfoViewController, user: UserViewModel) {
 	
-		
+		followersInteractorInput?.getFollowers(of: user.login)
+		dismiss(animated: true)
 	}
 }

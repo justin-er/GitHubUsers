@@ -31,7 +31,7 @@ class FollowersInteractor: FollowersInteractorInput {
 		switch result {
 		case .failure(let error):
 			os_log("Error: %@", log: OSLog(subsystem: "Network Communication", category: "Error"), type: .default, error.localizedDescription)
-			self.delegate?.interactorDidGet(result: Result.failure(error))
+			self.delegate?.interactorDidGet(self, result: Result.failure(error))
 		case .success(let followersNetworkModel):
 			let followers = followersNetworkModel.map { item -> Follower in
 				item.makeFollower()
@@ -39,9 +39,9 @@ class FollowersInteractor: FollowersInteractorInput {
 			
 			switch type {
 			case .first:
-				self.delegate?.interactorDidGet(result: Result.success(followers))
+				self.delegate?.interactorDidGet(self, result: Result.success(followers))
 			case .next:
-				self.delegate?.interactorDidGetNext(result: Result.success(followers))
+				self.delegate?.interactorDidGetNext(self, result: Result.success(followers))
 			}
 			
 		}
@@ -52,6 +52,8 @@ class FollowersInteractor: FollowersInteractorInput {
 		followersProvider.getFollowers(of: username) {[weak self] result in
 			self?.processResult(result, type: .first)
 		}
+		
+		delegate?.interactroDidStartGetting(self)
 	}
 	
 	func getNextFollowers() {
@@ -61,16 +63,21 @@ class FollowersInteractor: FollowersInteractorInput {
 				self?.processResult(result, type: .next)
 			}
 		}
+		
+		delegate?.interactroDidStartGettingNext(self)
 	}
 	
 	func getAvatar(of follower: Follower) {
 		
 		followersProvider.getAvatar(for: follower) { [weak self] (result) in
+			
+			guard let self = self else { return }
+			
 			switch result {
 			case .failure(let error):
 				os_log("Error: %@", log: OSLog(subsystem: "Network Communication", category: "Error"), type: .default, error.localizedDescription)
 			case .success(let follower):
-				self?.delegate?.interactorDidGetAvatar(follower: follower)
+				self.delegate?.interactorDidGetAvatar(self, follower: follower)
 			}
 		}
 	}

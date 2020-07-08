@@ -36,7 +36,7 @@ extension FollowersPresenter: FollowersInteractorDelegate {
 	fileprivate func processResult(_ result: Result<[Follower], FollowerNetworkError>, type: CallbackType) {
 		switch result {
 		case .failure(let error):
-			delegate?.presenterDidGet(result: Result.failure(error))
+			delegate?.presenterDidGet(self, result: Result.failure(error))
 		case .success(let followers):
 			let newFollowerViewModels = followers.map { follower -> FollowerViewModel in
 				return FollowerViewModel(with: follower)
@@ -45,25 +45,35 @@ extension FollowersPresenter: FollowersInteractorDelegate {
 			case .first:
 				followerViewModels.removeAll()
 				followerViewModels.append(contentsOf: newFollowerViewModels)
-				delegate?.presenterDidGet(result: Result.success(followerViewModels))
+				delegate?.presenterDidGet(self, result: Result.success(followerViewModels))
 			case .next:
 				followerViewModels.append(contentsOf: newFollowerViewModels)
-				delegate?.presenterDidGetNext(result: Result.success(followerViewModels))
+				delegate?.presenterDidGetNext(self, result: Result.success(followerViewModels))
 			}
 		}
 	}
 	
-	func interactorDidGet(result: Result<[Follower], FollowerNetworkError>) {
+	func interactroDidStartGetting(_: FollowersInteractorInput) {
+		
+		delegate?.presenterDidStartGetting(self)
+	}
+	
+	func interactorDidGet(_: FollowersInteractorInput, result: Result<[Follower], FollowerNetworkError>) {
 		
 		processResult(result, type: .first)
 	}
 	
-	func interactorDidGetNext(result: Result<[Follower], FollowerNetworkError>) {
+	func interactroDidStartGettingNext(_: FollowersInteractorInput) {
+		
+		delegate?.presenterDidStartGettingNext(self)
+	}
+	
+	func interactorDidGetNext(_: FollowersInteractorInput, result: Result<[Follower], FollowerNetworkError>) {
 		
 		processResult(result, type: .next)
 	}
 	
-	func interactorDidGetAvatar(follower: Follower) {
+	func interactorDidGetAvatar(_: FollowersInteractorInput, follower: Follower) {
 		
 		delegate?.presenterDidGetAvater(self, followerViewModel: FollowerViewModel(with: follower))
 	}

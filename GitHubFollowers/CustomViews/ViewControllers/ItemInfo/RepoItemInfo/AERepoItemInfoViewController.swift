@@ -10,7 +10,7 @@ import UIKit
 
 class AERepoItemInfoViewController: AEItemInfoViewController {
 	
-	var delegate: AERepoItemInfoViewControllerDelegate?
+	weak var delegate: AERepoItemInfoViewControllerDelegate?
 	
 	override init(user: UserViewModel?) {
 		

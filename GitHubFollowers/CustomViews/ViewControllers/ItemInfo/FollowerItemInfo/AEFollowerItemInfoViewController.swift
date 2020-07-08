@@ -10,7 +10,7 @@ import UIKit
 
 class AEFollowerItemInfoViewController: AEItemInfoViewController {
 	
-	var delegate: AEFollowerItemInfoViewControllerDelegate?
+	weak var delegate: AEFollowerItemInfoViewControllerDelegate?
 	
 	override init(user: UserViewModel?) {
 		
@@ -44,6 +44,18 @@ class AEFollowerItemInfoViewController: AEItemInfoViewController {
 		guard let user = user else { return }
 		
 		delegate?.followerItemViewControllerDidTapActionButton(self, user: user)
+	}
+	
+	override var user: UserViewModel? {
+		
+		get { super.user }
+		
+		set {
+			
+			super.user = newValue
+			self.itemInfoViewOne.count	= user?.following ?? 0
+			self.itemInfoViewTwo.count	= user?.followers ?? 0
+		}
 	}
 }
 
