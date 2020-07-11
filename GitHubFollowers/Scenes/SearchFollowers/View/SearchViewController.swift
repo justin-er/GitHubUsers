@@ -113,9 +113,9 @@ class SearchViewController: UIViewController {
         }
         
 		let followersListViewController = FollowersViewControllerComposer.makeModule()
-        followersListViewController.username = textField.text
         followersListViewController.modalPresentationStyle = .automatic
         show(followersListViewController, sender: self)
+		followersListViewController.representFollowers(ofUsername: textField.text!)
     }
     
     func configDismissKeyboadTabGesture() {

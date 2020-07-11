@@ -10,7 +10,7 @@ import Foundation
 
 class UserViewControllerComposer {
 	
-	static func makeModule(follower: FollowerViewModel, followersInteractorInput: FollowersInteractorInput) -> UserViewController {
+	static func makeModule(follower: FollowerViewModel, followersViewControllerInput: FollowersViewControllerInput) -> UserViewController {
 		
 		let userNetworkProvider = UserNetworkProvider()
 		let userInteractor 		= UserInteractor(userNetworkProvider: userNetworkProvider)
@@ -22,7 +22,8 @@ class UserViewControllerComposer {
 		let viewController 		= UserViewController(follower: follower,
 														presenter: userPresenter,
 														loadingViewProvider: loadingViewProvider,
-														followersInteractorInput: followersInteractorInput, alertViewProvider: alertViewProvider)
+														followersViewControllerInput: followersViewControllerInput,
+														alertViewProvider: alertViewProvider)
 		userPresenter.delegate 	= viewController
 		
 		return viewController

@@ -20,6 +20,7 @@
 		7605CF40240EC3D400460465 /* AETextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF3F240EC3D400460465 /* AETextField.swift */; };
 		7605CF4B240EDB3600460465 /* AEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF4A240EDB3600460465 /* AEButton.swift */; };
 		76084D6824BA04F0001D264B /* PersistenceProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76084D6724BA04F0001D264B /* PersistenceProviderError.swift */; };
+		76084D6A24BA0CE0001D264B /* FollowersViewControllerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76084D6924BA0CE0001D264B /* FollowersViewControllerInput.swift */; };
 		7612961F24B9B40400EDA121 /* PersistenceProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7612961E24B9B40400EDA121 /* PersistenceProviderTests.swift */; };
 		7616BA77241D576400E2E0FE /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616BA76241D576400E2E0FE /* FavoriteViewController.swift */; };
 		762CF00C245743FA009A0B1B /* FollowerNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */; };
@@ -142,6 +143,7 @@
 		7605CF3F240EC3D400460465 /* AETextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AETextField.swift; sourceTree = "<group>"; };
 		7605CF4A240EDB3600460465 /* AEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEButton.swift; sourceTree = "<group>"; };
 		76084D6724BA04F0001D264B /* PersistenceProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProviderError.swift; sourceTree = "<group>"; };
+		76084D6924BA0CE0001D264B /* FollowersViewControllerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewControllerInput.swift; sourceTree = "<group>"; };
 		7612961E24B9B40400EDA121 /* PersistenceProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProviderTests.swift; sourceTree = "<group>"; };
 		7616BA76241D576400E2E0FE /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkError.swift; sourceTree = "<group>"; };
@@ -549,6 +551,7 @@
 		76644752246C71C700A80C1D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				76084D6924BA0CE0001D264B /* FollowersViewControllerInput.swift */,
 				76FE61102423B95100A9CF0C /* FollowersViewController.swift */,
 			);
 			path = View;
@@ -989,6 +992,7 @@
 				767AD23924B5987800F55997 /* AEFollowerItemInfoViewControllerDelegate.swift in Sources */,
 				7631F7E824B98D3400144F3A /* SearchViewControllerComposer.swift in Sources */,
 				76084D6824BA04F0001D264B /* PersistenceProviderError.swift in Sources */,
+				76084D6A24BA0CE0001D264B /* FollowersViewControllerInput.swift in Sources */,
 				76472135249913DD00B409A8 /* UserViewController.swift in Sources */,
 				762CF00C245743FA009A0B1B /* FollowerNetworkError.swift in Sources */,
 				763D408D248FDFE10024772A /* StringAnalyzerInput.swift in Sources */,

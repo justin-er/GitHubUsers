@@ -15,7 +15,7 @@ class UserViewController: UIViewController {
 	
 	private var follower: FollowerViewModel
 	private var persenter: UserPresenterInput
-	private weak var followersInteractor: FollowersInteractorInput?
+	private weak var followersViewControllerInput: FollowersViewControllerInput?
 	
 	private let alertViewProvider: AlertViewControllerProviderInput
 	
@@ -33,10 +33,10 @@ class UserViewController: UIViewController {
 	private let followerItemViewController		= AEFollowerItemInfoViewController(user: nil)
 	private let createdAtLabel					= AEBodyLabel(textAlignment: .center)
 	
-	init(follower: FollowerViewModel, presenter: UserPresenterInput, loadingViewProvider: LoadingViewProviderInput, followersInteractorInput: FollowersInteractorInput, alertViewProvider: AlertViewControllerProviderInput) {
+	init(follower: FollowerViewModel, presenter: UserPresenterInput, loadingViewProvider: LoadingViewProviderInput, followersViewControllerInput: FollowersViewControllerInput, alertViewProvider: AlertViewControllerProviderInput) {
 		
 		self.loadingViewProvider 			= loadingViewProvider
-		self.followersInteractor			= followersInteractorInput
+		self.followersViewControllerInput		= followersViewControllerInput
 		self.follower 						= follower
 		self.persenter 						= presenter
 		self.alertViewProvider				= alertViewProvider
@@ -244,7 +244,7 @@ extension UserViewController: AEFollowerItemInfoViewControllerDelegate {
 			return
 		}
 		
-		followersInteractor?.getFollowers(of: user.login)
+		followersViewControllerInput?.representFollowers(ofUsername: user.login)
 		dismiss(animated: true)
 	}
 }

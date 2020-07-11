@@ -10,7 +10,7 @@ import Foundation
 
 class FollowersViewControllerComposer {
 
-	static func makeModule() -> FollowersViewController {
+	static func makeModule() -> FollowersViewControllerInput {
 		
 		let stringAnalyzer 				= StringAnalyzer()
 		let followersProvider 			= FollowerNetworkProvider(session: NetworkManager.shared.session, stringAnalyzer: stringAnalyzer)

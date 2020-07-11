@@ -58,8 +58,6 @@ class FollowersInteractor: FollowersInteractorInput {
 		followersProvider.getFollowers(of: username) {[weak self] result in
 			self?.processResult(result, type: .first)
 		}
-		
-		delegate?.interactroDidStartGettingFollowers(self, of: username)
 	}
 	
 	func getNextFollowers() {
@@ -69,8 +67,6 @@ class FollowersInteractor: FollowersInteractorInput {
 				self?.processResult(result, type: .next)
 			}
 		}
-		
-		delegate?.interactroDidStartGettingNextFollowers(self)
 	}
 	
 	func getAvatar(of follower: Follower) {

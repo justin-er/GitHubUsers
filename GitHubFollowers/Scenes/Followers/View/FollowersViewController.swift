@@ -23,11 +23,7 @@ class FollowersViewController: UIViewController {
 	var collectionView: 	UICollectionView!
 	var dataSource: 		UICollectionViewDiffableDataSource<SectionType, FollowerViewModel>!
 	
-    var username: String! {
-        didSet {
-            title = username
-        }
-    }
+    private var username: String! 
 	
 	init(followersInteractor: FollowersInteractorInput, loadingViewProvider: LoadingViewProviderInput, presenter: FollowersPresenterInput, emptyStateViewProvider: EmptyStateViewProviderInput, alertViewProvider: AlertViewControllerProviderInput) {
 		
@@ -56,7 +52,6 @@ class FollowersViewController: UIViewController {
 		configSearchBar()
 		configCollectionView()
 		configDataSource()
-		interactor.getFollowers(of: username)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -209,21 +204,10 @@ extension FollowersViewController: FollowersPresenterDelegate {
 		}
 	}
 	
-	func presenterDidStartGettingFollowers(_ presenter: FollowersPresenterInput, of username: String) {
-		
-		self.username = username
-		loadingViewProvider.showLoading(on: view)
-	}
-	
 	func presenterDidGet(_: FollowersPresenterInput, result: Result<[FollowerViewModel], FollowerNetworkError>) {
 		
 		self.loadingViewProvider.dismissLoading()
 		processResult(result, type: .first)
-	}
-	
-	func presenterDidStartGettingNextFollowers(_ presenter: FollowersPresenterInput) {
-		
-		loadingViewProvider.showLoading(on: view)
 	}
 	
 	func presenterDidGetNext(_: FollowersPresenterInput, result: Result<[FollowerViewModel], FollowerNetworkError>) {
@@ -257,13 +241,24 @@ extension FollowersViewController: FollowersPresenterDelegate {
 	}
 }
 
+extension FollowersViewController: FollowersViewControllerInput {
+	
+	func representFollowers(ofUsername username: String) {
+		
+		self.username 		= username
+		self.title 			= username
+		loadingViewProvider.showLoading(on: view)
+		interactor.getFollowers(of: username)
+	}
+}
+
 extension FollowersViewController: UICollectionViewDelegate {
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
 		guard let selectedViewModel = self.dataSource.itemIdentifier(for: indexPath) else { return }
 		let userNavigationController = UserNavigationControllerComposer.makeModule(follower: selectedViewModel,
-																				   followersInteractorInput: interactor)
+																				   followersViewControllerInput: self)
 		present(userNavigationController, animated: true)
 	}
 	
