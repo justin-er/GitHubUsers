@@ -48,10 +48,8 @@
 		7664C04D2461D3D1007CE942 /* FollowerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7664C04B2461D3D1007CE942 /* FollowerCollectionViewCell.swift */; };
 		766E098F2430DE26001BF527 /* Another.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766E098E2430DE26001BF527 /* Another.storyboard */; };
 		7675BEA6249E758A0065E731 /* FollowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76644764246C766200A80C1D /* FollowerViewModel.swift */; };
-		7675BEA7249E75B20065E731 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7677D32F24791F77009EDAD1 /* Avatar.swift */; };
 		7675BEA8249E75B70065E731 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BC42E62461C20A003E099D /* Follower.swift */; };
 		7677D32E24791A08009EDAD1 /* AvatarNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7677D32D24791A08009EDAD1 /* AvatarNetworkError.swift */; };
-		7677D33024791F77009EDAD1 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7677D32F24791F77009EDAD1 /* Avatar.swift */; };
 		7677D33224792985009EDAD1 /* FollowersPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7677D33124792985009EDAD1 /* FollowersPresenterInput.swift */; };
 		767AD23724B5986800F55997 /* AERepoItemInfoViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767AD23624B5986800F55997 /* AERepoItemInfoViewControllerDelegate.swift */; };
 		767AD23924B5987800F55997 /* AEFollowerItemInfoViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767AD23824B5987800F55997 /* AEFollowerItemInfoViewControllerDelegate.swift */; };
@@ -101,6 +99,8 @@
 		76FE61112423B95100A9CF0C /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE61102423B95100A9CF0C /* FollowersViewController.swift */; };
 		76FF3C3224B9965600A0461A /* FavoriteViewControllerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FF3C3124B9965600A0461A /* FavoriteViewControllerComposer.swift */; };
 		76FF3C3524B996AD00A0461A /* FavoriteNavigationControllerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FF3C3424B996AD00A0461A /* FavoriteNavigationControllerComposer.swift */; };
+		76FF3C3724B99C2D00A0461A /* PersistenceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FF3C3624B99C2D00A0461A /* PersistenceProvider.swift */; };
+		76FF3C3A24B99D5200A0461A /* UserDefaultsPersistenceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FF3C3924B99D5200A0461A /* UserDefaultsPersistenceProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,7 +165,6 @@
 		7664C04B2461D3D1007CE942 /* FollowerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCollectionViewCell.swift; sourceTree = "<group>"; };
 		766E098E2430DE26001BF527 /* Another.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Another.storyboard; sourceTree = "<group>"; };
 		7677D32D24791A08009EDAD1 /* AvatarNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarNetworkError.swift; sourceTree = "<group>"; };
-		7677D32F24791F77009EDAD1 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		7677D33124792985009EDAD1 /* FollowersPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersPresenterInput.swift; sourceTree = "<group>"; };
 		767AD23624B5986800F55997 /* AERepoItemInfoViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERepoItemInfoViewControllerDelegate.swift; sourceTree = "<group>"; };
 		767AD23824B5987800F55997 /* AEFollowerItemInfoViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEFollowerItemInfoViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +209,8 @@
 		76FE61102423B95100A9CF0C /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		76FF3C3124B9965600A0461A /* FavoriteViewControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewControllerComposer.swift; sourceTree = "<group>"; };
 		76FF3C3424B996AD00A0461A /* FavoriteNavigationControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNavigationControllerComposer.swift; sourceTree = "<group>"; };
+		76FF3C3624B99C2D00A0461A /* PersistenceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProvider.swift; sourceTree = "<group>"; };
+		76FF3C3924B99D5200A0461A /* UserDefaultsPersistenceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPersistenceProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,8 +325,8 @@
 		76263AE124325B0A003B553D /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				769736CC24B1E1C30085DE7C /* Views */,
-				764FA22924925EB60020C57A /* ViewControllers */,
+				769736CC24B1E1C30085DE7C /* ChildViews */,
+				764FA22924925EB60020C57A /* ChildViewControllers */,
 				76B3468A2476CC3500A5DB79 /* UICollectionViewLayout */,
 				7664C04A2461D3A0007CE942 /* Cells */,
 				764FA22524925E800020C57A /* TextFields */,
@@ -398,6 +399,7 @@
 				764FA21A249230AA0020C57A /* LoadingViewProvider */,
 				764FA22424925CA80020C57A /* EmptyStateViewProvider */,
 				7631F7E324B988FB00144F3A /* AlertViewControllerProvider */,
+				76FF3C3824B99C3300A0461A /* PersistenceProvider */,
 			);
 			path = Gateways;
 			sourceTree = "<group>";
@@ -484,13 +486,13 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		764FA22924925EB60020C57A /* ViewControllers */ = {
+		764FA22924925EB60020C57A /* ChildViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				76ECF88B24A5DD09009EDA91 /* UserHeader */,
 				7602E2CC24B3380300CE156F /* ItemInfo */,
 			);
-			path = ViewControllers;
+			path = ChildViewControllers;
 			sourceTree = "<group>";
 		};
 		7664474F246C718B00A80C1D /* SearchFollowers */ = {
@@ -619,7 +621,6 @@
 		7677D32C247919D1009EDAD1 /* Avatar */ = {
 			isa = PBXGroup;
 			children = (
-				7677D32F24791F77009EDAD1 /* Avatar.swift */,
 				7677D32D24791A08009EDAD1 /* AvatarNetworkError.swift */,
 			);
 			path = Avatar;
@@ -643,13 +644,13 @@
 			path = FollowerItemInfo;
 			sourceTree = "<group>";
 		};
-		769736CC24B1E1C30085DE7C /* Views */ = {
+		769736CC24B1E1C30085DE7C /* ChildViews */ = {
 			isa = PBXGroup;
 			children = (
 				769736CD24B1E8FD0085DE7C /* AEItemInfoViewType.swift */,
 				769736CA24B1E1BD0085DE7C /* AEItemInfoView.swift */,
 			);
-			path = Views;
+			path = ChildViews;
 			sourceTree = "<group>";
 		};
 		769A4F37248BE01F00B59077 /* Managers */ = {
@@ -801,6 +802,15 @@
 				76FF3C3424B996AD00A0461A /* FavoriteNavigationControllerComposer.swift */,
 			);
 			path = Composer;
+			sourceTree = "<group>";
+		};
+		76FF3C3824B99C3300A0461A /* PersistenceProvider */ = {
+			isa = PBXGroup;
+			children = (
+				76FF3C3624B99C2D00A0461A /* PersistenceProvider.swift */,
+				76FF3C3924B99D5200A0461A /* UserDefaultsPersistenceProvider.swift */,
+			);
+			path = PersistenceProvider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -981,10 +991,10 @@
 				764FA218249230A50020C57A /* LoadingViewProviderInput.swift in Sources */,
 				76E9B897249921430049D996 /* UserViewModel.swift in Sources */,
 				7605CF14240EC04E00460465 /* SearchViewController.swift in Sources */,
-				7677D33024791F77009EDAD1 /* Avatar.swift in Sources */,
 				7664475C246C726800A80C1D /* FollowersPresenterDelegate.swift in Sources */,
 				7677D33224792985009EDAD1 /* FollowersPresenterInput.swift in Sources */,
 				76B1CDDB249A78950092F8B6 /* AESecondaryTitleLabel.swift in Sources */,
+				76FF3C3A24B99D5200A0461A /* UserDefaultsPersistenceProvider.swift in Sources */,
 				7605CF10240EC04D00460465 /* AppDelegate.swift in Sources */,
 				7616BA77241D576400E2E0FE /* FavoriteViewController.swift in Sources */,
 				76E9B88524991F590049D996 /* UserNetworkProviderInput.swift in Sources */,
@@ -1024,6 +1034,7 @@
 				7677D32E24791A08009EDAD1 /* AvatarNetworkError.swift in Sources */,
 				7602E2C724B32E8F00CE156F /* AEItemInfoViewController.swift in Sources */,
 				7631F7E524B989E600144F3A /* AlertViewControllerProvider.swift in Sources */,
+				76FF3C3724B99C2D00A0461A /* PersistenceProvider.swift in Sources */,
 				7605CF40240EC3D400460465 /* AETextField.swift in Sources */,
 				764FA219249230A50020C57A /* LoadingViewProvider.swift in Sources */,
 				76E9B88024991F240049D996 /* UserInteractorInput.swift in Sources */,
@@ -1063,7 +1074,6 @@
 				7664C04D2461D3D1007CE942 /* FollowerCollectionViewCell.swift in Sources */,
 				76A64B4F2434678100298B20 /* String+Ext.swift in Sources */,
 				7675BEA8249E75B70065E731 /* Follower.swift in Sources */,
-				7675BEA7249E75B20065E731 /* Avatar.swift in Sources */,
 				76E8ED09242BA624002427C5 /* ViewController.swift in Sources */,
 				76E8ED05242BA624002427C5 /* AppDelegate.swift in Sources */,
 				76D2B9B6242CEB4D009B4D3B /* AEBodyLabel.swift in Sources */,

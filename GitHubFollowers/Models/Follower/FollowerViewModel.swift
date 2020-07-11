@@ -6,19 +6,28 @@
 //  Copyright © 2020 Amirreza Eghtedari. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class FollowerViewModel {
 	
 	var login: String
 	var avatarUrl: String
-	var avatar: Avatar?
+	var avatar: UIImage?
 	var id: UUID
 	
 	init(with follower: Follower) {
+		
 		self.login = follower.login
 		self.avatarUrl = follower.avatarUrl
-		self.avatar = follower.avatar
+		self.avatar = nil
+		self.id = follower.id
+	}
+	
+	init(with follower: Follower, avatarData: Data) {
+		
+		self.login = follower.login
+		self.avatarUrl = follower.avatarUrl
+		self.avatar = UIImage(data: avatarData)
 		self.id = follower.id
 	}
 }
@@ -28,7 +37,6 @@ extension FollowerViewModel {
 	func makeFollower() -> Follower {
 		return Follower(login: self.login,
 								avatarUrl: self.avatarUrl,
-								avatar: self.avatar,
 								id: self.id)
 	}
 }

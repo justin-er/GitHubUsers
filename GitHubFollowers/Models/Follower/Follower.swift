@@ -8,22 +8,30 @@
 
 import Foundation
 
-class Follower {
+class Follower: Codable {
 	
 	var login: String
     var avatarUrl: String
-	var avatar: Avatar?
 	var id: UUID
 	
-	init(login: String, avatarUrl: String, avatar: Avatar? = nil, id: UUID) {
+	init(login: String, avatarUrl: String, id: UUID) {
 		self.login = login
 		self.avatarUrl = avatarUrl
-		self.avatar = avatar
 		self.id = id
 	}
 	
-	convenience init(login: String, avatarUrl: String, avatar: Avatar? = nil) {
-		self.init(login: login, avatarUrl: avatarUrl, avatar: avatar, id: UUID())
+	convenience init(login: String, avatarUrl: String) {
+		self.init(login: login, avatarUrl: avatarUrl, id: UUID())
 	}
 }
+
+extension Follower: Equatable {
+	
+	static func == (lhs: Follower, rhs: Follower) -> Bool {
+		
+		return lhs.login == rhs.login
+	}
+}
+
+
 

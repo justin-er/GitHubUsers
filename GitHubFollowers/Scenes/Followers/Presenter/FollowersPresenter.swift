@@ -73,9 +73,9 @@ extension FollowersPresenter: FollowersInteractorDelegate {
 		processResult(result, type: .next)
 	}
 	
-	func interactorDidGetAvatar(_: FollowersInteractorInput, follower: Follower) {
+	func interactorDidGetAvatar(_: FollowersInteractorInput, follower: Follower, avatar: Data) {
 		
-		delegate?.presenterDidGetAvater(self, followerViewModel: FollowerViewModel(with: follower))
+		delegate?.presenterDidGetAvater(self, followerViewModel: FollowerViewModel(with: follower, avatarData: avatar))
 	}
 }
 

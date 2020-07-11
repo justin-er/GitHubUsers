@@ -28,15 +28,15 @@ class FollowerCollectionViewCell: UICollectionViewCell {
 	}
 	
 	func setFollower(follower: FollowerViewModel) {
+		
 		usernameLabel.text = follower.login
+		
 		if let avatar = follower.avatar {
-			switch avatar {
-			case .data(let imageData):
-				self.avatarImageView.image = UIImage(data: imageData)
-			case .image(let imageObject):
-				self.avatarImageView.image = imageObject as? UIImage
-			}
+			
+			self.avatarImageView.image = avatar
+			
 		} else {
+			
 			self.avatarImageView.image = AEAvatarImageView.placeholderImage
 		}
 	}

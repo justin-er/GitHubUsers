@@ -6,11 +6,11 @@
 //  Copyright © 2020 Amirreza Eghtedari. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct UserViewModel {
 	
-	init(login: String, avatarUrl: String, name: String? = nil, location: String? = nil, bio: String? = nil, publicRepos: Int?, publicGists: Int?, htmlUrl: String?, following: Int?, followers: Int?, createdAt: String?, avatar: Avatar? = nil) {
+	init(login: String, avatarUrl: String, name: String? = nil, location: String? = nil, bio: String? = nil, publicRepos: Int?, publicGists: Int?, htmlUrl: String?, following: Int?, followers: Int?, createdAt: String?, avatar: UIImage? = nil) {
 		
 		self.login = login
 		self.avatarUrl = avatarUrl
@@ -37,7 +37,7 @@ struct UserViewModel {
     let following: Int?
     let followers: Int?
     let createdAt: String?
-	var avatar: Avatar?
+	var avatar: UIImage?
 	
 	var dateFormatter: DateFormatter = {
 		let formatter = DateFormatter()

@@ -74,10 +74,14 @@ class FollowersInteractor: FollowersInteractorInput {
 			guard let self = self else { return }
 			
 			switch result {
+				
 			case .failure(let error):
+				
 				os_log("Error: %@", log: OSLog(subsystem: "Network Communication", category: "Error"), type: .default, error.localizedDescription)
-			case .success(let follower):
-				self.delegate?.interactorDidGetAvatar(self, follower: follower)
+				
+			case .success(let (follower, data)):
+				
+				self.delegate?.interactorDidGetAvatar(self, follower: follower, avatar: data)
 			}
 		}
 	}

@@ -51,27 +51,12 @@ class UserHeaderViewController: UIViewController {
 			
 			guard let user = user else { return }
 			
-			switch user.avatar {
+			if let avatar = user.avatar {
 				
-			case let .data(data):
-				guard let image = UIImage(data: data) else {
-					
-					self.avatarImageView.image = UIImage(named: "Placeholder")
-					break
-				}
+				self.avatarImageView.image = avatar
 				
-				avatarImageView.image = image
-			
-			case let .image(any):
-				guard let image = any as? UIImage else {
-					
-					avatarImageView.image = UIImage(named: "Placeholder")
-					break
-				}
+			} else {
 				
-				avatarImageView.image = image
-
-			case .none:
 				avatarImageView.image = UIImage(named: "Placeholder")
 			}
 			

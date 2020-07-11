@@ -24,7 +24,7 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
 		self.stringAnalyzer = stringAnalyzer
 	}
 	
-	func getAvatar(for follower: Follower, completion: @escaping (Result<Follower, AvatarNetworkError>) -> Void) {
+	func getAvatar(for follower: Follower, completion: @escaping (Result<(Follower, Data), AvatarNetworkError>) -> Void) {
 
 		let endPoint = follower.avatarUrl
         
@@ -61,8 +61,7 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
                 return
             }
             
-			follower.avatar = Avatar.data(data)
-            completion(Result.success(follower))
+            completion(Result.success((follower, data)))
         }
         
         task.resume()

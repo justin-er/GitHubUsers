@@ -6,7 +6,7 @@
 //  Copyright © 2020 Amirreza Eghtedari. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class UserPresenter: UserPresenterInput {
 	
@@ -18,7 +18,7 @@ class UserPresenter: UserPresenterInput {
 		self.interactor = interactor
 	}
 	
-	private var avatar: Avatar?
+	private var avatar: UIImage?
 
 	func getUserDetail(of follower: FollowerViewModel) {
 		

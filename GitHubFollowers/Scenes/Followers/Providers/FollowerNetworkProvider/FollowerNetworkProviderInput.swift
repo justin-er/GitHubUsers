@@ -18,7 +18,7 @@ protocol FollowerNetworkProviderInput {
 	
 	func getNextFollowers(completion: Completion?)
 	
-	func getAvatar(for follower: Follower, completion: @escaping (Result<Follower, AvatarNetworkError>) -> Void)
+	func getAvatar(for follower: Follower, completion: @escaping (Result<(Follower, Data), AvatarNetworkError>) -> Void)
 	
 }
 

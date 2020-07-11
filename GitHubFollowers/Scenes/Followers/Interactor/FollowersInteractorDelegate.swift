@@ -18,6 +18,6 @@ protocol FollowersInteractorDelegate: class {
 	
 	func interactorDidGetNext(_: FollowersInteractorInput, result: Result<[Follower], FollowerNetworkError>)
 	
-	func interactorDidGetAvatar(_: FollowersInteractorInput, follower: Follower)
+	func interactorDidGetAvatar(_: FollowersInteractorInput, follower: Follower, avatar: Data)
 }
 
