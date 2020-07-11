@@ -27,24 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func configAllNavigationBarsAppearance() {
         UINavigationBar.appearance().tintColor = UIColor.systemGreen
     }
-    
-    func createSearchViewController() -> SearchViewController {
-        
-        let viewController = SearchViewController()
-        viewController.title = "Search"
-        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
-        
-        return viewController
-    }
-    
-    func createSearchNavigationController() -> UINavigationController {
-        
-        let viewController = createSearchViewController()
-        let navigationController = UINavigationController()
-        navigationController.viewControllers = [viewController]
-        
-        return navigationController
-    }
+
     
     func createFavoriteViewController() -> FavoriteViewController {
         
@@ -68,7 +51,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let tabBarController = UITabBarController()
         UITabBar.appearance().tintColor = UIColor.systemGreen
-        tabBarController.viewControllers = [createSearchNavigationController(),
+		tabBarController.viewControllers = [SearchNavigationControllerComposer.makeModule(),
                                             createFavoriteNavigationController()]
         
         return tabBarController

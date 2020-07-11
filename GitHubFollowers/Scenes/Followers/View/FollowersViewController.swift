@@ -18,6 +18,7 @@ class FollowersViewController: UIViewController {
 	private var loadingViewProvider: 		LoadingViewProviderInput
 	private let presenter:					FollowersPresenterInput
 	private var emptyStateViewProvider:		EmptyStateViewProviderInput
+	private var alertViewProvider:			AlertViewControllerProvider
 	
 	var collectionView: 	UICollectionView!
 	var dataSource: 		UICollectionViewDiffableDataSource<SectionType, FollowerViewModel>!
@@ -28,12 +29,13 @@ class FollowersViewController: UIViewController {
         }
     }
 	
-	init(followersInteractor: FollowersInteractorInput, loadingViewProvider: LoadingViewProviderInput, presenter: FollowersPresenterInput, emptyStateViewProvider: EmptyStateViewProviderInput) {
+	init(followersInteractor: FollowersInteractorInput, loadingViewProvider: LoadingViewProviderInput, presenter: FollowersPresenterInput, emptyStateViewProvider: EmptyStateViewProviderInput, alertViewProvider: AlertViewControllerProvider) {
 		
 		self.interactor 				= followersInteractor
 		self.loadingViewProvider 		= loadingViewProvider
 		self.emptyStateViewProvider 	= emptyStateViewProvider
 		self.presenter 					= presenter
+		self.alertViewProvider			= alertViewProvider
 		
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -111,6 +113,15 @@ class FollowersViewController: UIViewController {
 		
 		view.backgroundColor = UIColor.secondarySystemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+		
+		let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+		navigationItem.rightBarButtonItem = addButton
+	}
+	
+	@objc
+	func addButtonTapped() {
+		
+		print("add button tapped!")
 	}
 }
 
@@ -142,16 +153,32 @@ extension FollowersViewController: FollowersPresenterDelegate {
 	fileprivate func processResult(_ result: Result<[FollowerViewModel], FollowerNetworkError>, type: CallbackType) {
 		
 		switch result {
+		
 		case .failure(let follwerError):
+			
 			switch follwerError {
+			
 			case .invalidUsername:
-				self.presentAEAlert(title: "Error", message: "Invalid user name. Try again.", buttonTitle: "OK")
+				
+				DispatchQueue.main.async {
+					
+					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Invalid user name. Try again.", bottonTitle: "OK")
+				}
+			
 			case .unableToComplete:
-				self.presentAEAlert(title: "Error", message: "Unable to complete. Try again.", buttonTitle: "OK")
+				
+				DispatchQueue.main.async {
+					
+					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Unable to complete. Try again.", bottonTitle: "OK")
+				}
 			}
+		
 		case .success(let followers):
+			
 			switch type {
+			
 			case .first, .next:
+				
 				updateUI(followers: followers, emptyStateMessage: "There is no follower")
 			}
 		}

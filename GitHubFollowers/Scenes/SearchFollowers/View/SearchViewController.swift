@@ -20,6 +20,23 @@ class SearchViewController: UIViewController {
 	
 	let padding = CGFloat(16)
 	
+	let alerViewProvider: AlertViewControllerProvider
+	
+	init(alertViewProvider: AlertViewControllerProvider) {
+		
+		self.alerViewProvider		= alertViewProvider
+		
+		super.init(nibName: nil, bundle: nil)
+		
+		title = "Search"
+        tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+	}
+	
+	required init?(coder: NSCoder) {
+		
+		fatalError("init(coder:) has not been implemented")
+	}
+	
 	override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -84,7 +101,14 @@ class SearchViewController: UIViewController {
     func pushFollowersListViewController() {
         
         guard isUsernameEntered else {
-            presentAEAlert(title: "Empty username!", message: "Enter a username to searh for its followers", buttonTitle: "OK")
+	
+			DispatchQueue.main.async {
+				
+				self.alerViewProvider.showAlert(presentingViewController: self,
+				title: "Empty username!",
+				message: "Enter a username to searh for its followers", bottonTitle: "OK")
+			}
+			
             return
         }
         

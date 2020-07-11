@@ -12,17 +12,19 @@ class FollowersViewControllerComposer {
 
 	static func makeModule() -> FollowersViewController {
 		
-		let stringAnalyzer = StringAnalyzer()
-		let followersProvider = FollowerNetworkProvider(session: NetworkManager.shared.session, stringAnalyzer: stringAnalyzer)
-		let interactor = FollowersInteractor(followersProvider: followersProvider)
-		let presenter = FollowersPresenter()
-		let loadingViewProvider = LoadingViewProvider()
-		let emptyStateProvider = EmptyStateViewProvider()
+		let stringAnalyzer 				= StringAnalyzer()
+		let followersProvider 			= FollowerNetworkProvider(session: NetworkManager.shared.session, stringAnalyzer: stringAnalyzer)
+		let interactor 					= FollowersInteractor(followersProvider: followersProvider)
+		let presenter 					= FollowersPresenter()
+		let loadingViewProvider 		= LoadingViewProvider()
+		let emptyStateProvider 			= EmptyStateViewProvider()
+		let alertViewControllerProvider	= AEAlertViewControllerProvider()
 		
 		let viewController = FollowersViewController(followersInteractor: interactor,
 													 loadingViewProvider: loadingViewProvider,
 													 presenter: presenter,
-													 emptyStateViewProvider: emptyStateProvider)
+													 emptyStateViewProvider: emptyStateProvider,
+													 alertViewProvider: alertViewControllerProvider)
 		interactor.delegate = presenter
 		presenter.delegate = viewController
 		

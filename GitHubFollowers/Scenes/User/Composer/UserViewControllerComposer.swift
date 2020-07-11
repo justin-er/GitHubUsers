@@ -17,10 +17,12 @@ class UserViewControllerComposer {
 		let userPresenter 		= UserPresenter(interactor: userInteractor)
 		userInteractor.delegate = userPresenter
 		let loadingViewProvider	= LoadingViewProvider()
+		let alertViewProvider	= AEAlertViewControllerProvider()
+		
 		let viewController 		= UserViewController(follower: follower,
 														presenter: userPresenter,
 														loadingViewProvider: loadingViewProvider,
-														followersInteractorInput: followersInteractorInput)
+														followersInteractorInput: followersInteractorInput, alertViewProvider: alertViewProvider)
 		userPresenter.delegate 	= viewController
 		
 		return viewController

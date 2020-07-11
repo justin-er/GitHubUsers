@@ -17,6 +17,8 @@ class UserViewController: UIViewController {
 	private var persenter: UserPresenterInput
 	private weak var followersInteractor: FollowersInteractorInput?
 	
+	private let alertViewProvider: AlertViewControllerProvider
+	
 	private var headerContentView 	= UIView()
 	private var viewOne				= UIView()
 	private var	viewTwo				= UIView()
@@ -31,12 +33,13 @@ class UserViewController: UIViewController {
 	private let followerItemViewController		= AEFollowerItemInfoViewController(user: nil)
 	private let createdAtLabel					= AEBodyLabel(textAlignment: .center)
 	
-	init(follower: FollowerViewModel, presenter: UserPresenterInput, loadingViewProvider: LoadingViewProviderInput, followersInteractorInput: FollowersInteractorInput) {
+	init(follower: FollowerViewModel, presenter: UserPresenterInput, loadingViewProvider: LoadingViewProviderInput, followersInteractorInput: FollowersInteractorInput, alertViewProvider: AlertViewControllerProvider) {
 		
 		self.loadingViewProvider 			= loadingViewProvider
-		self.followersInteractor	= followersInteractorInput
+		self.followersInteractor			= followersInteractorInput
 		self.follower 						= follower
 		self.persenter 						= presenter
+		self.alertViewProvider				= alertViewProvider
 		
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -183,11 +186,17 @@ extension UserViewController: UserPresenterDelegate {
 				
 			case .invalidUsername:
 				
-				self.presentAEAlert(title: "Error", message: "Ivalid username!", buttonTitle: "OK")
+				DispatchQueue.main.async {
+					
+					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Ivalid username!", bottonTitle: "OK")
+				}
 			
 			case .unableToComplete:
 				
-				self.presentAEAlert(title: "Error", message: "Unable to complete. Try again.", buttonTitle: "OK")
+				DispatchQueue.main.async {
+					
+					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Unable to complete. Try again.", bottonTitle: "OK")
+				}
 			}
 			
 		case .success(let userViewModel):
@@ -227,7 +236,11 @@ extension UserViewController: AEFollowerItemInfoViewControllerDelegate {
 	
 		guard user.followers != 0 else {
 			
-			self.presentAEAlert(title: "No Followers", message: "This user has no followers 😞. That's a shame.", buttonTitle: "OK")
+			DispatchQueue.main.async {
+				
+				self.alertViewProvider.showAlert(presentingViewController: self, title: "No Followers", message: "This user has no followers 😞. That's a shame.", bottonTitle: "OK")
+			}
+			
 			return
 		}
 		
