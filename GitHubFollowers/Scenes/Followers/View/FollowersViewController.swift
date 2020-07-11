@@ -18,7 +18,7 @@ class FollowersViewController: UIViewController {
 	private var loadingViewProvider: 		LoadingViewProviderInput
 	private let presenter:					FollowersPresenterInput
 	private var emptyStateViewProvider:		EmptyStateViewProviderInput
-	private var alertViewProvider:			AlertViewControllerProvider
+	private var alertViewProvider:			AlertViewControllerProviderInput
 	
 	var collectionView: 	UICollectionView!
 	var dataSource: 		UICollectionViewDiffableDataSource<SectionType, FollowerViewModel>!
@@ -29,7 +29,7 @@ class FollowersViewController: UIViewController {
         }
     }
 	
-	init(followersInteractor: FollowersInteractorInput, loadingViewProvider: LoadingViewProviderInput, presenter: FollowersPresenterInput, emptyStateViewProvider: EmptyStateViewProviderInput, alertViewProvider: AlertViewControllerProvider) {
+	init(followersInteractor: FollowersInteractorInput, loadingViewProvider: LoadingViewProviderInput, presenter: FollowersPresenterInput, emptyStateViewProvider: EmptyStateViewProviderInput, alertViewProvider: AlertViewControllerProviderInput) {
 		
 		self.interactor 				= followersInteractor
 		self.loadingViewProvider 		= loadingViewProvider

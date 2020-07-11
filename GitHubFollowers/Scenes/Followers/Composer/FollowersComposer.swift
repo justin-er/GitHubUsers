@@ -18,7 +18,7 @@ class FollowersViewControllerComposer {
 		let presenter 					= FollowersPresenter()
 		let loadingViewProvider 		= LoadingViewProvider()
 		let emptyStateProvider 			= EmptyStateViewProvider()
-		let alertViewControllerProvider	= AEAlertViewControllerProvider()
+		let alertViewControllerProvider	= AlertViewControllerProvider()
 		
 		let viewController = FollowersViewController(followersInteractor: interactor,
 													 loadingViewProvider: loadingViewProvider,

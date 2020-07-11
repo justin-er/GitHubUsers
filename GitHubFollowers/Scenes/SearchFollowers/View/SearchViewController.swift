@@ -20,9 +20,9 @@ class SearchViewController: UIViewController {
 	
 	let padding = CGFloat(16)
 	
-	let alerViewProvider: AlertViewControllerProvider
+	let alerViewProvider: AlertViewControllerProviderInput
 	
-	init(alertViewProvider: AlertViewControllerProvider) {
+	init(alertViewProvider: AlertViewControllerProviderInput) {
 		
 		self.alerViewProvider		= alertViewProvider
 		

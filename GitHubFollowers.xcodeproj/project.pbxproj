@@ -22,8 +22,8 @@
 		7616BA77241D576400E2E0FE /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616BA76241D576400E2E0FE /* FavoriteViewController.swift */; };
 		762CF00C245743FA009A0B1B /* FollowerNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */; };
 		762CF00E245748D6009A0B1B /* RemoteFollowersProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */; };
-		7631F7E224B9889600144F3A /* AlertViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631F7E124B9889600144F3A /* AlertViewControllerProvider.swift */; };
-		7631F7E524B989E600144F3A /* AEAlertViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631F7E424B989E600144F3A /* AEAlertViewControllerProvider.swift */; };
+		7631F7E224B9889600144F3A /* AlertViewControllerProviderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631F7E124B9889600144F3A /* AlertViewControllerProviderInput.swift */; };
+		7631F7E524B989E600144F3A /* AlertViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631F7E424B989E600144F3A /* AlertViewControllerProvider.swift */; };
 		7631F7E824B98D3400144F3A /* SearchViewControllerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631F7E724B98D3400144F3A /* SearchViewControllerComposer.swift */; };
 		7631F7EB24B98EDF00144F3A /* SearchNavigationControllerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631F7EA24B98EDF00144F3A /* SearchNavigationControllerComposer.swift */; };
 		763D408D248FDFE10024772A /* StringAnalyzerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D408B248FDFE10024772A /* StringAnalyzerInput.swift */; };
@@ -99,6 +99,8 @@
 		76EAB84D244E00790093B7D2 /* ProjectBrief.md in Resources */ = {isa = PBXBuildFile; fileRef = 76EAB84C244E00790093B7D2 /* ProjectBrief.md */; };
 		76EDE62424334482002AE6FD /* FollowerNetowrkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EDE62324334482002AE6FD /* FollowerNetowrkModel.swift */; };
 		76FE61112423B95100A9CF0C /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE61102423B95100A9CF0C /* FollowersViewController.swift */; };
+		76FF3C3224B9965600A0461A /* FavoriteViewControllerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FF3C3124B9965600A0461A /* FavoriteViewControllerComposer.swift */; };
+		76FF3C3524B996AD00A0461A /* FavoriteNavigationControllerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FF3C3424B996AD00A0461A /* FavoriteNavigationControllerComposer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,8 +142,8 @@
 		7616BA76241D576400E2E0FE /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkError.swift; sourceTree = "<group>"; };
 		762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFollowersProviderTest.swift; sourceTree = "<group>"; };
-		7631F7E124B9889600144F3A /* AlertViewControllerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewControllerProvider.swift; sourceTree = "<group>"; };
-		7631F7E424B989E600144F3A /* AEAlertViewControllerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAlertViewControllerProvider.swift; sourceTree = "<group>"; };
+		7631F7E124B9889600144F3A /* AlertViewControllerProviderInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewControllerProviderInput.swift; sourceTree = "<group>"; };
+		7631F7E424B989E600144F3A /* AlertViewControllerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewControllerProvider.swift; sourceTree = "<group>"; };
 		7631F7E724B98D3400144F3A /* SearchViewControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerComposer.swift; sourceTree = "<group>"; };
 		7631F7EA24B98EDF00144F3A /* SearchNavigationControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNavigationControllerComposer.swift; sourceTree = "<group>"; };
 		763D408B248FDFE10024772A /* StringAnalyzerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringAnalyzerInput.swift; sourceTree = "<group>"; };
@@ -206,6 +208,8 @@
 		76EAB84C244E00790093B7D2 /* ProjectBrief.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ProjectBrief.md; sourceTree = "<group>"; };
 		76EDE62324334482002AE6FD /* FollowerNetowrkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetowrkModel.swift; sourceTree = "<group>"; };
 		76FE61102423B95100A9CF0C /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
+		76FF3C3124B9965600A0461A /* FavoriteViewControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewControllerComposer.swift; sourceTree = "<group>"; };
+		76FF3C3424B996AD00A0461A /* FavoriteNavigationControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNavigationControllerComposer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,9 +358,9 @@
 		7631F7E324B988FB00144F3A /* AlertViewControllerProvider */ = {
 			isa = PBXGroup;
 			children = (
-				7631F7E124B9889600144F3A /* AlertViewControllerProvider.swift */,
+				7631F7E124B9889600144F3A /* AlertViewControllerProviderInput.swift */,
+				7631F7E424B989E600144F3A /* AlertViewControllerProvider.swift */,
 				76D2B9AA242CD09C009B4D3B /* AEAlertViewController.swift */,
-				7631F7E424B989E600144F3A /* AEAlertViewControllerProvider.swift */,
 			);
 			path = AlertViewControllerProvider;
 			sourceTree = "<group>";
@@ -513,7 +517,8 @@
 		76644751246C719E00A80C1D /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				7616BA76241D576400E2E0FE /* FavoriteViewController.swift */,
+				76FF3C3324B9965C00A0461A /* Composer */,
+				76FF3C3024B9964000A0461A /* View */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -781,6 +786,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		76FF3C3024B9964000A0461A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7616BA76241D576400E2E0FE /* FavoriteViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		76FF3C3324B9965C00A0461A /* Composer */ = {
+			isa = PBXGroup;
+			children = (
+				76FF3C3124B9965600A0461A /* FavoriteViewControllerComposer.swift */,
+				76FF3C3424B996AD00A0461A /* FavoriteNavigationControllerComposer.swift */,
+			);
+			path = Composer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -968,7 +990,7 @@
 				76E9B88524991F590049D996 /* UserNetworkProviderInput.swift in Sources */,
 				769736CE24B1E8FD0085DE7C /* AEItemInfoViewType.swift in Sources */,
 				764FA22224925CA40020C57A /* EmptyStateViewProviderInput.swift in Sources */,
-				7631F7E224B9889600144F3A /* AlertViewControllerProvider.swift in Sources */,
+				7631F7E224B9889600144F3A /* AlertViewControllerProviderInput.swift in Sources */,
 				7602E2C924B3343A00CE156F /* AERepoItemInfoViewController.swift in Sources */,
 				769736CB24B1E1BD0085DE7C /* AEItemInfoView.swift in Sources */,
 				76644754246C71E000A80C1D /* FollowersInteractor.swift in Sources */,
@@ -991,6 +1013,7 @@
 				7605CF12240EC04E00460465 /* SceneDelegate.swift in Sources */,
 				767AD23724B5986800F55997 /* AERepoItemInfoViewControllerDelegate.swift in Sources */,
 				76B1CDDE249A79400092F8B6 /* UserHeaderViewController.swift in Sources */,
+				76FF3C3524B996AD00A0461A /* FavoriteNavigationControllerComposer.swift in Sources */,
 				763D408E248FDFE10024772A /* StringAnalyzer.swift in Sources */,
 				76E9B88124991F240049D996 /* UserInteractor.swift in Sources */,
 				76644765246C766200A80C1D /* FollowerViewModel.swift in Sources */,
@@ -1000,10 +1023,11 @@
 				76B5EBCE24B4938E008947CA /* AETitleLabel.swift in Sources */,
 				7677D32E24791A08009EDAD1 /* AvatarNetworkError.swift in Sources */,
 				7602E2C724B32E8F00CE156F /* AEItemInfoViewController.swift in Sources */,
-				7631F7E524B989E600144F3A /* AEAlertViewControllerProvider.swift in Sources */,
+				7631F7E524B989E600144F3A /* AlertViewControllerProvider.swift in Sources */,
 				7605CF40240EC3D400460465 /* AETextField.swift in Sources */,
 				764FA219249230A50020C57A /* LoadingViewProvider.swift in Sources */,
 				76E9B88024991F240049D996 /* UserInteractorInput.swift in Sources */,
+				76FF3C3224B9965600A0461A /* FavoriteViewControllerComposer.swift in Sources */,
 				76BC42EF2461C777003E099D /* AEAvatarImageView.swift in Sources */,
 				76D2B9AB242CD09C009B4D3B /* AEAlertViewController.swift in Sources */,
 				76BB82002461BE74000A16F6 /* FollowerNetworkProviderInput.swift in Sources */,

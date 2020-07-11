@@ -27,32 +27,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func configAllNavigationBarsAppearance() {
         UINavigationBar.appearance().tintColor = UIColor.systemGreen
     }
-
-    
-    func createFavoriteViewController() -> FavoriteViewController {
-        
-        let viewController = FavoriteViewController()
-        viewController.title = "Favorite"
-        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
-        
-        return viewController
-    }
-    
-    func createFavoriteNavigationController() -> UINavigationController {
-        
-        let viewController = createFavoriteViewController()
-        let navigationController = UINavigationController()
-        navigationController.viewControllers = [viewController]
-        
-        return navigationController
-    }
     
     func createTabBarController() -> UITabBarController {
         
         let tabBarController = UITabBarController()
         UITabBar.appearance().tintColor = UIColor.systemGreen
 		tabBarController.viewControllers = [SearchNavigationControllerComposer.makeModule(),
-                                            createFavoriteNavigationController()]
+											FavoriteViewControllerComposer.makeModule()]
         
         return tabBarController
         

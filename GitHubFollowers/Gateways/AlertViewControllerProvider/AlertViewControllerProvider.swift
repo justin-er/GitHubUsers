@@ -1,5 +1,5 @@
 //
-//  AlertViewController.swift
+//  AEAlertViewControllerProvider.swift
 //  GitHubFollowers
 //
 //  Created by Amirreza Eghtedari on 11.07.20.
@@ -8,10 +8,21 @@
 
 import UIKit
 
-protocol AlertViewControllerProvider {
+class AlertViewControllerProvider: AlertViewControllerProviderInput {
 	
-	func showAlert(presentingViewController: UIViewController, title: String, message: String, bottonTitle: String)
+	var vc: AEAlertViewController?
 	
-	func dismiss()
+	func showAlert(presentingViewController: UIViewController, title: String, message: String, bottonTitle: String) {
+		
+		vc = AEAlertViewController(title: title, message: message, buttonTitle: bottonTitle)
+		presentingViewController.present(vc!, animated: true)
+	}
+	
+	func dismiss() {
+		
+		guard let vc = vc else { return }
+		vc.dismiss(animated: true)
+	}
+	
 }
 

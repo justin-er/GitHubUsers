@@ -12,7 +12,7 @@ class SearchViewControllerComposer {
 	
 	static func makeModue() -> SearchViewController {
 		
-		let viewController = SearchViewController(alertViewProvider: AEAlertViewControllerProvider())
+		let viewController = SearchViewController(alertViewProvider: AlertViewControllerProvider())
         return viewController
 	}
 }

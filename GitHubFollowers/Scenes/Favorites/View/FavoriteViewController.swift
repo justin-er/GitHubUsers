@@ -9,9 +9,23 @@
 import UIKit
 
 class FavoriteViewController: UIViewController {
-
+	
+	init() {
+		
+		super.init(nibName: nil, bundle: nil)
+		
+		title = "Favorite"
+        tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+	}
+	
+	required init?(coder: NSCoder) {
+		
+		fatalError("init(coder:) has not been implemented")
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
         view.backgroundColor = UIColor.secondarySystemBackground
     }
     
