@@ -14,8 +14,8 @@ protocol PersistenceProvider {
 	
 	func add(favorite: Follower)
 	
-	func update(favorite: Follower)
-	
 	func delete(favorite: Follower)
+	
+	func deleteAll()
 }
 

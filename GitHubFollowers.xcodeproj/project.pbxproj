@@ -19,6 +19,7 @@
 		7605CF32240EC05200460465 /* MyGHFollowersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF31240EC05200460465 /* MyGHFollowersUITests.swift */; };
 		7605CF40240EC3D400460465 /* AETextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF3F240EC3D400460465 /* AETextField.swift */; };
 		7605CF4B240EDB3600460465 /* AEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF4A240EDB3600460465 /* AEButton.swift */; };
+		7612961F24B9B40400EDA121 /* PersistenceProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7612961E24B9B40400EDA121 /* PersistenceProviderTests.swift */; };
 		7616BA77241D576400E2E0FE /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616BA76241D576400E2E0FE /* FavoriteViewController.swift */; };
 		762CF00C245743FA009A0B1B /* FollowerNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */; };
 		762CF00E245748D6009A0B1B /* RemoteFollowersProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */; };
@@ -139,6 +140,7 @@
 		7605CF33240EC05200460465 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7605CF3F240EC3D400460465 /* AETextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AETextField.swift; sourceTree = "<group>"; };
 		7605CF4A240EDB3600460465 /* AEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEButton.swift; sourceTree = "<group>"; };
+		7612961E24B9B40400EDA121 /* PersistenceProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProviderTests.swift; sourceTree = "<group>"; };
 		7616BA76241D576400E2E0FE /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkError.swift; sourceTree = "<group>"; };
 		762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFollowersProviderTest.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				7605CF28240EC05200460465 /* Info.plist */,
 				7605CF26240EC05200460465 /* MyGHFollowersTests.swift */,
 				762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */,
+				7612961E24B9B40400EDA121 /* PersistenceProviderTests.swift */,
 			);
 			path = GitHubFollowersTests;
 			sourceTree = "<group>";
@@ -1055,6 +1058,7 @@
 			files = (
 				762CF00E245748D6009A0B1B /* RemoteFollowersProviderTest.swift in Sources */,
 				7605CF27240EC05200460465 /* MyGHFollowersTests.swift in Sources */,
+				7612961F24B9B40400EDA121 /* PersistenceProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
