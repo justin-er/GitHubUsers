@@ -15,15 +15,21 @@ class FollowersInteractor: FollowersInteractorInput {
 		case first, next
 	}
 	
-	var followersProvider: 		FollowerNetworkProviderInput
+	let followersProvider: 		FollowerNetworkProviderInput
+	let userProvider:			UserNetworkProviderInput
+	let persistenceProvider:	PersistenceProvider
+	
 	var delegate: 				FollowersInteractorDelegate?
 	
 	var isMoreFollowers: Bool {
 		return followersProvider.isMoreFollowers
 	}
 	
-	init(followersProvider: FollowerNetworkProviderInput) {
-		self.followersProvider = followersProvider
+	init(followersProvider: FollowerNetworkProviderInput, userProvider: UserNetworkProviderInput, persistenceProvider: PersistenceProvider) {
+		
+		self.followersProvider 		= followersProvider
+		self.userProvider			= userProvider
+		self.persistenceProvider	= persistenceProvider
 	}
 	
 	fileprivate func processResult(_ result: Result<[FollowerNetowrkModel], FollowerNetworkError>, type: ResultType) {
@@ -82,6 +88,33 @@ class FollowersInteractor: FollowersInteractorInput {
 			case .success(let (follower, data)):
 				
 				self.delegate?.interactorDidGetAvatar(self, follower: follower, avatar: data)
+			}
+		}
+	}
+	
+	func addUserToFavorites(username: String) {
+		
+		userProvider.getUser(username: username) { [weak self] result in
+			
+			guard let self = self else { return }
+			
+			switch result {
+				
+			case .failure(let error):
+				
+				self.delegate?.interactoreDidAddUserToFavories(self, username: username, error: error)
+				
+			case .success(let user):
+				
+				do {
+					
+					try self.persistenceProvider.add(favorite: user)
+					self.delegate?.interactoreDidAddUserToFavories(self, username: username, error: nil)
+				
+				} catch {
+					
+					self.delegate?.interactoreDidAddUserToFavories(self, username: username, error: error)
+				}
 			}
 		}
 	}

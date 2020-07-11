@@ -14,7 +14,11 @@ class FollowersViewControllerComposer {
 		
 		let stringAnalyzer 				= StringAnalyzer()
 		let followersProvider 			= FollowerNetworkProvider(session: NetworkManager.shared.session, stringAnalyzer: stringAnalyzer)
-		let interactor 					= FollowersInteractor(followersProvider: followersProvider)
+		let userProvider				= UserNetworkProvider()
+		let persistenceProvider			= UserDefaultsPersistenceProvider()
+		let interactor 					= FollowersInteractor(followersProvider: followersProvider,
+																 userProvider: userProvider,
+																 persistenceProvider: persistenceProvider)
 		let presenter 					= FollowersPresenter()
 		let loadingViewProvider 		= LoadingViewProvider()
 		let emptyStateProvider 			= EmptyStateViewProvider()

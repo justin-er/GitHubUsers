@@ -121,12 +121,13 @@ class FollowersViewController: UIViewController {
 	@objc
 	func addButtonTapped() {
 		
-		print("add button tapped!")
+		loadingViewProvider.showLoading(on: self.view)
+		interactor.addUserToFavorites(username: username)
 	}
 }
 
 extension FollowersViewController: FollowersPresenterDelegate {
-	
+
 	enum CallbackType {
 		case first, next
 	}
@@ -199,6 +200,7 @@ extension FollowersViewController: FollowersPresenterDelegate {
 		}
 		
 		DispatchQueue.main.async {
+			
 			self.emptyStateViewProvider.dismissEmptyState()
 			var snapshot = NSDiffableDataSourceSnapshot<SectionType, FollowerViewModel>()
 			snapshot.appendSections([SectionType.main])
@@ -228,6 +230,30 @@ extension FollowersViewController: FollowersPresenterDelegate {
 		
 		self.loadingViewProvider.dismissLoading()
 		processResult(result, type: .next)
+	}
+	
+	func presenterDidAddUserToFavories(_: FollowersPresenterInput, username: String, error: Error?) {
+		
+		DispatchQueue.main.async {
+			
+			self.loadingViewProvider.dismissLoading()
+			
+			if let error = error {
+				
+				if let persistenceError = error as? PersistenceProviderError, persistenceError == .addingFailed {
+					
+					self.alertViewProvider.showAlert(presentingViewController: self, title: "Failed", message: "\(username) has been added to the favorites list previously.", bottonTitle: "OK")
+					
+				} else {
+					
+					self.alertViewProvider.showAlert(presentingViewController: self, title: "Failed", message: error.localizedDescription, bottonTitle: "OK")
+				}
+				
+			} else {
+				
+				self.alertViewProvider.showAlert(presentingViewController: self, title: "Success", message: "\(username) added to the favorites.", bottonTitle: "OK")
+			}
+		}
 	}
 }
 

@@ -19,5 +19,7 @@ protocol FollowersInteractorDelegate: class {
 	func interactorDidGetNext(_: FollowersInteractorInput, result: Result<[Follower], FollowerNetworkError>)
 	
 	func interactorDidGetAvatar(_: FollowersInteractorInput, follower: Follower, avatar: Data)
+	
+	func interactoreDidAddUserToFavories(_: FollowersInteractorInput, username: String, error: Error?)
 }
 

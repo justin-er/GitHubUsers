@@ -77,5 +77,10 @@ extension FollowersPresenter: FollowersInteractorDelegate {
 		
 		delegate?.presenterDidGetAvater(self, followerViewModel: FollowerViewModel(with: follower, avatarData: avatar))
 	}
+	
+	func interactoreDidAddUserToFavories(_: FollowersInteractorInput, username: String, error: Error?) {
+		
+		delegate?.presenterDidAddUserToFavories(self, username: username, error: error)
+	}
 }
 

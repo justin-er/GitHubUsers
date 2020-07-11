@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct User: Decodable {
+struct User: Codable {
 	
 	let login: String
 	let avatarUrl: String
@@ -21,5 +21,10 @@ struct User: Decodable {
     let following: Int
     let followers: Int
     let createdAt: Date
+}
+
+extension User: Equatable {
+	
+	
 }
 

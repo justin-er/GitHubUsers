@@ -19,5 +19,7 @@ protocol FollowersPresenterDelegate: class {
 	func presenterDidGetNext(_ presenter: FollowersPresenterInput, result: Result<[FollowerViewModel], FollowerNetworkError>)
 	
 	func presenterDidGetAvater(_ presenter: FollowersPresenterInput, followerViewModel: FollowerViewModel)
+	
+	func presenterDidAddUserToFavories(_: FollowersPresenterInput, username: String, error: Error?)
 }
 

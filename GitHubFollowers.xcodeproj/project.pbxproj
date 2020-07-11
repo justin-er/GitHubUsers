@@ -19,6 +19,7 @@
 		7605CF32240EC05200460465 /* MyGHFollowersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF31240EC05200460465 /* MyGHFollowersUITests.swift */; };
 		7605CF40240EC3D400460465 /* AETextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF3F240EC3D400460465 /* AETextField.swift */; };
 		7605CF4B240EDB3600460465 /* AEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF4A240EDB3600460465 /* AEButton.swift */; };
+		76084D6824BA04F0001D264B /* PersistenceProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76084D6724BA04F0001D264B /* PersistenceProviderError.swift */; };
 		7612961F24B9B40400EDA121 /* PersistenceProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7612961E24B9B40400EDA121 /* PersistenceProviderTests.swift */; };
 		7616BA77241D576400E2E0FE /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616BA76241D576400E2E0FE /* FavoriteViewController.swift */; };
 		762CF00C245743FA009A0B1B /* FollowerNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */; };
@@ -140,6 +141,7 @@
 		7605CF33240EC05200460465 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7605CF3F240EC3D400460465 /* AETextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AETextField.swift; sourceTree = "<group>"; };
 		7605CF4A240EDB3600460465 /* AEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEButton.swift; sourceTree = "<group>"; };
+		76084D6724BA04F0001D264B /* PersistenceProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProviderError.swift; sourceTree = "<group>"; };
 		7612961E24B9B40400EDA121 /* PersistenceProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProviderTests.swift; sourceTree = "<group>"; };
 		7616BA76241D576400E2E0FE /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkError.swift; sourceTree = "<group>"; };
@@ -317,6 +319,26 @@
 			path = GitHubFollowersUITests;
 			sourceTree = "<group>";
 		};
+		7612962024B9C17600EDA121 /* NetworkProviders */ = {
+			isa = PBXGroup;
+			children = (
+				76E9B88824991F6C0049D996 /* UserNetworkProvider */,
+				76644766246C76B700A80C1D /* FollowerNetworkProvider */,
+			);
+			path = NetworkProviders;
+			sourceTree = "<group>";
+		};
+		7612962124B9C18800EDA121 /* UIProviders */ = {
+			isa = PBXGroup;
+			children = (
+				763D408F248FDFE80024772A /* StringAnalyzer */,
+				764FA21A249230AA0020C57A /* LoadingViewProvider */,
+				764FA22424925CA80020C57A /* EmptyStateViewProvider */,
+				7631F7E324B988FB00144F3A /* AlertViewControllerProvider */,
+			);
+			path = UIProviders;
+			sourceTree = "<group>";
+		};
 		76263AE024325AD9003B553D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,11 +420,9 @@
 		763D4090248FDFF70024772A /* Gateways */ = {
 			isa = PBXGroup;
 			children = (
-				763D408F248FDFE80024772A /* StringAnalyzer */,
-				764FA21A249230AA0020C57A /* LoadingViewProvider */,
-				764FA22424925CA80020C57A /* EmptyStateViewProvider */,
-				7631F7E324B988FB00144F3A /* AlertViewControllerProvider */,
+				7612962124B9C18800EDA121 /* UIProviders */,
 				76FF3C3824B99C3300A0461A /* PersistenceProvider */,
+				7612962024B9C17600EDA121 /* NetworkProviders */,
 			);
 			path = Gateways;
 			sourceTree = "<group>";
@@ -414,7 +434,6 @@
 				76472137249913EE00B409A8 /* View */,
 				76E9B88224991F280049D996 /* Interactor */,
 				76E9B89124991FD60049D996 /* Presenter */,
-				76E9B88724991F5E0049D996 /* Providers */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -514,7 +533,6 @@
 				76644752246C71C700A80C1D /* View */,
 				76644759246C720D00A80C1D /* Interactor */,
 				7664475A246C723800A80C1D /* Presenter */,
-				76678156247036140091FBE8 /* Providers */,
 			);
 			path = Followers;
 			sourceTree = "<group>";
@@ -600,14 +618,6 @@
 				7664C04B2461D3D1007CE942 /* FollowerCollectionViewCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		76678156247036140091FBE8 /* Providers */ = {
-			isa = PBXGroup;
-			children = (
-				76644766246C76B700A80C1D /* FollowerNetworkProvider */,
-			);
-			path = Providers;
 			sourceTree = "<group>";
 		};
 		7671079424895F5800478FAC /* Scenes */ = {
@@ -708,14 +718,6 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		76E9B88724991F5E0049D996 /* Providers */ = {
-			isa = PBXGroup;
-			children = (
-				76E9B88824991F6C0049D996 /* UserNetworkProvider */,
-			);
-			path = Providers;
-			sourceTree = "<group>";
-		};
 		76E9B88824991F6C0049D996 /* UserNetworkProvider */ = {
 			isa = PBXGroup;
 			children = (
@@ -810,6 +812,7 @@
 		76FF3C3824B99C3300A0461A /* PersistenceProvider */ = {
 			isa = PBXGroup;
 			children = (
+				76084D6724BA04F0001D264B /* PersistenceProviderError.swift */,
 				76FF3C3624B99C2D00A0461A /* PersistenceProvider.swift */,
 				76FF3C3924B99D5200A0461A /* UserDefaultsPersistenceProvider.swift */,
 			);
@@ -985,6 +988,7 @@
 				76BC42E72461C20A003E099D /* Follower.swift in Sources */,
 				767AD23924B5987800F55997 /* AEFollowerItemInfoViewControllerDelegate.swift in Sources */,
 				7631F7E824B98D3400144F3A /* SearchViewControllerComposer.swift in Sources */,
+				76084D6824BA04F0001D264B /* PersistenceProviderError.swift in Sources */,
 				76472135249913DD00B409A8 /* UserViewController.swift in Sources */,
 				762CF00C245743FA009A0B1B /* FollowerNetworkError.swift in Sources */,
 				763D408D248FDFE10024772A /* StringAnalyzerInput.swift in Sources */,

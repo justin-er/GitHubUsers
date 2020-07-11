@@ -17,5 +17,7 @@ protocol FollowersInteractorInput: class {
 	func getNextFollowers()
 	
 	func getAvatar(of follower: Follower)
+	
+	func addUserToFavorites(username: String)
 }
 

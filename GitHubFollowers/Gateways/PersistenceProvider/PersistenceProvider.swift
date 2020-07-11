@@ -10,11 +10,11 @@ import Foundation
 
 protocol PersistenceProvider {
 	
-	func retreiveFavorites() -> [Follower]?
+	func retreiveFavorites() -> [User]?
 	
-	func add(favorite: Follower)
+	func add(favorite: User) throws
 	
-	func delete(favorite: Follower)
+	func delete(favorite: User)
 	
 	func deleteAll()
 }

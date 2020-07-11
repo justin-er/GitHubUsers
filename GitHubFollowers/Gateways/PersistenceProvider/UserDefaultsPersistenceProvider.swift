@@ -14,14 +14,14 @@ class UserDefaultsPersistenceProvider: PersistenceProvider {
 	let userDefaults 	= UserDefaults.standard
 	let key				= "49992A65-F05B-4C0B-84EE-6A5823E4571A"
 	
-	func save(favorites: [Follower]) throws {
+	func save(favorites: [User]) throws {
 		
 		let encoder 		= JSONEncoder()
 		let encodedData 	= try encoder.encode(favorites)
 		userDefaults.set(encodedData, forKey: key)
 	}
 	
-	func retreiveFavorites() -> [Follower]? {
+	func retreiveFavorites() -> [User]? {
 		
 		guard let encodedData = userDefaults.object(forKey: key) as? Data else { return nil }
 		
@@ -29,7 +29,7 @@ class UserDefaultsPersistenceProvider: PersistenceProvider {
 
 		do {
 			
-			return try decoder.decode([Follower].self, from: encodedData)
+			return try decoder.decode([User].self, from: encodedData)
 			
 		} catch {
 			
@@ -37,9 +37,14 @@ class UserDefaultsPersistenceProvider: PersistenceProvider {
 		}
 	}
 	
-	func add(favorite: Follower) {
+	func add(favorite: User) throws {
 		
 		if var favorites = retreiveFavorites() {
+			
+			if favorites.contains(favorite) {
+				
+				throw PersistenceProviderError.addingFailed
+			}
 			
 			favorites.append(favorite)
 			
@@ -65,7 +70,7 @@ class UserDefaultsPersistenceProvider: PersistenceProvider {
 		}
 	}
 	
-	func delete(favorite: Follower) {
+	func delete(favorite: User) {
 		
 		if var favorites = retreiveFavorites() {
 			
