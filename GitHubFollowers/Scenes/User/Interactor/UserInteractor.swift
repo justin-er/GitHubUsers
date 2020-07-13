@@ -11,10 +11,13 @@ import Foundation
 class UserInteractor: UserInteractorInput {
 	
 	private let userNetworkProvider: UserNetworkProviderInput
+	private let persistenceProvider: PersistenceProvider
+	
 	var delegate: UserInteractorDelegate?
 	
-	init(userNetworkProvider: UserNetworkProviderInput) {
+	init(userNetworkProvider: UserNetworkProviderInput, persistenceProvider: PersistenceProvider) {
 		
+		self.persistenceProvider = persistenceProvider
 		self.userNetworkProvider = userNetworkProvider
 	}
 	
@@ -32,5 +35,19 @@ class UserInteractor: UserInteractorInput {
 			
 			self.delegate?.interactoreDidGetAvatar(result: result)
 		}
+	}
+	
+	func addUserToFavorites(user: User) {
+		
+		do {
+			
+			try persistenceProvider.add(favorite: user)
+			
+		} catch {
+			
+			delegate?.interactoreDidAddUserToFavories(self, user: user, error: error)
+		}
+		
+		delegate?.interactoreDidAddUserToFavories(self, user: user, error: nil)
 	}
 }

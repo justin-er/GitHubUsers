@@ -13,5 +13,7 @@ protocol UserPresenterDelegate: class {
 	func presenterDidGet(result: Result<UserViewModel, UserNetworkError>)
 	
 	func presenterDidGetAvatar(result: Result<UserViewModel, UserNetworkError>)
+	
+	func presenterDidAddUserToFavories(_: UserPresenterInput, user: UserViewModel, error: Error?)
 }
 

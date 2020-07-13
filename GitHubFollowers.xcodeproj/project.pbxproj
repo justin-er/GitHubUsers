@@ -23,6 +23,7 @@
 		76084D6A24BA0CE0001D264B /* FollowersViewControllerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76084D6924BA0CE0001D264B /* FollowersViewControllerInput.swift */; };
 		7612961F24B9B40400EDA121 /* PersistenceProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7612961E24B9B40400EDA121 /* PersistenceProviderTests.swift */; };
 		7616BA77241D576400E2E0FE /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616BA76241D576400E2E0FE /* FavoriteViewController.swift */; };
+		7616CEA424BC1F16001DCB6E /* FollowersNavigationControllerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616CEA324BC1F16001DCB6E /* FollowersNavigationControllerComposer.swift */; };
 		762BBBB224BB7BB000384DCD /* UserViewControllerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762BBBB124BB7BB000384DCD /* UserViewControllerInput.swift */; };
 		762CF00C245743FA009A0B1B /* FollowerNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */; };
 		762CF00E245748D6009A0B1B /* RemoteFollowersProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */; };
@@ -147,6 +148,7 @@
 		76084D6924BA0CE0001D264B /* FollowersViewControllerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewControllerInput.swift; sourceTree = "<group>"; };
 		7612961E24B9B40400EDA121 /* PersistenceProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProviderTests.swift; sourceTree = "<group>"; };
 		7616BA76241D576400E2E0FE /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		7616CEA324BC1F16001DCB6E /* FollowersNavigationControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersNavigationControllerComposer.swift; sourceTree = "<group>"; };
 		762BBBB124BB7BB000384DCD /* UserViewControllerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewControllerInput.swift; sourceTree = "<group>"; };
 		762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkError.swift; sourceTree = "<group>"; };
 		762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFollowersProviderTest.swift; sourceTree = "<group>"; };
@@ -584,6 +586,7 @@
 			isa = PBXGroup;
 			children = (
 				76644760246C72C300A80C1D /* FollowersComposer.swift */,
+				7616CEA324BC1F16001DCB6E /* FollowersNavigationControllerComposer.swift */,
 			);
 			path = Composer;
 			sourceTree = "<group>";
@@ -1029,6 +1032,7 @@
 				764FA22324925CA40020C57A /* EmptyStateViewProvider.swift in Sources */,
 				76E9B8952499206C0049D996 /* UserPresenterDelegate.swift in Sources */,
 				76E9B88F24991FD30049D996 /* UserPresenterInput.swift in Sources */,
+				7616CEA424BC1F16001DCB6E /* FollowersNavigationControllerComposer.swift in Sources */,
 				7602E2CB24B3358100CE156F /* AEFollowerItemInfoViewController.swift in Sources */,
 				76E9B88624991F590049D996 /* UserNetworkProvider.swift in Sources */,
 				7605CF4B240EDB3600460465 /* AEButton.swift in Sources */,

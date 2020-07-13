@@ -108,17 +108,17 @@ class FollowersViewController: UIViewController {
 		
 		view.backgroundColor = UIColor.secondarySystemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
-		
-		let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
-		navigationItem.rightBarButtonItem = addButton
+
+		let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
+		self.navigationItem.rightBarButtonItem = doneButton
 	}
 	
 	@objc
-	func addButtonTapped() {
+	func doneButtonTapped() {
 		
-		loadingViewProvider.showLoading(on: self.view)
-		interactor.addUserToFavorites(username: username)
+		self.dismiss(animated: true)
 	}
+
 }
 
 extension FollowersViewController: FollowersPresenterDelegate {
@@ -258,7 +258,7 @@ extension FollowersViewController: UICollectionViewDelegate {
 		
 		guard let selectedViewModel = self.dataSource.itemIdentifier(for: indexPath) else { return }
 		
-		let (userNC, userVC) = UserNavigationControllerComposer.makeModule(followersViewControllerInput: self)
+		let (userNC, userVC) = UserNavigationControllerComposer.makeModule()
 		present(userNC, animated: true)
 		userVC.representUser(username: selectedViewModel.login, avatar: selectedViewModel.avatar)
 	}

@@ -111,11 +111,17 @@ class SearchViewController: UIViewController {
 			
             return
         }
+		 
+		let userViewController = UserViewControllerComposer.makeModule()
+		userViewController.modalPresentationStyle = .automatic
+		navigationController?.pushViewController(userViewController, animated: true)
+//        show(userViewController, sender: self)
+		userViewController.representUser(username: textField.text!, avatar: nil)
         
-		let followersListViewController = FollowersViewControllerComposer.makeModule()
-        followersListViewController.modalPresentationStyle = .automatic
-        show(followersListViewController, sender: self)
-		followersListViewController.representFollowers(ofUsername: textField.text!)
+//		let followersListViewController = FollowersViewControllerComposer.makeModule()
+//        followersListViewController.modalPresentationStyle = .automatic
+//        show(followersListViewController, sender: self)
+//		followersListViewController.representFollowers(ofUsername: textField.text!)
     }
     
     func configDismissKeyboadTabGesture() {

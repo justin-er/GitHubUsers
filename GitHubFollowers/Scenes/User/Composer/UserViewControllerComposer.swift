@@ -10,10 +10,11 @@ import Foundation
 
 class UserViewControllerComposer {
 	
-	static func makeModule(followersViewControllerInput: FollowersViewControllerInput) -> UserViewController {
+	static func makeModule() -> UserViewController {
 		
 		let userNetworkProvider = UserNetworkProvider(session: URLSession.shared)
-		let userInteractor 		= UserInteractor(userNetworkProvider: userNetworkProvider)
+		let persistenceProvider = UserDefaultsPersistenceProvider()
+		let userInteractor 		= UserInteractor(userNetworkProvider: userNetworkProvider, persistenceProvider: persistenceProvider)
 		let userPresenter 		= UserPresenter()
 		userInteractor.delegate = userPresenter
 		let loadingViewProvider	= LoadingViewProvider()
@@ -21,7 +22,6 @@ class UserViewControllerComposer {
 		
 		let viewController 		= UserViewController(interactor: userInteractor,
 														loadingViewProvider: loadingViewProvider,
-														followersViewControllerInput: followersViewControllerInput,
 														alertViewProvider: alertViewProvider)
 														
 		userPresenter.delegate 	= viewController

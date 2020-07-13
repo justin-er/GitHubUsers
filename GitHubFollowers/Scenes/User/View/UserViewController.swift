@@ -14,9 +14,9 @@ class UserViewController: UIViewController {
 	private let loadingViewProvider: LoadingViewProviderInput
 	
 	private var avatar: UIImage?
+	private var userViewModel: UserViewModel?
 	
 	private var interactor: UserInteractorInput
-	private weak var followersViewControllerInput: FollowersViewControllerInput?
 	
 	private let alertViewProvider: AlertViewControllerProviderInput
 	
@@ -36,11 +36,9 @@ class UserViewController: UIViewController {
 	
 	init(interactor: UserInteractorInput,
 		 loadingViewProvider: LoadingViewProviderInput,
-		 followersViewControllerInput: FollowersViewControllerInput,
 		 alertViewProvider: AlertViewControllerProviderInput) {
 		
 		self.loadingViewProvider 			= loadingViewProvider
-		self.followersViewControllerInput	= followersViewControllerInput
 		self.interactor						= interactor
 		self.alertViewProvider				= alertViewProvider
 		
@@ -51,6 +49,8 @@ class UserViewController: UIViewController {
 		
 		fatalError("init(coder:) has not been implemented")
 	}
+
+// MARK: - View Life Cycle and Config
 	
 	override func viewDidLoad() {
 		
@@ -63,6 +63,12 @@ class UserViewController: UIViewController {
 		
 		repoItemViewConroller.delegate 			= self
 		followerItemViewController.delegate 	= self
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		
+		super.viewWillAppear(animated)
+		navigationController?.setNavigationBarHidden(false, animated: true)
 	}
 	
 	private func add(childViewController: UIViewController, toContentView contentView: UIView) {
@@ -101,16 +107,12 @@ class UserViewController: UIViewController {
 	func configViewController() {
 		
 		self.view.backgroundColor = UIColor.systemBackground
-		let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
-		self.navigationItem.rightBarButtonItem = doneButton
-	}
-	
-	@objc
-	func doneButtonTapped() {
+		self.title = "Github User"
 		
-		self.dismiss(animated: true)
+		let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+		navigationItem.rightBarButtonItem = addButton
 	}
-	
+
 	func configViewOne() {
 		
 		viewOne.translatesAutoresizingMaskIntoConstraints = false
@@ -155,6 +157,17 @@ class UserViewController: UIViewController {
 			createdAtLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
 		])
 	}
+	
+// MARK: - Event Handlers
+	@objc
+	func addButtonTapped() {
+		
+		if let userViewModel = self.userViewModel {
+			
+			loadingViewProvider.showLoading(on: self.view)
+			interactor.addUserToFavorites(user: userViewModel.makeUser())
+		}
+	}
 }
 // MARK: - UserPresenterDelegate
 
@@ -194,6 +207,7 @@ extension UserViewController: UserPresenterDelegate {
 			
 		case .success(var userViewModel):
 			
+			self.userViewModel = userViewModel
 			if let avatar = self.avatar {
 				
 				userViewModel.avatar = avatar
@@ -251,6 +265,8 @@ extension UserViewController: UserPresenterDelegate {
 			
 		case .success(let userViewModel):
 			
+			self.userViewModel = userViewModel
+			
 			DispatchQueue.main.async {
 				
 				if let avatar = userViewModel.avatar {
@@ -260,8 +276,31 @@ extension UserViewController: UserPresenterDelegate {
 			}
 		}
 	}
+	
+	func presenterDidAddUserToFavories(_: UserPresenterInput, user: UserViewModel, error: Error?) {
+		
+		loadingViewProvider.dismissLoading()
+		
+		if let error = error {
+			
+			if let persistenceError = error as? PersistenceProviderError, persistenceError == .addingFailed {
+				
+				self.alertViewProvider.showAlert(presentingViewController: self, title: "Failed", message: "\(user.login) has been added to the favorites list previously.", bottonTitle: "OK")
+				
+			} else {
+				
+				self.alertViewProvider.showAlert(presentingViewController: self, title: "Failed", message: error.localizedDescription, bottonTitle: "OK")
+			}
+		}
+		
+		DispatchQueue.main.async {
+			
+			self.alertViewProvider.showAlert(presentingViewController: self, title: "Success", message: "\(user.login) added to the favorites.", bottonTitle: "OK")
+		}
+	}
 }
 
+// MARK: - AERepoItemInfoViewControllerDelegate
 extension UserViewController: AERepoItemInfoViewControllerDelegate {
 	
 	func repoItemInfoViewControllerDidTapActionButton(_: AERepoItemInfoViewController, user: UserViewModel) {
@@ -274,6 +313,8 @@ extension UserViewController: AERepoItemInfoViewControllerDelegate {
 		present(safariViewController, animated: true)
 	}
 }
+
+// MARK: - AEFollowerItemInfoViewControllerDelegate
 
 extension UserViewController: AEFollowerItemInfoViewControllerDelegate {
 	
@@ -289,10 +330,13 @@ extension UserViewController: AEFollowerItemInfoViewControllerDelegate {
 			return
 		}
 		
-		followersViewControllerInput?.representFollowers(ofUsername: user.login)
-		dismiss(animated: true)
+		let (followersNC, followersVC) = FollowersNavigationControllerComposer.makeModule()
+		present(followersNC, animated: true)
+		followersVC.representFollowers(ofUsername: user.login)
 	}
 }
+
+// MARK: - UserViewControllerInput
 
 extension UserViewController: UserViewControllerInput {
 	

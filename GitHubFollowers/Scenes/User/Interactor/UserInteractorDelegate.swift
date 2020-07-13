@@ -13,5 +13,7 @@ protocol UserInteractorDelegate: class {
 	func interactorDidGet(result: Result<User, UserNetworkError>)
 	
 	func interactoreDidGetAvatar(result: Result<(User, Data), UserNetworkError>)
+	
+	func interactoreDidAddUserToFavories(_: UserInteractorInput, user: User, error: Error?)
 }
 

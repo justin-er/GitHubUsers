@@ -33,7 +33,7 @@ class AEFollowerItemInfoViewController: AEItemInfoViewController {
 		itemInfoViewTwo.image	= UIImage(systemName: "person.2")
 		itemInfoViewTwo.count	= user?.followers ?? 0
 		
-		actionsButton.set(backgroundColor: .systemGreen, text: "Get Followers")
+		actionsButton.set(backgroundColor: .systemGreen, text: "Followers")
 		
 		actionsButton.addTarget(self, action: #selector(didTapActionButton), for: .touchUpInside)
 	}

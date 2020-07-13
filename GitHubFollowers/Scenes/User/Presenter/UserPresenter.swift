@@ -45,4 +45,9 @@ extension UserPresenter: UserInteractorDelegate {
 			self.delegate?.presenterDidGetAvatar(result: Result.success(userViewModel))
 		}
 	}
+	
+	func interactoreDidAddUserToFavories(_: UserInteractorInput, user: User, error: Error?) {
+		
+		delegate?.presenterDidAddUserToFavories(self, user: UserViewModel(user: user), error: error)
+	}
 }

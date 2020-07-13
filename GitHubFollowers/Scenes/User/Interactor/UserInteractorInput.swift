@@ -13,4 +13,6 @@ protocol UserInteractorInput {
 	func getUser(username: String)
 	
 	func getAvatar(user: User)
+	
+	func addUserToFavorites(user: User)
 }
