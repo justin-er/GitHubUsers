@@ -19,19 +19,23 @@ class FollowersViewController: UIViewController {
 	private let presenter:					FollowersPresenterInput
 	private var emptyStateViewProvider:		EmptyStateViewProviderInput
 	private var alertViewProvider:			AlertViewControllerProviderInput
+	private var userViewController:			UserViewControllerInput
 	
 	var collectionView: 	UICollectionView!
 	var dataSource: 		UICollectionViewDiffableDataSource<SectionType, FollowerViewModel>!
 	
     private var username: String! 
 	
-	init(followersInteractor: FollowersInteractorInput, loadingViewProvider: LoadingViewProviderInput, presenter: FollowersPresenterInput, emptyStateViewProvider: EmptyStateViewProviderInput, alertViewProvider: AlertViewControllerProviderInput) {
+// MARK: - Life Cycle and Config
+	
+	init(followersInteractor: FollowersInteractorInput, loadingViewProvider: LoadingViewProviderInput, presenter: FollowersPresenterInput, emptyStateViewProvider: EmptyStateViewProviderInput, alertViewProvider: AlertViewControllerProviderInput, userViewController: UserViewControllerInput) {
 		
 		self.interactor 				= followersInteractor
 		self.loadingViewProvider 		= loadingViewProvider
 		self.emptyStateViewProvider 	= emptyStateViewProvider
 		self.presenter 					= presenter
 		self.alertViewProvider			= alertViewProvider
+		self.userViewController			= userViewController
 		
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -113,6 +117,8 @@ class FollowersViewController: UIViewController {
 		self.navigationItem.rightBarButtonItem = doneButton
 	}
 	
+//MARK:- Evenet Handler
+	
 	@objc
 	func doneButtonTapped() {
 		
@@ -120,6 +126,8 @@ class FollowersViewController: UIViewController {
 	}
 
 }
+
+// MARK: - FollowersPresenterDelegate
 
 extension FollowersViewController: FollowersPresenterDelegate {
 
@@ -241,6 +249,8 @@ extension FollowersViewController: FollowersPresenterDelegate {
 	}
 }
 
+// MARK: - FollowersViewControllerInput
+
 extension FollowersViewController: FollowersViewControllerInput {
 	
 	func representFollowers(ofUsername username: String) {
@@ -252,15 +262,20 @@ extension FollowersViewController: FollowersViewControllerInput {
 	}
 }
 
+// MARK: - UICollectionViewDelegate
+
 extension FollowersViewController: UICollectionViewDelegate {
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
 		guard let selectedViewModel = self.dataSource.itemIdentifier(for: indexPath) else { return }
 		
-		let (userNC, userVC) = UserNavigationControllerComposer.makeModule()
-		present(userNC, animated: true)
-		userVC.representUser(username: selectedViewModel.login, avatar: selectedViewModel.avatar)
+//		let (userNC, userVC) = UserNavigationControllerComposer.makeModule()
+//		present(userNC, animated: true)
+//		userVC.representUser(username: selectedViewModel.login, avatar: selectedViewModel.avatar)
+		
+		userViewController.representUser(username: selectedViewModel.login, avatar: selectedViewModel.avatar)
+		dismiss(animated: true)
 	}
 	
 	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -292,6 +307,8 @@ extension FollowersViewController: UICollectionViewDelegate {
 	}
 }
 
+// MARK: - UISearchResultsUpdating
+
 extension FollowersViewController: UISearchResultsUpdating {
 	
 	func updateSearchResults(for searchController: UISearchController) {
@@ -306,6 +323,8 @@ extension FollowersViewController: UISearchResultsUpdating {
 		updateUI(followers: followers, emptyStateMessage: "No matching follower!")
 	}
 }
+
+//MARK: - UISearchBarDelegate
 
 extension FollowersViewController: UISearchBarDelegate {
 	

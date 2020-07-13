@@ -330,7 +330,7 @@ extension UserViewController: AEFollowerItemInfoViewControllerDelegate {
 			return
 		}
 		
-		let (followersNC, followersVC) = FollowersNavigationControllerComposer.makeModule()
+		let (followersNC, followersVC) = FollowersNavigationControllerComposer.makeModule(userViewController: self)
 		present(followersNC, animated: true)
 		followersVC.representFollowers(ofUsername: user.login)
 	}

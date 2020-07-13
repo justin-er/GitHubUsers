@@ -10,7 +10,7 @@ import Foundation
 
 class FollowersViewControllerComposer {
 
-	static func makeModule() -> FollowersViewControllerInput {
+	static func makeModule(userViewController: UserViewControllerInput) -> FollowersViewControllerInput {
 		
 		let stringAnalyzer 				= StringAnalyzer()
 		let followersProvider 			= FollowerNetworkProvider(session: NetworkManager.shared.session, stringAnalyzer: stringAnalyzer)
@@ -28,7 +28,7 @@ class FollowersViewControllerComposer {
 													 loadingViewProvider: loadingViewProvider,
 													 presenter: presenter,
 													 emptyStateViewProvider: emptyStateProvider,
-													 alertViewProvider: alertViewControllerProvider)
+													 alertViewProvider: alertViewControllerProvider, userViewController: userViewController)
 		interactor.delegate = presenter
 		presenter.delegate = viewController
 		
