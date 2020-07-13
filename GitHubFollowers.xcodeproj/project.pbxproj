@@ -102,8 +102,8 @@
 		76EAB84D244E00790093B7D2 /* ProjectBrief.md in Resources */ = {isa = PBXBuildFile; fileRef = 76EAB84C244E00790093B7D2 /* ProjectBrief.md */; };
 		76EDE62424334482002AE6FD /* FollowerNetowrkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EDE62324334482002AE6FD /* FollowerNetowrkModel.swift */; };
 		76FE61112423B95100A9CF0C /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE61102423B95100A9CF0C /* FollowersViewController.swift */; };
-		76FF3C3224B9965600A0461A /* FavoriteViewControllerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FF3C3124B9965600A0461A /* FavoriteViewControllerComposer.swift */; };
-		76FF3C3524B996AD00A0461A /* FavoriteNavigationControllerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FF3C3424B996AD00A0461A /* FavoriteNavigationControllerComposer.swift */; };
+		76FF3C3224B9965600A0461A /* FavoritesViewControllerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FF3C3124B9965600A0461A /* FavoritesViewControllerComposer.swift */; };
+		76FF3C3524B996AD00A0461A /* FavoritesNavigationControllerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FF3C3424B996AD00A0461A /* FavoritesNavigationControllerComposer.swift */; };
 		76FF3C3724B99C2D00A0461A /* PersistenceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FF3C3624B99C2D00A0461A /* PersistenceProvider.swift */; };
 		76FF3C3A24B99D5200A0461A /* UserDefaultsPersistenceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FF3C3924B99D5200A0461A /* UserDefaultsPersistenceProvider.swift */; };
 /* End PBXBuildFile section */
@@ -217,8 +217,8 @@
 		76EAB84C244E00790093B7D2 /* ProjectBrief.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ProjectBrief.md; sourceTree = "<group>"; };
 		76EDE62324334482002AE6FD /* FollowerNetowrkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetowrkModel.swift; sourceTree = "<group>"; };
 		76FE61102423B95100A9CF0C /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
-		76FF3C3124B9965600A0461A /* FavoriteViewControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewControllerComposer.swift; sourceTree = "<group>"; };
-		76FF3C3424B996AD00A0461A /* FavoriteNavigationControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNavigationControllerComposer.swift; sourceTree = "<group>"; };
+		76FF3C3124B9965600A0461A /* FavoritesViewControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerComposer.swift; sourceTree = "<group>"; };
+		76FF3C3424B996AD00A0461A /* FavoritesNavigationControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesNavigationControllerComposer.swift; sourceTree = "<group>"; };
 		76FF3C3624B99C2D00A0461A /* PersistenceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProvider.swift; sourceTree = "<group>"; };
 		76FF3C3924B99D5200A0461A /* UserDefaultsPersistenceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPersistenceProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -812,8 +812,8 @@
 		76FF3C3324B9965C00A0461A /* Composer */ = {
 			isa = PBXGroup;
 			children = (
-				76FF3C3124B9965600A0461A /* FavoriteViewControllerComposer.swift */,
-				76FF3C3424B996AD00A0461A /* FavoriteNavigationControllerComposer.swift */,
+				76FF3C3124B9965600A0461A /* FavoritesViewControllerComposer.swift */,
+				76FF3C3424B996AD00A0461A /* FavoritesNavigationControllerComposer.swift */,
 			);
 			path = Composer;
 			sourceTree = "<group>";
@@ -1042,7 +1042,7 @@
 				7605CF12240EC04E00460465 /* SceneDelegate.swift in Sources */,
 				767AD23724B5986800F55997 /* AERepoItemInfoViewControllerDelegate.swift in Sources */,
 				76B1CDDE249A79400092F8B6 /* UserHeaderViewController.swift in Sources */,
-				76FF3C3524B996AD00A0461A /* FavoriteNavigationControllerComposer.swift in Sources */,
+				76FF3C3524B996AD00A0461A /* FavoritesNavigationControllerComposer.swift in Sources */,
 				763D408E248FDFE10024772A /* StringAnalyzer.swift in Sources */,
 				76E9B88124991F240049D996 /* UserInteractor.swift in Sources */,
 				76644765246C766200A80C1D /* FollowerViewModel.swift in Sources */,
@@ -1057,7 +1057,7 @@
 				7605CF40240EC3D400460465 /* AETextField.swift in Sources */,
 				764FA219249230A50020C57A /* LoadingViewProvider.swift in Sources */,
 				76E9B88024991F240049D996 /* UserInteractorInput.swift in Sources */,
-				76FF3C3224B9965600A0461A /* FavoriteViewControllerComposer.swift in Sources */,
+				76FF3C3224B9965600A0461A /* FavoritesViewControllerComposer.swift in Sources */,
 				76BC42EF2461C777003E099D /* AEAvatarImageView.swift in Sources */,
 				76D2B9AB242CD09C009B4D3B /* AEAlertViewController.swift in Sources */,
 				76BB82002461BE74000A16F6 /* FollowerNetworkProviderInput.swift in Sources */,

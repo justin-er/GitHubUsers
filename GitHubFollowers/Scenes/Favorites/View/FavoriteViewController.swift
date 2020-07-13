@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController {
+class FavoritesViewController: UIViewController {
 	
 	init() {
 		

@@ -8,11 +8,11 @@
 
 import UIKit
 
-class FavoriteViewControllerComposer {
+class FavoritesViewControllerComposer {
 	
-	static func makeModule() -> FavoriteViewController {
+	static func makeModule() -> FavoritesViewController {
 		
-		let vc = FavoriteViewController()
+		let vc = FavoritesViewController()
 		return vc
 	}
 }
