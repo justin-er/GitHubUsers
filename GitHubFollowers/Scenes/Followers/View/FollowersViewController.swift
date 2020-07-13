@@ -257,9 +257,10 @@ extension FollowersViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
 		guard let selectedViewModel = self.dataSource.itemIdentifier(for: indexPath) else { return }
-		let userNavigationController = UserNavigationControllerComposer.makeModule(follower: selectedViewModel,
-																				   followersViewControllerInput: self)
-		present(userNavigationController, animated: true)
+		
+		let (userNC, userVC) = UserNavigationControllerComposer.makeModule(followersViewControllerInput: self)
+		present(userNC, animated: true)
+		userVC.representUser(username: selectedViewModel.login, avatar: selectedViewModel.avatar)
 	}
 	
 	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

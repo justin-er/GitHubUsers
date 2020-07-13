@@ -11,5 +11,7 @@ import Foundation
 protocol UserInteractorDelegate: class {
 	
 	func interactorDidGet(result: Result<User, UserNetworkError>)
+	
+	func interactoreDidGetAvatar(result: Result<(User, Data), UserNetworkError>)
 }
 

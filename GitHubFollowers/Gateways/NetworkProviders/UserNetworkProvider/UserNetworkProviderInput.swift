@@ -11,4 +11,6 @@ import Foundation
 protocol UserNetworkProviderInput {
 	
 	func getUser(username: String, completion: @escaping (Result<User, UserNetworkError>) -> Void)
+	
+	func getAvatar(user: User, completion: @escaping (Result<(User, Data), UserNetworkError>) -> Void)
 }

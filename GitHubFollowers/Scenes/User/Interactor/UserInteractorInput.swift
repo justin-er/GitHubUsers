@@ -11,4 +11,6 @@ import Foundation
 protocol UserInteractorInput {
 	
 	func getUser(username: String)
+	
+	func getAvatar(user: User)
 }

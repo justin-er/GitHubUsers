@@ -11,7 +11,7 @@ import Foundation
 class UserInteractor: UserInteractorInput {
 	
 	private let userNetworkProvider: UserNetworkProviderInput
-	weak var delegate: UserInteractorDelegate?
+	var delegate: UserInteractorDelegate?
 	
 	init(userNetworkProvider: UserNetworkProviderInput) {
 		
@@ -23,6 +23,14 @@ class UserInteractor: UserInteractorInput {
 		userNetworkProvider.getUser(username: username) { result in
 			
 			self.delegate?.interactorDidGet(result: result)
+		}
+	}
+	
+	func getAvatar(user: User) {
+		
+		userNetworkProvider.getAvatar(user: user) { result in
+			
+			self.delegate?.interactoreDidGetAvatar(result: result)
 		}
 	}
 }

@@ -13,8 +13,9 @@ class UserViewController: UIViewController {
 	
 	private let loadingViewProvider: LoadingViewProviderInput
 	
-	private var follower: FollowerViewModel
-	private var persenter: UserPresenterInput
+	private var avatar: UIImage?
+	
+	private var interactor: UserInteractorInput
 	private weak var followersViewControllerInput: FollowersViewControllerInput?
 	
 	private let alertViewProvider: AlertViewControllerProviderInput
@@ -33,12 +34,14 @@ class UserViewController: UIViewController {
 	private let followerItemViewController		= AEFollowerItemInfoViewController(user: nil)
 	private let createdAtLabel					= AEBodyLabel(textAlignment: .center)
 	
-	init(follower: FollowerViewModel, presenter: UserPresenterInput, loadingViewProvider: LoadingViewProviderInput, followersViewControllerInput: FollowersViewControllerInput, alertViewProvider: AlertViewControllerProviderInput) {
+	init(interactor: UserInteractorInput,
+		 loadingViewProvider: LoadingViewProviderInput,
+		 followersViewControllerInput: FollowersViewControllerInput,
+		 alertViewProvider: AlertViewControllerProviderInput) {
 		
 		self.loadingViewProvider 			= loadingViewProvider
-		self.followersViewControllerInput		= followersViewControllerInput
-		self.follower 						= follower
-		self.persenter 						= presenter
+		self.followersViewControllerInput	= followersViewControllerInput
+		self.interactor						= interactor
 		self.alertViewProvider				= alertViewProvider
 		
 		super.init(nibName: nil, bundle: nil)
@@ -49,10 +52,10 @@ class UserViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-    override func viewDidLoad() {
+	override func viewDidLoad() {
 		
-        super.viewDidLoad()
-        configViewController()
+		super.viewDidLoad()
+		configViewController()
 		configHeaderContentView()
 		configViewOne()
 		configViewTwo()
@@ -60,9 +63,6 @@ class UserViewController: UIViewController {
 		
 		repoItemViewConroller.delegate 			= self
 		followerItemViewController.delegate 	= self
-		
-		persenter.getUserDetail(of: self.follower)
-		loadingViewProvider.showLoading(on: self.view)
 	}
 	
 	private func add(childViewController: UIViewController, toContentView contentView: UIView) {
@@ -96,23 +96,8 @@ class UserViewController: UIViewController {
 		])
 		
 		add(childViewController: headerViewController, toContentView : headerContentView)
-		
-		let tempUserViewModel = UserViewModel(login: follower.login,
-		avatarUrl: follower.avatarUrl,
-		name: "",
-		location: "",
-		bio: "",
-		publicRepos: nil,
-		publicGists: nil,
-		htmlUrl: nil,
-		following: nil,
-		followers: nil,
-		createdAt: nil,
-		avatar: follower.avatar)
-		
-		headerViewController.user = tempUserViewModel
 	}
-
+	
 	func configViewController() {
 		
 		self.view.backgroundColor = UIColor.systemBackground
@@ -164,13 +149,14 @@ class UserViewController: UIViewController {
 		view.addSubview(createdAtLabel)
 		
 		NSLayoutConstraint.activate([
-		
+			
 			createdAtLabel.topAnchor.constraint(equalTo: viewTwo.bottomAnchor, constant: 16),
 			createdAtLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
 			createdAtLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
 		])
 	}
 }
+// MARK: - UserPresenterDelegate
 
 extension UserViewController: UserPresenterDelegate {
 	
@@ -188,18 +174,35 @@ extension UserViewController: UserPresenterDelegate {
 				
 				DispatchQueue.main.async {
 					
-					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Ivalid username!", bottonTitle: "OK")
+					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Invalid username!", bottonTitle: "OK")
 				}
-			
+				
 			case .unableToComplete:
 				
 				DispatchQueue.main.async {
 					
 					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Unable to complete. Try again.", bottonTitle: "OK")
 				}
+				
+			case .invalidAvatarUrl:
+				
+				DispatchQueue.main.async {
+					
+					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Invalid avatar URL.", bottonTitle: "OK")
+				}
 			}
 			
-		case .success(let userViewModel):
+		case .success(var userViewModel):
+			
+			if let avatar = self.avatar {
+				
+				userViewModel.avatar = avatar
+				
+			} else {
+				
+				let user = userViewModel.makeUser()
+				interactor.getAvatar(user: user)
+			}
 			
 			DispatchQueue.main.async {
 				
@@ -211,7 +214,49 @@ extension UserViewController: UserPresenterDelegate {
 				self.viewTwo.isHidden = false
 				self.followerItemViewController.user = userViewModel
 				
-				self.createdAtLabel.text = "Github since \(userViewModel.createdAt ?? "")"
+				self.createdAtLabel.text = "Github since \(userViewModel.createdAt)"
+			}
+		}
+	}
+	
+	func presenterDidGetAvatar(result: Result<UserViewModel, UserNetworkError>) {
+		
+		switch result {
+			
+		case .failure(let userNetworkError):
+			
+			switch userNetworkError {
+				
+			case .invalidUsername:
+				
+				DispatchQueue.main.async {
+					
+					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Invalid username!", bottonTitle: "OK")
+				}
+				
+			case .unableToComplete:
+				
+				DispatchQueue.main.async {
+					
+					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Unable to complete. Try again.", bottonTitle: "OK")
+				}
+				
+			case .invalidAvatarUrl:
+				
+				DispatchQueue.main.async {
+					
+					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Invalid avatar URL.", bottonTitle: "OK")
+				}
+			}
+			
+		case .success(let userViewModel):
+			
+			DispatchQueue.main.async {
+				
+				if let avatar = userViewModel.avatar {
+					
+					self.headerViewController.avatarImageView.image = avatar
+				}
 			}
 		}
 	}
@@ -221,7 +266,7 @@ extension UserViewController: AERepoItemInfoViewControllerDelegate {
 	
 	func repoItemInfoViewControllerDidTapActionButton(_: AERepoItemInfoViewController, user: UserViewModel) {
 		
-		guard let htmlUrl = user.htmlUrl, let url = URL(string: htmlUrl) else { return }
+		guard let url = URL(string: user.htmlUrl) else { return }
 		
 		let safariViewController = SFSafariViewController(url: url)
 		safariViewController.preferredControlTintColor = .systemGreen
@@ -233,7 +278,7 @@ extension UserViewController: AERepoItemInfoViewControllerDelegate {
 extension UserViewController: AEFollowerItemInfoViewControllerDelegate {
 	
 	func followerItemViewControllerDidTapActionButton(_: AEFollowerItemInfoViewController, user: UserViewModel) {
-	
+		
 		guard user.followers != 0 else {
 			
 			DispatchQueue.main.async {
@@ -247,4 +292,22 @@ extension UserViewController: AEFollowerItemInfoViewControllerDelegate {
 		followersViewControllerInput?.representFollowers(ofUsername: user.login)
 		dismiss(animated: true)
 	}
+}
+
+extension UserViewController: UserViewControllerInput {
+	
+	func representUser(username: String, avatar: UIImage?) {
+		
+		headerViewController.userNameLabel.text = username
+		self.avatar = avatar
+		
+		if let avatar = avatar {
+			
+			headerViewController.avatarImageView.image = avatar
+		}
+		
+		loadingViewProvider.showLoading(on: self.view)
+		interactor.getUser(username: username)
+	}
+	
 }

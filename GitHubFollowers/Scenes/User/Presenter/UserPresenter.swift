@@ -10,21 +10,7 @@ import UIKit
 
 class UserPresenter: UserPresenterInput {
 	
-	public let interactor: UserInteractorInput
 	weak var delegate: UserPresenterDelegate?
-	
-	init(interactor: UserInteractorInput) {
-		
-		self.interactor = interactor
-	}
-	
-	private var avatar: UIImage?
-
-	func getUserDetail(of follower: FollowerViewModel) {
-		
-		self.avatar = follower.avatar
-		interactor.getUser(username: follower.login)
-	}
 }
 
 extension UserPresenter: UserInteractorDelegate {
@@ -39,10 +25,24 @@ extension UserPresenter: UserInteractorDelegate {
 		
 		case .success(let user):
 			
-			var userViewModel = UserViewModel(user: user)
-			userViewModel.avatar = self.avatar
+			let userViewModel = UserViewModel(user: user)
 			delegate?.presenterDidGet(result: Result.success(userViewModel))
 		}
 	}
-
+	
+	func interactoreDidGetAvatar(result: Result<(User, Data), UserNetworkError>) {
+		
+		switch result {
+			
+		case .failure(let error):
+			
+			self.delegate?.presenterDidGetAvatar(result: Result.failure(error))
+			
+		case .success(let(user, data)):
+			
+			var userViewModel = UserViewModel(user: user)
+			userViewModel.avatar = UIImage(data: data)
+			self.delegate?.presenterDidGetAvatar(result: Result.success(userViewModel))
+		}
+	}
 }

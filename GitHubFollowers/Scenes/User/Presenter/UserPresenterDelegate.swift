@@ -11,5 +11,7 @@ import Foundation
 protocol UserPresenterDelegate: class {
 	
 	func presenterDidGet(result: Result<UserViewModel, UserNetworkError>)
+	
+	func presenterDidGetAvatar(result: Result<UserViewModel, UserNetworkError>)
 }
 

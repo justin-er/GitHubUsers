@@ -23,6 +23,7 @@
 		76084D6A24BA0CE0001D264B /* FollowersViewControllerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76084D6924BA0CE0001D264B /* FollowersViewControllerInput.swift */; };
 		7612961F24B9B40400EDA121 /* PersistenceProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7612961E24B9B40400EDA121 /* PersistenceProviderTests.swift */; };
 		7616BA77241D576400E2E0FE /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616BA76241D576400E2E0FE /* FavoriteViewController.swift */; };
+		762BBBB224BB7BB000384DCD /* UserViewControllerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762BBBB124BB7BB000384DCD /* UserViewControllerInput.swift */; };
 		762CF00C245743FA009A0B1B /* FollowerNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */; };
 		762CF00E245748D6009A0B1B /* RemoteFollowersProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */; };
 		7631F7E224B9889600144F3A /* AlertViewControllerProviderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631F7E124B9889600144F3A /* AlertViewControllerProviderInput.swift */; };
@@ -146,6 +147,7 @@
 		76084D6924BA0CE0001D264B /* FollowersViewControllerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewControllerInput.swift; sourceTree = "<group>"; };
 		7612961E24B9B40400EDA121 /* PersistenceProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProviderTests.swift; sourceTree = "<group>"; };
 		7616BA76241D576400E2E0FE /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		762BBBB124BB7BB000384DCD /* UserViewControllerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewControllerInput.swift; sourceTree = "<group>"; };
 		762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkError.swift; sourceTree = "<group>"; };
 		762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFollowersProviderTest.swift; sourceTree = "<group>"; };
 		7631F7E124B9889600144F3A /* AlertViewControllerProviderInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewControllerProviderInput.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 		76472137249913EE00B409A8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				762BBBB124BB7BB000384DCD /* UserViewControllerInput.swift */,
 				76472134249913DD00B409A8 /* UserViewController.swift */,
 			);
 			path = View;
@@ -1019,6 +1022,7 @@
 				76E9B899249922B80049D996 /* UserNetworkError.swift in Sources */,
 				7664C04C2461D3D1007CE942 /* FollowerCollectionViewCell.swift in Sources */,
 				76BC42E92461C215003E099D /* User.swift in Sources */,
+				762BBBB224BB7BB000384DCD /* UserViewControllerInput.swift in Sources */,
 				76BB81FC2461BCFC000A16F6 /* NetworkSettings.swift in Sources */,
 				76E9B89024991FD30049D996 /* UserPresenter.swift in Sources */,
 				76BB81FE2461BD49000A16F6 /* FollowerNetworkProvider.swift in Sources */,

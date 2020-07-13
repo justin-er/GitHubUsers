@@ -12,6 +12,7 @@ enum UserNetworkError: Error, LocalizedError {
 	
 	case invalidUsername
     case unableToComplete
+	case invalidAvatarUrl
 	
 	var errorDescription: String? {
 		switch self {
@@ -19,6 +20,8 @@ enum UserNetworkError: Error, LocalizedError {
 			return "Invalid username."
 		case .unableToComplete:
 			return "Unable to complete network request. Check the Internet connection."
+		case .invalidAvatarUrl:
+			return "Invalid avater URL."
 		}
 	}
 }
