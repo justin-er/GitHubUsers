@@ -22,7 +22,7 @@
 		76084D6824BA04F0001D264B /* PersistenceProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76084D6724BA04F0001D264B /* PersistenceProviderError.swift */; };
 		76084D6A24BA0CE0001D264B /* FollowersViewControllerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76084D6924BA0CE0001D264B /* FollowersViewControllerInput.swift */; };
 		7612961F24B9B40400EDA121 /* PersistenceProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7612961E24B9B40400EDA121 /* PersistenceProviderTests.swift */; };
-		7616BA77241D576400E2E0FE /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616BA76241D576400E2E0FE /* FavoriteViewController.swift */; };
+		7616BA77241D576400E2E0FE /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616BA76241D576400E2E0FE /* FavoritesViewController.swift */; };
 		7616CEA424BC1F16001DCB6E /* FollowersNavigationControllerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616CEA324BC1F16001DCB6E /* FollowersNavigationControllerComposer.swift */; };
 		762BBBB224BB7BB000384DCD /* UserViewControllerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762BBBB124BB7BB000384DCD /* UserViewControllerInput.swift */; };
 		762CF00C245743FA009A0B1B /* FollowerNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */; };
@@ -58,6 +58,11 @@
 		7677D33224792985009EDAD1 /* FollowersPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7677D33124792985009EDAD1 /* FollowersPresenterInput.swift */; };
 		767AD23724B5986800F55997 /* AERepoItemInfoViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767AD23624B5986800F55997 /* AERepoItemInfoViewControllerDelegate.swift */; };
 		767AD23924B5987800F55997 /* AEFollowerItemInfoViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767AD23824B5987800F55997 /* AEFollowerItemInfoViewControllerDelegate.swift */; };
+		769402FF24BC48980027CFD8 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769402FE24BC48980027CFD8 /* FavoritesInteractor.swift */; };
+		7694030124BC48A50027CFD8 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7694030024BC48A50027CFD8 /* FavoritesPresenter.swift */; };
+		7694030524BC48CD0027CFD8 /* FavoritesInteractorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7694030424BC48CD0027CFD8 /* FavoritesInteractorDelegate.swift */; };
+		7694030724BC48E00027CFD8 /* FavoritesPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7694030624BC48E00027CFD8 /* FavoritesPresenterDelegate.swift */; };
+		7694030924BC4A0A0027CFD8 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7694030824BC4A0A0027CFD8 /* FavoriteTableViewCell.swift */; };
 		769736CB24B1E1BD0085DE7C /* AEItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769736CA24B1E1BD0085DE7C /* AEItemInfoView.swift */; };
 		769736CE24B1E8FD0085DE7C /* AEItemInfoViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769736CD24B1E8FD0085DE7C /* AEItemInfoViewType.swift */; };
 		769736CF24B1EBEC0085DE7C /* AEItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769736CA24B1E1BD0085DE7C /* AEItemInfoView.swift */; };
@@ -147,7 +152,7 @@
 		76084D6724BA04F0001D264B /* PersistenceProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProviderError.swift; sourceTree = "<group>"; };
 		76084D6924BA0CE0001D264B /* FollowersViewControllerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewControllerInput.swift; sourceTree = "<group>"; };
 		7612961E24B9B40400EDA121 /* PersistenceProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProviderTests.swift; sourceTree = "<group>"; };
-		7616BA76241D576400E2E0FE /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		7616BA76241D576400E2E0FE /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		7616CEA324BC1F16001DCB6E /* FollowersNavigationControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersNavigationControllerComposer.swift; sourceTree = "<group>"; };
 		762BBBB124BB7BB000384DCD /* UserViewControllerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewControllerInput.swift; sourceTree = "<group>"; };
 		762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkError.swift; sourceTree = "<group>"; };
@@ -178,6 +183,11 @@
 		7677D33124792985009EDAD1 /* FollowersPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersPresenterInput.swift; sourceTree = "<group>"; };
 		767AD23624B5986800F55997 /* AERepoItemInfoViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERepoItemInfoViewControllerDelegate.swift; sourceTree = "<group>"; };
 		767AD23824B5987800F55997 /* AEFollowerItemInfoViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEFollowerItemInfoViewControllerDelegate.swift; sourceTree = "<group>"; };
+		769402FE24BC48980027CFD8 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
+		7694030024BC48A50027CFD8 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		7694030424BC48CD0027CFD8 /* FavoritesInteractorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractorDelegate.swift; sourceTree = "<group>"; };
+		7694030624BC48E00027CFD8 /* FavoritesPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterDelegate.swift; sourceTree = "<group>"; };
+		7694030824BC4A0A0027CFD8 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		769736CA24B1E1BD0085DE7C /* AEItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEItemInfoView.swift; sourceTree = "<group>"; };
 		769736CD24B1E8FD0085DE7C /* AEItemInfoViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEItemInfoViewType.swift; sourceTree = "<group>"; };
 		769A4F35248BE01100B59077 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -549,6 +559,8 @@
 			children = (
 				76FF3C3324B9965C00A0461A /* Composer */,
 				76FF3C3024B9964000A0461A /* View */,
+				7694030224BC48AA0027CFD8 /* Interactor */,
+				7694030324BC48B00027CFD8 /* Presenter */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -625,6 +637,7 @@
 			isa = PBXGroup;
 			children = (
 				7664C04B2461D3D1007CE942 /* FollowerCollectionViewCell.swift */,
+				7694030824BC4A0A0027CFD8 /* FavoriteTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -664,6 +677,24 @@
 				767AD23824B5987800F55997 /* AEFollowerItemInfoViewControllerDelegate.swift */,
 			);
 			path = FollowerItemInfo;
+			sourceTree = "<group>";
+		};
+		7694030224BC48AA0027CFD8 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				769402FE24BC48980027CFD8 /* FavoritesInteractor.swift */,
+				7694030424BC48CD0027CFD8 /* FavoritesInteractorDelegate.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		7694030324BC48B00027CFD8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				7694030024BC48A50027CFD8 /* FavoritesPresenter.swift */,
+				7694030624BC48E00027CFD8 /* FavoritesPresenterDelegate.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		769736CC24B1E1C30085DE7C /* ChildViews */ = {
@@ -804,7 +835,7 @@
 		76FF3C3024B9964000A0461A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7616BA76241D576400E2E0FE /* FavoriteViewController.swift */,
+				7616BA76241D576400E2E0FE /* FavoritesViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1006,6 +1037,7 @@
 				76644758246C720800A80C1D /* FollowersPresenter.swift in Sources */,
 				764721392499140B00B409A8 /* UserViewControllerComposer.swift in Sources */,
 				764FA218249230A50020C57A /* LoadingViewProviderInput.swift in Sources */,
+				7694030524BC48CD0027CFD8 /* FavoritesInteractorDelegate.swift in Sources */,
 				76E9B897249921430049D996 /* UserViewModel.swift in Sources */,
 				7605CF14240EC04E00460465 /* SearchViewController.swift in Sources */,
 				7664475C246C726800A80C1D /* FollowersPresenterDelegate.swift in Sources */,
@@ -1013,12 +1045,13 @@
 				76B1CDDB249A78950092F8B6 /* AESecondaryTitleLabel.swift in Sources */,
 				76FF3C3A24B99D5200A0461A /* UserDefaultsPersistenceProvider.swift in Sources */,
 				7605CF10240EC04D00460465 /* AppDelegate.swift in Sources */,
-				7616BA77241D576400E2E0FE /* FavoriteViewController.swift in Sources */,
+				7616BA77241D576400E2E0FE /* FavoritesViewController.swift in Sources */,
 				76E9B88524991F590049D996 /* UserNetworkProviderInput.swift in Sources */,
 				769736CE24B1E8FD0085DE7C /* AEItemInfoViewType.swift in Sources */,
 				764FA22224925CA40020C57A /* EmptyStateViewProviderInput.swift in Sources */,
 				7631F7E224B9889600144F3A /* AlertViewControllerProviderInput.swift in Sources */,
 				7602E2C924B3343A00CE156F /* AERepoItemInfoViewController.swift in Sources */,
+				7694030124BC48A50027CFD8 /* FavoritesPresenter.swift in Sources */,
 				769736CB24B1E1BD0085DE7C /* AEItemInfoView.swift in Sources */,
 				76644754246C71E000A80C1D /* FollowersInteractor.swift in Sources */,
 				769A4F36248BE01100B59077 /* NetworkManager.swift in Sources */,
@@ -1044,6 +1077,8 @@
 				76B1CDDE249A79400092F8B6 /* UserHeaderViewController.swift in Sources */,
 				76FF3C3524B996AD00A0461A /* FavoritesNavigationControllerComposer.swift in Sources */,
 				763D408E248FDFE10024772A /* StringAnalyzer.swift in Sources */,
+				769402FF24BC48980027CFD8 /* FavoritesInteractor.swift in Sources */,
+				7694030924BC4A0A0027CFD8 /* FavoriteTableViewCell.swift in Sources */,
 				76E9B88124991F240049D996 /* UserInteractor.swift in Sources */,
 				76644765246C766200A80C1D /* FollowerViewModel.swift in Sources */,
 				764BE4752421398700F617B5 /* String+Ext.swift in Sources */,
@@ -1064,6 +1099,7 @@
 				76E9B893249920320049D996 /* UserInteractorDelegate.swift in Sources */,
 				7631F7EB24B98EDF00144F3A /* SearchNavigationControllerComposer.swift in Sources */,
 				7664475E246C728D00A80C1D /* FollowersInteractorDelegate.swift in Sources */,
+				7694030724BC48E00027CFD8 /* FavoritesPresenterDelegate.swift in Sources */,
 				76644761246C72C300A80C1D /* FollowersComposer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
