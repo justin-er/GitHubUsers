@@ -20,6 +20,8 @@ class FavoritesViewController: UIViewController {
 	var dataSource: UITableViewDiffableDataSource <SectionType, UserViewModel>!
 	let tableView = UITableView()
 	
+	var isVisible: Bool = false
+	
 //MARK:- Life Cycle and Config
 	
 	init(interactor: FavoritesInteractorInput) {
@@ -38,15 +40,21 @@ class FavoritesViewController: UIViewController {
 		configTableView()
 		configTableViewDatasource()
 		configDataSource()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-		
-        super.viewWillAppear(animated)
-		
-        navigationController?.setNavigationBarHidden(false, animated: true)
 		interactor.getFavorites()
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		
+		super.viewWillAppear(animated)
+		self.isVisible = true
+		navigationController?.setNavigationBarHidden(false, animated: true)
+	}
+
+	override func viewDidDisappear(_ animated: Bool) {
+		
+		super.viewDidAppear(animated)
+		self.isVisible = false
+	}
 	
 	required init?(coder: NSCoder) {
 		
@@ -119,9 +127,9 @@ extension FavoritesViewController: FavoritesPresenterDelegate {
 		
 		guard let favorites = favorites else {
 			
-			var snapshop = dataSource.snapshot()
-			snapshop.deleteAllItems()
-			dataSource.apply(snapshop)
+			var snapshot = dataSource.snapshot()
+			snapshot.deleteAllItems()
+			dataSource.apply(snapshot, animatingDifferences: isVisible)
 			
 			return
 		}
@@ -129,7 +137,7 @@ extension FavoritesViewController: FavoritesPresenterDelegate {
 		var snapshop = NSDiffableDataSourceSnapshot<SectionType, UserViewModel>()
 		snapshop.appendSections([SectionType.main])
 		snapshop.appendItems(favorites)
-		dataSource.apply(snapshop)
+		dataSource.apply(snapshop, animatingDifferences: isVisible)
 	}
 	
 	func presenterDidGetAvatar(_ presenter: FavoritesPresenterInput, user: UserViewModel, result: Result<UIImage, AvatarNetworkError>) {
@@ -154,7 +162,7 @@ extension FavoritesViewController: FavoritesPresenterDelegate {
 					}
 				}
 
-				self.dataSource.apply(snapshot)
+				self.dataSource.apply(snapshot, animatingDifferences: self.isVisible)
 			}
 	
 		default:

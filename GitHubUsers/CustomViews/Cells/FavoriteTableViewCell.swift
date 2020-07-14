@@ -27,6 +27,7 @@ class FavoriteTableViewCell: UITableViewCell {
 		
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		
+		configTableViewCell()
 		configAvatarImageView()
 		configUsernameLabel()
 	}
@@ -40,9 +41,17 @@ class FavoriteTableViewCell: UITableViewCell {
         
 		super.awakeFromNib()
 		
+		configTableViewCell()
         configAvatarImageView()
 		configUsernameLabel()
     }
+	
+	func configTableViewCell() {
+		
+		accessoryType 	= .disclosureIndicator
+		tintColor		= .systemGreen
+		
+	}
 	
 	func configAvatarImageView() {
 		
