@@ -11,5 +11,7 @@ import Foundation
 protocol FavoritesInteractorDelegate {
 	
 	func interactorDidGet(_ interactor: FavoritesInteractorInput ,favorites: [User]?)
+	
+	func interactorDidGetAvatar(_ interacator: FavoritesInteractorInput, user: User, result: Result<Data, AvatarNetworkError>)
 }
 

@@ -11,5 +11,7 @@ import Foundation
 protocol FavoritesInteractorInput {
 	
 	func getFavorites()
+	
+	func getAvatar(for user: User)
 }
 

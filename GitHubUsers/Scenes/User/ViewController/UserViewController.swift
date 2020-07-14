@@ -196,13 +196,6 @@ extension UserViewController: UserPresenterDelegate {
 					
 					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Unable to complete. Try again.", bottonTitle: "OK")
 				}
-				
-			case .invalidAvatarUrl:
-				
-				DispatchQueue.main.async {
-					
-					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Invalid avatar URL.", bottonTitle: "OK")
-				}
 			}
 			
 		case .success(var userViewModel):
@@ -233,7 +226,7 @@ extension UserViewController: UserPresenterDelegate {
 		}
 	}
 	
-	func presenterDidGetAvatar(result: Result<UserViewModel, UserNetworkError>) {
+	func presenterDidGetAvatar(result: Result<UserViewModel, AvatarNetworkError>) {
 		
 		switch result {
 			
@@ -241,11 +234,11 @@ extension UserViewController: UserPresenterDelegate {
 			
 			switch userNetworkError {
 				
-			case .invalidUsername:
+			case .invalidAvatarUrl:
 				
 				DispatchQueue.main.async {
 					
-					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Invalid username!", bottonTitle: "OK")
+					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Invalid avatar URL!", bottonTitle: "OK")
 				}
 				
 			case .unableToComplete:

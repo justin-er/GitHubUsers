@@ -6,7 +6,7 @@
 //  Copyright © 2020 Amirreza Eghtedari. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class FavoritesPresenter: FavoritesPresenterInput {
 	
@@ -25,6 +25,29 @@ extension FavoritesPresenter: FavoritesInteractorDelegate {
 		})
 		
 		delegate?.presenterDidGet(self, favorites: usersViewModel)
+	}
+	
+	func interactorDidGetAvatar(_ interacator: FavoritesInteractorInput, user: User, result: Result<Data, AvatarNetworkError>) {
+		
+		var userViewModel = UserViewModel(user: user)
+		switch result {
+		
+		case .failure(let error):
+			
+			delegate?.presenterDidGetAvatar(self, user: userViewModel, result: Result.failure(error))
+			
+		case .success(let data):
+			
+			guard let avatar = UIImage(data: data) else {
+				
+				delegate?.presenterDidGetAvatar(self, user: userViewModel, result: Result.failure(AvatarNetworkError.unableToComplete))
+				
+				return
+			}
+			
+			userViewModel.avatar = avatar
+			delegate?.presenterDidGetAvatar(self, user: userViewModel, result: Result.success(avatar))
+		}
 	}
 }
 

@@ -13,7 +13,8 @@ class FavoritesViewControllerComposer {
 	static func makeModule() -> FavoritesViewController {
 		
 		let persistenceProvider = UserDefaultsPersistenceProvider()
-		let interactor	= FavoritesInteractor(persistenceProvider: persistenceProvider)
+		let userNetworkProvider = UserNetworkProvider(session: NetworkManager.shared.session)
+		let interactor	= FavoritesInteractor(persistenceProvider: persistenceProvider, userNetworkProvider: userNetworkProvider)
 		let presenter	= FavoritesPresenter()
 		let viewController = FavoritesViewController(interactor: interactor)
 		

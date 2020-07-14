@@ -30,7 +30,7 @@ extension UserPresenter: UserInteractorDelegate {
 		}
 	}
 	
-	func interactoreDidGetAvatar(result: Result<(User, Data), UserNetworkError>) {
+	func interactoreDidGetAvatar(user: User, result: Result<Data, AvatarNetworkError>) {
 		
 		switch result {
 			
@@ -38,7 +38,7 @@ extension UserPresenter: UserInteractorDelegate {
 			
 			self.delegate?.presenterDidGetAvatar(result: Result.failure(error))
 			
-		case .success(let(user, data)):
+		case .success(let data):
 			
 			var userViewModel = UserViewModel(user: user)
 			userViewModel.avatar = UIImage(data: data)

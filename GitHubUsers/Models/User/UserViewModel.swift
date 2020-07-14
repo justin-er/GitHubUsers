@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct UserViewModel {
+class UserViewModel {
 	
 	internal init(login: String, avatarUrl: String, name: String? = nil, location: String? = nil, bio: String? = nil, publicRepos: Int, publicGists: Int, htmlUrl: String, following: Int, followers: Int, createdAt: String, avatar: UIImage? = nil, id: UUID) {
 		
@@ -60,7 +60,7 @@ struct UserViewModel {
 		self.following 		= user.following
 		self.followers		= user.followers
 		self.createdAt 		= dateFormatter.string(from: user.createdAt)
-		self.id				= UUID()
+		self.id				= user.id
 	}
 	
 	func makeUser() -> User {
@@ -75,8 +75,8 @@ struct UserViewModel {
 						htmlUrl: self.htmlUrl,
 						following: self.following,
 						followers: self.followers,
-						createdAt: dateFormatter.date(from: self.createdAt) ?? Date())
-
+						createdAt: dateFormatter.date(from: self.createdAt) ?? Date(),
+						id: self.id)
 	}
 }
 

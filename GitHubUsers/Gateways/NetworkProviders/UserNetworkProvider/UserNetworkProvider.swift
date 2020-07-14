@@ -56,12 +56,15 @@ class UserNetworkProvider: UserNetworkProviderInput {
             }
             
             do {
+				
                 let decoder = JSONDecoder()
 				decoder.keyDecodingStrategy 	= .convertFromSnakeCase
 				decoder.dateDecodingStrategy 	= .iso8601
 				
-				let user = try decoder.decode(User.self, from: data)
-                completion(Result.success(user))
+				let userNetworkModel = try decoder.decode(UserNetworkModel.self, from: data)
+				let user = userNetworkModel.makeUser()
+				completion(Result.success(user))
+				
             } catch {
                 completion(Result.failure(UserNetworkError.unableToComplete))
             }
@@ -70,44 +73,87 @@ class UserNetworkProvider: UserNetworkProviderInput {
         task.resume()
 	}
 	
-	func getAvatar(user: User, completion: @escaping (Result<(User, Data), UserNetworkError>) -> Void) {
+	func getAvatar(user: User, completion: @escaping (Result<(User, Data), AvatarNetworkError>) -> Void) {
 		
 		let endPoint = user.avatarUrl
         
         guard let url = URL(string: endPoint) else {
-			completion(Result.failure(UserNetworkError.invalidAvatarUrl))
+			completion(Result.failure(AvatarNetworkError.invalidAvatarUrl))
             return
         }
 		
         let task = session.dataTask(with: url) { data, response, error in
             
             guard error == nil else {
-                completion(Result.failure(UserNetworkError.unableToComplete))
+                completion(Result.failure(AvatarNetworkError.unableToComplete))
                 return
             }
             
 			guard let response = response as? HTTPURLResponse else {
-				completion(Result.failure(UserNetworkError.unableToComplete))
+				completion(Result.failure(AvatarNetworkError.unableToComplete))
 				return
 			}
 				
 			if response.statusCode != 200 {
 				if response.statusCode == 404 {
-					completion(Result.failure(UserNetworkError.invalidAvatarUrl))
+					completion(Result.failure(AvatarNetworkError.invalidAvatarUrl))
 				} else {
 					os_log("Network error: %d", response.statusCode)
-					completion(Result.failure(UserNetworkError.unableToComplete))
+					completion(Result.failure(AvatarNetworkError.unableToComplete))
 				}
 				
 				return
 			}
 			
             guard let data = data else {
-                completion(Result.failure(UserNetworkError.unableToComplete))
+                completion(Result.failure(AvatarNetworkError.unableToComplete))
                 return
             }
             
             completion(Result.success((user, data)))
+        }
+        
+        task.resume()
+	}
+	
+	func getAvatar(for user: User, completion: @escaping (User, Result<Data, AvatarNetworkError>) -> Void) {
+		
+		let endPoint = user.avatarUrl
+        
+        guard let url = URL(string: endPoint) else {
+			completion(user, Result.failure(AvatarNetworkError.invalidAvatarUrl))
+            return
+        }
+		
+        let task = session.dataTask(with: url) { data, response, error in
+            
+            guard error == nil else {
+                completion(user, Result.failure(AvatarNetworkError.unableToComplete))
+                return
+            }
+            
+			guard let response = response as? HTTPURLResponse else {
+				completion(user, Result.failure(AvatarNetworkError.unableToComplete))
+				return
+			}
+				
+			if response.statusCode != 200 {
+				if response.statusCode == 404 {
+					completion(user, Result.failure(AvatarNetworkError.invalidAvatarUrl))
+				} else {
+					os_log("Network error: %d", response.statusCode)
+					completion(user, Result.failure(AvatarNetworkError.unableToComplete))
+				}
+				
+				return
+			}
+			
+            guard let data = data else {
+                completion(user, Result.failure(AvatarNetworkError.unableToComplete))
+                return
+            }
+            
+            completion(user, Result.success(data))
         }
         
         task.resume()

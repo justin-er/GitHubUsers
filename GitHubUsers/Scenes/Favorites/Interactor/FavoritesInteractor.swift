@@ -11,10 +11,12 @@ import Foundation
 class FavoritesInteractor: FavoritesInteractorInput {
 	
 	let persistenceProvider: PersistenceProvider
+	let userNetworkProivder: UserNetworkProviderInput
 	
-	init(persistenceProvider: PersistenceProvider) {
+	init(persistenceProvider: PersistenceProvider, userNetworkProvider: UserNetworkProviderInput) {
 		
 		self.persistenceProvider 		= persistenceProvider
+		self.userNetworkProivder		= userNetworkProvider
 	}
 	
 	var delegate: FavoritesInteractorDelegate?
@@ -23,6 +25,14 @@ class FavoritesInteractor: FavoritesInteractorInput {
 		
 		let favorites = persistenceProvider.retreiveFavorites()
 		delegate?.interactorDidGet(self, favorites: favorites)
+	}
+	
+	func getAvatar(for user: User) {
+		
+		userNetworkProivder.getAvatar(for: user) { user, result in
+			
+			self.delegate?.interactorDidGetAvatar(self, user: user, result: result)
+		}
 	}
 	
 }

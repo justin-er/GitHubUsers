@@ -31,10 +31,11 @@ class UserInteractor: UserInteractorInput {
 	
 	func getAvatar(user: User) {
 		
-		userNetworkProvider.getAvatar(user: user) { result in
+		userNetworkProvider.getAvatar(for: user) { (user, result) in
 			
-			self.delegate?.interactoreDidGetAvatar(result: result)
+			self.delegate?.interactoreDidGetAvatar(user: user, result: result)
 		}
+		
 	}
 	
 	func addUserToFavorites(user: User) {

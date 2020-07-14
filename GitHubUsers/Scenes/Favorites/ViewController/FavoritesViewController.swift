@@ -86,6 +86,11 @@ class FavoritesViewController: UIViewController {
 				return UITableViewCell()
 			}
 			
+			if userViewModel.avatar == nil {
+				
+				self.interactor.getAvatar(for: userViewModel.makeUser())
+			}
+			
 			cell.user = userViewModel
 			
 			return cell
@@ -125,5 +130,36 @@ extension FavoritesViewController: FavoritesPresenterDelegate {
 		snapshop.appendSections([SectionType.main])
 		snapshop.appendItems(favorites)
 		dataSource.apply(snapshop)
+	}
+	
+	func presenterDidGetAvatar(_ presenter: FavoritesPresenterInput, user: UserViewModel, result: Result<UIImage, AvatarNetworkError>) {
+		
+		switch result {
+		
+		case .success(let avatar):
+			
+			DispatchQueue.main.async { [weak self] in
+
+				guard let self = self else { return }
+
+				var snapshot = self.dataSource.snapshot()
+				
+				for userViewModel in snapshot.itemIdentifiers {
+
+					if userViewModel == user {
+
+						userViewModel.avatar = avatar
+						snapshot.reloadItems([userViewModel])
+						break
+					}
+				}
+
+				self.dataSource.apply(snapshot)
+			}
+	
+		default:
+			
+			break
+		}
 	}
 }

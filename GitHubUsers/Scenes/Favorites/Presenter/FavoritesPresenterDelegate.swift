@@ -6,11 +6,13 @@
 //  Copyright © 2020 Amirreza Eghtedari. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol FavoritesPresenterDelegate: class {
 
 	func presenterDidGet(_ presenter: FavoritesPresenterInput, favorites: [UserViewModel]?)
+	
+	func presenterDidGetAvatar(_ presenter: FavoritesPresenterInput,user: UserViewModel, result: Result<UIImage, AvatarNetworkError>)
 }
 
 
