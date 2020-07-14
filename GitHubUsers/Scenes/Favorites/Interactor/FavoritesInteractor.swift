@@ -8,9 +8,22 @@
 
 import Foundation
 
-class FavoritesInteractor {
+class FavoritesInteractor: FavoritesInteractorInput {
+	
+	let persistenceProvider: PersistenceProvider
+	
+	init(persistenceProvider: PersistenceProvider) {
+		
+		self.persistenceProvider 		= persistenceProvider
+	}
 	
 	var delegate: FavoritesInteractorDelegate?
+	
+	func getFavorites() {
+		
+		let favorites = persistenceProvider.retreiveFavorites()
+		delegate?.interactorDidGet(self, favorites: favorites)
+	}
 	
 }
 

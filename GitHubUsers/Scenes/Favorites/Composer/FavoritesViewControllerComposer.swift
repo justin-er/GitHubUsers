@@ -12,8 +12,15 @@ class FavoritesViewControllerComposer {
 	
 	static func makeModule() -> FavoritesViewController {
 		
-		let vc = FavoritesViewController()
-		return vc
+		let persistenceProvider = UserDefaultsPersistenceProvider()
+		let interactor	= FavoritesInteractor(persistenceProvider: persistenceProvider)
+		let presenter	= FavoritesPresenter()
+		let viewController = FavoritesViewController(interactor: interactor)
+		
+		interactor.delegate		= presenter
+		presenter.delegate		= viewController
+		
+		return viewController
 	}
 }
 

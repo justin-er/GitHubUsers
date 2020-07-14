@@ -15,13 +15,16 @@ class FavoritesViewController: UIViewController {
 		case main
 	}
 	
-	var datasource: UITableViewDiffableDataSource <SectionType, UserViewModel>!
+	let interactor: FavoritesInteractorInput
+	
+	var dataSource: UITableViewDiffableDataSource <SectionType, UserViewModel>!
 	let tableView = UITableView()
 	
 //MARK:- Life Cycle and Config
 	
-	init() {
+	init(interactor: FavoritesInteractorInput) {
 		
+		self.interactor 	= interactor
 		super.init(nibName: nil, bundle: nil)
 		
 		tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
@@ -34,6 +37,7 @@ class FavoritesViewController: UIViewController {
 		configViewController()
 		configTableView()
 		configTableViewDatasource()
+		configDataSource()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +45,7 @@ class FavoritesViewController: UIViewController {
         super.viewWillAppear(animated)
 		
         navigationController?.setNavigationBarHidden(false, animated: true)
+		interactor.getFavorites()
     }
 	
 	required init?(coder: NSCoder) {
@@ -71,6 +76,21 @@ class FavoritesViewController: UIViewController {
 		
 		tableView.delegate 		= self
 	}
+	
+	func configDataSource() {
+		
+		dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { (tableView, index, userViewModel) -> UITableViewCell? in
+			
+			guard let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.reuseIdentifier) as? FavoriteTableViewCell else {
+				
+				return UITableViewCell()
+			}
+			
+			cell.user = userViewModel
+			
+			return cell
+		})
+	}
 }
 
 //MARK:- TableViwe Data Source
@@ -84,4 +104,26 @@ func configTableViewDatasource() {
 
 extension FavoritesViewController: UITableViewDelegate {
 	
+}
+
+//MARK:- FavoritesPresenterDelegate
+
+extension FavoritesViewController: FavoritesPresenterDelegate {
+	
+	func presenterDidGet(_ presenter: FavoritesPresenterInput, favorites: [UserViewModel]?) {
+		
+		guard let favorites = favorites else {
+			
+			var snapshop = dataSource.snapshot()
+			snapshop.deleteAllItems()
+			dataSource.apply(snapshop)
+			
+			return
+		}
+		
+		var snapshop = NSDiffableDataSourceSnapshot<SectionType, UserViewModel>()
+		snapshop.appendSections([SectionType.main])
+		snapshop.appendItems(favorites)
+		dataSource.apply(snapshop)
+	}
 }

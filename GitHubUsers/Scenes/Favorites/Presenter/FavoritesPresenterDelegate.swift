@@ -9,6 +9,8 @@
 import Foundation
 
 protocol FavoritesPresenterDelegate: class {
-	
+
+	func presenterDidGet(_ presenter: FavoritesPresenterInput, favorites: [UserViewModel]?)
 }
+
 

@@ -8,9 +8,9 @@
 
 import UIKit
 
-struct UserViewModel: Hashable {
+struct UserViewModel {
 	
-	internal init(login: String, avatarUrl: String, name: String? = nil, location: String? = nil, bio: String? = nil, publicRepos: Int, publicGists: Int, htmlUrl: String, following: Int, followers: Int, createdAt: String, avatar: UIImage? = nil) {
+	internal init(login: String, avatarUrl: String, name: String? = nil, location: String? = nil, bio: String? = nil, publicRepos: Int, publicGists: Int, htmlUrl: String, following: Int, followers: Int, createdAt: String, avatar: UIImage? = nil, id: UUID) {
 		
 		self.login = login
 		self.avatarUrl = avatarUrl
@@ -24,7 +24,7 @@ struct UserViewModel: Hashable {
 		self.followers = followers
 		self.createdAt = createdAt
 		self.avatar = avatar
-
+		self.id	= UUID()
 	}
 	
 	let login: String
@@ -39,6 +39,7 @@ struct UserViewModel: Hashable {
     let followers: Int
     let createdAt: String
 	var avatar: UIImage?
+	var id: UUID
 	
 	var dateFormatter: DateFormatter = {
 		let formatter = DateFormatter()
@@ -59,6 +60,7 @@ struct UserViewModel: Hashable {
 		self.following 		= user.following
 		self.followers		= user.followers
 		self.createdAt 		= dateFormatter.string(from: user.createdAt)
+		self.id				= UUID()
 	}
 	
 	func makeUser() -> User {
@@ -75,6 +77,21 @@ struct UserViewModel: Hashable {
 						followers: self.followers,
 						createdAt: dateFormatter.date(from: self.createdAt) ?? Date())
 
+	}
+}
+
+extension UserViewModel: Equatable {
+	
+	static func == (lhs: UserViewModel, rhs: UserViewModel) -> Bool {
+		
+		return lhs.id == rhs.id
+	}
+}
+
+extension UserViewModel: Hashable {
+	
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(id)
 	}
 }
 

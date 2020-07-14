@@ -8,8 +8,23 @@
 
 import Foundation
 
-class FavoritesPresenter {
+class FavoritesPresenter: FavoritesPresenterInput {
 	
 	weak var delegate: FavoritesPresenterDelegate?
+}
+
+//MARK:- FavoritesInteractorDelegate
+
+extension FavoritesPresenter: FavoritesInteractorDelegate {
+	
+	func interactorDidGet(_ interactor: FavoritesInteractorInput ,favorites: [User]?) {
+
+		let usersViewModel = favorites?.map({ user -> UserViewModel in
+			
+			return UserViewModel(user: user)
+		})
+		
+		delegate?.presenterDidGet(self, favorites: usersViewModel)
+	}
 }
 

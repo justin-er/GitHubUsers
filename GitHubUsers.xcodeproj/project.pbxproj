@@ -81,6 +81,8 @@
 		76BC42E92461C215003E099D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BC42E82461C215003E099D /* User.swift */; };
 		76BC42ED2461C71F003E099D /* MyGitHubFolloers.xd in Resources */ = {isa = PBXBuildFile; fileRef = 76BC42EC2461C71F003E099D /* MyGitHubFolloers.xd */; };
 		76BC42EF2461C777003E099D /* AEAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BC42EE2461C777003E099D /* AEAvatarImageView.swift */; };
+		76CDF10424BD68C900E07C8B /* FavoritesInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CDF10324BD68C900E07C8B /* FavoritesInteractorInput.swift */; };
+		76CDF10624BD6A0300E07C8B /* FavoritesPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CDF10524BD6A0300E07C8B /* FavoritesPresenterInput.swift */; };
 		76D2B9AB242CD09C009B4D3B /* AEAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D2B9AA242CD09C009B4D3B /* AEAlertViewController.swift */; };
 		76D2B9B3242CEB4D009B4D3B /* AETextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF3F240EC3D400460465 /* AETextField.swift */; };
 		76D2B9B4242CEB4D009B4D3B /* AEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF4A240EDB3600460465 /* AEButton.swift */; };
@@ -201,6 +203,8 @@
 		76BC42E82461C215003E099D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		76BC42EC2461C71F003E099D /* MyGitHubFolloers.xd */ = {isa = PBXFileReference; lastKnownFileType = file; name = MyGitHubFolloers.xd; path = Design/MyGitHubFolloers.xd; sourceTree = SOURCE_ROOT; };
 		76BC42EE2461C777003E099D /* AEAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAvatarImageView.swift; sourceTree = "<group>"; };
+		76CDF10324BD68C900E07C8B /* FavoritesInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractorInput.swift; sourceTree = "<group>"; };
+		76CDF10524BD6A0300E07C8B /* FavoritesPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterInput.swift; sourceTree = "<group>"; };
 		76D2B9AA242CD09C009B4D3B /* AEAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAlertViewController.swift; sourceTree = "<group>"; };
 		76E8ED02242BA624002427C5 /* CustomControlsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomControlsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E8ED04242BA624002427C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -670,6 +674,7 @@
 		7694030224BC48AA0027CFD8 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				76CDF10324BD68C900E07C8B /* FavoritesInteractorInput.swift */,
 				769402FE24BC48980027CFD8 /* FavoritesInteractor.swift */,
 				7694030424BC48CD0027CFD8 /* FavoritesInteractorDelegate.swift */,
 			);
@@ -679,6 +684,7 @@
 		7694030324BC48B00027CFD8 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				76CDF10524BD6A0300E07C8B /* FavoritesPresenterInput.swift */,
 				7694030024BC48A50027CFD8 /* FavoritesPresenter.swift */,
 				7694030624BC48E00027CFD8 /* FavoritesPresenterDelegate.swift */,
 			);
@@ -1027,6 +1033,7 @@
 				764721392499140B00B409A8 /* UserViewControllerComposer.swift in Sources */,
 				764FA218249230A50020C57A /* LoadingViewProviderInput.swift in Sources */,
 				7694030524BC48CD0027CFD8 /* FavoritesInteractorDelegate.swift in Sources */,
+				76CDF10424BD68C900E07C8B /* FavoritesInteractorInput.swift in Sources */,
 				76E9B897249921430049D996 /* UserViewModel.swift in Sources */,
 				7605CF14240EC04E00460465 /* SearchViewController.swift in Sources */,
 				7664475C246C726800A80C1D /* FollowersPresenterDelegate.swift in Sources */,
@@ -1063,6 +1070,7 @@
 				7605CF12240EC04E00460465 /* SceneDelegate.swift in Sources */,
 				767AD23724B5986800F55997 /* AERepoItemInfoViewControllerDelegate.swift in Sources */,
 				76B1CDDE249A79400092F8B6 /* UserHeaderViewController.swift in Sources */,
+				76CDF10624BD6A0300E07C8B /* FavoritesPresenterInput.swift in Sources */,
 				76FF3C3524B996AD00A0461A /* FavoritesNavigationControllerComposer.swift in Sources */,
 				763D408E248FDFE10024772A /* StringAnalyzer.swift in Sources */,
 				769402FF24BC48980027CFD8 /* FavoritesInteractor.swift in Sources */,

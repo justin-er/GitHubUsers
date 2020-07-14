@@ -10,5 +10,6 @@ import Foundation
 
 protocol FavoritesInteractorDelegate {
 	
+	func interactorDidGet(_ interactor: FavoritesInteractorInput ,favorites: [User]?)
 }
 
