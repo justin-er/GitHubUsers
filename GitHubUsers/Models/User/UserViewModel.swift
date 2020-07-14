@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct UserViewModel {
+struct UserViewModel: Hashable {
 	
 	internal init(login: String, avatarUrl: String, name: String? = nil, location: String? = nil, bio: String? = nil, publicRepos: Int, publicGists: Int, htmlUrl: String, following: Int, followers: Int, createdAt: String, avatar: UIImage? = nil) {
 		

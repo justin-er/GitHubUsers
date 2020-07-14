@@ -17,7 +17,7 @@
                BlueprintIdentifier = "76E8ED01242BA624002427C5"
                BuildableName = "CustomControlsTest.app"
                BlueprintName = "CustomControlsTest"
-               ReferencedContainer = "container:GitHubFollowers.xcodeproj">
+               ReferencedContainer = "container:GitHubUsers.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "76E8ED01242BA624002427C5"
             BuildableName = "CustomControlsTest.app"
             BlueprintName = "CustomControlsTest"
-            ReferencedContainer = "container:GitHubFollowers.xcodeproj">
+            ReferencedContainer = "container:GitHubUsers.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "76E8ED01242BA624002427C5"
             BuildableName = "CustomControlsTest.app"
             BlueprintName = "CustomControlsTest"
-            ReferencedContainer = "container:GitHubFollowers.xcodeproj">
+            ReferencedContainer = "container:GitHubUsers.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

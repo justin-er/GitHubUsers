@@ -10,6 +10,12 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
 	
+	enum SectionType {
+		
+		case main
+	}
+	
+	var datasource: UITableViewDiffableDataSource <SectionType, UserViewModel>!
 	let tableView = UITableView()
 	
 //MARK:- Life Cycle and Config
@@ -27,7 +33,7 @@ class FavoritesViewController: UIViewController {
 		
 		configViewController()
 		configTableView()
-		tableView.reloadData()
+		configTableViewDatasource()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,29 +69,15 @@ class FavoritesViewController: UIViewController {
 			tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
 		])
 		
-		tableView.dataSource 	= self
 		tableView.delegate 		= self
 	}
 }
 
-//MARK:- UITableViewDataSource
+//MARK:- TableViwe Data Source
 
-extension FavoritesViewController: UITableViewDataSource {
+func configTableViewDatasource() {
 	
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		
-		return 10
-	}
 	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.reuseIdentifier) as? FavoriteTableViewCell else {
-			
-			return UITableViewCell()
-		}
-		cell.usernameLabel.text = "Salam"
-		return cell
-	}
 }
 
 //MARK:- UITableViewDelegate
