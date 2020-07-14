@@ -75,7 +75,6 @@
 		76B3468C2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */; };
 		76B5EBCE24B4938E008947CA /* AETitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5EBCD24B4938E008947CA /* AETitleLabel.swift */; };
 		76B5EBD024B497A3008947CA /* AEHeadlineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5EBCF24B497A3008947CA /* AEHeadlineLabel.swift */; };
-		76BB81FC2461BCFC000A16F6 /* NetworkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FB2461BCFC000A16F6 /* NetworkSettings.swift */; };
 		76BB81FE2461BD49000A16F6 /* FollowerNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FD2461BD49000A16F6 /* FollowerNetworkProvider.swift */; };
 		76BB82002461BE74000A16F6 /* FollowerNetworkProviderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FF2461BE74000A16F6 /* FollowerNetworkProviderInput.swift */; };
 		76BC42E72461C20A003E099D /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BC42E62461C20A003E099D /* Follower.swift */; };
@@ -196,7 +195,6 @@
 		76B3468B2476CC5700A5DB79 /* ThreeColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeColumnFlowLayout.swift; sourceTree = "<group>"; };
 		76B5EBCD24B4938E008947CA /* AETitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AETitleLabel.swift; sourceTree = "<group>"; };
 		76B5EBCF24B497A3008947CA /* AEHeadlineLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEHeadlineLabel.swift; sourceTree = "<group>"; };
-		76BB81FB2461BCFC000A16F6 /* NetworkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettings.swift; sourceTree = "<group>"; };
 		76BB81FD2461BD49000A16F6 /* FollowerNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkProvider.swift; sourceTree = "<group>"; };
 		76BB81FF2461BE74000A16F6 /* FollowerNetworkProviderInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkProviderInput.swift; sourceTree = "<group>"; };
 		76BC42E62461C20A003E099D /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
@@ -300,15 +298,13 @@
 		7605CF0E240EC04D00460465 /* GitHubUsers */ = {
 			isa = PBXGroup;
 			children = (
-				76263AE324325BB3003B553D /* Support */,
-				76BC42EB2461C6E4003E099D /* Design */,
-				76EAB84E244E00830093B7D2 /* Documents */,
+				7671079424895F5800478FAC /* Scenes */,
 				76EDE6222433446E002AE6FD /* Models */,
 				763D4090248FDFF70024772A /* Gateways */,
 				76263AE124325B0A003B553D /* CustomViews */,
 				769A4F37248BE01F00B59077 /* Managers */,
-				762CF00A24574265009A0B1B /* Settings */,
-				7671079424895F5800478FAC /* Scenes */,
+				76263AE324325BB3003B553D /* Support */,
+				76EAB84E244E00830093B7D2 /* Documents */,
 				76263AE024325AD9003B553D /* Extensions */,
 			);
 			path = GitHubUsers;
@@ -387,14 +383,6 @@
 				7605CF18240EC05100460465 /* Assets.xcassets */,
 			);
 			path = Support;
-			sourceTree = "<group>";
-		};
-		762CF00A24574265009A0B1B /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				76BB81FB2461BCFC000A16F6 /* NetworkSettings.swift */,
-			);
-			path = Settings;
 			sourceTree = "<group>";
 		};
 		7631F7E324B988FB00144F3A /* AlertViewControllerProvider */ = {
@@ -788,6 +776,7 @@
 		76EAB84E244E00830093B7D2 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
+				76BC42EB2461C6E4003E099D /* Design */,
 				76EAB84B244E00790093B7D2 /* Project Brief */,
 			);
 			path = Documents;
@@ -1059,7 +1048,6 @@
 				7664C04C2461D3D1007CE942 /* FollowerCollectionViewCell.swift in Sources */,
 				76BC42E92461C215003E099D /* User.swift in Sources */,
 				762BBBB224BB7BB000384DCD /* UserViewControllerInput.swift in Sources */,
-				76BB81FC2461BCFC000A16F6 /* NetworkSettings.swift in Sources */,
 				76E9B89024991FD30049D996 /* UserPresenter.swift in Sources */,
 				76BB81FE2461BD49000A16F6 /* FollowerNetworkProvider.swift in Sources */,
 				764FA22324925CA40020C57A /* EmptyStateViewProvider.swift in Sources */,

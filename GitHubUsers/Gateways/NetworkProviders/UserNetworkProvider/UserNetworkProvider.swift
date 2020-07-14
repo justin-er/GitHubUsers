@@ -20,7 +20,7 @@ class UserNetworkProvider: UserNetworkProviderInput {
 	
 	func getUser(username: String, completion: @escaping (Result<User, UserNetworkError>) -> Void) {
 		
-		let endPoint = "\(NetworkSettings.baseUrl)\(username)"
+		let endPoint = "\(NetworkManager.baseUrl)\(username)"
         
         guard let url = URL(string: endPoint) else {
             completion(Result.failure(UserNetworkError.invalidUsername))

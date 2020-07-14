@@ -10,6 +10,9 @@ import Foundation
 
 class NetworkManager {
 	
+	static let baseUrl = "https://api.github.com/users/"
+	static let followersNumberPerPage = 100
+	
 	let session: URLSession
 	
 	private init() {

@@ -69,7 +69,7 @@ class FollowerNetworkProvider: FollowerNetworkProviderInput {
 	
 	private func getFollowers(of username: String, pageNumber: Int, completion: Completion?) {
         
-		let endPoint = "\(NetworkSettings.baseUrl)\(username)/followers?per_page=\(NetworkSettings.followersNumberPerPage)&page=\(pageNumber)"
+		let endPoint = "\(NetworkManager.baseUrl)\(username)/followers?per_page=\(NetworkManager.followersNumberPerPage)&page=\(pageNumber)"
         
         guard let url = URL(string: endPoint) else {
             completion?(Result.failure(FollowerNetworkError.invalidUsername))
