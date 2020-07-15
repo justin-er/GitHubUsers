@@ -11,6 +11,7 @@ import UIKit
 class FavoritesViewController: UIViewController {
 	
 	let interactor: FavoritesInteractorInput
+	let userViewController: UserViewControllerInput
 	
 	var dataSource: AETableViewDiffableDataSource!
 	let tableView = UITableView()
@@ -19,9 +20,11 @@ class FavoritesViewController: UIViewController {
 	
 //MARK:- Life Cycle and Config
 	
-	init(interactor: FavoritesInteractorInput) {
+	init(interactor: FavoritesInteractorInput, userViewController: UserViewControllerInput) {
 		
-		self.interactor 	= interactor
+		self.interactor 		= interactor
+		self.userViewController = userViewController
+		
 		super.init(nibName: nil, bundle: nil)
 		
 		tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)

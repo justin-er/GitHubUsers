@@ -14,9 +14,10 @@ class FavoritesViewControllerComposer {
 		
 		let persistenceProvider = UserDefaultsPersistenceProvider()
 		let userNetworkProvider = UserNetworkProvider(session: NetworkManager.shared.session)
-		let interactor	= FavoritesInteractor(persistenceProvider: persistenceProvider, userNetworkProvider: userNetworkProvider)
-		let presenter	= FavoritesPresenter()
-		let viewController = FavoritesViewController(interactor: interactor)
+		let interactor			= FavoritesInteractor(persistenceProvider: persistenceProvider, userNetworkProvider: userNetworkProvider)
+		let presenter			= FavoritesPresenter()
+		let userViewController 	= UserViewControllerComposer.makeModule()
+		let viewController = FavoritesViewController(interactor: interactor, userViewController: userViewController)
 		
 		interactor.delegate		= presenter
 		presenter.delegate		= viewController
