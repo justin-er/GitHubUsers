@@ -35,5 +35,11 @@ class FavoritesInteractor: FavoritesInteractorInput {
 		}
 	}
 	
+	func deleteFavorite(user: User) {
+		
+		persistenceProvider.delete(favorite: user)
+		delegate?.interactorDidDeleteFavorite(self, user: user)
+	}
+	
 }
 

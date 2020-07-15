@@ -21,14 +21,13 @@ struct User: Codable {
     let following: Int
     let followers: Int
     let createdAt: Date
-	let id: UUID
 }
 
 extension User: Equatable {
 	
 	static func == (lhs: User, rhs: User) -> Bool {
 		
-		return lhs.id == rhs.id
+		return lhs.login == rhs.login
 	}
 }
 

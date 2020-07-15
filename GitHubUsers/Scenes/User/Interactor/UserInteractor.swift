@@ -43,12 +43,11 @@ class UserInteractor: UserInteractorInput {
 		do {
 			
 			try persistenceProvider.add(favorite: user)
+			delegate?.interactoreDidAddUserToFavories(self, user: user, error: nil)
 			
 		} catch {
 			
 			delegate?.interactoreDidAddUserToFavories(self, user: user, error: error)
 		}
-		
-		delegate?.interactoreDidAddUserToFavories(self, user: user, error: nil)
 	}
 }

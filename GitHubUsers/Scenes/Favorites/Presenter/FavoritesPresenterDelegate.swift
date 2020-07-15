@@ -12,7 +12,9 @@ protocol FavoritesPresenterDelegate: class {
 
 	func presenterDidGet(_ presenter: FavoritesPresenterInput, favorites: [UserViewModel]?)
 	
-	func presenterDidGetAvatar(_ presenter: FavoritesPresenterInput,user: UserViewModel, result: Result<UIImage, AvatarNetworkError>)
+	func presenterDidGetAvatar(_ presenter: FavoritesPresenterInput, user: UserViewModel, result: Result<UIImage, AvatarNetworkError>)
+	
+	func presenterDidDeleteFavorite(_ presenter: FavoritesPresenterInput, user: UserViewModel)
 }
 
 

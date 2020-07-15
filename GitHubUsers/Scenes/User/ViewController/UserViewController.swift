@@ -34,6 +34,8 @@ class UserViewController: UIViewController {
 	private let followerItemViewController		= AEFollowerItemInfoViewController(user: nil)
 	private let createdAtLabel					= AEBodyLabel(textAlignment: .center)
 	
+	lazy var addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+	
 	init(interactor: UserInteractorInput,
 		 loadingViewProvider: LoadingViewProviderInput,
 		 alertViewProvider: AlertViewControllerProviderInput) {
@@ -108,8 +110,6 @@ class UserViewController: UIViewController {
 		
 		self.view.backgroundColor = UIColor.systemBackground
 		self.title = "Github User"
-		
-		let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
 		navigationItem.rightBarButtonItem = addButton
 	}
 
@@ -198,9 +198,10 @@ extension UserViewController: UserPresenterDelegate {
 				}
 			}
 			
-		case .success(var userViewModel):
+		case .success(let userViewModel):
 			
 			self.userViewModel = userViewModel
+			
 			if let avatar = self.avatar {
 				
 				userViewModel.avatar = avatar
@@ -212,6 +213,8 @@ extension UserViewController: UserPresenterDelegate {
 			}
 			
 			DispatchQueue.main.async {
+				
+				self.addButton.isEnabled = true
 				
 				self.headerViewController.user = userViewModel
 				
@@ -247,13 +250,6 @@ extension UserViewController: UserPresenterDelegate {
 					
 					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Unable to complete. Try again.", bottonTitle: "OK")
 				}
-				
-			case .invalidAvatarUrl:
-				
-				DispatchQueue.main.async {
-					
-					self.alertViewProvider.showAlert(presentingViewController: self, title: "Error", message: "Invalid avatar URL.", bottonTitle: "OK")
-				}
 			}
 			
 		case .success(let userViewModel):
@@ -274,7 +270,7 @@ extension UserViewController: UserPresenterDelegate {
 		
 		loadingViewProvider.dismissLoading()
 		
-		if let error = error {
+		guard error == nil else {
 			
 			if let persistenceError = error as? PersistenceProviderError, persistenceError == .addingFailed {
 				
@@ -282,8 +278,10 @@ extension UserViewController: UserPresenterDelegate {
 				
 			} else {
 				
-				self.alertViewProvider.showAlert(presentingViewController: self, title: "Failed", message: error.localizedDescription, bottonTitle: "OK")
+				self.alertViewProvider.showAlert(presentingViewController: self, title: "Failed", message: error!.localizedDescription, bottonTitle: "OK")
 			}
+			
+			return
 		}
 		
 		DispatchQueue.main.async {
@@ -334,6 +332,8 @@ extension UserViewController: AEFollowerItemInfoViewControllerDelegate {
 extension UserViewController: UserViewControllerInput {
 	
 	func representUser(username: String, avatar: UIImage?) {
+		
+		addButton.isEnabled = false
 		
 		headerViewController.userNameLabel.text = username
 		self.avatar = avatar

@@ -10,14 +10,9 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
 	
-	enum SectionType {
-		
-		case main
-	}
-	
 	let interactor: FavoritesInteractorInput
 	
-	var dataSource: UITableViewDiffableDataSource <SectionType, UserViewModel>!
+	var dataSource: AETableViewDiffableDataSource!
 	let tableView = UITableView()
 	
 	var isVisible: Bool = false
@@ -38,16 +33,20 @@ class FavoritesViewController: UIViewController {
 		
 		configViewController()
 		configTableView()
-		configTableViewDatasource()
 		configDataSource()
-		interactor.getFavorites()
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		
 		super.viewWillAppear(animated)
-		self.isVisible = true
 		navigationController?.setNavigationBarHidden(false, animated: true)
+		interactor.getFavorites()
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		
+		super.viewDidAppear(animated)
+		self.isVisible = true
 	}
 
 	override func viewDidDisappear(_ animated: Bool) {
@@ -69,6 +68,7 @@ class FavoritesViewController: UIViewController {
 	
 	private func configTableView() {
 		
+		tableView.delegate 	= self
 		tableView.register(FavoriteTableViewCell.self,
 						   forCellReuseIdentifier: FavoriteTableViewCell.reuseIdentifier)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -81,13 +81,11 @@ class FavoritesViewController: UIViewController {
 			tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
 			tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
 		])
-		
-		tableView.delegate 		= self
 	}
 	
 	func configDataSource() {
 		
-		dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { (tableView, index, userViewModel) -> UITableViewCell? in
+		dataSource = AETableViewDiffableDataSource(tableView: tableView, cellProvider: { (tableView, index, userViewModel) -> UITableViewCell? in
 			
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.reuseIdentifier) as? FavoriteTableViewCell else {
 				
@@ -103,20 +101,40 @@ class FavoritesViewController: UIViewController {
 			
 			return cell
 		})
+		
+		dataSource.defaultRowAnimation = .fade
 	}
-}
-
-//MARK:- TableViwe Data Source
-
-func configTableViewDatasource() {
-	
-	
 }
 
 //MARK:- UITableViewDelegate
 
 extension FavoritesViewController: UITableViewDelegate {
-	
+
+
+	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		
+		let deleteActionHandler: UIContextualAction.Handler = { [weak self] (action, view, completion) in
+			
+			guard let self = self else {
+				
+				completion(false)
+				return
+			}
+			
+			guard let userViewModel = self.dataSource.itemIdentifier(for: indexPath) else {
+				
+				completion(false)
+				return
+			}
+			
+			self.interactor.deleteFavorite(user: userViewModel.makeUser())
+			completion(true)
+		}
+		
+		let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: deleteActionHandler)
+		
+		return UISwipeActionsConfiguration(actions: [deleteAction])
+	}
 }
 
 //MARK:- FavoritesPresenterDelegate
@@ -126,14 +144,14 @@ extension FavoritesViewController: FavoritesPresenterDelegate {
 	func presenterDidGet(_ presenter: FavoritesPresenterInput, favorites: [UserViewModel]?) {
 		
 		guard let favorites = favorites else {
-			
+
 			var snapshot = dataSource.snapshot()
 			snapshot.deleteAllItems()
 			dataSource.apply(snapshot, animatingDifferences: isVisible)
-			
+
 			return
 		}
-		
+
 		var snapshop = NSDiffableDataSourceSnapshot<SectionType, UserViewModel>()
 		snapshop.appendSections([SectionType.main])
 		snapshop.appendItems(favorites)
@@ -169,5 +187,19 @@ extension FavoritesViewController: FavoritesPresenterDelegate {
 			
 			break
 		}
+	}
+
+	func presenterDidDeleteFavorite(_ presenter: FavoritesPresenterInput, user: UserViewModel) {
+		
+		var snapshot = dataSource.snapshot()
+		for item in snapshot.itemIdentifiers {
+
+			if item == user {
+
+				snapshot.deleteItems([item])
+				break
+			}
+		}
+		dataSource.apply(snapshot)
 	}
 }

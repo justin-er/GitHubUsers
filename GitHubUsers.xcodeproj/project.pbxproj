@@ -84,6 +84,8 @@
 		76CDF10424BD68C900E07C8B /* FavoritesInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CDF10324BD68C900E07C8B /* FavoritesInteractorInput.swift */; };
 		76CDF10624BD6A0300E07C8B /* FavoritesPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CDF10524BD6A0300E07C8B /* FavoritesPresenterInput.swift */; };
 		76CDF10824BD83AA00E07C8B /* UserNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CDF10724BD83AA00E07C8B /* UserNetworkModel.swift */; };
+		76CDF10C24BE227600E07C8B /* AETableViewDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CDF10B24BE227600E07C8B /* AETableViewDiffableDataSource.swift */; };
+		76CDF10F24BE230E00E07C8B /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CDF10E24BE230E00E07C8B /* SectionType.swift */; };
 		76D2B9AB242CD09C009B4D3B /* AEAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D2B9AA242CD09C009B4D3B /* AEAlertViewController.swift */; };
 		76D2B9B3242CEB4D009B4D3B /* AETextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF3F240EC3D400460465 /* AETextField.swift */; };
 		76D2B9B4242CEB4D009B4D3B /* AEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605CF4A240EDB3600460465 /* AEButton.swift */; };
@@ -207,6 +209,8 @@
 		76CDF10324BD68C900E07C8B /* FavoritesInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractorInput.swift; sourceTree = "<group>"; };
 		76CDF10524BD6A0300E07C8B /* FavoritesPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterInput.swift; sourceTree = "<group>"; };
 		76CDF10724BD83AA00E07C8B /* UserNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkModel.swift; sourceTree = "<group>"; };
+		76CDF10B24BE227600E07C8B /* AETableViewDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AETableViewDiffableDataSource.swift; sourceTree = "<group>"; };
+		76CDF10E24BE230E00E07C8B /* SectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
 		76D2B9AA242CD09C009B4D3B /* AEAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAlertViewController.swift; sourceTree = "<group>"; };
 		76E8ED02242BA624002427C5 /* CustomControlsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomControlsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E8ED04242BA624002427C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -308,10 +312,10 @@
 				76EDE6222433446E002AE6FD /* Models */,
 				763D4090248FDFF70024772A /* Gateways */,
 				76263AE124325B0A003B553D /* CustomViews */,
-				769A4F37248BE01F00B59077 /* Managers */,
+				769A4F37248BE01F00B59077 /* CustomClasses */,
+				76263AE024325AD9003B553D /* Extensions */,
 				76263AE324325BB3003B553D /* Support */,
 				76EAB84E244E00830093B7D2 /* Documents */,
-				76263AE024325AD9003B553D /* Extensions */,
 			);
 			path = GitHubUsers;
 			sourceTree = "<group>";
@@ -703,12 +707,12 @@
 			path = ChildViews;
 			sourceTree = "<group>";
 		};
-		769A4F37248BE01F00B59077 /* Managers */ = {
+		769A4F37248BE01F00B59077 /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
 				769A4F38248BE02700B59077 /* NetworkManager */,
 			);
-			path = Managers;
+			path = CustomClasses;
 			sourceTree = "<group>";
 		};
 		769A4F38248BE02700B59077 /* NetworkManager */ = {
@@ -733,6 +737,15 @@
 				76BC42EC2461C71F003E099D /* MyGitHubFolloers.xd */,
 			);
 			path = Design;
+			sourceTree = "<group>";
+		};
+		76CDF10D24BE228600E07C8B /* DiffableDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				76CDF10B24BE227600E07C8B /* AETableViewDiffableDataSource.swift */,
+				76CDF10E24BE230E00E07C8B /* SectionType.swift */,
+			);
+			path = DiffableDataSource;
 			sourceTree = "<group>";
 		};
 		76E8ED03242BA624002427C5 /* CustomControlsTest */ = {
@@ -834,6 +847,7 @@
 			isa = PBXGroup;
 			children = (
 				7616BA76241D576400E2E0FE /* FavoritesViewController.swift */,
+				76CDF10D24BE228600E07C8B /* DiffableDataSource */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1036,6 +1050,7 @@
 				764721392499140B00B409A8 /* UserViewControllerComposer.swift in Sources */,
 				764FA218249230A50020C57A /* LoadingViewProviderInput.swift in Sources */,
 				7694030524BC48CD0027CFD8 /* FavoritesInteractorDelegate.swift in Sources */,
+				76CDF10F24BE230E00E07C8B /* SectionType.swift in Sources */,
 				76CDF10424BD68C900E07C8B /* FavoritesInteractorInput.swift in Sources */,
 				76E9B897249921430049D996 /* UserViewModel.swift in Sources */,
 				7605CF14240EC04E00460465 /* SearchViewController.swift in Sources */,
@@ -1077,6 +1092,7 @@
 				76CDF10624BD6A0300E07C8B /* FavoritesPresenterInput.swift in Sources */,
 				76FF3C3524B996AD00A0461A /* FavoritesNavigationControllerComposer.swift in Sources */,
 				763D408E248FDFE10024772A /* StringAnalyzer.swift in Sources */,
+				76CDF10C24BE227600E07C8B /* AETableViewDiffableDataSource.swift in Sources */,
 				769402FF24BC48980027CFD8 /* FavoritesInteractor.swift in Sources */,
 				7694030924BC4A0A0027CFD8 /* FavoriteTableViewCell.swift in Sources */,
 				76E9B88124991F240049D996 /* UserInteractor.swift in Sources */,

@@ -13,5 +13,7 @@ protocol FavoritesInteractorInput {
 	func getFavorites()
 	
 	func getAvatar(for user: User)
+	
+	func deleteFavorite(user: User)
 }
 

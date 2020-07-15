@@ -29,7 +29,7 @@ extension FavoritesPresenter: FavoritesInteractorDelegate {
 	
 	func interactorDidGetAvatar(_ interacator: FavoritesInteractorInput, user: User, result: Result<Data, AvatarNetworkError>) {
 		
-		var userViewModel = UserViewModel(user: user)
+		let userViewModel = UserViewModel(user: user)
 		switch result {
 		
 		case .failure(let error):
@@ -48,6 +48,11 @@ extension FavoritesPresenter: FavoritesInteractorDelegate {
 			userViewModel.avatar = avatar
 			delegate?.presenterDidGetAvatar(self, user: userViewModel, result: Result.success(avatar))
 		}
+	}
+	
+	func interactorDidDeleteFavorite(_ interactor: FavoritesInteractorInput, user: User) {
+		
+		delegate?.presenterDidDeleteFavorite(self, user: UserViewModel(user: user))
 	}
 }
 

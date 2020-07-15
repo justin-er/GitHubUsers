@@ -37,8 +37,7 @@ extension UserNetworkModel {
 						htmlUrl: self.htmlUrl,
 						following: self.following,
 						followers: self.followers,
-						createdAt: self.createdAt,
-						id: UUID())
+						createdAt: self.createdAt)
 		return user
 	}
 }
