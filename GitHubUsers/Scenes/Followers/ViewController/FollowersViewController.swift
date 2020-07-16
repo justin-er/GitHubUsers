@@ -83,7 +83,6 @@ class FollowersViewController: UIViewController {
 		
 		let searchController = UISearchController()
 		searchController.searchResultsUpdater = self
-		searchController.searchBar.delegate = self
 		searchController.obscuresBackgroundDuringPresentation = false
 		navigationItem.searchController = searchController
 	}
@@ -321,17 +320,6 @@ extension FollowersViewController: UISearchResultsUpdating {
 		
 		let followers = presenter.filter(with: filter)
 		updateUI(followers: followers, emptyStateMessage: "No matching follower!")
-	}
-}
-
-//MARK: - UISearchBarDelegate
-
-extension FollowersViewController: UISearchBarDelegate {
-	
-	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-	
-		let followers = presenter.cancelFilter()
-		updateUI(followers: followers, emptyStateMessage: "There is no follower")
 	}
 }
 

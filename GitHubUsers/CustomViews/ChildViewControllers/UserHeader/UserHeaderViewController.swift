@@ -36,6 +36,8 @@ class UserHeaderViewController: UIViewController {
     override func viewDidLoad() {
 		
         super.viewDidLoad()
+		
+		addSubviews()
 		configViewController()
 		configAvatarImageView()
 		configUserNameLabel()
@@ -70,6 +72,16 @@ class UserHeaderViewController: UIViewController {
 		}
 	}
 	
+	func addSubviews() {
+		
+		view.addSubview(avatarImageView)
+		view.addSubview(userNameLabel)
+		view.addSubview(nameLabel)
+		view.addSubview(locationImageView)
+		view.addSubview(locationLable)
+		view.addSubview(bioLabel)
+	}
+	
 	func configViewController() {
 		
 		view.backgroundColor = UIColor.systemBackground
@@ -77,7 +89,6 @@ class UserHeaderViewController: UIViewController {
 	
 	func configAvatarImageView() {
 		
-		view.addSubview(avatarImageView)
 		avatarImageView.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint.activate([
@@ -90,7 +101,6 @@ class UserHeaderViewController: UIViewController {
 	
 	func configUserNameLabel() {
 		
-		view.addSubview(userNameLabel)
 		userNameLabel.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint.activate([
@@ -102,7 +112,6 @@ class UserHeaderViewController: UIViewController {
 	
 	func configNameLabel() {
 		
-		view.addSubview(nameLabel)
 		nameLabel.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint.activate([
@@ -114,27 +123,26 @@ class UserHeaderViewController: UIViewController {
 	
 	func configLocationImage() {
 		
-		view.addSubview(locationImageView)
+		locationImageView.contentMode = .scaleAspectFit
 		locationImageView.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint.activate([
 			
-			locationImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: hPadding),
-			locationImageView.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 0),
-			locationImageView.heightAnchor.constraint(equalTo: locationImageView.widthAnchor),
+			locationImageView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
+			locationImageView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+			locationImageView.heightAnchor.constraint(equalTo: locationLable.heightAnchor),
 			locationImageView.widthAnchor.constraint(equalToConstant: 20)
 		])
 	}
 	
 	func configLocationLabel() {
 		
-		view.addSubview(locationLable)
 		locationLable.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint.activate([
 			
 			locationLable.leadingAnchor.constraint(equalTo: locationImageView.trailingAnchor, constant: 5),
-			locationLable.bottomAnchor.constraint(equalTo: locationImageView.bottomAnchor, constant: 0),
+			locationLable.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
 			locationLable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hMargin)
 		])
 	}
@@ -142,11 +150,10 @@ class UserHeaderViewController: UIViewController {
 	func configBioLabel() {
 	
 		bioLabel.numberOfLines 	= 3
-		view.addSubview(bioLabel)
 		bioLabel.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint.activate([
-			bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: vPadding),
+			bioLabel.topAnchor.constraint(equalTo: locationLable.bottomAnchor, constant: vPadding),
 			bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
 			bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -hMargin),
 			bioLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -hMargin)

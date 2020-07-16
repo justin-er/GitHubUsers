@@ -14,12 +14,13 @@ class AETitleLabel: UILabel {
 		
 		super.init(frame: .zero)
 		
-		self.font 						= UIFont.preferredFont(forTextStyle: .title1)
-		self.textColor 					= .label
-		self.numberOfLines				= 1
-		self.lineBreakMode				= .byTruncatingTail
-		self.adjustsFontSizeToFitWidth	= true
-		self.minimumScaleFactor			= 0.9
+		font 								= UIFont.preferredFont(forTextStyle: .title1)
+		adjustsFontForContentSizeCategory 	= true
+		textColor 							= .label
+		numberOfLines						= 1
+		lineBreakMode						= .byTruncatingTail
+		adjustsFontSizeToFitWidth			= true
+		minimumScaleFactor					= 0.9
 	}
 	
 	convenience init(textAlignment: NSTextAlignment) {

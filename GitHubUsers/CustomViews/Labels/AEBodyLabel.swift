@@ -18,9 +18,10 @@ class AEBodyLabel: UILabel {
         
 		super.init(frame: frame)
 		
-		font = UIFont.preferredFont(forTextStyle: .body)
-        textColor = UIColor.secondaryLabel
-		lineBreakMode = .byTruncatingTail
+		font 								= UIFont.preferredFont(forTextStyle: .body)
+		adjustsFontForContentSizeCategory 	= true
+        textColor 							= UIColor.secondaryLabel
+		lineBreakMode 						= .byTruncatingTail
     }
     
     convenience init(textAlignment: NSTextAlignment) {

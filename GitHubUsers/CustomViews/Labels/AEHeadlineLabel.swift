@@ -19,12 +19,13 @@ class AEHeadlineLabel: UILabel {
 		
 		super.init(frame: .zero)
 		
-		self.font 						= UIFont.preferredFont(forTextStyle: .headline)
-		self.textColor 					= .label
-		self.numberOfLines				= 1
-		self.lineBreakMode				= .byTruncatingTail
-		self.adjustsFontSizeToFitWidth	= true
-		self.minimumScaleFactor			= 0.9
+		self.font 							= UIFont.preferredFont(forTextStyle: .headline)
+		adjustsFontForContentSizeCategory 	= true
+		self.textColor 						= .label
+		self.numberOfLines					= 1
+		self.lineBreakMode					= .byTruncatingTail
+		self.adjustsFontSizeToFitWidth		= true
+		self.minimumScaleFactor				= 0.9
 	}
 	
     convenience init(textAlignment: NSTextAlignment) {

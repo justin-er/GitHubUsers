@@ -13,6 +13,8 @@ class UserViewController: UIViewController {
 	
 	private let loadingViewProvider: LoadingViewProviderInput
 	
+	private let scrollView = UIScrollView()
+	private let contentView = UIView()
 	private var avatar: UIImage?
 	private var userViewModel: UserViewModel?
 	
@@ -58,6 +60,8 @@ class UserViewController: UIViewController {
 		
 		super.viewDidLoad()
 		configViewController()
+		configScrollView()
+		configContentView()
 		configHeaderContentView()
 		configViewOne()
 		configViewTwo()
@@ -91,38 +95,68 @@ class UserViewController: UIViewController {
 		childViewController.didMove(toParent: self)
 	}
 	
-	func configHeaderContentView() {
-		
-		headerContentView.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(headerContentView)
-		
-		NSLayoutConstraint.activate([
-			
-			headerContentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: vMargin),
-			headerContentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: hMargin),
-			headerContentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -hMargin)
-		])
-		
-		add(childViewController: headerViewController, toContentView : headerContentView)
-	}
-	
 	func configViewController() {
 		
 		self.view.backgroundColor = UIColor.systemBackground
 		self.title = "Github User"
 		navigationItem.rightBarButtonItem = addButton
+		navigationController?.navigationBar.prefersLargeTitles = true
+	}
+	
+	func configScrollView() {
+		
+		scrollView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(scrollView)
+		
+		NSLayoutConstraint.activate([
+		
+			scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+			scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+			scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+			scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+		])
+	}
+	
+	func configContentView() {
+		
+		contentView.translatesAutoresizingMaskIntoConstraints = false
+		scrollView.addSubview(contentView)
+		
+		NSLayoutConstraint.activate([
+		
+			contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+			contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+			contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+			contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+			contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+		])
+	}
+	
+	func configHeaderContentView() {
+		
+		headerContentView.translatesAutoresizingMaskIntoConstraints = false
+		contentView.addSubview(headerContentView)
+		
+		NSLayoutConstraint.activate([
+			
+			headerContentView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: vMargin),
+			headerContentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: hMargin),
+			headerContentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -hMargin)
+		])
+		
+		add(childViewController: headerViewController, toContentView : headerContentView)
 	}
 
 	func configViewOne() {
 		
 		viewOne.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(viewOne)
+		contentView.addSubview(viewOne)
 		
 		NSLayoutConstraint.activate([
 			
 			viewOne.topAnchor.constraint(equalTo: headerContentView.bottomAnchor, constant: hPadding),
-			viewOne.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: vMargin),
-			viewOne.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -vMargin)
+			viewOne.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: vMargin),
+			viewOne.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -vMargin)
 		])
 		
 		self.add(childViewController: repoItemViewConroller, toContentView: self.viewOne)
@@ -132,13 +166,13 @@ class UserViewController: UIViewController {
 	func configViewTwo() {
 		
 		viewTwo.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(viewTwo)
+		contentView.addSubview(viewTwo)
 		
 		NSLayoutConstraint.activate([
 			
 			viewTwo.topAnchor.constraint(equalTo: viewOne.bottomAnchor, constant: hPadding),
-			viewTwo.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: vMargin),
-			viewTwo.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -vMargin)
+			viewTwo.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: vMargin),
+			viewTwo.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -vMargin)
 		])
 		
 		self.add(childViewController: followerItemViewController, toContentView: self.viewTwo)
@@ -148,13 +182,14 @@ class UserViewController: UIViewController {
 	func configCreatedAtLabel() {
 		
 		createdAtLabel.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(createdAtLabel)
+		contentView.addSubview(createdAtLabel)
 		
 		NSLayoutConstraint.activate([
 			
-			createdAtLabel.topAnchor.constraint(equalTo: viewTwo.bottomAnchor, constant: 16),
-			createdAtLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-			createdAtLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
+			createdAtLabel.topAnchor.constraint(equalTo: viewTwo.bottomAnchor, constant: hPadding),
+			createdAtLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: vPadding),
+			createdAtLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -vPadding),
+			createdAtLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -hPadding)
 		])
 	}
 	

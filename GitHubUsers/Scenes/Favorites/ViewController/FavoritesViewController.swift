@@ -69,6 +69,7 @@ class FavoritesViewController: UIViewController {
 		
 		view.backgroundColor = UIColor.secondarySystemBackground
 		title = "Favorites"
+		navigationController?.navigationBar.prefersLargeTitles = true
 	}
 	
 	private func configTableView() {
@@ -76,6 +77,7 @@ class FavoritesViewController: UIViewController {
 		tableView.delegate 	= self
 		tableView.register(FavoriteTableViewCell.self,
 						   forCellReuseIdentifier: FavoriteTableViewCell.reuseIdentifier)
+		tableView.tableFooterView = UIView(frame: .zero)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(tableView)
 		

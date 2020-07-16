@@ -10,33 +10,57 @@ import UIKit
 
 class EmptyStateViewProvider: EmptyStateViewProviderInput {
 	
-	var contentView: 	UIView
-	var label: 			AETitleLabel
-	var imageView: 		UIImageView
+	var contentView = UIView()
+	var label 		= AETitleLabel(textAlignment: .center)
+	var imageView 	= UIImageView(frame: .zero)
 	
 	init() {
-		self.contentView = UIView()
-
-		label 				= AETitleLabel(textAlignment: .center)
-		label.numberOfLines	= 0
-		imageView 			= UIImageView(frame: .zero)
-		imageView.image 	= Images.emptyStateLogo
 		
+		configLabel()
+		configImageView()
+	}
+	
+	private func configLabel() {
+		
+		label.numberOfLines	= 0
 		label.translatesAutoresizingMaskIntoConstraints = false
-		imageView.translatesAutoresizingMaskIntoConstraints = false
-		contentView.backgroundColor = .systemBackground
-		self.contentView.addSubview(label)
-		self.contentView.addSubview(imageView)
+		contentView.addSubview(label)
 		
 		NSLayoutConstraint.activate([
-			label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -150),
+		
+			label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 50),
 			label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 50),
-			label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50),
+			label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50)
+		])
+	}
+	
+	private func configImageView() {
+		
+		imageView.image = Images.emptyStateLogo
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+		contentView.addSubview(imageView)
+		
+		NSLayoutConstraint.activate([
 			
-			imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 40),
+			imageView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 0),
 			imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40),
 			imageView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 1.3),
 			imageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 1.3)
+		])
+	}
+	
+	func configContentView(view: UIView) {
+		
+		contentView.backgroundColor = .systemBackground
+		contentView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(contentView)
+		
+		NSLayoutConstraint.activate([
+		
+			contentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+			contentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+			contentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+			contentView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
 		])
 	}
 	
@@ -46,10 +70,8 @@ class EmptyStateViewProvider: EmptyStateViewProviderInput {
 			
 			guard let self = self else { return }
 			
-			self.contentView.frame 		= view.bounds
-			self.label.text 			= message
-			
-			view.addSubview(self.contentView)
+			self.label.text = message
+			self.configContentView(view: view)
 		}
 	}
 	

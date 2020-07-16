@@ -23,11 +23,12 @@ class AESecondaryTitleLabel: UILabel {
 	convenience init(textAlignment: NSTextAlignment) {
         
         self.init(frame: .zero)
-		self.font = UIFont.preferredFont(forTextStyle: .title3)
-        textColor = UIColor.secondaryLabel
-        lineBreakMode = .byTruncatingTail
-        adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.9
+		self.font 							= UIFont.preferredFont(forTextStyle: .title3)
+		adjustsFontForContentSizeCategory 	= true
+        textColor 							= UIColor.secondaryLabel
+        lineBreakMode 						= .byTruncatingTail
+        adjustsFontSizeToFitWidth 			= true
+        minimumScaleFactor 					= 0.9
     }
 
 }
