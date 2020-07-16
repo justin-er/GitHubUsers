@@ -113,6 +113,13 @@ class FavoritesViewController: UIViewController {
 
 extension FavoritesViewController: UITableViewDelegate {
 
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		
+		guard let userViewModel = dataSource.itemIdentifier(for: indexPath) else { return }
+		
+		userViewController.representUser(username: userViewModel.login, avatar: userViewModel.avatar)
+		show(userViewController, sender: self)
+	}
 
 	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		

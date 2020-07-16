@@ -17,7 +17,7 @@ class FavoritesViewControllerComposer {
 		let interactor			= FavoritesInteractor(persistenceProvider: persistenceProvider, userNetworkProvider: userNetworkProvider)
 		let presenter			= FavoritesPresenter()
 		let userViewController 	= UserViewControllerComposer.makeModule()
-		let viewController = FavoritesViewController(interactor: interactor, userViewController: userViewController)
+		let viewController 		= FavoritesViewController(interactor: interactor, userViewController: userViewController)
 		
 		interactor.delegate		= presenter
 		presenter.delegate		= viewController
