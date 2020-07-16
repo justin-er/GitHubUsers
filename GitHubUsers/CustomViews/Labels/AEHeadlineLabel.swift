@@ -9,12 +9,16 @@
 import UIKit
 
 class AEHeadlineLabel: UILabel {
-
-    init(textAlignment: NSTextAlignment) {
+	
+	required init?(coder: NSCoder) {
+		
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	override init(frame: CGRect) {
 		
 		super.init(frame: .zero)
 		
-		self.textAlignment 				= textAlignment
 		self.font 						= UIFont.preferredFont(forTextStyle: .headline)
 		self.textColor 					= .label
 		self.numberOfLines				= 1
@@ -23,9 +27,10 @@ class AEHeadlineLabel: UILabel {
 		self.minimumScaleFactor			= 0.9
 	}
 	
-	required init?(coder: NSCoder) {
+    convenience init(textAlignment: NSTextAlignment) {
 		
-		fatalError("init(coder:) has not been implemented")
+		self.init(frame: .zero)
+		self.textAlignment 				= textAlignment
 	}
 
 }

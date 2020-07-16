@@ -53,7 +53,7 @@ class AEItemInfoView: UIView {
 	
 	func configSymbolImageView() {
 		
-		symbolImageView.image 		= UIImage(systemName: "folder")
+		symbolImageView.image 		= Images.folder
 		symbolImageView.contentMode = .scaleAspectFill
 		symbolImageView.translatesAutoresizingMaskIntoConstraints = false
 		symbolImageView.tintColor 	= .label

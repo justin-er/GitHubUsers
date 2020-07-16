@@ -26,11 +26,11 @@ class AEFollowerItemInfoViewController: AEItemInfoViewController {
 	func config() {
 		
 		itemInfoViewOne.title 	= "Following"
-		itemInfoViewOne.image	= UIImage(systemName: "suit.heart")
+		itemInfoViewOne.image	= Images.suitHear
 		itemInfoViewOne.count	= user?.following ?? 0
 		
 		itemInfoViewTwo.title 	= "Followers"
-		itemInfoViewTwo.image	= UIImage(systemName: "person.2")
+		itemInfoViewTwo.image	= Images.person
 		itemInfoViewTwo.count	= user?.followers ?? 0
 		
 		actionsButton.set(backgroundColor: .systemGreen, text: "Followers")

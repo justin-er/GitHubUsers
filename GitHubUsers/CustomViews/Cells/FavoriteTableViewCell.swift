@@ -14,7 +14,7 @@ class FavoriteTableViewCell: UITableViewCell {
 		String(describing: self)
 	}
 	
-	private static let placeholderImage = UIImage(named: "Placeholder")
+	private static let placeholderImage = Images.placeholder
 
 	let avatarImageView 	= AEAvatarImageView(frame: .zero)
 	let usernameLabel 		= AEHeadlineLabel(textAlignment: .left)

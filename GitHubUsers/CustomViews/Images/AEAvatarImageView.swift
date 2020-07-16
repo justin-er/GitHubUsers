@@ -9,8 +9,6 @@
 import UIKit
 
 class AEAvatarImageView: UIImageView {
-
-	static let placeholderImage = UIImage(named: "Placeholder")
 		
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -22,7 +20,7 @@ class AEAvatarImageView: UIImageView {
 	}
 	
 	func config() {
-		self.image = AEAvatarImageView.placeholderImage
+		self.image = Images.placeholder
 		layer.cornerRadius = 10
 		clipsToBounds = true
 	}

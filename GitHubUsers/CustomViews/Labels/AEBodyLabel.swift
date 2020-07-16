@@ -15,16 +15,18 @@ class AEBodyLabel: UILabel {
     }
 
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        
+		super.init(frame: frame)
+		
+		font = UIFont.preferredFont(forTextStyle: .body)
+        textColor = UIColor.secondaryLabel
+		lineBreakMode = .byTruncatingTail
     }
     
     convenience init(textAlignment: NSTextAlignment) {
         
         self.init(frame: .zero)
-        
         self.textAlignment = textAlignment
-        font = UIFont.preferredFont(forTextStyle: .body)
-        textColor = UIColor.secondaryLabel
-		lineBreakMode = .byTruncatingTail
+        
     }
 }

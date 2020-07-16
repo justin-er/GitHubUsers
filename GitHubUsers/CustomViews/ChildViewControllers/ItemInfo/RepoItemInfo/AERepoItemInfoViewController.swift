@@ -26,11 +26,11 @@ class AERepoItemInfoViewController: AEItemInfoViewController {
 	private func config() {
 		
 		itemInfoViewOne.title 	= "Public Repos"
-		itemInfoViewOne.image	= UIImage(systemName: "folder")
+		itemInfoViewOne.image	= Images.folder
 		itemInfoViewOne.count	= user?.publicRepos ?? 0
 		
 		itemInfoViewTwo.title 	= "Public Gists"
-		itemInfoViewTwo.image	= UIImage(systemName: "text.alignleft")
+		itemInfoViewTwo.image	= Images.textAlignLeft
 		itemInfoViewTwo.count	= user?.publicGists ?? 0
 		
 		actionsButton.set(backgroundColor: .systemPurple, text: "Github Profile")

@@ -57,7 +57,7 @@ class UserHeaderViewController: UIViewController {
 				
 			} else {
 				
-				avatarImageView.image = UIImage(named: "Placeholder")
+				avatarImageView.image = Images.placeholder
 			}
 			
 			userNameLabel.text 		= user.login
@@ -65,7 +65,7 @@ class UserHeaderViewController: UIViewController {
 			locationLable.text 		= user.location ?? "No Location"
 			bioLabel.text 			= user.bio ?? "No bio available"
 			
-			locationImageView.image 		= UIImage(systemName: "mappin.and.ellipse")
+			locationImageView.image 		= Images.location
 			locationImageView.tintColor 	= .secondaryLabel
 		}
 	}

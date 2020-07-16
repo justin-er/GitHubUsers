@@ -9,18 +9,23 @@
 import UIKit
 
 class AETitleLabel: UILabel {
-
-	init(textAlignment: NSTextAlignment) {
+	
+	override init(frame: CGRect) {
 		
 		super.init(frame: .zero)
 		
-		self.textAlignment 				= textAlignment
 		self.font 						= UIFont.preferredFont(forTextStyle: .title1)
 		self.textColor 					= .label
 		self.numberOfLines				= 1
 		self.lineBreakMode				= .byTruncatingTail
 		self.adjustsFontSizeToFitWidth	= true
 		self.minimumScaleFactor			= 0.9
+	}
+	
+	convenience init(textAlignment: NSTextAlignment) {
+		
+		self.init(frame: .zero)
+		self.textAlignment 				= textAlignment
 	}
 	
 	required init?(coder: NSCoder) {

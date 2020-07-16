@@ -12,6 +12,7 @@ class FavoritesViewController: UIViewController {
 	
 	let interactor: FavoritesInteractorInput
 	let userViewController: UserViewControllerInput
+	let emptyStateProvider: EmptyStateViewProviderInput
 	
 	var dataSource: AETableViewDiffableDataSource!
 	let tableView = UITableView()
@@ -20,10 +21,11 @@ class FavoritesViewController: UIViewController {
 	
 //MARK:- Life Cycle and Config
 	
-	init(interactor: FavoritesInteractorInput, userViewController: UserViewControllerInput) {
+	init(interactor: FavoritesInteractorInput, userViewController: UserViewControllerInput, emptyStateProvider: EmptyStateViewProviderInput) {
 		
 		self.interactor 		= interactor
 		self.userViewController = userViewController
+		self.emptyStateProvider	= emptyStateProvider
 		
 		super.init(nibName: nil, bundle: nil)
 		
@@ -145,6 +147,16 @@ extension FavoritesViewController: UITableViewDelegate {
 		
 		return UISwipeActionsConfiguration(actions: [deleteAction])
 	}
+	
+	func showEmptyState() {
+		
+		emptyStateProvider.showEmptyState(message: "There is not favorite. Select favorites from User view.", on: view)
+	}
+	
+	func dismissEmptyState() {
+		
+		emptyStateProvider.dismissEmptyState()
+	}
 }
 
 //MARK:- FavoritesPresenterDelegate
@@ -153,15 +165,17 @@ extension FavoritesViewController: FavoritesPresenterDelegate {
 	
 	func presenterDidGet(_ presenter: FavoritesPresenterInput, favorites: [UserViewModel]?) {
 		
-		guard let favorites = favorites else {
+		guard let favorites = favorites, favorites.count > 0 else {
 
 			var snapshot = dataSource.snapshot()
 			snapshot.deleteAllItems()
 			dataSource.apply(snapshot, animatingDifferences: isVisible)
+			showEmptyState()
 
 			return
 		}
 
+		dismissEmptyState()
 		var snapshop = NSDiffableDataSourceSnapshot<SectionType, UserViewModel>()
 		snapshop.appendSections([SectionType.main])
 		snapshop.appendItems(favorites)
@@ -211,5 +225,10 @@ extension FavoritesViewController: FavoritesPresenterDelegate {
 			}
 		}
 		dataSource.apply(snapshot)
+		
+		if snapshot.itemIdentifiers.count == 0 {
+			
+			showEmptyState()
+		}
 	}
 }

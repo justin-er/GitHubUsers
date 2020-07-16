@@ -119,6 +119,7 @@ class SearchViewController: UIViewController {
     }
     
     func configDismissKeyboadTabGesture() {
+		
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(endEdit))
         view.addGestureRecognizer(tapGesture)
     }
@@ -162,7 +163,7 @@ class SearchViewController: UIViewController {
     func configLogoImageView() {
         
         contentView.addSubview(logoImageView)
-        logoImageView.image = UIImage(named: "Logo")
+		logoImageView.image = Images.logo
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -174,6 +175,7 @@ class SearchViewController: UIViewController {
     }
     
     func configTextField() {
+		
         contentView.addSubview(textField)
 		textField.text = "sallen0400"
 		textField.isUserInteractionEnabled = true
@@ -209,18 +211,19 @@ extension SearchViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        textField.resignFirstResponder()
+		endEdit()
         pushFollowersListViewController()
 
-        
         return true
     }
 	
 	func textFieldDidBeginEditing(_ textField: UITextField) {
+		
 		activeTextField = textField
 	}
 	
 	func textFieldDidEndEditing(_ textField: UITextField) {
+		
 		activeTextField = nil
 	}
 }

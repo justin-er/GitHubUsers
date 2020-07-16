@@ -37,7 +37,7 @@ class FollowerCollectionViewCell: UICollectionViewCell {
 			
 		} else {
 			
-			self.avatarImageView.image = AEAvatarImageView.placeholderImage
+			self.avatarImageView.image = Images.placeholder
 		}
 	}
 	

@@ -18,11 +18,13 @@ class EmptyStateViewProvider: EmptyStateViewProviderInput {
 		self.contentView = UIView()
 
 		label 				= AETitleLabel(textAlignment: .center)
+		label.numberOfLines	= 0
 		imageView 			= UIImageView(frame: .zero)
-		imageView.image 	= UIImage(named: "EmptyStateLogo")
+		imageView.image 	= Images.emptyStateLogo
 		
 		label.translatesAutoresizingMaskIntoConstraints = false
 		imageView.translatesAutoresizingMaskIntoConstraints = false
+		contentView.backgroundColor = .systemBackground
 		self.contentView.addSubview(label)
 		self.contentView.addSubview(imageView)
 		
