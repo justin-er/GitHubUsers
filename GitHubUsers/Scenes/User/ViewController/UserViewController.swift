@@ -109,7 +109,7 @@ class UserViewController: UIViewController {
 		view.addSubview(scrollView)
 		
 		NSLayoutConstraint.activate([
-		
+
 			scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
 			scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
 			scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -121,9 +121,9 @@ class UserViewController: UIViewController {
 		
 		contentView.translatesAutoresizingMaskIntoConstraints = false
 		scrollView.addSubview(contentView)
-		
+
 		NSLayoutConstraint.activate([
-		
+
 			contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
 			contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
 			contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
@@ -376,6 +376,10 @@ extension UserViewController: UserViewControllerInput {
 		if let avatar = avatar {
 			
 			headerViewController.avatarImageView.image = avatar
+		
+		} else {
+		
+			headerViewController.avatarImageView.image = Images.placeholder
 		}
 		
 		loadingViewProvider.showLoading(on: self.view)

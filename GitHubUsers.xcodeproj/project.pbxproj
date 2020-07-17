@@ -27,6 +27,7 @@
 		762BBBB224BB7BB000384DCD /* UserViewControllerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762BBBB124BB7BB000384DCD /* UserViewControllerInput.swift */; };
 		762CF00C245743FA009A0B1B /* FollowerNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */; };
 		762CF00E245748D6009A0B1B /* RemoteFollowersProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */; };
+		762E35C324C1CDAD0056C8D1 /* Icons.xd in Resources */ = {isa = PBXBuildFile; fileRef = 762E35C224C1CDAC0056C8D1 /* Icons.xd */; };
 		7631F7E224B9889600144F3A /* AlertViewControllerProviderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631F7E124B9889600144F3A /* AlertViewControllerProviderInput.swift */; };
 		7631F7E524B989E600144F3A /* AlertViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631F7E424B989E600144F3A /* AlertViewControllerProvider.swift */; };
 		7631F7E824B98D3400144F3A /* SearchViewControllerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631F7E724B98D3400144F3A /* SearchViewControllerComposer.swift */; };
@@ -79,7 +80,6 @@
 		76BB82002461BE74000A16F6 /* FollowerNetworkProviderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BB81FF2461BE74000A16F6 /* FollowerNetworkProviderInput.swift */; };
 		76BC42E72461C20A003E099D /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BC42E62461C20A003E099D /* Follower.swift */; };
 		76BC42E92461C215003E099D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BC42E82461C215003E099D /* User.swift */; };
-		76BC42ED2461C71F003E099D /* MyGitHubFolloers.xd in Resources */ = {isa = PBXBuildFile; fileRef = 76BC42EC2461C71F003E099D /* MyGitHubFolloers.xd */; };
 		76BC42EF2461C777003E099D /* AEAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BC42EE2461C777003E099D /* AEAvatarImageView.swift */; };
 		76CDF10424BD68C900E07C8B /* FavoritesInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CDF10324BD68C900E07C8B /* FavoritesInteractorInput.swift */; };
 		76CDF10624BD6A0300E07C8B /* FavoritesPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CDF10524BD6A0300E07C8B /* FavoritesPresenterInput.swift */; };
@@ -162,6 +162,7 @@
 		762BBBB124BB7BB000384DCD /* UserViewControllerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewControllerInput.swift; sourceTree = "<group>"; };
 		762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkError.swift; sourceTree = "<group>"; };
 		762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFollowersProviderTest.swift; sourceTree = "<group>"; };
+		762E35C224C1CDAC0056C8D1 /* Icons.xd */ = {isa = PBXFileReference; lastKnownFileType = file; path = Icons.xd; sourceTree = "<group>"; };
 		7631F7E124B9889600144F3A /* AlertViewControllerProviderInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewControllerProviderInput.swift; sourceTree = "<group>"; };
 		7631F7E424B989E600144F3A /* AlertViewControllerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewControllerProvider.swift; sourceTree = "<group>"; };
 		7631F7E724B98D3400144F3A /* SearchViewControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerComposer.swift; sourceTree = "<group>"; };
@@ -205,7 +206,6 @@
 		76BB81FF2461BE74000A16F6 /* FollowerNetworkProviderInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkProviderInput.swift; sourceTree = "<group>"; };
 		76BC42E62461C20A003E099D /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		76BC42E82461C215003E099D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		76BC42EC2461C71F003E099D /* MyGitHubFolloers.xd */ = {isa = PBXFileReference; lastKnownFileType = file; name = MyGitHubFolloers.xd; path = Design/MyGitHubFolloers.xd; sourceTree = SOURCE_ROOT; };
 		76BC42EE2461C777003E099D /* AEAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAvatarImageView.swift; sourceTree = "<group>"; };
 		76CDF10324BD68C900E07C8B /* FavoritesInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractorInput.swift; sourceTree = "<group>"; };
 		76CDF10524BD6A0300E07C8B /* FavoritesPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterInput.swift; sourceTree = "<group>"; };
@@ -647,8 +647,8 @@
 			isa = PBXGroup;
 			children = (
 				7664474F246C718B00A80C1D /* Search */,
-				76644750246C719300A80C1D /* Followers */,
 				76472136249913E200B409A8 /* User */,
+				76644750246C719300A80C1D /* Followers */,
 				76644751246C719E00A80C1D /* Favorites */,
 			);
 			path = Scenes;
@@ -729,7 +729,7 @@
 		76BC42EB2461C6E4003E099D /* Design */ = {
 			isa = PBXGroup;
 			children = (
-				76BC42EC2461C71F003E099D /* MyGitHubFolloers.xd */,
+				762E35C224C1CDAC0056C8D1 /* Icons.xd */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -991,9 +991,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76BC42ED2461C71F003E099D /* MyGitHubFolloers.xd in Resources */,
 				76EAB84D244E00790093B7D2 /* ProjectBrief.md in Resources */,
 				7605CF1C240EC05100460465 /* LaunchScreen.storyboard in Resources */,
+				762E35C324C1CDAD0056C8D1 /* Icons.xd in Resources */,
 				7605CF19240EC05100460465 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
