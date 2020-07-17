@@ -28,6 +28,7 @@
 		762CF00C245743FA009A0B1B /* FollowerNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */; };
 		762CF00E245748D6009A0B1B /* RemoteFollowersProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */; };
 		762E35C324C1CDAD0056C8D1 /* Icons.xd in Resources */ = {isa = PBXBuildFile; fileRef = 762E35C224C1CDAC0056C8D1 /* Icons.xd */; };
+		762E35C524C1CF570056C8D1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 762E35C424C1CF560056C8D1 /* README.md */; };
 		7631F7E224B9889600144F3A /* AlertViewControllerProviderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631F7E124B9889600144F3A /* AlertViewControllerProviderInput.swift */; };
 		7631F7E524B989E600144F3A /* AlertViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631F7E424B989E600144F3A /* AlertViewControllerProvider.swift */; };
 		7631F7E824B98D3400144F3A /* SearchViewControllerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631F7E724B98D3400144F3A /* SearchViewControllerComposer.swift */; };
@@ -163,6 +164,7 @@
 		762CF00B245743FA009A0B1B /* FollowerNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNetworkError.swift; sourceTree = "<group>"; };
 		762CF00D245748D6009A0B1B /* RemoteFollowersProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFollowersProviderTest.swift; sourceTree = "<group>"; };
 		762E35C224C1CDAC0056C8D1 /* Icons.xd */ = {isa = PBXFileReference; lastKnownFileType = file; path = Icons.xd; sourceTree = "<group>"; };
+		762E35C424C1CF560056C8D1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7631F7E124B9889600144F3A /* AlertViewControllerProviderInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewControllerProviderInput.swift; sourceTree = "<group>"; };
 		7631F7E424B989E600144F3A /* AlertViewControllerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewControllerProvider.swift; sourceTree = "<group>"; };
 		7631F7E724B98D3400144F3A /* SearchViewControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerComposer.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				7605CF30240EC05200460465 /* GitHubUsersUITests */,
 				76E8ED03242BA624002427C5 /* CustomControlsTest */,
 				7605CF0D240EC04D00460465 /* Products */,
+				762E35C424C1CF560056C8D1 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -993,6 +996,7 @@
 			files = (
 				76EAB84D244E00790093B7D2 /* ProjectBrief.md in Resources */,
 				7605CF1C240EC05100460465 /* LaunchScreen.storyboard in Resources */,
+				762E35C524C1CF570056C8D1 /* README.md in Resources */,
 				762E35C324C1CDAD0056C8D1 /* Icons.xd in Resources */,
 				7605CF19240EC05100460465 /* Assets.xcassets in Resources */,
 			);
