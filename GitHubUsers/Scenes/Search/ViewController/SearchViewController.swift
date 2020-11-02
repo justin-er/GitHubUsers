@@ -177,7 +177,6 @@ class SearchViewController: UIViewController {
     func configTextField() {
 		
         contentView.addSubview(textField)
-		textField.text = "sallen0400"
 		textField.isUserInteractionEnabled = true
         
         NSLayoutConstraint.activate([
