@@ -62,8 +62,6 @@ class FollowersViewController: UIViewController {
         
         super.viewWillAppear(animated)
         
-//        navigationController?.isNavigationBarHidden = false
-//        navigationController?.navigationBar.isHidden = false
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 	

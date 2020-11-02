@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import GitHubFollowers
+@testable import GitHubUsers
 
 class PersistenceProviderTests: XCTestCase {
 

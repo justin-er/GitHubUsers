@@ -9,7 +9,7 @@
 import UIKit
 
 class ThreeColumnFlowLayout: UICollectionViewFlowLayout {
-	
+	 
 	override func prepare() {
 		super.prepare()
 		
@@ -20,11 +20,11 @@ class ThreeColumnFlowLayout: UICollectionViewFlowLayout {
 		let minimumItemSpacing: CGFloat 	= 10
 		let availableWidth 					= width - (2 * padding + 2 * minimumItemSpacing)
 		let itemWidth 						= availableWidth / 3
-		self.sectionInset 			= UIEdgeInsets(top: padding,
+		self.sectionInset 					= UIEdgeInsets(top: padding,
 														   left: padding,
 														   bottom: padding,
 														   right: padding)
-		self.itemSize 				= CGSize(width: itemWidth,
+		self.itemSize 						= CGSize(width: itemWidth,
 													 height: itemWidth + 40)
 	}
 }
