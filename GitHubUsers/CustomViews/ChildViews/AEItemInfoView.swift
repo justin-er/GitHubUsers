@@ -10,9 +10,9 @@ import UIKit
 
 class AEItemInfoView: UIView {
 	
-	let symbolImageView = UIImageView()
-	let titleLabel 		= AEHeadlineLabel(textAlignment: .center)
-	let countLabel		= AEHeadlineLabel(textAlignment: .center)
+	private let symbolImageView = UIImageView()
+	private let titleLabel 		= AEHeadlineLabel(textAlignment: .center)
+	private let countLabel		= AEHeadlineLabel(textAlignment: .center)
 	
 	override init(frame: CGRect) {
 		
