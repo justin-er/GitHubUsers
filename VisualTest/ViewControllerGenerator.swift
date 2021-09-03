@@ -9,6 +9,11 @@
 import UIKit
 
 struct ViewControllerGenerator {
-    let name: String
+    let title: String
     let generator: () -> UIViewController
+    
+    init(title: String, generator: @escaping @autoclosure () -> UIViewController) {
+        self.title = title
+        self.generator = generator
+    }
 }

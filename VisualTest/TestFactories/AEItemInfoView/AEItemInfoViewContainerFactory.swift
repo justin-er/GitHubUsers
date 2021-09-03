@@ -10,7 +10,7 @@ import Foundation
 
 struct AEItemInfoViewContainerFactory {
 	
-    func build() -> AEItemInfoViewContainer {
+    static func build() -> AEItemInfoViewContainer {
         return AEItemInfoViewContainer()
     }
 }

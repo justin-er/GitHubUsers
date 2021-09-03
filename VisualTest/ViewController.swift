@@ -33,7 +33,7 @@ extension ViewController: UITableViewDataSource {
         }
         
         var configuration = cell.defaultContentConfiguration()
-        configuration.text = dataSource[indexPath.row].name
+        configuration.text = dataSource[indexPath.row].title
         cell.contentConfiguration = configuration
         cell.accessoryType = .disclosureIndicator
         
@@ -49,6 +49,7 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = self.dataSource[indexPath.row].generator()
+        viewController.title = self.dataSource[indexPath.row].title
         self.show(viewController, sender: self)
     }
     

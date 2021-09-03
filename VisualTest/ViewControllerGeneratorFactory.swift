@@ -10,6 +10,6 @@ import Foundation
 
 struct ViewControllerGeneratorFactory {
     func build() -> [ViewControllerGenerator] {
-        return [ViewControllerGenerator(name: "Salam", generator: {AEItemInfoViewContainerFactory().build()})]
+        return [ViewControllerGenerator(title: "AEItemInfoView", generator: AEItemInfoViewContainerFactory.build())]
     }
 }
