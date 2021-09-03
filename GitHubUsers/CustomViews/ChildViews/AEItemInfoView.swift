@@ -29,12 +29,12 @@ class AEItemInfoView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	func configView() {
+	private func configView() {
 		
 		self.tintColor = UIColor.secondaryLabel
 	}
 	
-	func configTitleLabel() {
+	private func configTitleLabel() {
 		
 		titleLabel.text = "Lorem Ipsum"
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +51,7 @@ class AEItemInfoView: UIView {
 		])
 	}
 	
-	func configSymbolImageView() {
+	private func configSymbolImageView() {
 		
 		symbolImageView.image 		= Images.folder
 		symbolImageView.contentMode = .scaleAspectFill
@@ -76,7 +76,7 @@ class AEItemInfoView: UIView {
 		])
 	}
 	
-	func configCountLabel() {
+	private func configCountLabel() {
 		
 		countLabel.text = "0"
 		countLabel.translatesAutoresizingMaskIntoConstraints = false
