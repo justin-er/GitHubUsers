@@ -25,6 +25,7 @@ contentView.backgroundColor = .systemBackground
 let sut = AEItemInfoView(frame: .zero)
 sut.count = 224
 sut.title = "Amirreza Eghtedari asle yalghoozabadi to you baraye man"
+sut.image = UIImage(systemName: "rectangle.and.pencil.and.ellipsis")
 
 sut.translatesAutoresizingMaskIntoConstraints = false
 contentView.addSubview(sut)

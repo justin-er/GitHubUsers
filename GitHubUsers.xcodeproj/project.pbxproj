@@ -215,7 +215,7 @@
 		76FF3C3424B996AD00A0461A /* FavoritesNavigationControllerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesNavigationControllerComposer.swift; sourceTree = "<group>"; };
 		76FF3C3624B99C2D00A0461A /* PersistenceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProvider.swift; sourceTree = "<group>"; };
 		76FF3C3924B99D5200A0461A /* UserDefaultsPersistenceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPersistenceProvider.swift; sourceTree = "<group>"; };
-		E16F00F926E65B3A00B6D58D /* TestPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		E16F00F926E65B3A00B6D58D /* AEItemInfoViewTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AEItemInfoViewTest.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E1A8EEE526E667EC00B59706 /* AEItemInfoViewControllerTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AEItemInfoViewControllerTest.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
@@ -807,7 +807,7 @@
 		E16F00F626E6542200B6D58D /* Palygrounds */ = {
 			isa = PBXGroup;
 			children = (
-				E16F00F926E65B3A00B6D58D /* TestPlayground.playground */,
+				E16F00F926E65B3A00B6D58D /* AEItemInfoViewTest.playground */,
 				E1A8EEE526E667EC00B59706 /* AEItemInfoViewControllerTest.playground */,
 			);
 			path = Palygrounds;

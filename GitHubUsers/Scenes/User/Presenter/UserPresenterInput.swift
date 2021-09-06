@@ -9,5 +9,5 @@
 import Foundation
 
 protocol UserPresenterInput {
-	
+    var delegate: UserPresenterDelegate? { get set }
 }

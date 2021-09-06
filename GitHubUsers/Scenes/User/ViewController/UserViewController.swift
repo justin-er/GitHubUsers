@@ -36,7 +36,7 @@ class UserViewController: UIViewController {
 	private let followerItemViewController		= AEFollowerItemInfoViewController(user: nil)
 	private let createdAtLabel					= AEBodyLabel(textAlignment: .center)
 	
-	lazy var addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+	private lazy var addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
 	
 	init(interactor: UserInteractorInput,
 		 loadingViewProvider: LoadingViewProviderInput,
@@ -95,7 +95,7 @@ class UserViewController: UIViewController {
 		childViewController.didMove(toParent: self)
 	}
 	
-	func configViewController() {
+	private func configViewController() {
 		
 		self.view.backgroundColor = UIColor.systemBackground
 		self.title = "Github User"
@@ -103,7 +103,7 @@ class UserViewController: UIViewController {
 		navigationController?.navigationBar.prefersLargeTitles = true
 	}
 	
-	func configScrollView() {
+	private func configScrollView() {
 		
 		scrollView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(scrollView)
@@ -117,7 +117,7 @@ class UserViewController: UIViewController {
 		])
 	}
 	
-	func configContentView() {
+	private func configContentView() {
 		
 		contentView.translatesAutoresizingMaskIntoConstraints = false
 		scrollView.addSubview(contentView)
@@ -132,7 +132,7 @@ class UserViewController: UIViewController {
 		])
 	}
 	
-	func configHeaderContentView() {
+	private func configHeaderContentView() {
 		
 		headerContentView.translatesAutoresizingMaskIntoConstraints = false
 		contentView.addSubview(headerContentView)
@@ -147,7 +147,7 @@ class UserViewController: UIViewController {
 		add(childViewController: headerViewController, toContentView : headerContentView)
 	}
 
-	func configViewOne() {
+	private func configViewOne() {
 		
 		viewOne.translatesAutoresizingMaskIntoConstraints = false
 		contentView.addSubview(viewOne)
@@ -163,7 +163,7 @@ class UserViewController: UIViewController {
 		viewOne.isHidden = true
 	}
 	
-	func configViewTwo() {
+	private func configViewTwo() {
 		
 		viewTwo.translatesAutoresizingMaskIntoConstraints = false
 		contentView.addSubview(viewTwo)
@@ -179,7 +179,7 @@ class UserViewController: UIViewController {
 		viewTwo.isHidden = true
 	}
 	
-	func configCreatedAtLabel() {
+	private func configCreatedAtLabel() {
 		
 		createdAtLabel.translatesAutoresizingMaskIntoConstraints = false
 		contentView.addSubview(createdAtLabel)

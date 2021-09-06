@@ -9,10 +9,9 @@
 import Foundation
 
 protocol UserInteractorInput {
-	
+    var delegate: UserInteractorDelegate? { get set }
+    
 	func getUser(username: String)
-	
 	func getAvatar(user: User)
-	
 	func addUserToFavorites(user: User)
 }
