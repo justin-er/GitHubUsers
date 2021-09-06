@@ -9,23 +9,24 @@
 import Foundation
 
 class UserViewControllerComposer {
-	
-	static func makeModule() -> UserViewController {
-		
-		let userNetworkProvider = UserNetworkProvider(session: URLSession.shared)
-		let persistenceProvider = UserDefaultsPersistenceProvider()
-		let userInteractor 		= UserInteractor(userNetworkProvider: userNetworkProvider, persistenceProvider: persistenceProvider)
-		let userPresenter 		= UserPresenter()
-		userInteractor.delegate = userPresenter
-		let loadingViewProvider	= LoadingViewProvider()
-		let alertViewProvider	= AlertViewControllerProvider()
-		
-		let viewController 		= UserViewController(interactor: userInteractor,
-														loadingViewProvider: loadingViewProvider,
-														alertViewProvider: alertViewProvider)
-														
-		userPresenter.delegate 	= viewController
-		
-		return viewController
-	}
+    
+    static func makeModule() -> UserViewController {
+        
+        let userNetworkProvider = UserNetworkProvider(session: URLSession.shared)
+        let persistenceProvider = UserDefaultsPersistenceProvider()
+        let userInteractor 		= UserInteractor(userNetworkProvider: userNetworkProvider, persistenceProvider: persistenceProvider)
+        let userPresenter 		= UserPresenter(interactor: userInteractor)
+        userInteractor.delegate = userPresenter
+        let loadingViewProvider	= LoadingViewProvider()
+        let alertViewProvider	= AlertViewControllerProvider()
+        
+        let viewController 		= UserViewController(
+            presenter: userPresenter,
+            loadingViewProvider: loadingViewProvider,
+            alertViewProvider: alertViewProvider)
+        
+        userPresenter.delegate 	= viewController
+        
+        return viewController
+    }
 }

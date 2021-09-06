@@ -18,7 +18,7 @@ class UserViewController: UIViewController {
 	private var avatar: UIImage?
 	private var userViewModel: UserViewModel?
 	
-	private var interactor: UserInteractorInput
+	private var presenter: UserPresenterInput
 	
 	private let alertViewProvider: AlertViewControllerProviderInput
 	
@@ -38,12 +38,12 @@ class UserViewController: UIViewController {
 	
 	private lazy var addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
 	
-	init(interactor: UserInteractorInput,
+	init(presenter: UserPresenterInput,
 		 loadingViewProvider: LoadingViewProviderInput,
 		 alertViewProvider: AlertViewControllerProviderInput) {
 		
 		self.loadingViewProvider 			= loadingViewProvider
-		self.interactor						= interactor
+		self.presenter						= presenter
 		self.alertViewProvider				= alertViewProvider
 		
 		super.init(nibName: nil, bundle: nil)
@@ -200,7 +200,7 @@ class UserViewController: UIViewController {
 		if let userViewModel = self.userViewModel {
 			
 			loadingViewProvider.showLoading(on: self.view)
-			interactor.addUserToFavorites(user: userViewModel.makeUser())
+			presenter.addUserToFavorites(user: userViewModel)
 		}
 	}
 }
@@ -242,9 +242,7 @@ extension UserViewController: UserPresenterDelegate {
 				userViewModel.avatar = avatar
 				
 			} else {
-				
-				let user = userViewModel.makeUser()
-				interactor.getAvatar(user: user)
+				presenter.getAvatar(user: userViewModel)
 			}
 			
 			DispatchQueue.main.async {
@@ -383,7 +381,7 @@ extension UserViewController: UserViewControllerInput {
 		}
 		
 		loadingViewProvider.showLoading(on: self.view)
-		interactor.getUser(username: username)
+		presenter.getUser(username: username)
 	}
 	
 }

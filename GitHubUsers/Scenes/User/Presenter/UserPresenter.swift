@@ -9,8 +9,25 @@
 import UIKit
 
 class UserPresenter: UserPresenterInput {
-	
-	weak var delegate: UserPresenterDelegate?
+    weak var delegate: UserPresenterDelegate?
+
+    let interactor: UserInteractorInput
+    
+    init(interactor: UserInteractorInput) {
+        self.interactor = interactor
+    }
+    
+    func getUser(username: String) {
+        self.interactor.getUser(username: username)
+    }
+    
+    func getAvatar(user: UserViewModel) {
+        self.interactor.getAvatar(user: user.makeUser())
+    }
+    
+    func addUserToFavorites(user: UserViewModel) {
+        self.interactor.addUserToFavorites(user: user.makeUser())
+    }
 }
 
 extension UserPresenter: UserInteractorDelegate {

@@ -13,7 +13,7 @@ class UserInteractor: UserInteractorInput {
 	private let userNetworkProvider: UserNetworkProviderInput
 	private let persistenceProvider: PersistenceProvider
 	
-	var delegate: UserInteractorDelegate?
+	weak var delegate: UserInteractorDelegate?
 	
 	init(userNetworkProvider: UserNetworkProviderInput, persistenceProvider: PersistenceProvider) {
 		

@@ -10,4 +10,8 @@ import Foundation
 
 protocol UserPresenterInput {
     var delegate: UserPresenterDelegate? { get set }
+    
+    func getUser(username: String)
+    func getAvatar(user: UserViewModel)
+    func addUserToFavorites(user: UserViewModel)
 }
