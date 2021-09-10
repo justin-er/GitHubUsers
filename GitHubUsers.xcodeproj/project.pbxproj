@@ -1203,6 +1203,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.amirrezaeghtedari.MyGHFollowers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZE_OBJECT_LIFETIME = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1221,6 +1222,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.amirrezaeghtedari.MyGHFollowers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZE_OBJECT_LIFETIME = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
